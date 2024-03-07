@@ -1,22 +1,149 @@
-import Sidebar from "@/components/sidebar";
+"use client";
+import clsx from "clsx";
 import { Progress } from "@/components/ui/progress";
+import useAppFormContext from "@/lib/hooks/useAppFormContext";
+import { useRouter } from "next/navigation";
+import FormActions from "@/components/FormActions";
 
 export default function Formulaire() {
-  return (
-    <main className="w-full min-h-screen h-screen">
-      <div className="grid lg:grid-cols-12 md:grid-cols-2 grid-rows-1 grid-cols-1 lg:h-screen">
-        <div className="lg:col-span-4 md:col-span-1 col-span-1 bg-[#4855a5] text-white">
-          <Sidebar />
-        </div>
-        <div className="lg:col-span-8  md:col-span-1 col-span-1 p-16 flex flex-col space-y-4">
-          <Progress value={10} />
+  const router = useRouter();
+  const { register, trigger, formState } = useAppFormContext();
 
-          <p className="flex flex-row  text-2xl pt-12">
-            Quel est le <p className="text-red-700 px-1">type de logement</p> à
-            assurer ?
-          </p>
-        </div>
+  const { isValid, errors } = formState;
+
+  const validateStep = async () => {
+    await trigger();
+    if (isValid) {
+      router.push("/plan");
+    }
+  };
+  return (
+    <div className="flex flex-col space-y-4 w-full">
+      <Progress value={10} />
+
+      <p className="flex flex-row  text-2xl pt-12">
+        Quel est le <p className="text-red-700 px-1">type de logement</p> à
+        assurer ?
+      </p>
+
+      <div className="flex flex-col mt-6">
+        <label className="flex flex-col">
+          <div className="flex justify-between">
+            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
+              name
+            </span>
+            {errors.name && (
+              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+          <input
+            placeholder="e.g. Stephen King"
+            className={clsx(
+              "border",
+              errors.name
+                ? "border-strawberry-red"
+                : "border-light-gray focus:border-purplish-blue",
+              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
+              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
+              "focus:outline-none",
+            )}
+            {...register("name", {
+              required: "This field is required",
+              maxLength: {
+                value: 20,
+                message: "Name must be less than 20 characters",
+              },
+            })}
+            onBlur={() => trigger("name")}
+            autoComplete="name"
+          />
+        </label>
+        <label className="flex flex-col mt-4">
+          <div className="flex justify-between">
+            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
+              email address
+            </span>
+            {errors.email && (
+              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
+          <input
+            placeholder="e.g. stephenking@lorem.com"
+            className={clsx(
+              "border",
+              errors.email
+                ? "border-strawberry-red"
+                : "border-light-gray focus:border-purplish-blue",
+              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
+              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
+              "focus:outline-none",
+            )}
+            {...register("email", {
+              required: "This field is required",
+              maxLength: {
+                value: 80,
+                message: "Email must be less than 80 characters",
+              },
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid email address",
+              },
+            })}
+            onBlur={() => trigger("email")}
+            autoComplete="email"
+          />
+        </label>
+        <label className="flex flex-col mt-4">
+          <div className="flex justify-between">
+            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
+              phone number
+            </span>
+            {errors.phone && (
+              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
+                {errors.phone.message}
+              </span>
+            )}
+          </div>
+          <input
+            placeholder="e.g. +1 234 567 890"
+            className={clsx(
+              "border",
+              errors.phone
+                ? "border-strawberry-red"
+                : "border-light-gray focus:border-purplish-blue",
+              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
+              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
+              "focus:outline-none",
+            )}
+            {...register("phone", {
+              required: "This field is required",
+              maxLength: {
+                value: 20,
+                message: "Phone Number must be less than 20 characters",
+              },
+              pattern: {
+                value: /^[+]?[0-9\s]+$/,
+                message: "Invalid phone number",
+              },
+            })}
+            onBlur={() => trigger("phone")}
+            autoComplete="tel"
+          />
+        </label>
       </div>
-    </main>
+      <FormActions>
+        <button
+          type="button"
+          className="bg-marine-blue hover:opacity-80 transition duration-300 text-magnolia ml-auto px-[17px] lg:px-8 py-[10px] lg:py-3 text-sm lg:text-base rounded-[4px] lg:rounded-lg"
+          onClick={validateStep}
+        >
+          Next Step
+        </button>
+      </FormActions>
+    </div>
   );
 }

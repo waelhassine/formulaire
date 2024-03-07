@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import Provider from "@/components/Provider";
+import Sidebar from "@/components/sidebar";
 
 const inter = Manrope({ subsets: ["cyrillic"] });
 
@@ -16,7 +18,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="w-full min-h-screen h-screen">
+          <div className="grid lg:grid-cols-12 md:grid-cols-2 grid-rows-1 grid-cols-1 lg:h-screen">
+            <div className="lg:col-span-4 md:col-span-1 col-span-1 bg-[#4855a5] text-white">
+              <Sidebar />
+            </div>
+            <div className="lg:col-span-8  md:col-span-1 col-span-1 p-16">
+              <Provider>{children}</Provider>
+            </div>
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
