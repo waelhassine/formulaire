@@ -10,7 +10,7 @@ function Home_etager() {
       y="0px"
       viewBox="0 0 700 700"
       xmlSpace="preserve"
-      style={{ width: '100px', height: 'auto' }}
+      style={{ width: '100px', height: 'auto', fill: 'rgb(152, 19, 15)', transition: 'fill 0.3s' }}
     >
       <g>
         <path

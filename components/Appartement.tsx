@@ -1,4 +1,6 @@
 import React from 'react';
+import './style.css'; // Import the CSS file
+
 
 function Appartement() {
   return (
@@ -10,7 +12,8 @@ function Appartement() {
       y="0px"
       viewBox="0 0 700 700"
       xmlSpace="preserve"
-      style={{ width: '100px', height: 'auto' }}
+      style={{ width: '100px', height: 'auto', fill: 'rgb(152, 19, 15)', transition: 'fill 0.3s' }}
+      className="hover-fill"
     >
       <g>
         <path
