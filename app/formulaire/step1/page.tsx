@@ -1,10 +1,15 @@
-'use client';
-import clsx from 'clsx';
-import useAppFormContext from '@/lib/hooks/useAppFormContext';
-import { useRouter } from 'next/navigation';
-import FormActions from '@/components/FormActions';
-
-export default function StepOne() {
+"use client";
+import clsx from "clsx";
+import { Progress } from "@/components/ui/progress";
+import useAppFormContext from "@/lib/hooks/useAppFormContext";
+import { useRouter } from "next/navigation";
+import FormActions from "@/components/FormActions";
+import Appartement from "@/components/Appartement";
+import Home_etager from "@/components/Home_etager";
+import Home_plein from "@/components/Home_plein";
+import Mobile_home from "@/components/Mobile_home";
+import './style.css';
+export default function Formulaire() {
   const router = useRouter();
   const { register, trigger, formState } = useAppFormContext();
 
@@ -13,111 +18,54 @@ export default function StepOne() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push('/step2');
+      router.push("/plan");
     }
   };
   return (
-    <div className="flex flex-col space-y-4 w-full">
-      <div className="flex flex-col mt-6">
-        <label className="flex flex-col">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">name</span>
-            {errors.name && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. Stephen King"
-            className={clsx(
-              'border',
-              errors.name ? 'border-strawberry-red' : 'border-light-gray focus:border-purplish-blue',
-              'py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1',
-              'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold',
-              'focus:outline-none',
-            )}
-            {...register('name', {
-              required: 'This field is required',
-              maxLength: {
-                value: 20,
-                message: 'Name must be less than 20 characters',
-              },
-            })}
-            onBlur={() => trigger('name')}
-            autoComplete="name"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              email address
-            </span>
-            {errors.email && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.email.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. stephenking@lorem.com"
-            className={clsx(
-              'border',
-              errors.email ? 'border-strawberry-red' : 'border-light-gray focus:border-purplish-blue',
-              'py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1',
-              'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold',
-              'focus:outline-none',
-            )}
-            {...register('email', {
-              required: 'This field is required',
-              maxLength: {
-                value: 80,
-                message: 'Email must be less than 80 characters',
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Invalid email address',
-              },
-            })}
-            onBlur={() => trigger('email')}
-            autoComplete="email"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              phone number
-            </span>
-            {errors.phone && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.phone.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. +1 234 567 890"
-            className={clsx(
-              'border',
-              errors.phone ? 'border-strawberry-red' : 'border-light-gray focus:border-purplish-blue',
-              'py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1',
-              'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold',
-              'focus:outline-none',
-            )}
-            {...register('phone', {
-              required: 'This field is required',
-              maxLength: {
-                value: 20,
-                message: 'Phone Number must be less than 20 characters',
-              },
-              pattern: {
-                value: /^[+]?[0-9\s]+$/,
-                message: 'Invalid phone number',
-              },
-            })}
-            onBlur={() => trigger('phone')}
-            autoComplete="tel"
-          />
-        </label>
+<div className="flex flex-col space-y-4 w-2/3">
+      <Progress value={10} />
+      <div className="flex flex-row text-2xl pt-12 font-bold">
+        Quel est le
+        <span className="text-red-700 px-1 font-bold">type de logement</span>
+        à assurer ?
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+      <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+  onClick={validateStep}
+          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
+          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
+        >
+          <Appartement />
+          <p className="text-2xl pt-12">Appartement</p>
+        </div>
+        <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+  onClick={validateStep}
+          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
+          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
+        >
+          <Home_etager />
+          <p className="text-2xl pt-12">Maison individuelle à étages</p>
+        </div>
+        <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+  onClick={validateStep}
+          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
+          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
+        >
+          <Home_plein />
+          <p className="text-2xl pt-12">Maison individuelle plein pied</p>
+        </div>
+        <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+  onClick={validateStep}
+          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
+          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
+        >
+          <Mobile_home />
+          <p className="text-2xl pt-12">Chalet ou bungalow ou Mobile home</p>
+        </div>
       </div>
       <FormActions>
         <button
@@ -128,6 +76,8 @@ export default function StepOne() {
           Next Step
         </button>
       </FormActions>
+
+
     </div>
   );
 }
