@@ -14,9 +14,6 @@ export default function Provider({ children }: FormProviderProps) {
     complement: '',
     codepostal: '',
     pays: '',
-    adresseCorrespondance: 'non',
-    inventaire: 'non',
-    logementDangereuse: 'non',
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {

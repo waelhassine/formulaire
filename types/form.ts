@@ -15,6 +15,11 @@ export interface FormValues {
   presence_dependances: 'oui' | 'non';
   surface_des_dépendances: string;
   presence_veranda: 'oui' | 'non';
+  surface_verande: string;
+  terrasses: 'oui' | 'non';
+  surface_terrasses: string;
+  piscine: string;
+  installations_exterieures: 'oui' | 'non';
   plan: 'arcade' | 'advanced' | 'pro';
   billing: 'monthly' | 'yearly';
   addons: {

@@ -25,8 +25,8 @@ const SelectInput: React.FC<SelectInputProps> = ({
     <select
       {...register(name, { ...validationRules })}
       className={`border ${
-        error ? 'border-red-900' : 'border-gray-900 focus:border-blue-500'
-      } py-2 px-3 rounded-lg mt-1`}
+        error ? 'border-red-900' : 'border-gray-500 focus:border-blue-500'
+      } py-4 px-3 rounded-lg mt-1`}
       defaultValue=""
     >
       {placeholder && (
@@ -35,7 +35,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         </option>
       )}
       {options.map((option) => (
-        <option key={option.value} value={option.value}>
+        <option key={option.value} value={option.value} className="text-lg py-2">
           {option.label}
         </option>
       ))}
