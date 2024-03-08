@@ -27,7 +27,7 @@ export default function FormulaireStep9() {
   const Civilite = watch('Civilite');
   return (
     <div className="w-full">
-      <ProgressHeader val={90} />
+      <ProgressHeader val={100} />
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
         Coordonnées 
@@ -36,10 +36,9 @@ export default function FormulaireStep9() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
-            question="Civilité
+            question="Civilite
             "
-            name="Civilite
-            "
+            name="Civilite"
             options={[
               { value: 'oui', label: 'Monsieur' },
               { value: 'non', label: 'Madame' },
@@ -74,6 +73,7 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('Nom')}
             autoComplete="Nom"
           />
+          
 <TextInput
             label="Email"
             name="Email"
