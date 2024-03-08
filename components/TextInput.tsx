@@ -11,8 +11,8 @@ interface TextInputProps {
   maxLength?: number;
   onBlur?: () => void;
   autoComplete?: string;
+  type?: 'text' | 'number'; // Add this line
 }
-
 const TextInput: React.FC<TextInputProps> = ({
   label,
   name,
@@ -23,12 +23,14 @@ const TextInput: React.FC<TextInputProps> = ({
   maxLength,
   onBlur,
   autoComplete = 'off',
+  type = 'text', // Set default type to 'text'
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex justify-between">
       <span className="text-lg text-gray-900">{label}</span>
     </div>
     <input
+      type={type} // Use the type prop here
       className={clsx(
         'border',
         error ? 'border-red-900' : 'border-gray-900 focus:border-blue-500',

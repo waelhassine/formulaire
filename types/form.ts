@@ -20,6 +20,7 @@ export interface FormValues {
   surface_terrasses: string;
   piscine: string;
   installations_exterieures: 'oui' | 'non';
+  mobiliere_assurer: number;
   plan: 'arcade' | 'advanced' | 'pro';
   billing: 'monthly' | 'yearly';
   addons: {

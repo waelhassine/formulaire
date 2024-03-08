@@ -7,11 +7,10 @@ import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
-import TextInput from '@/components/TextInput';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import SelectInput from '@/components/SelectWael';
 
-export default function FormulaireStep4() {
+export default function FormulaireStep6() {
   const router = useRouter();
   const { register, trigger, formState, control, watch } = useAppFormContext();
 
