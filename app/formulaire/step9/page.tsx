@@ -10,12 +10,21 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
+import { DatePicker } from '@/components/ui/date-picker/date-picker';
+import { useState } from 'react';
 
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, setValue, watch } = useAppFormContext();
+  const [date, setDate] =  useState< Date | undefined>(new Date())
+
 
   const { isValid, errors } = formState;
+
+  const setDataCalender = (date:  undefined | Date) => {
+    setDate(date);
+    setValue('dateName', date);
+  }
 
   const validateStep = async () => {
     await trigger();
@@ -62,6 +71,8 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('Prenom')}
             autoComplete="Prenom"
           />
+ <DatePicker date={date} setDate={setDataCalender} required />
+
 <TextInput
             label="Nom"
             name="Nom"
