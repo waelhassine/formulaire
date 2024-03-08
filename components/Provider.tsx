@@ -1,19 +1,20 @@
-"use client";
-import useAppForm from "@/lib/hooks/useAppForm";
-import { SubmitHandler, FormProvider } from "react-hook-form";
+'use client';
+import useAppForm from '@/lib/hooks/useAppForm';
+import { SubmitHandler, FormProvider } from 'react-hook-form';
 // Types
-import { FormValues } from "@/types/form";
-import { useRouter } from "next/navigation";
+import { FormValues } from '@/types/form';
+import { useRouter } from 'next/navigation';
 
 export default function Provider({ children }: FormProviderProps) {
   const route = useRouter();
 
   const methods = useAppForm({
-    name: "",
-    email: "",
-    phone: "",
-    plan: "arcade",
-    billing: "monthly",
+    name: '',
+    email: '',
+    phone: '',
+    plan: 'arcade',
+    billing: 'monthly',
+    ville: '',
     addons: {
       online: false,
       storage: false,
@@ -21,12 +22,12 @@ export default function Provider({ children }: FormProviderProps) {
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const isValid = !!(data.name && data.email && data.phone);
+    const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse);
 
     if (isValid) {
-      route.push("/thank-you");
+      route.push('/thank-you');
     } else {
-      route.replace("/info");
+      route.replace('/info');
     }
   };
 
