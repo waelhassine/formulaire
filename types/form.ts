@@ -47,4 +47,8 @@ energies_renouvelables: 'oui' | 'non';
   };
   dateName: undefined | Date;
   construction: string;
+  surface: number;
+  nb:number;
+  logement_possede: 'oui' | 'non';
+  combien:number;
 }
