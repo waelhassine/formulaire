@@ -19,8 +19,9 @@ export default function FormulaireStep4() {
 
   const validateStep = async () => {
     await trigger();
+
     if (isValid) {
-      router.push('/plan');
+      router.push('/formulaire/step5');
     }
   };
   const adresseCorrespondance = watch('adresseCorrespondance');

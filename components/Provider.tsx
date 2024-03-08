@@ -9,20 +9,18 @@ export default function Provider({ children }: FormProviderProps) {
   const route = useRouter();
 
   const methods = useAppForm({
-    name: '',
-    email: '',
-    phone: '',
-    plan: 'arcade',
-    billing: 'monthly',
     ville: '',
-    addons: {
-      online: false,
-      storage: false,
-    },
+    adresse: '',
+    complement: '',
+    codepostal: '',
+    pays: '',
+    adresseCorrespondance: 'non',
+    inventaire: 'non',
+    logementDangereuse: 'non',
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse);
+    const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse && data.logementDangereuse);
 
     if (isValid) {
       route.push('/thank-you');
