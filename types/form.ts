@@ -21,6 +21,9 @@ export interface FormValues {
   piscine: string;
   installations_exterieures: 'oui' | 'non';
   mobiliere_assurer: number;
+  presence_objet: 'oui' | 'non';
+  logement_alarame: 'oui' | 'non';
+  periode_logement: string;
   plan: 'arcade' | 'advanced' | 'pro';
   billing: 'monthly' | 'yearly';
   addons: {
