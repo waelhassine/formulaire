@@ -31,38 +31,30 @@ export default function Formulaire() {
       </div>
       <div className="grid grid-cols-2 gap-4">
       <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
   onClick={validateStep}
-          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
-          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
-        >
+>
           <Appartement />
           <p className="text-2xl pt-12">Appartement</p>
         </div>
-        <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+         <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
   onClick={validateStep}
-          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
-          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
-        >
+>
           <Home_etager />
           <p className="text-2xl pt-12">Maison individuelle à étages</p>
         </div>
-        <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+         <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
   onClick={validateStep}
-          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
-          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
-        >
+>
           <Home_plein />
           <p className="text-2xl pt-12">Maison individuelle plein pied</p>
         </div>
-        <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer hover:border-blue-500 border-2 border-transparent"
+         <div
+  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
   onClick={validateStep}
-          onMouseOver={(e) => e.currentTarget.classList.add('text-blue-500')}
-          onMouseOut={(e) => e.currentTarget.classList.remove('text-blue-500')}
-        >
+>
           <Mobile_home />
           <p className="text-2xl pt-12">Chalet ou bungalow ou Mobile home</p>
         </div>
