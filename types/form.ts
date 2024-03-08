@@ -15,7 +15,6 @@ export interface FormValues {
   presence_dependances: 'oui' | 'non';
   surface_des_dépendances: string;
   Systeme_de_chauffage: string;
-
   surface_verande: string;
   terrasses: 'oui' | 'non';
   surface_terrasses: string;
@@ -38,8 +37,13 @@ export interface FormValues {
   meuble: 'oui' | 'non';
   activite: 'oui' | 'non';
 type_chien : 'oui' | 'non';
+Email: string;
+Telephone: string;
+Prenom: string;
+Nom: string;
 installation_professionnel: 'oui' | 'non'; 
 energies_renouvelables: 'oui' | 'non';
+Civilite: string;
   addons: {
     online: boolean;
     storage: boolean;
