@@ -16,7 +16,7 @@ import { useState } from 'react';
 
 export default function FormulaireStep3() {
   const router = useRouter();
-  const { register, trigger, formState, getValues , setValue , watch} = useAppFormContext();
+  const { register, trigger, formState , setValue , watch} = useAppFormContext();
 
   const { isValid, errors } = formState;
 
