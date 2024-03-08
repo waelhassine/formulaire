@@ -81,7 +81,7 @@ export default function FormulaireStep7() {
           <RadioButtonGroup
             question="Chien(s) de catégorie 1 ou 2
             "
-            name="chien_categorie_1_ou_2"
+            name="type_chien"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
