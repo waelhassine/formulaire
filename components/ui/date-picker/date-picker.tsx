@@ -16,7 +16,7 @@ import {
 
 interface DatePickerProps {
   date: Date | undefined;
-  setDate: (date: Date | undefined) => void;
+  setDate: (date: Date | undefined  ) => void;
   required?: boolean
 }
 
@@ -42,8 +42,8 @@ export function DatePicker({date , setDate , required} : DatePickerProps) {
           mode="single"
           selected={date}
           onSelect={setDate}
-          initialFocus
           required = {required}
+            initialFocus={false}
         />
       </PopoverContent>
     </Popover>

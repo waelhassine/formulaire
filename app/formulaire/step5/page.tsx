@@ -175,12 +175,12 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.piscine}
             options={[
-              { value: 'Aucune', label: 'Aucune' },
+    
               { value: 'piscine_interieure', label: 'Piscine intérieure' },
               { value: 'piscine_extérieure_couverte', label: 'Piscine extérieure couverte' },
               { value: 'piscine_extérieure_non_couverte', label: 'Piscine extérieure non couverte' },
             ]}
-            placeholder=""
+            placeholder="Aucune"
           />
           <RadioButtonGroup
             question="Présence d’autres installations extérieures (spa…) ?"

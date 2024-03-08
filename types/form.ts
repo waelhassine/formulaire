@@ -49,4 +49,6 @@ Civilite: string;
     storage: boolean;
     profi0le: boolean;
   };
+  dateName: undefined | Date;
+  construction: string;
 }
