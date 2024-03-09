@@ -32,7 +32,7 @@ export default function FormulaireStep3() {
       <ProgressHeader val={40} />
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
-          Quel est le <p className="text-red-700 px-1">type de logement</p> à assurer ?
+          Quel est le <span className="text-red-700 px-1">type de logement</span> à assurer ?
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
@@ -113,9 +113,16 @@ export default function FormulaireStep3() {
             error={errors.activite}
             currentValue={activite}
           />
-
-
-
+         
+       <TextInput
+            label="Surface habitable"
+            name="surface"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.surface}
+            placeholder="Entrez votre surface"
+            type = "number"
+          />
 
         </div>
         <FormActions>

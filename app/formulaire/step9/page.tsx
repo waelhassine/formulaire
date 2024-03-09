@@ -34,7 +34,7 @@ export default function FormulaireStep9() {
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
         Coordonnées 
- <p className="text-red-700 px-1">du souscripteur du contrat</p>  ?
+ <span className="text-red-700 px-1">du souscripteur du contrat</span>  ?
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
