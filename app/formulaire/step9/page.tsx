@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
@@ -10,12 +9,16 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
+import { useState } from 'react';
 
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, watch } = useAppFormContext();
+
 
   const { isValid, errors } = formState;
+
+ 
 
   const validateStep = async () => {
     await trigger();
@@ -31,7 +34,7 @@ export default function FormulaireStep9() {
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
         Coordonnées 
- <p className="text-red-700 px-1">du souscripteur du contrat</p>  ?
+ <span className="text-red-700 px-1">du souscripteur du contrat</span>  ?
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
@@ -62,6 +65,16 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('Prenom')}
             autoComplete="Prenom"
           />
+
+ <TextInput
+            label="Date de naissance"
+            name="naissance"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.naissance}
+            type = "date"
+          />
+
 <TextInput
             label="Nom"
             name="Nom"

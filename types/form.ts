@@ -51,4 +51,9 @@ Civilite: string;
   };
   dateName: undefined | Date;
   construction: string;
+  surface: number;
+  nb:number;
+  logement_possede: 'oui' | 'non';
+  combien:number;
+  naissance : Date;
 }
