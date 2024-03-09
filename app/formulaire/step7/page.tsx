@@ -22,7 +22,7 @@ export default function FormulaireStep7() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step5');
+      router.push('/formulaire/step8');
     }
   };
   const energies_renouvelables = watch('energies_renouvelables');
