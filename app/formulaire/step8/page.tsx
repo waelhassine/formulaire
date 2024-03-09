@@ -49,7 +49,7 @@ export default function FormulaireStep8() {
         <ProgressHeader val={90} />
         <div className="flex flex-col space-y-4 w-2/3">
           <p className="flex flex-row text-2xl pt-12">
-            Antécédents <span className="text-red-700 px-1">d'assurance</span>
+            Antécédents <span className="text-red-700 px-1">dassurance</span>
           </p>
   
           {cards.map((card, index) => (
@@ -58,7 +58,7 @@ export default function FormulaireStep8() {
   
           {cards.length === 0 && (
             <Button variant="outline" onClick={addNewCard}>
-              Aucun antécédent d'assurance
+              Aucun antécédent assurance
             </Button>
           )}
           <Button variant="secondary" onClick={addNewCard}>
