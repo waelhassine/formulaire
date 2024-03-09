@@ -49,11 +49,17 @@ Civilite: string;
     storage: boolean;
     profi0le: boolean;
   };
+  Compagnie: string;
   dateName: undefined | Date;
   construction: string;
+  souscription: Date;
   surface: number;
   nb:number;
+  contrat_cours: 'oui' | 'non';
   logement_possede: 'oui' | 'non';
   combien:number;
   naissance : Date;
+  resiliation: Date;
+  motif_resiliation: string;
+  
 }

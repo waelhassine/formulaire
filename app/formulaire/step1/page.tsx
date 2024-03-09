@@ -18,7 +18,7 @@ export default function Formulaire() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push("/plan");
+      router.push("/formulaire/step2");
     }
   };
   return (
