@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 // Assuming this is in a file like pages/generate-pdf-page.tsx
 
@@ -10,22 +10,20 @@ const GeneratePdfPage: React.FC = () => {
 
     // Define the data object you want to send to the API
     const data = {
-     // input1: "John Doe",
-      input2: "Developer",
-      buttonChoice: "Yes",
-      date: "2023-03-10"
+      // input1: "John Doe",
+      input2: 'Developer',
+      buttonChoice: 'Yes',
+      date: '2023-03-10',
     };
 
-   try {
-     
-
-     const response = await fetch('/api', {
+    try {
+      const response = await fetch('/api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      }); 
+      });
 
       if (response.ok) {
         // Handle the PDF data returned by the API
@@ -34,7 +32,7 @@ const GeneratePdfPage: React.FC = () => {
         const downloadUrl = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = downloadUrl;
-        link.download = "generated-pdf.pdf";
+        link.download = 'generated-pdf.pdf';
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -45,13 +43,13 @@ const GeneratePdfPage: React.FC = () => {
     } catch (error) {
       console.error('There was an error submitting the form:', error);
     }
-  
   };
 
   return (
     <div>
       <h1>Generate PDF</h1>
       <button onClick={handleSubmit}>Generate and Download PDF</button>
+      <h1>sdsd</h1>
     </div>
   );
 };
