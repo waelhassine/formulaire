@@ -27,8 +27,7 @@ export async function POST(request: NextRequest) {
         x,
         y,
         size: textSize,
-        color: questionColor,
-        font: pdfDoc.embedStandardFont('Helvetica-Bold'), // Ensure your PDF library version supports font embedding
+        color: questionColor,// Ensure your PDF library version supports font embedding
       });
   
       if (answer) {
