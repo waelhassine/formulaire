@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
@@ -10,21 +9,16 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
-import { DatePicker } from '@/components/ui/date-picker/date-picker';
 import { useState } from 'react';
 
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, setValue, watch } = useAppFormContext();
-  const [date, setDate] =  useState< Date | undefined>(new Date())
+  const { register, trigger, formState, watch } = useAppFormContext();
 
 
   const { isValid, errors } = formState;
 
-  const setDataCalender = (date:  undefined | Date) => {
-    setDate(date);
-    setValue('dateName', date);
-  }
+ 
 
   const validateStep = async () => {
     await trigger();
@@ -71,7 +65,15 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('Prenom')}
             autoComplete="Prenom"
           />
- <DatePicker date={date} setDate={setDataCalender} required />
+
+ <TextInput
+            label="Date de naissance"
+            name="naissance"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.naissance}
+            type = "date"
+          />
 
 <TextInput
             label="Nom"

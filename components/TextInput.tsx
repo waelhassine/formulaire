@@ -11,7 +11,7 @@ interface TextInputProps {
   maxLength?: number;
   onBlur?: () => void;
   autoComplete?: string;
-  type?: 'text' | 'number'; // Add this line
+  type?: 'text' | 'number' | 'date';
 }
 const TextInput: React.FC<TextInputProps> = ({
   label,

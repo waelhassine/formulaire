@@ -55,4 +55,5 @@ Civilite: string;
   nb:number;
   logement_possede: 'oui' | 'non';
   combien:number;
+  naissance : Date;
 }

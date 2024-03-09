@@ -1,18 +1,12 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
-import { DatePicker } from '@/components/ui/date-picker/date-picker';
-import { useState } from 'react';
 
 export default function FormulaireStep3() {
   const router = useRouter();
@@ -22,18 +16,13 @@ export default function FormulaireStep3() {
 
   const logement_possede = watch('logement_possede');
 
-  const setDataCalender = (date:  undefined | Date) => {
-    setDate(date);
-    setValue('dateName', date);
-  }
-
   const validateStep = async () => {
     await trigger();
     if (isValid) {
       router.push('/plan');
     }
   };
-  const [date, setDate] =  useState< Date | undefined>(new Date())
+
   return (
     <div className="w-full">
       <ProgressHeader val={40} />
@@ -43,7 +32,15 @@ export default function FormulaireStep3() {
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-        <DatePicker date={date} setDate={setDataCalender} required />
+
+        <TextInput
+            label="Date d'emménagement (facultative)"
+            name="dateName"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.dateName}
+            type = "date"
+          />
 
         <SelectInput
             label="Année de construction"
