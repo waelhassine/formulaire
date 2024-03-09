@@ -41,8 +41,7 @@ const setDataCalender = (date:  undefined | Date) => {
     console.log(getValues( 'dateName') , isValid)
     await trigger();
     if (isValid) {
-      console.log(isValid)
-    //  router.push('/step2');
+      router.push("/formulaire/step4");
     }
   };
   return (

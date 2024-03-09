@@ -21,7 +21,7 @@ export default function FormulaireStep9() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step5');
+      router.push('/formulaire/step9');
     }
   };
   const Civilite = watch('Civilite');
