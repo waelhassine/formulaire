@@ -4,6 +4,7 @@ export interface FormValues {
   phone: string;
   adresse: string;
   type_logement_assurer: string;
+  etage_appratement: string;
   complement: string;
   codepostal: string;
   ville: string;
@@ -53,8 +54,8 @@ export interface FormValues {
   dateName: undefined | Date;
   construction: string;
   surface: number;
- cards: CardInfo[]
-  
+  cards: CardInfo[];
+
   nb: number;
   contrat_cours: 'oui' | 'non';
   logement_possede: 'oui' | 'non';
@@ -64,10 +65,10 @@ export interface FormValues {
   motif_resiliation: string;
 }
 
-export interface CardInfo{
+export interface CardInfo {
   compagnie: string;
   souscription: Date;
   contract_cours: 'oui' | 'non';
-  resiliation ?: Date;
+  resiliation?: Date;
   motif_resiliation?: string;
 }

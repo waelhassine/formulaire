@@ -2,12 +2,12 @@ import nodemailer from 'nodemailer';
 
 export default async function sendEmail(pdfBytes: any) {
   const transporter = nodemailer.createTransport({
-    host: process.env.HOST, // OVH SMTP server
+    host: 'ssl0.ovh.net', // OVH SMTP server
     port: 587, // SMTP port (could be different based on your settings, e.g., 465)
     secure: false, // true for 465, false for other ports
     auth: {
-      user: process.env.USER, // Your OVH email address
-      pass: process.env.PASSOWRD, // Your OVH email password
+      user: 'noreply@sea-electronics.com', // Your OVH email address
+      pass: 'wassimSEA2023', // Your OVH email password
     },
   });
 

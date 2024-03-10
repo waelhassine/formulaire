@@ -28,6 +28,7 @@ export default function FormulaireStep7() {
   const energies_renouvelables = watch('energies_renouvelables');
   const type_chien = watch('type_chien');
   const installation_professionnel = watch('installation_professionnel');
+  const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
   return (
     <div className="w-full">
       <ProgressHeader val={70} />
@@ -47,8 +48,7 @@ export default function FormulaireStep7() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
-            label="Nombre d'adultes vivant au domicile
-            "
+            label="Nombre d'adultes vivant au domicile "
             name="nombre_d_adultes_vivant_au_domicile"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -72,20 +72,23 @@ export default function FormulaireStep7() {
             onBlur={() => trigger('nombre_d_enfants_vivant_au_domicile')}
             autoComplete="nombre_d_enfants_vivant_au_domicile"
           />
+          {nombre_d_enfants_vivant_au_domicile > 0 && (
+            <>
+              <TextInput
+                label="Présence d'enfants > 18 ans"
+                name="presence_d_enfants_18_ans"
+                register={register}
+                type="number"
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.presence_d_enfants_18_ans}
+                placeholder="Entrez votre numero"
+                maxLength={20}
+                onBlur={() => trigger('presence_d_enfants_18_ans')}
+                autoComplete="presence_d_enfants_18_ans"
+              />
+            </>
+          )}
 
-          <TextInput
-            label="Présence d'enfants > 18 ans
-            "
-            name="presence_d_enfants_18_ans"
-            register={register}
-            type="number"
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.presence_d_enfants_18_ans}
-            placeholder="Entrez votre numero"
-            maxLength={20}
-            onBlur={() => trigger('presence_d_enfants_18_ans')}
-            autoComplete="presence_d_enfants_18_ans"
-          />
           <RadioButtonGroup
             question="Chien(s) de catégorie 1 ou 2
             "

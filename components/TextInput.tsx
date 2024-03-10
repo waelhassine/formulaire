@@ -35,7 +35,7 @@ const TextInput: React.FC<TextInputProps> = ({
         'border',
         error ? 'border-red-900' : 'border-gray-900 focus:border-blue-500',
         'py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1',
-        'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold',
+        'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-medium',
         'focus:outline-none',
       )}
       {...register(name, {

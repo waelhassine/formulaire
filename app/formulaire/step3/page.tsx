@@ -107,7 +107,7 @@ export default function FormulaireStep3() {
               name="combien"
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.nb}
+              error={errors.combien}
               placeholder="Combien ?"
               type="number"
             />

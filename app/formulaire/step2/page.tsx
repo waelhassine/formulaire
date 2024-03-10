@@ -22,6 +22,7 @@ export default function FormulaireStep3() {
       router.push('/formulaire/step3');
     }
   };
+  const type_logement_assurer = watch('type_logement_assurer');
   const residence = watch('residence');
   const meuble = watch('meuble');
   const activite = watch('activite');
@@ -45,6 +46,23 @@ export default function FormulaireStep3() {
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
+          {type_logement_assurer === 'Appartement' && (
+            <>
+              <SelectInput
+                label="Etage"
+                name="etage_appratement"
+                register={register}
+                validationRules={{ required: 'This field is required' }}
+                error={errors.etage_appratement}
+                options={[
+                  { value: 'Rez-de-chaussée', label: 'Rez-de-chaussée' },
+                  { value: 'Intermédiare', label: 'Intermédiare' },
+                  { value: 'Dernier étage', label: 'Dernier étage' },
+                ]}
+                placeholder="Sélectionner dans le liste"
+              />
+            </>
+          )}
           <SelectInput
             label="Type d'occupation"
             name="Type d occupation"
@@ -106,11 +124,11 @@ export default function FormulaireStep3() {
           />
 
           <RadioButtonGroup
-            question="Une activité professionnelle est exercée dans le logement            "
+            question="Une activité professionnelle est exercée dans le logement"
             name="activite"
             options={[
-              { value: 'ouiac', label: 'Oui' },
-              { value: 'nonn', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -118,7 +136,7 @@ export default function FormulaireStep3() {
             currentValue={activite}
           />
 
-          <TextInput
+          {/* <TextInput
             label="Surface habitable"
             name="surface"
             register={register}
@@ -126,7 +144,7 @@ export default function FormulaireStep3() {
             error={errors.surface}
             placeholder="Entrez votre surface"
             type="number"
-          />
+          /> */}
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
