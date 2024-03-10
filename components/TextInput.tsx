@@ -27,7 +27,7 @@ const TextInput: React.FC<TextInputProps> = ({
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex justify-between">
-      <span className="text-lg text-gray-900">{label}</span>
+      <span className="text-base text-gray-950 font-semibold">{label}</span>
     </div>
     <input
       type={type} // Use the type prop here

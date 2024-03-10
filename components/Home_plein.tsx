@@ -11,6 +11,7 @@ const Home_plein: React.FC = () => {
       viewBox="0 0 700 700"
       xmlSpace="preserve"
       style={{ width: '100px', height: 'auto', fill: 'rgb(152, 19, 15)', transition: 'fill 0.3s' }}
+      className="hover-fill hover:text-blue-700"
     >
       <g>
         <path d="M296.6,435.7c-19.1,0-34.6,15.5-34.6,34.6v48.8c0,3.1,2.5,5.6,5.6,5.6h58c3.1,0,5.6-2.5,5.6-5.6v-48.8C331.2,451.2,315.7,435.7,296.6,435.7L296.6,435.7z M273.2,513.5l0-43.2c0-12.9,10.5-23.4,23.4-23.4s23.4,10.5,23.4,23.4v43.2 H273.2L273.2,513.5z"></path>
