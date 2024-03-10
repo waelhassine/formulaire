@@ -16,12 +16,13 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
   const contratCours = watch(`cards.${index}.contract_cours`);
 
   return (
-    <div className="w-full max-w-6xl mx-auto"> {/* Adjusted for a larger width with max-width and auto margins for centering */}
-      <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow"> {/* Adjusted padding for larger space inside the card */}
-     <div className='flex flex-end justify-end w-full '>
-      <button onClick={onClose}  style={{ float: 'left', color: 'red', fontSize: '24px' }} >
-  <TrashIcon />
-</button></div>
+    <div className="w-full max-w-6xl mx-auto">
+      <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow">
+        <div className="flex flex-end justify-end w-full ">
+          <button onClick={onClose} style={{ float: 'left', color: 'red', fontSize: '24px' }}>
+            <TrashIcon />
+          </button>
+        </div>
 
 <SelectInput
           label="Compagnie"

@@ -3,6 +3,7 @@ export interface FormValues {
   email: string;
   phone: string;
   adresse: string;
+  type_logement_assurer: string;
   complement: string;
   codepostal: string;
   ville: string;
@@ -27,7 +28,7 @@ export interface FormValues {
 
   plan: 'arcade' | 'advanced' | 'pro';
   billing: 'monthly' | 'yearly';
-  location:string ;
+  location: string;
   typelocation: string;
   nombre_adultes: number;
   nombre_d_enfants_vivant_au_domicile: number;
@@ -36,14 +37,14 @@ export interface FormValues {
   residence: 'principal' | 'secondaire';
   meuble: 'oui' | 'non';
   activite: 'oui' | 'non';
-type_chien : 'oui' | 'non';
-Email: string;
-Telephone: string;
-Prenom: string;
-Nom: string;
-installation_professionnel: 'oui' | 'non'; 
-energies_renouvelables: 'oui' | 'non';
-Civilite: string;
+  type_chien: 'oui' | 'non';
+  Email: string;
+  Telephone: string;
+  Prenom: string;
+  Nom: string;
+  installation_professionnel: 'oui' | 'non';
+  energies_renouvelables: 'oui' | 'non';
+  Civilite: string;
   addons: {
     online: boolean;
     storage: boolean;
@@ -52,13 +53,15 @@ Civilite: string;
   dateName: undefined | Date;
   construction: string;
   surface: number;
-  nb:number;
-  logement_possede: 'oui' | 'non';
-  combien:number;
-  naissance : Date;
-
  cards: CardInfo[]
   
+  nb: number;
+  contrat_cours: 'oui' | 'non';
+  logement_possede: 'oui' | 'non';
+  combien: number;
+  naissance: Date;
+  resiliation: Date;
+  motif_resiliation: string;
 }
 
 export interface CardInfo{

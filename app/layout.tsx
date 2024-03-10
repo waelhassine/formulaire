@@ -24,7 +24,7 @@ export default function RootLayout({
             <div className="lg:col-span-4 md:col-span-1 col-span-1 bg-[#4855a5] text-white">
               <Sidebar />
             </div>
-            <div className="lg:col-span-8  md:col-span-1 col-span-1 p-16">
+            <div className="lg:col-span-8  md:col-span-1 col-span-1 p-16 w-full">
               <Provider>{children}</Provider>
             </div>
           </div>

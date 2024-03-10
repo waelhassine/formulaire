@@ -1,36 +1,45 @@
+'use client';
 import React from 'react';
 import clsx from 'clsx';
 
 interface TextInputProps {
   label: string;
   name: string;
-  register: Function;
-  validationRules: Record<string, any>;
-  error: any;
+  value: string; // Added to manage input value
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Added to handle input changes
+  error: any; // Adjust based on your error handling strategy
   placeholder?: string;
   maxLength?: number;
   onBlur?: () => void;
   autoComplete?: string;
   type?: 'text' | 'number' | 'date';
 }
+
 const TextInput: React.FC<TextInputProps> = ({
   label,
   name,
-  register,
-  validationRules,
+  value,
+  onChange,
   error,
   placeholder = '',
   maxLength,
   onBlur,
   autoComplete = 'off',
-  type = 'text', // Set default type to 'text'
+  type = 'text',
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex justify-between">
-      <span className="text-base text-gray-950 font-semibold">{label}</span>
+      <span className="text-lg text-gray-900">{label}</span>
     </div>
     <input
-      type={type} // Use the type prop here
+      name={name}
+      type={type}
+      value={value}
+      onChange={onChange}
+      maxLength={maxLength}
+      onBlur={onBlur}
+      autoComplete={autoComplete}
+      placeholder={placeholder}
       className={clsx(
         'border',
         error ? 'border-red-900' : 'border-gray-900 focus:border-blue-500',
@@ -38,15 +47,8 @@ const TextInput: React.FC<TextInputProps> = ({
         'text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold',
         'focus:outline-none',
       )}
-      {...register(name, {
-        ...validationRules,
-        maxLength: maxLength ? { value: maxLength, message: `Must be less than ${maxLength} characters` } : undefined,
-      })}
-      onBlur={onBlur}
-      autoComplete={autoComplete}
-      placeholder={placeholder}
     />
-    {error && <span className="text-red-900">{error.message}</span>}
+    {error && <span className="text-red-900">{error}</span>} {/* Adjusted to directly show the error */}
   </label>
 );
 

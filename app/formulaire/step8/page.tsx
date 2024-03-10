@@ -56,6 +56,6 @@ export default function FormulaireStep8() {
         </FormActions>
         </div>
       </div>
-    );
-  }
-  
+ 
+  );
+}
