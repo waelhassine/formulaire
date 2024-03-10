@@ -1,88 +1,61 @@
 'use client';
-import React, { useState } from 'react';
+import { Progress } from '@/components/ui/progress';
+import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
-
+import FormActions from '@/components/FormActions';
 import ProgressHeader from '@/components/ui/progressHeader';
-import { Button } from '@/components/ui/button';
-import { PlusCircledIcon } from '@radix-ui/react-icons';
+import { Button } from "@/components/ui/button"
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 import Cardstep8 from './Cardstep8';
-
-// Define a type for the card data
-interface CardData {
-  key: number;
-  data: any; // Define a more specific type based on your form data structure
-}
-
+import { useFieldArray } from 'react-hook-form';
+import { CardInfo } from '@/types/form';
+  
 export default function FormulaireStep8() {
-  const router = useRouter();
-  const [cards, setCards] = useState<CardData[]>([]);
+    const router = useRouter();
+    const { control, formState: { isValid }, trigger , getValues } = useAppFormContext();
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: 'cards', // This name should match the one in your form's initial state or schema
+    });
+  
+ 
+    const validateStep = async () => {
 
-  const addNewCard = (event) => {
-    // Add a new card with an initial empty data structure
-    event.preventDefault(); // Prevent default button click behavior
-    setCards((prevCards) => [...prevCards, { key: prevCards.length, data: {} }]);
+      console.log('data' , getValues());
+       const result = await trigger();
+      if (result && isValid) {
+          router.push('/formulaire/step9');
+          console.log("Navigate to the next step");
+      }  
   };
-
-  const removeCard = (key: number) => {
-    // Remove a card by its key
-    setCards((prevCards) => prevCards.filter((card) => card.key !== key));
-  };
-
-  const handleCardUpdate = (key: number, updatedData: any) => {
-    // Update the data for a specific card
-    setCards((prevCards) =>
-      prevCards.map((card) => {
-        if (card.key === key) {
-          return { ...card, data: updatedData };
-        }
-        return card;
-      }),
-    );
-  };
-
-  const validateStep = async () => {
-    // Example validation logic before navigating
-    // Ensure all cards are valid or some other validation
-    // This is where you'd typically consolidate data from all cards if needed
-
-    // Dummy isValid check - implement your validation logic
-    console.log(cards);
-    // const isValid = true;
-
-    // if (isValid) {
-    //   router.push('/formulaire/step9');
-    // }
-  };
-
-  return (
-    <div className="w-full">
-      <ProgressHeader val={90} />
-      <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row text-2xl pt-12">
-          Antécédents <span className="text-red-700 px-1">dassurance</span>
-        </p>
-
-        {cards.map((card) => (
-          <Cardstep8
-            key={card.key}
-            onClose={() => removeCard(card.key)}
-            onFormDataChange={(data) => handleCardUpdate(card.key, data)}
-          />
-        ))}
-
-        {cards.length === 0 && (
-          <Button variant="outline" onClick={(event) => addNewCard(event)}>
-            Aucun antécédent assurance
+    
+    return (
+        <div className="w-full">
+        <ProgressHeader val={90} />
+        <div className="flex flex-col space-y-4 w-2/3">
+          <p className="flex flex-row text-2xl pt-12">
+            Antécédents <span className="text-red-700 px-1">dassurance</span>
+          </p>
+  
+          {fields.map((field, index) => (
+                    <Cardstep8 
+                        key={field.id} // React Hook Form uses 'id' for key management in field arrays
+                        index={index} 
+                        onClose={() => remove(index)}
+                    />
+                ))}
+        
+        <Button type="button" variant="secondary" onClick={() => append({} as CardInfo)}>
+                    <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un antécédent
+                </Button>
+          
+          <FormActions>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+            Suivant
           </Button>
-        )}
-        <Button variant="secondary" onClick={(event) => addNewCard(event)}>
-          <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un antécédent
-        </Button>
-
-        <Button type="button" size={'lg'} className="bg-blue-800 text-xl" onClick={validateStep}>
-          Suivant
-        </Button>
+        </FormActions>
+        </div>
       </div>
-    </div>
+ 
   );
 }
