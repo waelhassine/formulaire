@@ -144,6 +144,9 @@ export async function POST(request: NextRequest) {
       user: 'noreply@sea-electronics.com', // Your OVH email address
       pass: 'wassimSEA2023', // Your OVH email password
     },
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
 
   const mailOptions = {
