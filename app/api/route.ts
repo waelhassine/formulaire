@@ -2,7 +2,11 @@ import sendEmail from '@/lib/send_email';
 import { NextRequest } from 'next/server';
 import { PDFDocument, rgb, PDFPage } from 'pdf-lib';
 
-const keyMapping = {
+interface KeyMapping {
+  [key: string]: string;
+}
+
+const keyMapping: KeyMapping = {
   ville: 'Ville',
   adresse: 'Adresse',
   complement: 'Complément',
@@ -59,7 +63,7 @@ function transformData(data: any): any {
     return data.map((item) => transformData(item));
   }
   if (typeof data === 'object' && data !== null) {
-    const newData = {};
+    const newData: { [key: string]: any } = {}; // Define type for newData
     for (const [key, value] of Object.entries(data)) {
       const newKey = keyMapping[key.trim()] || key.trim(); // Trim and map keys
       newData[newKey] = transformData(value); // Recursively apply transformation
