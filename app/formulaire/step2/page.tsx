@@ -27,7 +27,7 @@ export default function FormulaireStep3() {
   const meuble = watch('meuble');
   const activite = watch('activite');
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <ProgressHeader val={20} />
       <button className="flex flex-row space-x-2 items-center justify-center mt-6" onClick={() => router.push('step1')}>
         <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +148,7 @@ export default function FormulaireStep3() {
           /> */}
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

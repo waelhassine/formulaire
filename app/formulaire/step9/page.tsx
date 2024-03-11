@@ -169,8 +169,8 @@ export default function FormulaireStep9() {
             autoComplete="complement"
           />
 
-          <div className="flex flex-row space-x-3  w-full ">
-            <div className="w-1/2">
+          <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
                 name="codepostal"
@@ -183,7 +183,7 @@ export default function FormulaireStep9() {
                 autoComplete="codepostal"
               />
             </div>
-            <div className="w-1/2">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
                 name="ville"
@@ -221,7 +221,7 @@ export default function FormulaireStep9() {
           />
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

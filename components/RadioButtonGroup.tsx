@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import clsx from 'clsx';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
