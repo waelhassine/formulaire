@@ -7,12 +7,15 @@ import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
 
 type Cardstep8Props = {
   onClose: () => void;
-  index : number;
+  index: number;
 };
 
-export default function Cardstep8({ onClose , index }: Cardstep8Props) {
-
-  const { register, formState: { errors }, watch } = useAppFormContext();
+export default function Cardstep8({ onClose, index }: Cardstep8Props) {
+  const {
+    register,
+    formState: { errors },
+    watch,
+  } = useAppFormContext();
   const contratCours = watch(`cards.${index}.contract_cours`);
 
   return (
@@ -24,7 +27,7 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
           </button>
         </div>
 
-<SelectInput
+        <SelectInput
           label="Compagnie"
           name={`cards.${index}.compagnie`}
           register={register}
@@ -40,7 +43,7 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
           ]}
         />
 
-<TextInput
+        <TextInput
           label="Date de souscription"
           name={`cards.${index}.souscription`}
           register={register}
@@ -49,7 +52,7 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
           type="date"
         />
 
-           <RadioButtonGroup
+        <RadioButtonGroup
           question="Le contrat est-il toujours en cours ?"
           name={`cards.${index}.contract_cours`}
           options={[
@@ -61,10 +64,10 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
           error={errors?.cards?.[index]?.contract_cours}
           currentValue={contratCours}
         />
-        
-          {contratCours === 'non' && (
-            <>
-             <TextInput
+
+        {contratCours === 'non' && (
+          <>
+            <TextInput
               label="Date de résiliation"
               name={`cards.${index}.resiliation`}
               register={register}
@@ -73,7 +76,7 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
               type="date"
             />
 
-<SelectInput
+            <SelectInput
               label="Motif de résiliation"
               name={`cards.${index}.motif_resiliation`}
               register={register}
@@ -85,8 +88,16 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
                 { value: 'Changement_dadress', label: 'Changement d adress' },
               ]}
             />
-</>
-          )}
+            <TextInput
+              label="Commentaires"
+              name={`cards.${index}.commentaires`}
+              register={register}
+              validationRules={{}}
+              error={errors?.cards?.[index]?.commentaires}
+              type="textarea"
+            />
+          </>
+        )}
       </div>
     </div>
   );

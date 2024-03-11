@@ -39,10 +39,11 @@ export default function FormulaireStep4() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row  text-2xl pt-12">
-          Quel est le <span className="text-red-700 px-1">type de logement</span> à assurer ?
-        </p>
+      <div className="flex flex-col space-y-4 lg:w-2/3">
+        <div className="flex lg:flex-row  lg:text-2xl text-lg pt-12 font-bold justify-start items-start">
+          Quel est le
+          <span className="text-red-700 px-1 font-bold">type de logement</span>à assurer ?
+        </div>
 
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
@@ -73,7 +74,7 @@ export default function FormulaireStep4() {
             label="Complément"
             name="complement"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{}}
             error={errors.complement}
             placeholder="Entrez votre complément"
             maxLength={20}

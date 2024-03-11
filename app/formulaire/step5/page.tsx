@@ -46,7 +46,7 @@ export default function FormulaireStep6() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row  text-2xl pt-12">Caractéristiques spéciales</p>
 
         <div className="flex flex-col space-y-6 mt-6">

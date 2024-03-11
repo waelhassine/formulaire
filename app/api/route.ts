@@ -1,4 +1,4 @@
-import sendEmail from '@/lib/send_email';
+// import sendEmail from '@/lib/send_email';
 import { NextRequest } from 'next/server';
 import { PDFDocument, rgb, PDFPage } from 'pdf-lib';
 import nodemailer from 'nodemailer';
@@ -53,6 +53,7 @@ const keyMapping: KeyMapping = {
   Nom: 'Nom',
   Email: 'Email',
   Telephone: 'Téléphone',
+  date_de_naissance: 'Date de naissance',
   // Additional fields from your description
   etage_appratement: 'Étage Appartement',
   surface_verande: 'Surface de la Véranda',

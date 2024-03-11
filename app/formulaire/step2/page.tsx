@@ -40,10 +40,11 @@ export default function FormulaireStep3() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row  text-2xl pt-12">
-          Quel est le <span className="text-red-700 px-1">type de logement</span> à assurer ?
-        </p>
+      <div className="flex flex-col space-y-4 lg:w-2/3">
+        <div className="flex lg:flex-row  lg:text-2xl text-lg pt-12 font-bold justify-start items-start">
+          Quel est le
+          <span className="text-red-700 px-1 font-bold">type de logement</span>à assurer ?
+        </div>
 
         <div className="flex flex-col space-y-4 mt-6">
           {type_logement_assurer === 'Appartement' && (
@@ -52,7 +53,7 @@ export default function FormulaireStep3() {
                 label="Etage"
                 name="etage_appratement"
                 register={register}
-                validationRules={{ required: 'This field is required' }}
+                validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.etage_appratement}
                 options={[
                   { value: 'Rez-de-chaussée', label: 'Rez-de-chaussée' },
@@ -67,7 +68,7 @@ export default function FormulaireStep3() {
             label="Type d'occupation"
             name="Type d occupation"
             register={register}
-            validationRules={{ required: 'This field is required' }}
+            validationRules={{ required: 'Champ obligatoire' }}
             error={errors.typelocation}
             options={[
               { value: 'Colocataire', label: 'Colocataire' },
@@ -75,7 +76,7 @@ export default function FormulaireStep3() {
               { value: 'Propriétaire occupant', label: 'Propriétaire occupant' },
               { value: 'usufruitier', label: 'Usufruitier' },
             ]}
-            placeholder="Select a type"
+            placeholder="Sélectionner dans le liste"
           />
 
           <RadioButtonGroup

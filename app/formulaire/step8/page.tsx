@@ -45,9 +45,9 @@ export default function FormulaireStep8() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row text-2xl pt-12">
-          Antécédents <span className="text-red-700 px-1">d assurance</span>
+          Antécédents <span className="text-red-700 px-1">d&apos;assurance</span>
         </p>
 
         {fields.map((field, index) => (

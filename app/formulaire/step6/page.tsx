@@ -40,20 +40,21 @@ export default function FormulaireStep6() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row  text-2xl pt-12">Caractéristiques spéciales</p>
         <TextInput
           label="Valeur mobilière à assurer"
           name="mobiliere_assurer"
           type="number"
           register={register}
-          validationRules={{ required: 'Merci de renseigner un montante' }}
+          validationRules={{ required: 'Merci de renseigner un montant' }}
           error={errors.mobiliere_assurer}
           placeholder=""
           maxLength={20}
           onBlur={() => trigger('mobiliere_assurer')}
           autoComplete="mobiliere_assurer"
         />
+
         <RadioButtonGroup
           question="Présence d’objets de valeur ?"
           name="presence_objet"
@@ -65,6 +66,7 @@ export default function FormulaireStep6() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.presence_objet}
           currentValue={presence_objet}
+          popoverContent="Bijoux et métal précieux dont la valeur unitaire est supérieure à 300 €, tout bien mobilier d’une valeur unitaire supérieure à 8000 € indexés, collections et ensembles dont la valeur globale est supérieure à 16000 €"
         />
         <RadioButtonGroup
           question="Le logement possède t'il une alarme ?"
