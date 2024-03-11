@@ -150,7 +150,7 @@ export default function FormulaireStep9() {
             label="Adresse"
             name="adresse"
             register={register}
-            validationRules={{}}
+            validationRules={{ required: 'Champ obligatoire' }}
             error={errors.adresse}
             placeholder="Entrez votre adresse"
             maxLength={20}
