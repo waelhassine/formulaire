@@ -34,7 +34,8 @@ export default function Cardstep8({ onClose , index }: Cardstep17Props) {
 
 
       <SelectInput
-          label="Compagnie
+          label="Type d'infraction
+
           "
           name={`card_conducteur_secondaire.${index}.compagnie`}
 
@@ -47,8 +48,8 @@ options={[
   { value: 'Controle_en_alcolémie_positif', label: 'Contrôle en alcolémie positif' },
   { value: 'Controle_en_stupéfiant', label: 'Contrôle en stupéfiant' },
   { value: 'Condamnation_delit_de_fuite', label: 'Condamnation pour délit de fuite' },
-  { value: 'Condamnation_pour_refus_d_optemperer', label: 'Condamnation pour refus d obtempérer' },
-  { value: 'Condamnation_pour_defaut_assurance', label: 'Condamnation pour défaut d assurance' },
+  { value: 'Condamnation_pour_refus_d_optemperer', label: "Condamnation pour refus d'obtempérer" },
+  { value: 'Condamnation_pour_defaut_assurance', label: "Condamnation pour défaut d'assurance" },
   { value: 'Condamnation_points', label: 'Condamnation pour défaut de points' },
 ]}
           placeholder=""
@@ -62,7 +63,7 @@ Nombre d'infraction
 
           type="number"
           register={register}
-          validationRules={{ required: 'Merci de renseigner un montante' }}
+          validationRules={{ required: 'Merci de renseigner un montant' }}
           error={errors?.card_conducteur_secondaire?.[index]?.souscription}
           placeholder=""
           maxLength={20}

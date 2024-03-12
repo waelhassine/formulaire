@@ -10,6 +10,7 @@ export interface FormValues {
     marque: string;
     ville: string;
     pays: string;
+    type_de_parking_collectif: string;
     adresseCorrespondance: 'oui' | 'non';
     inventaire: 'oui' | 'non';
     logementDangereuse: 'oui' | 'non';

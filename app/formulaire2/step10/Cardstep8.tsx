@@ -10,6 +10,7 @@ type Cardstep8Props = {
   index : number;
 };
 
+
 export default function Cardstep8({ onClose , index }: Cardstep8Props) {
 
   const { register, formState: { errors }, watch } = useAppFormContext();

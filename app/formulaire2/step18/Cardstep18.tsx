@@ -19,6 +19,7 @@ type Cardstep18Props = {
 
 };
 
+
 export default function Cardstep18({ onClose , index }: Cardstep18Props) {
   const { register, formState: { errors } } = useAppFormContext();
 
@@ -32,7 +33,7 @@ export default function Cardstep18({ onClose , index }: Cardstep18Props) {
 
 
 <TextInput
-            label="Date de souscription
+            label="Date de sinistres
             "
             name={`card_conducteur_sinistres.${index}.souscription` }
             register={register}
