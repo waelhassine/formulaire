@@ -93,8 +93,7 @@ export default function FormulaireStep2() {
           />
 
           <TextInput
-            label="Quelle est sa date de première mise en circulation ?
-            "
+            label="Quelle est sa date de mise en circulation ?"
             name="dateName"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -103,6 +102,7 @@ export default function FormulaireStep2() {
             maxLength={20}
             onBlur={() => trigger('dateName')}
             autoComplete="dateName"
+            type='date'
           />
         </div>
         <FormActions>

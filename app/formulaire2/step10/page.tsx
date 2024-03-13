@@ -9,7 +9,7 @@ import Cardstep8 from './Cardstep8';
 import { useState } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import FormActions from '@/components/FormActions';
-import { CardInfo } from '@/types/form';
+import { CardInfo } from '@/types/form2';
 
 export default function FormulaireStep10() {
   const router = useRouter();

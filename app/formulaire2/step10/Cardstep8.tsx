@@ -21,42 +21,46 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
   const moin_de_5_ans = watch(`cards.${index}.moin_de_5_ans`);
   return (
     <div className="w-full max-w-6xl mx-auto">
-      <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow">
+      <div className="flex flex-col space-y-6 w-full border p-8 rounded-md shadow">
         <div className="flex flex-end justify-end w-full ">
           <button onClick={onClose} style={{ float: 'left', color: 'red', fontSize: '24px' }}>
             <TrashIcon />
           </button>
         </div>
-        <div className="flex flex-row justify-between">
-          <SelectInput
-            label="Type d'infraction"
-            name={`cards.${index}.type_infraction`}
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors?.cards?.[index]?.type_infraction}
-            options={[
-              { value: 'SIMPLE', label: 'SIMPLE' },
-              { value: '2MA', label: '2MA' },
-              { value: 'ACHEEL', label: 'ACHEEL' },
-              { value: 'ACPS', label: 'ACPS' },
-              { value: 'ACTEL', label: 'ACTEL' },
-              { value: 'ADAM', label: 'ADAM' },
-            ]}
-          />
-          <TextInput
-            label="Nombre d'infraction
-          "
-            name="nombre_infraction"
-            type="number"
-            register={register}
-            validationRules={{ required: 'Champ invalide' }}
-            error={errors.nombre_infraction}
-            placeholder=""
-            maxLength={20}
-            onBlur={() => trigger('nombre_infraction')}
-            autoComplete="nombre_infraction"
-          />
-        </div>
+        <div className="flex flex-row gap-4 w-full">
+  <div className="flex-1">
+    <SelectInput
+      label="Type d'infraction"
+      name={`cards.${index}.type_infraction`}
+      register={register}
+      validationRules={{ required: 'Champ obligatoire' }}
+      error={errors?.cards?.[index]?.type_infraction}
+      options={[
+        { value: 'SIMPLE', label: 'SIMPLE' },
+        { value: '2MA', label: '2MA' },
+        { value: 'ACHEEL', label: 'ACHEEL' },
+        { value: 'ACPS', label: 'ACPS' },
+        { value: 'ACTEL', label: 'ACTEL' },
+        { value: 'ADAM', label: 'ADAM' },
+      ]}
+    />
+  </div>
+  <div className="flex-1">
+    <TextInput
+      label="Nombre d'infraction"
+      name="nombre_infraction"
+      type="number"
+      register={register}
+      validationRules={{ required: 'Champ invalide' }}
+      error={errors.nombre_infraction}
+      placeholder=""
+      maxLength={20}
+      onBlur={() => trigger('nombre_infraction')}
+      autoComplete="nombre_infraction"
+    />
+  </div>
+</div>
+
 
         <RadioButtonGroup
           question="A-t-elle eu lieu il y a moins de 5 ans ?"
