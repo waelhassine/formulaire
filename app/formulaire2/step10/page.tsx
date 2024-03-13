@@ -9,7 +9,8 @@ import Cardstep8 from './Cardstep8';
 import { useState } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import FormActions from '@/components/FormActions';
-import { CardInfo } from '@/types/form2';
+import { Conducteur_secondaire } from '@/types/form2';
+
 
 export default function FormulaireStep10() {
   const router = useRouter();
@@ -62,7 +63,7 @@ export default function FormulaireStep10() {
           />
         ))}
 
-        <Button type="button" variant="secondary" onClick={() => append({} as CardInfo)}>
+        <Button type="button" variant="secondary" onClick={() => append({} as Conducteur_secondaire )}>
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter une infraction
         </Button>
         <FormActions>
