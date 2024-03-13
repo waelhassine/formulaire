@@ -27,7 +27,7 @@ export default function FormulaireStep8() {
     console.log('data' , getValues());
 
     if (result && isValid) {
-      router.push('/formulaire/step13');
+      router.push('/formulaire2/step13');
     }
   };
     

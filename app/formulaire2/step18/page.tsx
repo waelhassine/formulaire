@@ -31,7 +31,7 @@ export default function FormulaireStep10() {
     const result = await trigger();
     console.log('result', getValues());
     if (result && isValid) {
-      router.push('/formulaire/step19');
+      router.push('/formulaire2/step19');
     }
   };
   

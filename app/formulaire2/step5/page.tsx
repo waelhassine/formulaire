@@ -21,7 +21,7 @@ export default function FormulaireStep6() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step6');
+      router.push('/formulaire2/step6');
     }
   };
 

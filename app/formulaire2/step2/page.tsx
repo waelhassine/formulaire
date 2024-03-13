@@ -22,7 +22,7 @@ export default function FormulaireStep2() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step3');
+      router.push('/formulaire2/step3');
     }
   };
   const adresseCorrespondance = watch('adresseCorrespondance');

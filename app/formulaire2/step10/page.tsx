@@ -29,7 +29,7 @@ export default function FormulaireStep10() {
       await trigger();
   
       if (isValid) {
-        router.push('/formulaire/step11');
+        router.push('/formulaire2/step11');
       }
     };
 

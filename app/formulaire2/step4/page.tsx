@@ -21,7 +21,7 @@ export default function FormulaireStep4() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step5');
+      router.push('/formulaire2/step5');
     }
   };
   const adresseCorrespondance = watch('adresseCorrespondance');

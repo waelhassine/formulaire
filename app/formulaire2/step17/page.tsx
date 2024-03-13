@@ -30,7 +30,7 @@ export default function FormulaireStep17() {
       console.log('data' , getValues());
   
       if (result && isValid) {
-        router.push('/formulaire/step9');
+        router.push('/formulaire2/step9');
       }
     };
         

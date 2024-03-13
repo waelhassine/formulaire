@@ -20,7 +20,7 @@ export default function FormulaireStep3() {
     await trigger();
     if (isValid) {
       router.push('/plan');
-      router.push("/formulaire/step9");
+      router.push("/formulaire2/step9");
     }
   };
 

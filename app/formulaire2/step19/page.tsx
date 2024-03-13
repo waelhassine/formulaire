@@ -38,7 +38,7 @@ export default function FormulaireStep19() {
     console.log('data' , getValues());
 
     if (result && isValid) {
-      router.push('/formulaire/step20');
+      router.push('/formulaire2/step20');
     }
   };
     

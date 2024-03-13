@@ -9,6 +9,7 @@ import Home_etager from "@/components/Home_etager";
 import Home_plein from "@/components/Home_plein";
 import Mobile_home from "@/components/Mobile_home";
 import VehicleForm from '@/components/VehicleForm';
+import { Button } from "@/components/ui/button";
 import './style.css';
 export default function Formulaire() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function Formulaire() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push("/formulaire/step2");
+      router.push("/formulaire2/step2");
     }
   };
   return (
@@ -33,14 +34,10 @@ export default function Formulaire() {
       <VehicleForm />
       
       <FormActions>
-        <button
-          type="button"
-          className="bg-marine-blue hover:opacity-80 transition duration-300 text-magnolia ml-auto px-[17px] lg:px-8 py-[10px] lg:py-3 text-sm lg:text-base rounded-[4px] lg:rounded-lg"
-          onClick={validateStep}
-        >
-          Next Step
-        </button>
-      </FormActions>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+            Suivant
+          </Button>
+        </FormActions>
 
 
     </div>

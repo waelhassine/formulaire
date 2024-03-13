@@ -19,7 +19,7 @@ export default function FormulaireStep12() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push("/formulaire/step14");
+      router.push("/formulaire2/step14");
     }
   };
 
