@@ -38,17 +38,18 @@ export default function FormulaireStep3() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row text-2xl pt-12">
-          Quel est le <span className="text-red-700 px-1">type de logement</span> à assurer ?
-        </p>
+      <div className="flex flex-col space-y-4 lg:w-2/3">
+        <div className="flex lg:flex-row  lg:text-2xl text-lg pt-12 font-bold justify-start items-start">
+          Quel est le
+          <span className="text-red-700 px-1 font-bold">type de logement</span>à assurer ?
+        </div>
 
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
             label="Date d'emménagement (facultative)"
             name="dateName"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{}}
             error={errors.dateName}
             type="date"
           />
@@ -114,7 +115,7 @@ export default function FormulaireStep3() {
           )}
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

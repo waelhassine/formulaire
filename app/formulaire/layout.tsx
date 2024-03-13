@@ -7,12 +7,12 @@ export default function FormulaireLaout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="w-full min-h-screen">
-      <div className="grid lg:grid-cols-12 md:grid-cols-2 grid-rows-1 grid-cols-1 lg:min-h-screen">
+    <section className="w-full h-full min-h-screen mx-auto">
+      <div className="grid lg:grid-cols-12 md:grid-cols-2 grid-rows-1 grid-cols-1 lg:min-h-screen h-full">
         <div className="lg:col-span-4 md:col-span-1 col-span-1 bg-[#4855a5] text-white">
           <Sidebar />
         </div>
-        <div className="lg:col-span-8  md:col-span-1 col-span-1 p-16 w-full">
+        <div className="lg:col-span-8  md:col-span-1 col-span-1 lg:p-16 p-2 lg:w-full h-full">
           <Provider>{children}</Provider>
         </div>
       </div>

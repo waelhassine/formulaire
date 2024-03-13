@@ -43,6 +43,7 @@ export interface FormValues {
   Telephone: string;
   Prenom: string;
   Nom: string;
+  date_de_naissance: Date;
   installation_professionnel: 'oui' | 'non';
   energies_renouvelables: 'oui' | 'non';
   Civilite: string;
@@ -63,6 +64,7 @@ export interface FormValues {
   naissance: Date;
   resiliation: Date;
   motif_resiliation: string;
+  consent: Boolean;
 }
 
 export interface CardInfo {
@@ -71,4 +73,5 @@ export interface CardInfo {
   contract_cours: 'oui' | 'non';
   resiliation?: Date;
   motif_resiliation?: string;
+  commentaires: string;
 }

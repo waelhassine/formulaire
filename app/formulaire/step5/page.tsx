@@ -46,7 +46,7 @@ export default function FormulaireStep6() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row  text-2xl pt-12">Caractéristiques spéciales</p>
 
         <div className="flex flex-col space-y-6 mt-6">
@@ -207,7 +207,7 @@ export default function FormulaireStep6() {
           />
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-
+import clsx from 'clsx';
 interface SelectInputProps {
   label: string;
   name: string;
@@ -20,12 +21,12 @@ const SelectInput: React.FC<SelectInputProps> = ({
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex justify-between">
-      <span className="text-base text-gray-950 font-semibold">{label}</span>
+      <span className={clsx('text-base font-semibold', error ? 'text-red-500' : ' text-gray-950')}>{label}</span>
     </div>
     <select
       {...register(name, { ...validationRules })}
       className={`border ${
-        error ? 'border-red-900' : 'border-gray-500 focus:border-blue-500'
+        error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'
       } py-4 px-3 rounded-lg mt-1`}
       defaultValue=""
     >
@@ -40,7 +41,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         </option>
       ))}
     </select>
-    {error && <span className="text-red-900">{error.message}</span>}
+    {error && <span className="text-red-500">{error.message}</span>}
   </label>
 );
 

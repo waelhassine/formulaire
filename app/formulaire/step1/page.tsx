@@ -21,11 +21,11 @@ export default function Formulaire() {
   return (
     <div className="flex flex-col space-y-4 w-full">
       <Progress value={10} />
-      <div className="flex flex-row text-2xl pt-12 font-bold">
+      <div className="flex lg:flex-row  lg:text-2xl text-lg pt-12 font-bold justify-start items-start">
         Quel est le
         <span className="text-red-700 px-1 font-bold">type de logement</span>à assurer ?
       </div>
-      <div className="grid grid-cols-2 gap-4 w-2/3">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:w-2/3">
         <div
           className="card bg-white shadow rounded-lg p-6 flex flex-col items-center text-center cursor-pointer border border-gray-950 border-transparent hover:border-blue-700 hover:text-blue-700 "
           onClick={() => {

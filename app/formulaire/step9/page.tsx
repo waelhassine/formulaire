@@ -1,15 +1,14 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
+
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
+import ConsentCheckbox from '@/components/Checkbox';
 
 export default function FormulaireStep9() {
   const router = useRouter();
@@ -19,45 +18,44 @@ export default function FormulaireStep9() {
 
   const validateStep = async () => {
     const allFormValues = getValues();
-    console.log(allFormValues);
-    try {
-      const response = await fetch('/api', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(allFormValues),
-      });
 
-      if (response.ok) {
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        console.log(response);
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        router.push('/merci');
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        // const blob = await response.blob();
-        // const downloadUrl = window.URL.createObjectURL(blob);
-        // const link = document.createElement('a');
-        // link.href = downloadUrl;
-        // link.download = 'generated-pdf.pdf';
-        // document.body.appendChild(link);
-        // link.click();
-        // link.remove();
-      } else {
-        // Handle errors or unsuccessful responses
-        console.error('Failed to generate the PDF');
+    await trigger();
+
+    if (isValid) {
+      try {
+        const response = await fetch('/api', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(allFormValues),
+        });
+
+        if (response.ok) {
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          console.log(response);
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          router.push('/merci');
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          // const blob = await response.blob();
+          // const downloadUrl = window.URL.createObjectURL(blob);
+          // const link = document.createElement('a');
+          // link.href = downloadUrl;
+          // link.download = 'generated-pdf.pdf';
+          // document.body.appendChild(link);
+          // link.click();
+          // link.remove();
+        } else {
+          // Handle errors or unsuccessful responses
+          console.error('Failed to generate the PDF');
+        }
+      } catch (error) {
+        console.error('There was an error submitting the form:', error);
       }
-    } catch (error) {
-      console.error('There was an error submitting the form:', error);
     }
-    // await trigger();
-
-    // if (isValid) {
-    //   router.push('/formulaire/step9');
-    // }
   };
   const Civilite = watch('Civilite');
   return (
@@ -74,8 +72,8 @@ export default function FormulaireStep9() {
         </svg>
         <p className="text-lg">Précédent</p>
       </button>
-      <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row  text-2xl pt-12">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
+        <p className="flex flex-row  lg:text-2xl text-base pt-12">
           Coordonnées
           <p className="text-red-700 px-1">du souscripteur du contrat</p> ?
         </p>
@@ -101,7 +99,7 @@ export default function FormulaireStep9() {
             "
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Prenom}
             placeholder="Entrez votre Prenom"
             maxLength={20}
             onBlur={() => trigger('Prenom')}
@@ -112,19 +110,26 @@ export default function FormulaireStep9() {
             name="Nom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Nom}
             placeholder="Entrez votre Nom"
             maxLength={20}
             onBlur={() => trigger('Nom')}
             autoComplete="Nom"
           />
-
+          <TextInput
+            label="Date de naissance"
+            name="date_de_naissance"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.date_de_naissance}
+            type="date"
+          />
           <TextInput
             label="Email"
             name="Email"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Email}
             placeholder="Entrez votre Email"
             maxLength={20}
             onBlur={() => trigger('Email')}
@@ -135,7 +140,7 @@ export default function FormulaireStep9() {
             name="Telephone"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Telephone}
             placeholder="Entrez votre Téléphone"
             maxLength={20}
             onBlur={() => trigger('Telephone')}
@@ -156,7 +161,7 @@ export default function FormulaireStep9() {
             label="Complément"
             name="complement"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{}}
             error={errors.complement}
             placeholder="Entrez votre complément"
             maxLength={20}
@@ -164,8 +169,8 @@ export default function FormulaireStep9() {
             autoComplete="complement"
           />
 
-          <div className="flex flex-row space-x-3  w-full ">
-            <div className="w-1/2">
+          <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
                 name="codepostal"
@@ -178,7 +183,7 @@ export default function FormulaireStep9() {
                 autoComplete="codepostal"
               />
             </div>
-            <div className="w-1/2">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
                 name="ville"
@@ -203,9 +208,20 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('pays')}
             autoComplete="pays"
           />
+          <p>
+            Afin de vous fournir le contenu demandé, nous devons stocker et traiter vos données personnelles. Si vous
+            nous autorisez à stocker vos données personnelles à cette fin, cochez la case ci-dessous.
+          </p>
+          <ConsentCheckbox
+            label="J'accepte le stockage et le traitement de mes données personnelles"
+            name="consent"
+            register={register}
+            validationRules={{ required: 'Vous devez obligatoirement cocher cette case pour valider votre demande.' }}
+            error={errors.consent}
+          />
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>
