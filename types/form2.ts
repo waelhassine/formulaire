@@ -98,6 +98,8 @@ export interface FormValues {
   card_conducteur_secondaire: CardInfo[];
   card_assurance: CardInfo[];
   card_conducteur_sinistres: sinistre_principal[];
+  conducteur_pricipal: 'oui' | 'non';
+  consenttwo: Boolean;
 }
 
 export interface CardInfo {

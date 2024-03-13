@@ -19,7 +19,11 @@ export default function FormulaireStep12() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push('/formulaire2/step14');
+      if (conducteur_secondaire === 'non') {
+        router.push('/formulaire2/step20');
+      } else {
+        router.push('/formulaire2/step14');
+      }
     }
   };
 
