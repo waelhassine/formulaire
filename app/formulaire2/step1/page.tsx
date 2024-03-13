@@ -1,13 +1,14 @@
 "use client";
 import clsx from "clsx";
 import { Progress } from "@/components/ui/progress";
-import useAppFormContext from "@/lib/hooks/useAppFormContext2";
+import useAppFormContext from "@/lib/hooks/useAppFormContext";
 import { useRouter } from "next/navigation";
 import FormActions from "@/components/FormActions";
 import Appartement from "@/components/Appartement";
 import Home_etager from "@/components/Home_etager";
 import Home_plein from "@/components/Home_plein";
 import Mobile_home from "@/components/Mobile_home";
+import VehicleForm from '@/components/VehicleForm';
 import './style.css';
 export default function Formulaire() {
   const router = useRouter();
@@ -29,36 +30,8 @@ export default function Formulaire() {
         <span className="text-red-700 px-1 font-bold">type de logement</span>
         à assurer ?
       </div>
-      <div className="grid grid-cols-2 gap-4">
-      <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
-  onClick={validateStep}
->
-          <Appartement />
-          <p className="text-2xl pt-12">Appartement</p>
-        </div>
-         <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
-  onClick={validateStep}
->
-          <Home_etager />
-          <p className="text-2xl pt-12">Maison individuelle à étages</p>
-        </div>
-         <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
-  onClick={validateStep}
->
-          <Home_plein />
-          <p className="text-2xl pt-12">Maison individuelle plein pied</p>
-        </div>
-         <div
-  className="card bg-white shadow rounded-lg p-4 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gray-500"
-  onClick={validateStep}
->
-          <Mobile_home />
-          <p className="text-2xl pt-12">Chalet ou bungalow ou Mobile home</p>
-        </div>
-      </div>
+      <VehicleForm />
+      
       <FormActions>
         <button
           type="button"
