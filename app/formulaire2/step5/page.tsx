@@ -1,0 +1,147 @@
+'use client';
+
+import useAppFormContext from '@/lib/hooks/useAppFormContext2';
+import { useRouter } from 'next/navigation';
+import FormActions from '@/components/FormActions';
+
+import { Button } from '@/components/ui/button';
+import ProgressHeader from '@/components/ui/progressHeader';
+import RadioButtonGroup from '@/components/RadioButtonGroup';
+
+import SelectInput from '@/components/SelectWael';
+import TextInput from '@/components/TextInput';
+
+export default function FormulaireStep6() {
+  const router = useRouter();
+  const { register, trigger, formState, control, watch } = useAppFormContext();
+
+  const { isValid, errors } = formState;
+
+  const validateStep = async () => {
+    await trigger();
+
+    if (isValid) {
+      router.push('/formulaire2/step6');
+    }
+  };
+
+  const inventaire = watch('inventaire');
+  const logementDangereuse = watch('logementDangereuse');
+  const logement_garage = watch('logement_garage');
+  const logement_sous_sol = watch('logement_sous_sol');
+  const presence_dependances = watch('presence_dependances');
+  const presence_veranda = watch('presence_veranda');
+  const installations_exterieures = watch('installations_exterieures');
+  const type_de_stationnement = watch('type_de_stationnement');
+  return (
+    <div className="w-full">
+      <ProgressHeader val={60} />
+      <button className="flex flex-row space-x-2 items-center justify-center mt-6" onClick={() => router.push('step4')}>
+        <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+            fill="currentColor"
+            fillRule="evenodd"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+        <p className="text-lg">Précédent</p>
+      </button>
+
+      <div className="flex flex-col space-y-4 w-2/3">
+        <p className="flex flex-row  text-2xl pt-12">
+          Utilisation de <span className="text-red-700 px-1">votre véhicule</span>
+        </p>
+
+        <div className="flex flex-col space-y-6 mt-6">
+          <SelectInput
+            label="Type de trajet
+              "
+            name="type_trajet"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.type_trajet}
+            options={[
+              { value: 'Prive_et_travail', label: 'Privé et travail' },
+              { value: 'Prive_exclusivement', label: 'Prive exclusivement' },
+              { value: 'Prive_et_professionnel', label: 'Prive et professionnel' },
+              { value: 'Tournées régulières', label: 'Tournées régulières' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+
+          <SelectInput
+            label="Fréquence d'utilisation
+              "
+            name="frequence_utilisation"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.frequence_utilisation}
+            options={[
+              { value: 'presque_tous_les_jours', label: 'Presque tous les jours' },
+              { value: 'troissurquatre', label: '3/4 jours par semaine' },
+              { value: 'moins_de_un', label: 'Moins de 1 par  semaine' },
+              { value: 'le_weekend_et_le_vacance', label: 'Le weekend et les vacances' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+          <TextInput
+            label="Nombre de km parcourus par an
+          "
+            name="nb_km"
+            type="number"
+            register={register}
+            validationRules={{ required: 'Champ invalide' }}
+            error={errors.nb_km}
+            placeholder=""
+            maxLength={20}
+            onBlur={() => trigger('nb_km')}
+            autoComplete="nb_km"
+          />
+          <SelectInput
+            label="Type de stationnement
+
+
+              "
+            name="type_de_stationnement"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.type_de_stationnement}
+            options={[
+              { value: 'parking_collectif_clos', label: 'Parking collectif clos' },
+              { value: 'parking_individuel', label: 'Parking individuel' },
+              { value: 'voie_public', label: 'Voie public' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+          {type_de_stationnement === 'parking_individuel' || type_de_stationnement === 'parking_collectif_clos' ? (
+            <>
+              <SelectInput
+                label="Veuillez préciser le type de parking collectif
+
+
+
+
+              "
+                name="type_de_parking_collectif"
+                register={register}
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.type_de_parking_collectif}
+                options={[
+                  { value: 'jardin_clos', label: 'jardin clos' },
+                  { value: 'Garage_fermé_Box', label: 'Garage fermé/Box' },
+                ]}
+                placeholder="Sélectionner dans le liste"
+              />
+            </>
+          ) : null}
+        </div>
+        <FormActions>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+            Suivant
+          </Button>
+        </FormActions>
+      </div>
+    </div>
+  );
+}
