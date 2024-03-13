@@ -15,91 +15,87 @@ import { TrashIcon } from '@radix-ui/react-icons';
 
 type Cardstep18Props = {
   onClose: () => void; // Add a function prop
-  index : number;
-
+  index: number;
 };
 
-
-export default function Cardstep18({ onClose , index }: Cardstep18Props) {
-  const { register, formState: { errors } } = useAppFormContext();
+export default function Cardstep18({ onClose, index }: Cardstep18Props) {
+  const {
+    register,
+    formState: { errors },
+  } = useAppFormContext();
 
   return (
-    <div className="w-full max-w-6xl mx-auto"> {/* Adjusted for a larger width with max-width and auto margins for centering */}
-      <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow"> {/* Adjusted padding for larger space inside the card */}
-     <div className='flex flex-end justify-end w-full '>
-      <button onClick={onClose}  style={{ float: 'left', color: 'red', fontSize: '24px' }} >
-  <TrashIcon />
-</button></div>
-
-
-<TextInput
-            label="Date de sinistres
+    <div className="w-full max-w-6xl mx-auto">
+      {/* Adjusted for a larger width with max-width and auto margins for centering */}
+      <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow">
+        {' '}
+        {/* Adjusted padding for larger space inside the card */}
+        <div className="flex flex-end justify-end w-full ">
+          <button onClick={onClose} style={{ float: 'left', color: 'red', fontSize: '24px' }}>
+            <TrashIcon />
+          </button>
+        </div>
+        <TextInput
+          label="Date de sinistres
             "
-            name={`card_conducteur_sinistres.${index}.souscription` }
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors?.card_conducteur_sinistres?.[index]?.souscription}
-            type = "date"
-          />
-      <SelectInput
+          name={`card_conducteur_sinistres.${index}.souscription`}
+          register={register}
+          validationRules={{ required: 'Champ obligatoire' }}
+          error={errors?.card_conducteur_sinistres?.[index]?.souscription}
+          type="date"
+        />
+        <SelectInput
           label="Type de sinistre
 
           "
-          name={`card_conducteur_sinistres.${index}.type_sinistre` }
-
+          name={`card_conducteur_sinistres.${index}.type_sinistre`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.card_conducteur_sinistres?.[index]?.type_sinistre}
-options={[
-  { value: 'Accident', label: 'Accident' },
-  { value: 'Bris_de_glace', label: 'Bris_de_glace' },
-  { value: 'catastrophe_naturel', label: 'catastrophe_naturel' },
-  { value: 'Délit de fruite', label: 'Délit de fruite' },
-  { value: 'Incendie', label: 'Incendie' },
+          options={[
+            { value: 'Accident', label: 'Accident' },
+            { value: 'Bris de glace', label: 'Bris de glace' },
+            { value: 'Catastrophe naturel', label: 'Catastrophe naturel' },
+            { value: 'Délit de fruite', label: 'Délit de fruite' },
+            { value: 'Incendie', label: 'Incendie' },
 
-  { value: 'Vol', label: 'Vol' },
+            { value: 'Vol', label: 'Vol' },
 
-  { value: 'Vandalisme', label: 'Vandalisme'},
-  {value:'Evenment_climatique',label:'Evenment climatique'},
-  {value:'gréle',label:'gréle'},
-{value:'sinistre_avec_tiers',label:'sinistre avec tiers'},
-{value:'sinistre_sans_tiers',label:'sinistre sans tiers'},
-]}
-
-
+            { value: 'Vandalisme', label: 'Vandalisme' },
+            { value: 'Evenment Climatique', label: 'Evenment climatique' },
+            { value: 'gréle', label: 'gréle' },
+            { value: 'sinistre avec tiers', label: 'Sinistre avec tiers' },
+            { value: 'sinistre sans tiers', label: 'Sinistre sans tiers' },
+          ]}
           placeholder=""
         />
-   <SelectInput
+        <SelectInput
           label="Nature du sinistre
 
           "
-          name={`card_conducteur_sinistres.${index}.nature_sinistre` }
-
+          name={`card_conducteur_sinistres.${index}.nature_sinistre`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.card_conducteur_sinistres?.[index]?.nature_sinistre
-          }
-
-options={[
-  { value: 'corporel', label: 'corporel' },
-  { value: 'Material', label: 'Material' },
-]}
+          error={errors.card_conducteur_sinistres?.[index]?.nature_sinistre}
+          options={[
+            { value: 'Corporel', label: 'Corporel' },
+            { value: 'Material', label: 'Material' },
+          ]}
           placeholder=""
         />
-          <SelectInput
+        <SelectInput
           label="Taux de responsabilité
 
           "
-          name={`card_conducteur_sinistres.${index}.taux_responsabilite` }
+          name={`card_conducteur_sinistres.${index}.taux_responsabilite`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.card_conducteur_sinistres?.[index]?.taux_responsabilite}
-
-options={[
-  { value: 'zero', label: '0%' },
-  { value: 'cinquant', label: '%50' },
-  { value: 'cent', label: '100%' },
-]}
+          options={[
+            { value: 'zero', label: '0%' },
+            { value: 'cinquant', label: '%50' },
+            { value: 'cent', label: '100%' },
+          ]}
           placeholder=""
         />
       </div>
