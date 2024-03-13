@@ -101,7 +101,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Prenom}
             placeholder="Entrez votre Prenom"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('Prenom')}
             autoComplete="Prenom"
           />
@@ -112,7 +112,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Nom}
             placeholder="Entrez votre Nom"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('Nom')}
             autoComplete="Nom"
           />
@@ -131,7 +131,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Email}
             placeholder="Entrez votre Email"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('Email')}
             autoComplete="Email"
           />
@@ -142,7 +142,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Telephone}
             placeholder="Entrez votre Téléphone"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('Telephone')}
             autoComplete="Telephone"
           />
@@ -153,7 +153,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.adresse}
             placeholder="Entrez votre adresse"
-            maxLength={20}
+            maxLength={50}
             onBlur={() => trigger('adresse')}
             autoComplete="adresse"
           />
@@ -164,7 +164,7 @@ export default function FormulaireStep9() {
             validationRules={{}}
             error={errors.complement}
             placeholder="Entrez votre complément"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('complement')}
             autoComplete="complement"
           />
@@ -178,7 +178,7 @@ export default function FormulaireStep9() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.codepostal}
                 placeholder="Entrez votre Code postal"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('codepostal')}
                 autoComplete="codepostal"
               />
@@ -191,7 +191,7 @@ export default function FormulaireStep9() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.ville}
                 placeholder="Entrez votre Ville"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('ville')}
                 autoComplete="ville"
               />
