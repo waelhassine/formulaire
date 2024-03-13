@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
   });
 
   const mailOptions = {
-    from: '"Formulaire 1" <no-replay@sea-electronics.com>',
+    from: '"Formulaire 2 " <no-replay@sea-electronics.com>',
     to: 'wael.hassine0@gmail.com',
     subject: 'Here is your PDF',
     text: 'Please find the attached PDF.',
