@@ -7,15 +7,18 @@ import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
 
 type Cardstep8Props = {
   onClose: () => void;
-  index : number;
+  index: number;
 };
 
-
-export default function Cardstep8({ onClose , index }: Cardstep8Props) {
-
-  const { register, formState: { errors }, watch } = useAppFormContext();
-  const contratCours = watch(`cards.${index}.contract_cours`);
-
+export default function Cardstep8({ onClose, index }: Cardstep8Props) {
+  const {
+    register,
+    formState: { errors },
+    watch,
+    trigger,
+  } = useAppFormContext();
+  const nombre_infraction = watch(`cards.${index}.nombre_infraction`);
+  const moin_de_5_ans = watch(`cards.${index}.moin_de_5_ans`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="flex flex-col space-y-4 w-full border p-8 rounded-md shadow">
@@ -24,70 +27,49 @@ export default function Cardstep8({ onClose , index }: Cardstep8Props) {
             <TrashIcon />
           </button>
         </div>
+        <div className="flex flex-row justify-between">
+          <SelectInput
+            label="Type d'infraction"
+            name={`cards.${index}.type_infraction`}
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors?.cards?.[index]?.type_infraction}
+            options={[
+              { value: 'SIMPLE', label: 'SIMPLE' },
+              { value: '2MA', label: '2MA' },
+              { value: 'ACHEEL', label: 'ACHEEL' },
+              { value: 'ACPS', label: 'ACPS' },
+              { value: 'ACTEL', label: 'ACTEL' },
+              { value: 'ADAM', label: 'ADAM' },
+            ]}
+          />
+          <TextInput
+            label="Nombre d'infraction
+          "
+            name="nombre_infraction"
+            type="number"
+            register={register}
+            validationRules={{ required: 'Champ invalide' }}
+            error={errors.nombre_infraction}
+            placeholder=""
+            maxLength={20}
+            onBlur={() => trigger('nombre_infraction')}
+            autoComplete="nombre_infraction"
+          />
+        </div>
 
-<SelectInput
-          label="Compagnie"
-          name={`cards.${index}.compagnie`}
-          register={register}
-          validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.cards?.[index]?.compagnie}
-          options={[
-            { value: 'SIMPLE', label: 'SIMPLE' },
-            { value: '2MA', label: '2MA' },
-            { value: 'ACHEEL', label: 'ACHEEL' },
-            { value: 'ACPS', label: 'ACPS' },
-            { value: 'ACTEL', label: 'ACTEL' },
-            { value: 'ADAM', label: 'ADAM' },
-          ]}
-        />
-
-<TextInput
-          label="Date de souscription"
-          name={`cards.${index}.souscription`}
-          register={register}
-          validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.cards?.[index]?.souscription}
-          type="date"
-        />
-
-          <RadioButtonGroup
-          question="Le contrat est-il toujours en cours ?"
-          name={`cards.${index}.contract_cours`}
+        <RadioButtonGroup
+          question="A-t-elle eu lieu il y a moins de 5 ans ?"
+          name={`cards.${index}.moin_de_5_ans`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.cards?.[index]?.contract_cours}
-          currentValue={contratCours}
+          error={errors?.cards?.[index]?.moin_de_5_ans}
+          currentValue={moin_de_5_ans}
         />
-        
-          {contratCours === 'non' && (
-            <>
-            <TextInput
-              label="Date de résiliation"
-              name={`cards.${index}.resiliation`}
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.cards?.[index]?.resiliation}
-              type="date"
-            />
-
-<SelectInput
-              label="Motif de résiliation"
-              name={`cards.${index}.motif_resiliation`}
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.cards?.[index]?.motif_resiliation}
-              options={[
-                { value: 'echeance', label: 'A écheance' },
-                { value: 'Autre', label: 'Autre' },
-                { value: 'Changement_dadress', label: 'Changement d adress' },
-              ]}
-            />
-</>
-          )}
       </div>
     </div>
   );

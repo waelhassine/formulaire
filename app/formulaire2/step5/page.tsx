@@ -32,7 +32,7 @@ export default function FormulaireStep6() {
   const presence_dependances = watch('presence_dependances');
   const presence_veranda = watch('presence_veranda');
   const installations_exterieures = watch('installations_exterieures');
-const type_de_stationnement = watch('type_de_stationnement');
+  const type_de_stationnement = watch('type_de_stationnement');
   return (
     <div className="w-full">
       <ProgressHeader val={60} />
@@ -49,101 +49,92 @@ const type_de_stationnement = watch('type_de_stationnement');
       </button>
 
       <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row  text-2xl pt-12">Utilisation de votre véhicule
-</p>
+        <p className="flex flex-row  text-2xl pt-12">
+          Utilisation de <span className="text-red-700 px-1">votre véhicule</span>
+        </p>
 
         <div className="flex flex-col space-y-6 mt-6">
-            <SelectInput
-              label="Type de trajet
+          <SelectInput
+            label="Type de trajet
               "
-              name="type_trajet"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.type_trajet}
-              options={[
-                { value: 'Prive_et_travail', label: 'Privé et travail' },
-                { value: 'Prive_exclusivement', label: 'Prive exclusivement' },
-                { value: 'Prive_et_professionnel', label: 'Prive et professionnel' },
-                { value: 'Tournées régulières', label: 'Tournées régulières' },
-              ]}
-                placeholder="Sélectionner dans le liste"
-            />
-         
-            <SelectInput
-              label="Fréquence d'utilisation
+            name="type_trajet"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.type_trajet}
+            options={[
+              { value: 'Prive_et_travail', label: 'Privé et travail' },
+              { value: 'Prive_exclusivement', label: 'Prive exclusivement' },
+              { value: 'Prive_et_professionnel', label: 'Prive et professionnel' },
+              { value: 'Tournées régulières', label: 'Tournées régulières' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+
+          <SelectInput
+            label="Fréquence d'utilisation
               "
-              name="frequence_utilisation"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.frequence_utilisation}
-              options={[
-                { value: 'presque_tous_les_jours', label: 'Presque tous les jours' },
-                { value: 'troissurquatre', label: '3/4 jours par semaine' },
-                { value: 'moins_de_un', label: 'Moins de 1 par  semaine' },
-                { value: 'le_weekend_et_le_vacance', label: 'Le weekend et les vacances' },
-
-
-              ]}
-                placeholder="Sélectionner dans le liste"
-            />
-                    <TextInput
-          label="Nombre de km parcourus par an
+            name="frequence_utilisation"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.frequence_utilisation}
+            options={[
+              { value: 'presque_tous_les_jours', label: 'Presque tous les jours' },
+              { value: 'troissurquatre', label: '3/4 jours par semaine' },
+              { value: 'moins_de_un', label: 'Moins de 1 par  semaine' },
+              { value: 'le_weekend_et_le_vacance', label: 'Le weekend et les vacances' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+          <TextInput
+            label="Nombre de km parcourus par an
           "
-          name="nb_km"
-          type="number"
-          register={register}
-          validationRules={{ required: 'Merci de renseigner un montant' }}
-          error={errors.nb_km}
-          placeholder=""
-          maxLength={20}
-          onBlur={() => trigger('nb_km')}
-          autoComplete="nb_km"
-        />
-            <SelectInput
-              label="Type de stationnement
+            name="nb_km"
+            type="number"
+            register={register}
+            validationRules={{ required: 'Champ invalide' }}
+            error={errors.nb_km}
+            placeholder=""
+            maxLength={20}
+            onBlur={() => trigger('nb_km')}
+            autoComplete="nb_km"
+          />
+          <SelectInput
+            label="Type de stationnement
 
 
               "
-              name="type_de_stationnement"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.type_de_stationnement}
-              options={[
-                { value: 'parking_collectif_clos', label: 'Parking collectif clos' },
-                { value: 'parking_individuel', label: 'Parking individuel' },
-                { value: 'voie_public', label: 'Voie public' },
-
-
-              ]}
-                placeholder="Sélectionner dans le liste"
-            />
-          {type_de_stationnement === 'parking_individuel' ||
-type_de_stationnement === 'parking_collectif_clos' ? (
-  <>
-            <SelectInput
-              label="Veuillez préciser le type de parking collectif
+            name="type_de_stationnement"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.type_de_stationnement}
+            options={[
+              { value: 'parking_collectif_clos', label: 'Parking collectif clos' },
+              { value: 'parking_individuel', label: 'Parking individuel' },
+              { value: 'voie_public', label: 'Voie public' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
+          {type_de_stationnement === 'parking_individuel' || type_de_stationnement === 'parking_collectif_clos' ? (
+            <>
+              <SelectInput
+                label="Veuillez préciser le type de parking collectif
 
 
 
 
               "
-              name="type_de_parking_collectif"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.type_de_parking_collectif}
-              options={[
-                { value: 'jardin_clos', label: 'jardin clos' },
-                { value: 'Garage_fermé_Box', label: 'Garage fermé/Box' },
-
-
-              ]}
+                name="type_de_parking_collectif"
+                register={register}
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.type_de_parking_collectif}
+                options={[
+                  { value: 'jardin_clos', label: 'jardin clos' },
+                  { value: 'Garage_fermé_Box', label: 'Garage fermé/Box' },
+                ]}
                 placeholder="Sélectionner dans le liste"
-            />
-  </>
-) : null}
-
-
-
+              />
+            </>
+          ) : null}
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>

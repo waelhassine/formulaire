@@ -15,10 +15,7 @@ export default function FormulaireStep7() {
   const router = useRouter();
   const { register, trigger, formState, watch } = useAppFormContext();
 
-
   const { isValid, errors } = formState;
-
- 
 
   const validateStep = async () => {
     await trigger();
@@ -45,12 +42,10 @@ export default function FormulaireStep7() {
 
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
-        Conducteur 
- 
- <span className="text-red-700 px-1">principal</span>  ?
+          Conducteur
+          <span className="text-red-700 px-1">principal</span> ?
         </p>
-<p className="flex flex-row  text-2xl pt-12">Identité
-</p>
+        <p className="flex flex-row  text-2xl pt-6">Identité</p>
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question="Civilite
@@ -62,8 +57,7 @@ export default function FormulaireStep7() {
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Civilite
-            }
+            error={errors.Civilite}
             currentValue={Civilite}
           />
           <TextInput
@@ -80,9 +74,7 @@ export default function FormulaireStep7() {
             autoComplete="Prenom"
           />
 
-
-
-<TextInput
+          <TextInput
             label="Nom"
             name="Nom"
             register={register}
@@ -93,22 +85,21 @@ export default function FormulaireStep7() {
             onBlur={() => trigger('Nom')}
             autoComplete="Nom"
           />
-           <TextInput
+          <TextInput
             label="Date de naissance"
             name="naissance"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.naissance}
-            type = "date"
+            type="date"
           />
-          </div>
-         
         </div>
-        <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
-            Suivant
-          </Button>
-        </FormActions>
       </div>
+      <FormActions>
+        <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          Suivant
+        </Button>
+      </FormActions>
+    </div>
   );
 }

@@ -48,12 +48,10 @@ export default function FormulaireStep9() {
       </button>
 
       <div className="flex flex-col space-y-4 w-2/3">
-        <p className="flex flex-row  text-2xl pt-12">Conducteur  <span className="text-red-700 px-1">principal 
-</span>
-</p>
-<p className="flex flex-row  text-2xl pt-12">Antécédents d'assurance
-
-</p>
+        <p className="flex flex-row  text-2xl pt-12">
+          Conducteur <span className="text-red-700 px-1">principal</span>
+        </p>
+        <p className="flex flex-row  text-2xl pt-12">Antécédents d&apos;assurance</p>
 
         <div className="flex flex-col space-y-6 mt-6">
           <RadioButtonGroup

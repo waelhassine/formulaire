@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import { Progress } from '@/components/ui/progress';
-import useAppFormContext from "@/lib/hooks/useAppFormContext2";
+import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
@@ -28,7 +28,7 @@ export default function FormulaireStep2() {
   const adresseCorrespondance = watch('adresseCorrespondance');
   return (
     <div className="w-full">
-      <ProgressHeader val={40} />
+      <ProgressHeader val={10} />
       <button className="flex flex-row space-x-2 items-center justify-center mt-6" onClick={() => router.push('step1')}>
         <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -43,12 +43,12 @@ export default function FormulaireStep2() {
 
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
-        Votre 
- <span className="text-red-700 px-1">véhicule</span> 
+          Votre
+          <span className="text-red-700 px-1">véhicule</span>
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-        <div className="flex flex-row space-x-3  w-full ">
+          <div className="flex flex-row space-x-3  w-full ">
             <div className="w-1/2">
               <TextInput
                 label="Quelle est sa marque ?
@@ -77,7 +77,7 @@ export default function FormulaireStep2() {
                 autoComplete="modele"
               />
             </div>
-          </div>  
+          </div>
 
           <TextInput
             label="Quelle est sa finition ?
