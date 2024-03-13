@@ -98,14 +98,18 @@ export interface FormValues {
   card_conducteur_secondaire: CardInfo[];
   card_assurance: CardInfo[];
   card_conducteur_sinistres: sinistre_principal[];
+  card_Conducteur_v2: Conducteur_secondaire[];
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
 }
 
 export interface CardInfo {
-  type_infraction: string;
-  nombre_infraction: number;
-  moin_de_5_ans: 'oui' | 'non';
+  compagnie: string;
+  souscription: Date;
+  contract_cours: 'oui' | 'non';
+  resiliation?: Date;
+  motif_resiliation?: string;
+  commentaires: string;
 }
 
 export interface sinistre_principal {
@@ -113,4 +117,12 @@ export interface sinistre_principal {
   type_sinistre: string;
   nature_sinistre: string;
   taux_responsabilite: string;
+}
+
+
+export interface Conducteur_secondaire{
+ type_infraction: string;
+ nombre_infraction: number;
+moin_de_5_ans: 'oui' | 'non';
+
 }

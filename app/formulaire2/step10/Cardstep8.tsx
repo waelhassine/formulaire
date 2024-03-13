@@ -3,7 +3,7 @@ import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
-import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
+import { TrashIcon } from '@radix-ui/react-icons'; 
 
 type Cardstep8Props = {
   onClose: () => void;
@@ -17,8 +17,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
     watch,
     trigger,
   } = useAppFormContext();
-  const nombre_infraction = watch(`cards.${index}.nombre_infraction`);
-  const moin_de_5_ans = watch(`cards.${index}.moin_de_5_ans`);
+  const moin_de_5_ans = watch(`card_Conducteur_v2.${index}.moin_de_5_ans`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="flex flex-col space-y-6 w-full border p-8 rounded-md shadow">
@@ -31,10 +30,10 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
   <div className="flex-1">
     <SelectInput
       label="Type d'infraction"
-      name={`cards.${index}.type_infraction`}
+      name={`card_Conducteur_v2.${index}.type_infraction`}
       register={register}
       validationRules={{ required: 'Champ obligatoire' }}
-      error={errors?.cards?.[index]?.type_infraction}
+      error={errors?.card_Conducteur_v2?.[index]?.type_infraction}
       options={[
         { value: 'SIMPLE', label: 'SIMPLE' },
         { value: '2MA', label: '2MA' },
@@ -48,11 +47,11 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
   <div className="flex-1">
     <TextInput
       label="Nombre d'infraction"
-      name="nombre_infraction"
+      name={`card_Conducteur_v2.${index}.nombre_infraction`}
       type="number"
       register={register}
       validationRules={{ required: 'Champ invalide' }}
-      error={errors.nombre_infraction}
+      error={errors?.card_Conducteur_v2?.[index]?.nombre_infraction}
       placeholder=""
       maxLength={20}
       onBlur={() => trigger('nombre_infraction')}
@@ -64,14 +63,14 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
 
         <RadioButtonGroup
           question="A-t-elle eu lieu il y a moins de 5 ans ?"
-          name={`cards.${index}.moin_de_5_ans`}
+          name={`card_Conducteur_v2.${index}.moin_de_5_ans`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.cards?.[index]?.moin_de_5_ans}
+          error={errors?.card_Conducteur_v2?.[index]?.moin_de_5_ans}
           currentValue={moin_de_5_ans}
         />
       </div>

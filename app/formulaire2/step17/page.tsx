@@ -20,7 +20,7 @@ export default function FormulaireStep17() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_conducteur_secondaire',
+    name: 'card_Conducteur_v2',
   });
 
   const validateStep = async () => {

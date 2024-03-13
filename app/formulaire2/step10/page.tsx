@@ -21,7 +21,7 @@ export default function FormulaireStep10() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'cards', // This name should match the one in your form's initial state or schema
+    name: 'card_Conducteur_v2', // This name should match the one in your form's initial state or schema
   });
 
   const validateStep = async () => {
