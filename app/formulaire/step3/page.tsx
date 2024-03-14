@@ -94,15 +94,15 @@ export default function FormulaireStep3() {
             question="Le logement possède de grandes pièces (>30m2)"
             name="logement_possede"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.logement_possede}
             currentValue={logement_possede}
           />
-          {logement_possede === 'oui' && (
+          {logement_possede === 'Oui' && (
             <TextInput
               label="Combien ?"
               name="combien"

@@ -50,7 +50,7 @@ export default function FormulaireStep6() {
           validationRules={{ required: 'Merci de renseigner un montant' }}
           error={errors.mobiliere_assurer}
           placeholder=""
-          maxLength={20}
+          maxLength={40}
           onBlur={() => trigger('mobiliere_assurer')}
           autoComplete="mobiliere_assurer"
         />
@@ -59,8 +59,8 @@ export default function FormulaireStep6() {
           question="Présence d’objets de valeur ?"
           name="presence_objet"
           options={[
-            { value: 'oui', label: 'Oui' },
-            { value: 'non', label: 'Non' },
+            { value: 'Oui', label: 'Oui' },
+            { value: 'Non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -72,8 +72,8 @@ export default function FormulaireStep6() {
           question="Le logement possède t'il une alarme ?"
           name="logement_alarame"
           options={[
-            { value: 'oui', label: 'Oui' },
-            { value: 'non', label: 'Non' },
+            { value: 'Oui', label: 'Oui' },
+            { value: 'Non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -87,10 +87,10 @@ export default function FormulaireStep6() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.periode_logement}
           options={[
-            { value: 'Entre_0_et_45_jours', label: 'Entre 0 et 45 jours' },
-            { value: 'Entre_45_et_60_jours', label: 'Entre 45 et 60 jours' },
-            { value: 'Entre_60_et_90_jours', label: 'Entre 60 et 90 jours' },
-            { value: 'Plus_90_jours', label: 'Plus 90 jours' },
+            { value: 'Entre 0 et 45 jours', label: 'Entre 0 et 45 jours' },
+            { value: 'Entre 45 et 60 jours', label: 'Entre 45 et 60 jours' },
+            { value: 'Entre 60 et 90 jours', label: 'Entre 60 et 90 jours' },
+            { value: 'Plus 90 jours', label: 'Plus 90 jours' },
           ]}
           placeholder=""
         />

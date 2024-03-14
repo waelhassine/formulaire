@@ -66,7 +66,7 @@ export default function FormulaireStep3() {
           )}
           <SelectInput
             label="Type d'occupation"
-            name="Type d occupation"
+            name="typelocation"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.typelocation}
@@ -74,7 +74,7 @@ export default function FormulaireStep3() {
               { value: 'Colocataire', label: 'Colocataire' },
               { value: 'Propriétaire', label: 'Locataire' },
               { value: 'Propriétaire occupant', label: 'Propriétaire occupant' },
-              { value: 'usufruitier', label: 'Usufruitier' },
+              { value: 'Usufruitier', label: 'Usufruitier' },
             ]}
             placeholder="Sélectionner dans le liste"
           />
@@ -84,8 +84,8 @@ export default function FormulaireStep3() {
             "
             name="residence"
             options={[
-              { value: 'principal', label: 'principal' },
-              { value: 'secondaire', label: 'secondaire' },
+              { value: 'Principal', label: 'Principal' },
+              { value: 'Secondaire', label: 'Secondaire' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -93,19 +93,18 @@ export default function FormulaireStep3() {
             currentValue={residence}
           />
 
-          {residence === 'secondaire' && (
+          {residence === 'Secondaire' && (
             <SelectInput
               label="Est-il proposé à la location ?
               "
-              name="Est-il proposé à la location ?
-              "
+              name="location"
               register={register}
-              validationRules={{ required: 'This field is required' }}
+              validationRules={{ required: 'Champ obligatoire' }}
               error={errors.location}
               options={[
                 { value: 'Jamais', label: 'Jamais' },
-                { value: 'Mois_de_3_moins_paran', label: 'Mois de 3 moins par an' },
-                { value: '3_mois_ou_plus_par_an', label: '3 mois ou plus par an' },
+                { value: 'Mois de 3 moins paran', label: 'Mois de 3 moins par an' },
+                { value: '3 mois ou plus par an', label: '3 mois ou plus par an' },
               ]}
               placeholder="Select a periode"
             />
@@ -115,8 +114,8 @@ export default function FormulaireStep3() {
             question="Le logement est-il meublé ?            "
             name="meuble"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

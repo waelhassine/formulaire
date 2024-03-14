@@ -8,12 +8,8 @@ interface KeyMapping {
 }
 
 const keyMapping: KeyMapping = {
-  ville: 'Ville',
-  adresse: 'Adresse',
-  complement: 'Complément',
-  codepostal: 'Code Postal',
-  pays: 'Pays',
   type_logement_assurer: 'Type de Logement à Assurer',
+  etage_appratement: 'Étage Appartement',
   typelocation: "Type d'Occupation",
   residence: 'Type de Résidence',
   location: 'Proposé à la Location',
@@ -26,16 +22,24 @@ const keyMapping: KeyMapping = {
   logement_possede: 'Logement avec Grandes Pièces (>30m²)',
   combien: 'Combien de Grandes Pièces',
   adresseCorrespondance: 'Adresse Correspondance avec Souscripteur',
+  ville: 'Ville',
+  adresse: 'Adresse',
+  complement: 'Complément',
+  codepostal: 'Code Postal',
+  pays: 'Pays',
   inventaire: 'Classé ou Inscrit à l’Inventaire des Monuments Historiques',
   logementDangereuse: 'Proximité Site ou Installation Dangereuse',
   logement_garage: 'Possède un Garage',
   logement_sous_sol: 'Possède un Sous-Sol',
   presence_dependances: 'Présence de Dépendances',
+  surface_des_dépendances: 'Surface des Dépendances',
   presence_veranda: 'Présence d’une Véranda',
+  surface_terrasses: 'Surface des Terrasses',
   terrasses: 'Présence de Terrasses',
+  surface_verande: 'Surface de la Véranda',
   piscine: 'Type de Piscine',
   installations_exterieures: 'Installations Extérieures (Spa, etc.)',
-  surface_des_dépendances: 'Surface des Dépendances',
+
   mobiliere_assurer: 'Valeur Mobilière à Assurer',
   presence_objet: 'Présence d’Objets de Valeur',
   logement_alarame: 'Logement avec Alarme',
@@ -45,6 +49,7 @@ const keyMapping: KeyMapping = {
   presence_d_enfants_18_ans: 'Présence d’Enfants > 18 ans',
   type_chien: 'Chien(s) de Catégorie 1 ou 2',
   systeme_de_chauffage: 'Système de Chauffage',
+  autre_preciser: 'Pouvez vous préciser ?',
   installation_professionnel: 'Installation Faite par un Professionnel',
   energies_renouvelables: 'Présence d’Énergies Renouvelables',
   cards: 'Antécédents d’Assurance',
@@ -55,9 +60,6 @@ const keyMapping: KeyMapping = {
   Telephone: 'Téléphone',
   date_de_naissance: 'Date de naissance',
   // Additional fields from your description
-  etage_appratement: 'Étage Appartement',
-  surface_verande: 'Surface de la Véranda',
-  surface_terrasses: 'Surface des Terrasses',
 };
 
 function transformData(data: any): any {

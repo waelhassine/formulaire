@@ -32,22 +32,7 @@ export default function FormulaireStep9() {
         });
 
         if (response.ok) {
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
-          console.log(response);
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
           router.push('/merci');
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
-          // const blob = await response.blob();
-          // const downloadUrl = window.URL.createObjectURL(blob);
-          // const link = document.createElement('a');
-          // link.href = downloadUrl;
-          // link.download = 'generated-pdf.pdf';
-          // document.body.appendChild(link);
-          // link.click();
-          // link.remove();
         } else {
           // Handle errors or unsuccessful responses
           console.error('Failed to generate the PDF');

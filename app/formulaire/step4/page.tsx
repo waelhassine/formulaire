@@ -4,8 +4,6 @@ import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
@@ -50,8 +48,8 @@ export default function FormulaireStep4() {
             question="L'adresse du logement correspond-elle à celle du souscripteur?"
             name="adresseCorrespondance"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -66,7 +64,7 @@ export default function FormulaireStep4() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.adresse}
             placeholder="Entrez votre adresse"
-            maxLength={20}
+            maxLength={50}
             onBlur={() => trigger('adresse')}
             autoComplete="adresse"
           />
@@ -77,7 +75,7 @@ export default function FormulaireStep4() {
             validationRules={{}}
             error={errors.complement}
             placeholder="Entrez votre complément"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('complement')}
             autoComplete="complement"
           />
@@ -91,7 +89,7 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.codepostal}
                 placeholder="Entrez votre Code postal"
-                maxLength={20}
+                maxLength={30}
                 onBlur={() => trigger('codepostal')}
                 autoComplete="codepostal"
               />
@@ -104,7 +102,7 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.ville}
                 placeholder="Entrez votre Ville"
-                maxLength={20}
+                maxLength={30}
                 onBlur={() => trigger('ville')}
                 autoComplete="ville"
               />

@@ -1,66 +1,64 @@
 export interface FormValues {
-  name: string;
-  email: string;
-  phone: string;
-  adresse: string;
   type_logement_assurer: string;
   etage_appratement: string;
+  typelocation: string;
+  residence: 'Principal' | 'Secondaire';
+  location: string;
+  meuble: 'Oui' | 'Non';
+  activite: 'Oui' | 'Non';
+  dateName: undefined | Date;
+  construction: string;
+  surface: number;
+  nb: number;
+  logement_possede: 'Oui' | 'Non';
+  combien: number;
+  adresseCorrespondance: 'Oui' | 'Non';
+  adresse: string;
   complement: string;
   codepostal: string;
   ville: string;
   pays: string;
-  adresseCorrespondance: 'oui' | 'non';
-  inventaire: 'oui' | 'non';
-  logementDangereuse: 'oui' | 'non';
-  logement_garage: 'oui' | 'non';
-  logement_sous_sol: 'oui' | 'non';
-  presence_dependances: 'oui' | 'non';
+
+  inventaire: 'Oui' | 'Non';
+  logementDangereuse: 'Oui' | 'Non';
+  logement_garage: 'Oui' | 'Non';
+  logement_sous_sol: 'Oui' | 'Non';
+  presence_dependances: 'Oui' | 'Non';
   surface_des_dépendances: string;
-  Systeme_de_chauffage: string;
+  presence_veranda: 'Oui' | 'Non';
   surface_verande: string;
-  terrasses: 'oui' | 'non';
+  terrasses: 'Oui' | 'Non';
   surface_terrasses: string;
   piscine: string;
-  installations_exterieures: 'oui' | 'non';
+  installations_exterieures: 'Oui' | 'Non';
   mobiliere_assurer: number;
-  presence_objet: 'oui' | 'non';
-  logement_alarame: 'oui' | 'non';
-  periode_logement: string;
 
-  plan: 'arcade' | 'advanced' | 'pro';
-  billing: 'monthly' | 'yearly';
-  location: string;
-  typelocation: string;
+  presence_objet: 'Oui' | 'Non';
+  logement_alarame: 'Oui' | 'Non';
+  periode_logement: string;
   nombre_adultes: number;
   nombre_d_enfants_vivant_au_domicile: number;
   presence_d_enfants_18_ans: number;
-  presence_veranda: 'oui' | 'non';
-  residence: 'principal' | 'secondaire';
-  meuble: 'oui' | 'non';
-  activite: 'oui' | 'non';
-  type_chien: 'oui' | 'non';
-  Email: string;
-  Telephone: string;
+  type_chien: 'Oui' | 'Non';
+  Systeme_de_chauffage: string;
+  autre_preciser: string;
+  installation_professionnel: 'Oui' | 'Non';
+  energies_renouvelables: 'Oui' | 'Non';
+
+  Civilite: string;
   Prenom: string;
   Nom: string;
   date_de_naissance: Date;
-  installation_professionnel: 'oui' | 'non';
-  energies_renouvelables: 'oui' | 'non';
-  Civilite: string;
-  addons: {
-    online: boolean;
-    storage: boolean;
-    profi0le: boolean;
-  };
-  dateName: undefined | Date;
-  construction: string;
-  surface: number;
+  Email: string;
+  Telephone: string;
+  name: string;
+  email: string;
+  phone: string;
+
   cards: CardInfo[];
 
-  nb: number;
-  contrat_cours: 'oui' | 'non';
-  logement_possede: 'oui' | 'non';
-  combien: number;
+  contrat_cours: 'Oui' | 'Non';
+
   naissance: Date;
   resiliation: Date;
   motif_resiliation: string;
@@ -70,7 +68,7 @@ export interface FormValues {
 export interface CardInfo {
   compagnie: string;
   souscription: Date;
-  contract_cours: 'oui' | 'non';
+  contract_cours: 'Oui' | 'Non';
   resiliation?: Date;
   motif_resiliation?: string;
   commentaires: string;
