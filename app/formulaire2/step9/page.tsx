@@ -61,8 +61,8 @@ export default function FormulaireStep9() {
             "
             name="deja_assurestep9"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -75,8 +75,8 @@ export default function FormulaireStep9() {
             "
             name="deja_assure_secondairestep9"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -88,8 +88,8 @@ export default function FormulaireStep9() {
             "
             name="conduite_accompagneestep9"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -101,8 +101,8 @@ export default function FormulaireStep9() {
 "
             name="suspension_permisstep9"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -115,8 +115,8 @@ export default function FormulaireStep9() {
             "
             name="objet_annulationstep9"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

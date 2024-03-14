@@ -53,7 +53,7 @@ export default function FormulaireStep4() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.niveau_couverture}
           options={[
-            { value: 'Tiere', label: 'Tiere +' },
+            { value: 'Tiere +', label: 'Tiere +' },
             { value: 'Tiere plus', label: 'Tiere plus' },
             { value: 'Tous risque', label: 'Tous risque' },
           ]}

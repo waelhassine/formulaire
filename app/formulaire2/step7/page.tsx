@@ -52,8 +52,8 @@ export default function FormulaireStep7() {
             "
             name="Civilitestep7"
             options={[
-              { value: 'oui', label: 'Monsieur' },
-              { value: 'non', label: 'Madame' },
+              { value: 'Monsieur', label: 'Monsieur' },
+              { value: 'Madame', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -68,8 +68,8 @@ export default function FormulaireStep7() {
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Prenomstep7}
-            placeholder="Entrez votre Prenom"
-            maxLength={20}
+            placeholder="Entrez votre Prénom"
+            maxLength={30}
             onBlur={() => trigger('Prenomstep7')}
             autoComplete="Prenomstep7"
           />
@@ -81,7 +81,7 @@ export default function FormulaireStep7() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Nomstep7}
             placeholder="Entrez votre Nom"
-            maxLength={20}
+            maxLength={30}
             onBlur={() => trigger('Nomstep7')}
             autoComplete="Nomstep7"
           />

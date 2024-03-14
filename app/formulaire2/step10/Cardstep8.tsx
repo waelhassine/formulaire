@@ -3,7 +3,7 @@ import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
-import { TrashIcon } from '@radix-ui/react-icons'; 
+import { TrashIcon } from '@radix-ui/react-icons';
 
 type Cardstep8Props = {
   onClose: () => void;
@@ -27,39 +27,39 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           </button>
         </div>
         <div className="flex flex-row gap-4 w-full">
-  <div className="flex-1">
-    <SelectInput
-      label="Type d'infraction"
-      name={`card_Conducteur_v2.${index}.type_infraction`}
-      register={register}
-      validationRules={{ required: 'Champ obligatoire' }}
-      error={errors?.card_Conducteur_v2?.[index]?.type_infraction}
-      options={[
-        { value: 'SIMPLE', label: 'SIMPLE' },
-        { value: '2MA', label: '2MA' },
-        { value: 'ACHEEL', label: 'ACHEEL' },
-        { value: 'ACPS', label: 'ACPS' },
-        { value: 'ACTEL', label: 'ACTEL' },
-        { value: 'ADAM', label: 'ADAM' },
-      ]}
-    />
-  </div>
-  <div className="flex-1">
-    <TextInput
-      label="Nombre d'infraction"
-      name={`card_Conducteur_v2.${index}.nombre_infraction`}
-      type="number"
-      register={register}
-      validationRules={{ required: 'Champ invalide' }}
-      error={errors?.card_Conducteur_v2?.[index]?.nombre_infraction}
-      placeholder=""
-      maxLength={20}
-      onBlur={() => trigger('nombre_infraction')}
-      autoComplete="nombre_infraction"
-    />
-  </div>
-</div>
-
+          <div className="lg:w-1/2 w-full">
+            <SelectInput
+              label="Type d'infraction"
+              name={`card_Conducteur_v2.${index}.type_infraction`}
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors?.card_Conducteur_v2?.[index]?.type_infraction}
+              options={[
+                { value: 'Contrôle en alcolémie positif', label: 'Contrôle en alcolémie positif' },
+                { value: 'Contrôle en stupéfiant', label: 'Contrôle en stupéfiant' },
+                { value: 'Condamnation pour délit de fuite', label: 'Condamnation pour délit de fuite' },
+                { value: 'Condamnation pour refus d obtempérer', label: 'Condamnation pour refus d obtempérer' },
+                { value: 'Condamnation pour défaut d assurance', label: 'Condamnation pour défaut d assurance' },
+                { value: 'Condamnation pour défaut de points', label: 'Condamnation pour défaut de points' },
+                { value: 'Condamnation pour une autre raison', label: 'Condamnation pour une autre raison' },
+              ]}
+            />
+          </div>
+          <div className="lg:w-1/2 w-full">
+            <TextInput
+              label="Nombre d'infraction"
+              name={`card_Conducteur_v2.${index}.nombre_infraction`}
+              type="number"
+              register={register}
+              validationRules={{ required: 'Champ invalide' }}
+              error={errors?.card_Conducteur_v2?.[index]?.nombre_infraction}
+              placeholder=""
+              maxLength={20}
+              onBlur={() => trigger('nombre_infraction')}
+              autoComplete="nombre_infraction"
+            />
+          </div>
+        </div>
 
         <RadioButtonGroup
           question="A-t-elle eu lieu il y a moins de 5 ans ?"

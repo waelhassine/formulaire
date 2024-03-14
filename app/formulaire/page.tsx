@@ -1,149 +1,62 @@
-"use client";
-import clsx from "clsx";
-import { Progress } from "@/components/ui/progress";
-import useAppFormContext from "@/lib/hooks/useAppFormContext";
-import { useRouter } from "next/navigation";
-import FormActions from "@/components/FormActions";
-
+'use client';
+import clsx from 'clsx';
+import { Progress } from '@/components/ui/progress';
+import useAppFormContext from '@/lib/hooks/useAppFormContext';
+import { useRouter } from 'next/navigation';
+import FormActions from '@/components/FormActions';
+import Appartement from '@/components/Appartement';
+import Home_etager from '@/components/Home_etager';
+import Home_plein from '@/components/Home_plein';
+import Mobile_home from '@/components/Mobile_home';
 export default function Formulaire() {
   const router = useRouter();
-  const { register, trigger, formState } = useAppFormContext();
+  const { register, trigger, formState, setValue } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
-  const validateStep = async () => {
-    await trigger();
-    if (isValid) {
-      router.push("/plan");
-    }
+  const validateStep = async (message: string) => {
+    setValue('type_logement_assurer', message);
+    router.push('/formulaire/step2');
   };
   return (
     <div className="flex flex-col space-y-4 w-full">
       <Progress value={10} />
-
-      <p className="flex flex-row  text-2xl pt-12">
-        Quel est le <p className="text-red-700 px-1">type de logement</p> à
-        assurer ?
-      </p>
-
-      <div className="flex flex-col mt-6">
-        <label className="flex flex-col">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              name
-            </span>
-            {errors.name && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. Stephen King"
-            className={clsx(
-              "border",
-              errors.name
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("name", {
-              required: "This field is required",
-              maxLength: {
-                value: 20,
-                message: "Name must be less than 20 characters",
-              },
-            })}
-            onBlur={() => trigger("name")}
-            autoComplete="name"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              email address
-            </span>
-            {errors.email && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.email.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. stephenking@lorem.com"
-            className={clsx(
-              "border",
-              errors.email
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("email", {
-              required: "This field is required",
-              maxLength: {
-                value: 80,
-                message: "Email must be less than 80 characters",
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
-            onBlur={() => trigger("email")}
-            autoComplete="email"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              phone number
-            </span>
-            {errors.phone && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.phone.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. +1 234 567 890"
-            className={clsx(
-              "border",
-              errors.phone
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("phone", {
-              required: "This field is required",
-              maxLength: {
-                value: 20,
-                message: "Phone Number must be less than 20 characters",
-              },
-              pattern: {
-                value: /^[+]?[0-9\s]+$/,
-                message: "Invalid phone number",
-              },
-            })}
-            onBlur={() => trigger("phone")}
-            autoComplete="tel"
-          />
-        </label>
+      <div className="flex lg:flex-row  lg:text-2xl text-lg pt-12 font-bold justify-start items-start">
+        Quel est le
+        <span className="text-red-700 px-1 font-bold">type de logement</span>à assurer ?
       </div>
-      <FormActions>
-        <button
-          type="button"
-          className="bg-marine-blue hover:opacity-80 transition duration-300 text-magnolia ml-auto px-[17px] lg:px-8 py-[10px] lg:py-3 text-sm lg:text-base rounded-[4px] lg:rounded-lg"
-          onClick={validateStep}
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:w-2/3">
+        <div
+          className="card bg-white shadow rounded-lg p-6 flex flex-col items-center text-center cursor-pointer border border-gray-950 border-transparent hover:border-blue-700 hover:text-blue-700 "
+          onClick={() => {
+            validateStep('Appartement');
+          }}
         >
-          Next Step
-        </button>
-      </FormActions>
+          <Appartement />
+          <p className="text-lg pt-12">Appartement</p>
+        </div>
+        <div
+          className="card bg-white shadow rounded-lg p-6 flex flex-col items-center text-center cursor-pointer border border-gray-950 border-transparent hover:border-blue-700 hover:text-blue-700 "
+          onClick={() => validateStep('Maison individuelle à étages')}
+        >
+          <Home_etager />
+          <p className="text-lg pt-12">Maison individuelle à étages</p>
+        </div>
+        <div
+          className="card bg-white shadow rounded-lg p-6 flex flex-col items-center text-center cursor-pointer border border-gray-950 border-transparent hover:border-blue-700 hover:text-blue-700 "
+          onClick={() => validateStep('Maison individuelle plein pied')}
+        >
+          <Home_plein />
+          <p className="text-lg pt-12">Maison individuelle plein pied</p>
+        </div>
+        <div
+          className="card bg-white shadow rounded-lg p-6 flex flex-col items-center text-center cursor-pointer border border-gray-950 border-transparent hover:border-blue-700 hover:text-blue-700 "
+          onClick={() => validateStep('Chalet ou bungalow ou Mobile home')}
+        >
+          <Mobile_home />
+          <p className="text-lg pt-12">Chalet ou bungalow ou Mobile home</p>
+        </div>
+      </div>
     </div>
   );
 }

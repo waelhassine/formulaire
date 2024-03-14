@@ -1,149 +1,106 @@
-"use client";
-import clsx from "clsx";
-import { Progress } from "@/components/ui/progress";
-import useAppFormContext from "@/lib/hooks/useAppFormContext";
-import { useRouter } from "next/navigation";
-import FormActions from "@/components/FormActions";
+'use client';
+
+import { Progress } from '@/components/ui/progress';
+import useAppFormContext from '@/lib/hooks/useAppFormContext2';
+import { useRouter } from 'next/navigation';
+import FormActions from '@/components/FormActions';
+import { Button } from '@/components/ui/button';
+import TextInput from '@/components/TextInput';
 
 export default function Formulaire() {
   const router = useRouter();
-  const { register, trigger, formState } = useAppFormContext();
+  const fetchData = async (plate: string) => {
+    // Example API call, replace URL and options according to your API
+    const response = await fetch(
+      'https://pro-formulaire-api.app.dismoilya.fr/lyaform/formulaires/32246421-2e17-4f17-89a0-2cda89ab5edf/vehicule/' +
+        plate,
+      {
+        method: 'GET', // or 'POST'
+        headers: {
+          'Content-Type': 'application/json',
+          // Additional headers if required
+        },
+        // body: JSON.stringify({ plate }), // If you need to send data
+      },
+    );
+    if (!response.ok) {
+      router.push('/formulaire2/step2');
+    }
+    return response.json();
+  };
+  const { register, trigger, formState, watch, setValue } = useAppFormContext();
 
   const { isValid, errors } = formState;
-
+  const plate = watch('plate');
   const validateStep = async () => {
+    console.log(plate);
     await trigger();
     if (isValid) {
-      router.push("/plan");
+      const data = await fetchData(plate); // Fetch data from API
+      console.log(data);
+      setValue('marque', data.marque);
+      setValue('modele', data.modele);
+      setValue('finition', data.sraCommercial);
+      const formattedDate = data.date1erCirFr.split('T')[0];
+      setValue('dateName', formattedDate);
+      router.push('/formulaire2/step2');
     }
   };
   return (
     <div className="flex flex-col space-y-4 w-full">
       <Progress value={10} />
-
-      <p className="flex flex-row  text-2xl pt-12">
-        Quel est le <p className="text-red-700 px-1">type de logement</p> à
-        assurer ?
-      </p>
-
-      <div className="flex flex-col mt-6">
-        <label className="flex flex-col">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              name
-            </span>
-            {errors.name && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. Stephen King"
-            className={clsx(
-              "border",
-              errors.name
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("name", {
-              required: "This field is required",
-              maxLength: {
-                value: 20,
-                message: "Name must be less than 20 characters",
-              },
-            })}
-            onBlur={() => trigger("name")}
-            autoComplete="name"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              email address
-            </span>
-            {errors.email && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.email.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. stephenking@lorem.com"
-            className={clsx(
-              "border",
-              errors.email
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("email", {
-              required: "This field is required",
-              maxLength: {
-                value: 80,
-                message: "Email must be less than 80 characters",
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
-            onBlur={() => trigger("email")}
-            autoComplete="email"
-          />
-        </label>
-        <label className="flex flex-col mt-4">
-          <div className="flex justify-between">
-            <span className="capitalize text-xs text-marine-blue lg:text-sm font-medium tracking-wide">
-              phone number
-            </span>
-            {errors.phone && (
-              <span className="text-xs lg:text-sm font-medium lg:font-bold tracking-wide text-strawberry-red">
-                {errors.phone.message}
-              </span>
-            )}
-          </div>
-          <input
-            placeholder="e.g. +1 234 567 890"
-            className={clsx(
-              "border",
-              errors.phone
-                ? "border-strawberry-red"
-                : "border-light-gray focus:border-purplish-blue",
-              "py-2 lg:py-3 px-3 lg:px-4 rounded-[4px] lg:rounded-lg mt-1",
-              "text-[15px] lg:text-base text-marine-blue placeholder:text-cool-gray font-medium lg:font-bold",
-              "focus:outline-none",
-            )}
-            {...register("phone", {
-              required: "This field is required",
-              maxLength: {
-                value: 20,
-                message: "Phone Number must be less than 20 characters",
-              },
-              pattern: {
-                value: /^[+]?[0-9\s]+$/,
-                message: "Invalid phone number",
-              },
-            })}
-            onBlur={() => trigger("phone")}
-            autoComplete="tel"
-          />
-        </label>
+      <div className="flex flex-row text-2xl pt-12 font-bold">
+        <p className="flex flex-row  text-2xl pt-12">
+          Votre
+          <span className="text-red-700 px-1">véhicule</span>
+        </p>
       </div>
-      <FormActions>
-        <button
-          type="button"
-          className="bg-marine-blue hover:opacity-80 transition duration-300 text-magnolia ml-auto px-[17px] lg:px-8 py-[10px] lg:py-3 text-sm lg:text-base rounded-[4px] lg:rounded-lg"
-          onClick={validateStep}
-        >
-          Next Step
-        </button>
-      </FormActions>
+      <div className="lg:w-2/3 w-full">
+        <TextInput
+          label="Quel est son numéro d'immatriculation ?
+                "
+          name="plate"
+          register={register}
+          validationRules={{
+            pattern: {
+              value: /^(([A-Z]{2}-\d{3}-[A-Z]{2})|(\d{3}-[A-Z]{3}-\d{2}))$/, // French car plate regex pattern
+              message: 'L immatriculation doit être sous la forme AB-123-CD (ou 123-ABC-45 avant 2009).',
+            },
+          }}
+          error={errors.plate}
+          placeholder="AA - AAA - AAA"
+          maxLength={35}
+          onBlur={() => trigger('plate')}
+          autoComplete="plate"
+        />
+
+        <FormActions>
+          <div className="flex flex-col lg:flex-row space-x-1">
+            <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+              Suivant
+            </Button>
+            <Button
+              type="button"
+              variant={'link'}
+              size={'sm'}
+              className="mt-8 text-blue-800 text-base"
+              onClick={() => {
+                router.push('/formulaire2/step2');
+              }}
+            >
+              Je ne connais pas l&apos;immatriculation
+              <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </Button>
+          </div>
+        </FormActions>
+      </div>
     </div>
   );
 }

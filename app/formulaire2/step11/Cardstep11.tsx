@@ -55,6 +55,8 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
             { value: 'gréle', label: 'gréle' },
             { value: 'sinistre avec tiers', label: 'sinistre avec tiers' },
             { value: 'sinistre sans tiers', label: 'sinistre sans tiers' },
+            { value: 'Vandalisme', label: 'Vandalisme' },
+            { value: 'Vol du véhicule', label: 'Vol du véhicule' },
           ]}
           placeholder=""
         />

@@ -62,9 +62,9 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.type_trajet}
             options={[
-              { value: 'Prive_et_travail', label: 'Privé et travail' },
-              { value: 'Prive_exclusivement', label: 'Prive exclusivement' },
-              { value: 'Prive_et_professionnel', label: 'Prive et professionnel' },
+              { value: 'Privé et travaill', label: 'Privé et travail' },
+              { value: 'Prive exclusivemen', label: 'Prive exclusivement' },
+              { value: 'Prive et professionnel', label: 'Prive et professionnel' },
               { value: 'Tournées régulières', label: 'Tournées régulières' },
             ]}
             placeholder="Sélectionner dans le liste"
@@ -78,10 +78,10 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.frequence_utilisation}
             options={[
-              { value: 'presque_tous_les_jours', label: 'Presque tous les jours' },
-              { value: 'troissurquatre', label: '3/4 jours par semaine' },
-              { value: 'moins_de_un', label: 'Moins de 1 par  semaine' },
-              { value: 'le_weekend_et_le_vacance', label: 'Le weekend et les vacances' },
+              { value: 'Presque tous les jours', label: 'Presque tous les jours' },
+              { value: '3/4 jours par semaine', label: '3/4 jours par semaine' },
+              { value: 'Moins de 1 par  semaine', label: 'Moins de 1 par  semaine' },
+              { value: 'Le weekend et les vacances', label: 'Le weekend et les vacances' },
             ]}
             placeholder="Sélectionner dans le liste"
           />
