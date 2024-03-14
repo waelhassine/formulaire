@@ -54,8 +54,8 @@ export default function FormulaireStep6() {
             question="Classé ou inscrit à l’inventaire des monuments historiques ?"
             name="inventaire"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -67,8 +67,8 @@ export default function FormulaireStep6() {
             question="Votre logement est-il situé à proximité d'un site ou d'une installation dangereuse ?"
             name="logementDangereuse"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -79,8 +79,8 @@ export default function FormulaireStep6() {
             question="Le logement possède t'il un garage ?"
             name="logement_garage"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -91,8 +91,8 @@ export default function FormulaireStep6() {
             question="Le logement possède t'il un sous-sol ?"
             name="logement_sous_sol"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -104,15 +104,15 @@ export default function FormulaireStep6() {
             question="Présence de dépendances ?"
             name="presence_dependances"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.presence_dependances}
             currentValue={presence_dependances}
           />
-          {presence_dependances === 'oui' && (
+          {presence_dependances === 'Oui' && (
             <SelectInput
               label="Surface des dépendances"
               name="surface_des_dépendances"
@@ -120,9 +120,9 @@ export default function FormulaireStep6() {
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors.surface_des_dépendances}
               options={[
-                { value: 'less_50', label: 'Moins de 50m2' },
-                { value: 'between_50_100', label: 'Entre 50 à 100m2' },
-                { value: 'more_100', label: 'Plus de 100m2' },
+                { value: 'Moins de 50m2', label: 'Moins de 50m2' },
+                { value: 'Entre 50 à 100m2', label: 'Entre 50 à 100m2' },
+                { value: 'Plus de 100m2', label: 'Plus de 100m2' },
               ]}
               placeholder=""
             />
@@ -131,15 +131,15 @@ export default function FormulaireStep6() {
             question="Présence d'une véranda ?"
             name="presence_veranda"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.presence_veranda}
             currentValue={presence_veranda}
           />
-          {presence_veranda === 'oui' && (
+          {presence_veranda === 'Oui' && (
             <SelectInput
               label="Surface de la véranda"
               name="surface_verande"
@@ -147,8 +147,8 @@ export default function FormulaireStep6() {
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors.surface_verande}
               options={[
-                { value: 'moins_de_50m2', label: 'Moins de 50m2' },
-                { value: 'plus_de_50m2', label: 'Plus de 50m2' },
+                { value: 'Moins de 50m2', label: 'Moins de 50m2' },
+                { value: 'Plus de 50m2', label: 'Plus de 50m2' },
               ]}
               placeholder=""
             />
@@ -157,15 +157,15 @@ export default function FormulaireStep6() {
             question="Présence de terrasses ?"
             name="terrasses"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.terrasses}
             currentValue={terrasses}
           />
-          {terrasses === 'oui' && (
+          {terrasses === 'Oui' && (
             <SelectInput
               label="Surface des terrasses"
               name="surface_terrasses"
@@ -173,8 +173,8 @@ export default function FormulaireStep6() {
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors.surface_terrasses}
               options={[
-                { value: 'moins_de_50m2', label: 'Moins de 50m2' },
-                { value: 'plus_de_50m2', label: 'Plus de 50m2' },
+                { value: 'Moins de 50m2', label: 'Moins de 50m2' },
+                { value: 'Plus de 50m2', label: 'Plus de 50m2' },
               ]}
               placeholder=""
             />
@@ -187,9 +187,9 @@ export default function FormulaireStep6() {
             error={errors.piscine}
             options={[
               { value: 'aucune', label: 'Aucune' },
-              { value: 'piscine_interieure', label: 'Piscine intérieure' },
-              { value: 'piscine_extérieure_couverte', label: 'Piscine extérieure couverte' },
-              { value: 'piscine_extérieure_non_couverte', label: 'Piscine extérieure non couverte' },
+              { value: 'Piscine intérieure', label: 'Piscine intérieure' },
+              { value: 'Piscine extérieure couverte', label: 'Piscine extérieure couverte' },
+              { value: 'Piscine extérieure non couverte', label: 'Piscine extérieure non couverte' },
             ]}
             placeholder=""
           />
@@ -197,8 +197,8 @@ export default function FormulaireStep6() {
             question="Présence d’autres installations extérieures (spa…) ?"
             name="installations_exterieures"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

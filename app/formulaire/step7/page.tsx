@@ -25,6 +25,7 @@ export default function FormulaireStep7() {
   const type_chien = watch('type_chien');
   const installation_professionnel = watch('installation_professionnel');
   const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
+  const systeme_de_chauffage = watch('Systeme_de_chauffage');
   return (
     <div className="w-full">
       <ProgressHeader val={70} />
@@ -90,8 +91,8 @@ export default function FormulaireStep7() {
             "
             name="type_chien"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -101,25 +102,42 @@ export default function FormulaireStep7() {
           <SelectInput
             label="Systeme de chauffage
               "
-            name="systeme_de_chauffage"
+            name="Systeme_de_chauffage"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Systeme_de_chauffage}
             options={[
-              { value: 'gaz_fuel_elect', label: 'Gaz / Fuel / Electricité' },
-              { value: 'Poele_à_Bois', label: 'Poele à Bois' },
-              { value: 'cheminee_ouvert', label: 'Cheminée à foyer ouvert' },
-              { value: 'cheminee_ferme', label: 'Cheminée à foyer fermé' },
+              { value: 'Gaz / Fuel / Electricité', label: 'Gaz / Fuel / Electricité' },
+              { value: 'Poele à Bois', label: 'Poele à Bois' },
+              { value: 'Cheminée à foyer ouvert', label: 'Cheminée à foyer ouvert' },
+              { value: 'Cheminée à foyer fermé', label: 'Cheminée à foyer fermé' },
+              { value: 'Autre', label: 'Autre' },
             ]}
             placeholder=""
           />
+          {systeme_de_chauffage === 'Autre' && (
+            <>
+              <TextInput
+                label="Pouvez vous préciser ?"
+                name="autre_preciser"
+                register={register}
+                type="text"
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.autre_preciser}
+                placeholder=""
+                maxLength={30}
+                onBlur={() => trigger('autre_preciser')}
+                autoComplete="autre_preciser"
+              />
+            </>
+          )}
           <RadioButtonGroup
             question="Son installation a été faite par un professionnel ?
             "
             name="installation_professionnel"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -131,8 +149,8 @@ export default function FormulaireStep7() {
             "
             name="energies_renouvelables"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
