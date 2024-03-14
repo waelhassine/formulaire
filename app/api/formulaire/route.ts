@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
     page.drawText(text, {
       x: x,
       y: y,
-      size: 11,
+      size: 12,
       font: timesRomanFont,
       color: rgb(0, 0, 0),
     });
@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
             localY -= lineSpacing / 2; // Extra spacing between items
           });
         } else {
-          drawText(`${key}:`, page, x, localY);
+          drawText(`- ${key}:`, page, x, localY);
           localY -= lineSpacing;
           Object.entries(value).forEach(([itemKey, itemValue]) => {
             checkAndAddNewPage();
@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
           });
         }
       } else {
-        drawText(`${key}: ${value}`, page, x, localY);
+        drawText(`- ${key}: ${value}`, page, x, localY);
         localY -= lineSpacing;
       }
     }

@@ -1,9 +1,7 @@
 'use client';
-import clsx from 'clsx';
 import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext';
 import { useRouter } from 'next/navigation';
-import FormActions from '@/components/FormActions';
 import Appartement from '@/components/Appartement';
 import Home_etager from '@/components/Home_etager';
 import Home_plein from '@/components/Home_plein';

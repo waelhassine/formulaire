@@ -7,7 +7,6 @@ import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
-import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 
 export default function FormulaireStep3() {

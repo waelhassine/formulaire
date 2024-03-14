@@ -4,7 +4,7 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
-
+import { selectedData } from './data';
 type Cardstep8Props = {
   onClose: () => void;
   index: number;
@@ -33,35 +33,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.cards?.[index]?.compagnie}
-          options={[
-            { value: 'SIMPLE', label: 'SIMPLE' },
-            { value: '2MA', label: '2MA' },
-            { value: 'ACHEEL', label: 'ACHEEL' },
-            { value: 'ACPS', label: 'ACPS' },
-            { value: 'ACTEL', label: 'ACTEL' },
-            { value: 'ADAM', label: 'ADAM' },
-            { value: 'ABEILLE ASSURANCES', label: 'ABEILLE ASSURANCES' },
-            { value: 'ACS AMI', label: 'ACS AMI' },
-            { value: 'ACTE VIE', label: 'ACTE VIE' },
-            { value: 'ACTE IARD', label: 'ACTE IARD' },
-            { value: 'ADEP', label: 'ADEP' },
-            { value: 'ADD VALUE ASSURANCES', label: 'ADD VALUE ASSURANCES' },
-            { value: 'ALEADE', label: 'ALEADE' },
-            { value: 'ALPHA Plus cortage', label: 'ALPHA Plus cortage' },
-            { value: 'ALPHA Parteners', label: 'ALPHA Parteners' },
-            { value: 'alptis', label: 'ALPTIS' },
-            { value: 'AMANA', label: 'AMANA' },
-            { value: 'Groupama', label: 'Groupama' },
-            { value: 'AMV', label: 'AMV' },
-            { value: 'APICIL', label: 'APICIL' },
-            { value: 'APGIS', label: 'APGIS' },
-            { value: 'APRIL', label: 'APRIL' },
-            { value: 'AREA', label: 'AREA' },
-            { value: 'ARÉAS', label: 'ARÉAS' },
-            { value: 'AXA', label: 'AXA' },
-            { value: 'AXA_France_Vie', label: 'AXA France Vie' },
-            { value: 'CARDIF', label: 'CARDIF' },
-          ]}
+          options={selectedData}
         />
 
         <TextInput
