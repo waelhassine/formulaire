@@ -11,7 +11,6 @@ import { useFieldArray } from 'react-hook-form';
 import FormActions from '@/components/FormActions';
 import { Conducteur_secondaire } from '@/types/form2';
 
-
 export default function FormulaireStep10() {
   const router = useRouter();
   const {
@@ -48,7 +47,7 @@ export default function FormulaireStep10() {
         <p className="text-lg">Précédent</p>
       </button>
 
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row text-2xl pt-12">
           Conducteur
           <span className="text-red-700 px-1">secondaire</span>
@@ -63,11 +62,11 @@ export default function FormulaireStep10() {
           />
         ))}
 
-        <Button type="button" variant="secondary" onClick={() => append({} as Conducteur_secondaire )}>
+        <Button type="button" variant="secondary" onClick={() => append({} as Conducteur_secondaire)}>
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter une infraction
         </Button>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

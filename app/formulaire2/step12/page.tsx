@@ -49,7 +49,7 @@ export default function FormulaireStep8() {
         <p className="text-lg">Précédent</p>
       </button>
 
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row text-2xl pt-12">
           Conducteur
           <span className="text-red-700 px-1">secondaire</span>
@@ -68,7 +68,7 @@ export default function FormulaireStep8() {
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un antécédent
         </Button>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>

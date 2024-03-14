@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import ProgressHeader from '@/components/ui/progressHeader';
@@ -36,7 +35,7 @@ export default function FormulaireStep17() {
   return (
     <div className="w-full">
       <ProgressHeader val={90} />
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row text-2xl pt-12">
           Conducteur
           <span className="text-red-700 px-1">secondaire</span>
@@ -55,7 +54,7 @@ export default function FormulaireStep17() {
         </Button>
 
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
             Suivant
           </Button>
         </FormActions>
