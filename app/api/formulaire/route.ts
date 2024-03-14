@@ -8,56 +8,62 @@ interface KeyMapping {
 }
 
 const keyMapping: KeyMapping = {
-  ville: 'Ville',
-  adresse: 'Adresse',
-  complement: 'Complément',
-  codepostal: 'Code Postal',
-  pays: 'Pays',
-  type_logement_assurer: 'Type de Logement à Assurer',
-  typelocation: "Type d'Occupation",
-  residence: 'Type de Résidence',
-  location: 'Proposé à la Location',
-  meuble: 'Meublé',
-  activite: 'Activité Professionnelle Exercée',
-  dateName: "Date d'Emménagement",
-  construction: 'Année de Construction',
-  surface: 'Surface Habitable',
-  nb: 'Nombre de Pièces Principales > 9m²',
-  logement_possede: 'Logement avec Grandes Pièces (>30m²)',
-  combien: 'Combien de Grandes Pièces',
-  adresseCorrespondance: 'Adresse Correspondance avec Souscripteur',
-  inventaire: 'Classé ou Inscrit à l’Inventaire des Monuments Historiques',
-  logementDangereuse: 'Proximité Site ou Installation Dangereuse',
-  logement_garage: 'Possède un Garage',
-  logement_sous_sol: 'Possède un Sous-Sol',
-  presence_dependances: 'Présence de Dépendances',
-  presence_veranda: 'Présence d’une Véranda',
-  terrasses: 'Présence de Terrasses',
-  piscine: 'Type de Piscine',
-  installations_exterieures: 'Installations Extérieures (Spa, etc.)',
-  surface_des_dépendances: 'Surface des Dépendances',
-  mobiliere_assurer: 'Valeur Mobilière à Assurer',
-  presence_objet: 'Présence d’Objets de Valeur',
-  logement_alarame: 'Logement avec Alarme',
-  periode_logement: 'Période d’Inoccupation du Logement',
-  nombre_d_adultes_vivant_au_domicile: 'Nombre d’Adultes Vivant au Domicile',
-  nombre_d_enfants_vivant_au_domicile: 'Nombre d’Enfants Vivant au Domicile',
-  presence_d_enfants_18_ans: 'Présence d’Enfants > 18 ans',
-  type_chien: 'Chien(s) de Catégorie 1 ou 2',
-  systeme_de_chauffage: 'Système de Chauffage',
-  installation_professionnel: 'Installation Faite par un Professionnel',
-  energies_renouvelables: 'Présence d’Énergies Renouvelables',
-  cards: 'Antécédents d’Assurance',
-  Civilite: 'Civilité',
-  Prenom: 'Prénom', // Note: Spaces will be trimmed
+  plate: 'Quel est son numéro d immatriculation ?',
+  marque: 'Quelle est sa marque ?',
+  modele: 'Quel est son modèle ?',
+  finition: 'Quelle est sa finition ?',
+  dateName: 'Quelle est sa date de mise en circulation ?',
+  dateDachat: 'Date d achat',
+  type_achat: 'Type d achat',
+  modifications_techniques: 'Le véhicule a-t-il subi des modifications techniques ?',
+  titulaire_carte_grise: 'Titulaire de la carte grise',
+  niveau_couverture: 'Niveau de couverture souhaité',
+  type_trajet: 'Type de trajet',
+  frequence_utilisation: 'Fréquence d utilisation',
+  nb_km: 'Nombre de km parcourus par an',
+  type_de_stationnement: 'Type de stationnement',
+  type_de_parking_collectif: 'Veuillez préciser le type de parking collectif',
+  stationnementstep6: 'Voie de stationnement',
+  complementstep6: 'Complément',
+  codepostalste6: 'Code postal',
+  villestep6: 'Ville',
+  Civilitestep7: 'Civilite',
+  Prenom: 'Prénom',
+  Nomstep7: 'Nom',
+  naissance: 'Date de naissance',
+  date_permis: 'Date d obtention du permis de conduire',
+  type_permis: 'Type de permis',
+  CRMstep8: 'Coefficient de Bonus/Malus (CRM)',
+  CRM_bonusstep8: 'Nombre d année(s) à 0.5',
+  deja_assurestep9: 'Déjà assuré en tant que conducteur principal ?',
+  deja_assure_secondairestep9: 'Déjà assuré en tant que conducteur secondaire ?',
+  conduite_accompagneestep9: 'Obtention du permis suite à la conduite accompagnée ?',
+  suspension_permisstep9: 'Le permis du conducteur principal a-t-il fait l objet de suspension(s) ?',
+  objet_annulationstep9: 'Le permis du conducteur principal a-t-il fait l objet d annulation(s) ?',
+  card_Conducteur_v2: 'Le conducteur a t il commis des infractions ?',
+  card_sinistre_principal: 'Le conducteur a t il déclaré des sinistres ?',
+  card_conducteur: 'Antécédents d&apos;assurance',
+  conducteur_secondaire: 'un conducteur secondaire ?',
+  CiviliteIdentité: 'Civilite',
+  CRMConducteur: 'Coefficient de Bonus/Malus (CRM)',
+  CRM_bonus_Conducteur: 'Coefficient de Bonus/Malus (CRM)',
+  deja_assurestep16: 'Déjà assuré en tant que conducteur principal ?',
+  deja_assure_secondairestep16: 'Déjà assuré en tant que conducteur secondaire ?',
+  conduite_accompagneestep16: 'Obtention du permis suite à la conduite accompagnée ?',
+  suspension_permisstep16: 'Le permis du conducteur principal a-t-il fait l objet de suspension(s) ?',
+  objet_annulationstep16: 'Le permis du conducteur principal a-t-il fait l objet d annulation(s) ?',
+  card_conducteur_infraction: 'Le conducteur a t il commis des infractions ?',
+  card_conducteur_sinistres: 'Le conducteur a til déclaré des sinistres ?',
+  card_assurance: 'Antécédents dassurance',
+  Civilite: 'Civilite',
   Nom: 'Nom',
   Email: 'Email',
   Telephone: 'Téléphone',
-  date_de_naissance: 'Date de naissance',
-  // Additional fields from your description
-  etage_appratement: 'Étage Appartement',
-  surface_verande: 'Surface de la Véranda',
-  surface_terrasses: 'Surface des Terrasses',
+  adresse: 'Adresse',
+  complement: 'Complément',
+  codepostal: 'Code postal',
+  ville: 'Ville',
+  pays: 'Pays',
 };
 
 function transformData(data: any): any {
@@ -77,6 +83,7 @@ function transformData(data: any): any {
 
 export async function POST(request: NextRequest) {
   const originalData = await request.json();
+  console.log(originalData);
   const data = transformData(originalData); // Transform the incoming JSON data
 
   const pdfDoc = await PDFDocument.create();
@@ -174,7 +181,7 @@ export async function POST(request: NextRequest) {
     }
   });
   // // Example: Uncomment and use this line if you intend to actually send the email
-  // await sendEmail(pdfBytes);
+  //await sendEmail(pdfBytes);
 
   return new Response(pdfBytes, {
     status: 200,

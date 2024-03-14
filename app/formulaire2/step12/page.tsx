@@ -54,7 +54,7 @@ export default function FormulaireStep8() {
           Conducteur
           <span className="text-red-700 px-1">secondaire</span>
         </p>
-        <p className="flex flex-row text-2xl pt-12">Antécédents dassurance</p>
+        <p className="flex flex-row text-2xl pt-12">Antécédents d&apos;assurance</p>
 
         {fields.map((field, index) => (
           <Cardstep12

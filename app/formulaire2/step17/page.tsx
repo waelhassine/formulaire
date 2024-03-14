@@ -23,9 +23,7 @@ export default function FormulaireStep17() {
   });
 
   const validateStep = async () => {
-    console.log('data', getValues());
     const result = await trigger();
-    console.log('data', getValues());
 
     if (result && isValid) {
       router.push('/formulaire2/step18');

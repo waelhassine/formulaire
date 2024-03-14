@@ -8,14 +8,7 @@ import { useRouter } from 'next/navigation';
 export default function Provider2({ children }: FormProviderProps) {
   const route = useRouter();
 
-  const methods = useAppForm({
-    name: '',
-    email: '',
-    phone: '',
-    adresse: '',
-    complement: '',
-    codepostal: '',
-  });
+  const methods = useAppForm({});
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse && data.logementDangereuse);

@@ -16,49 +16,82 @@ export default function FormulaireStep9() {
   const validateStep = async () => {
     const allFormValues = getValues();
     await trigger();
+    console.log(isValid);
+    try {
+      const response = await fetch('/api/formulaire', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(allFormValues),
+      });
 
-    if (isValid) {
-      try {
-        const response = await fetch('/api/formulaire', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(allFormValues),
-        });
-
-        if (response.ok) {
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
-          console.log(response);
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
-          router.push('/merci');
-          // Handle the PDF data returned by the API
-          // For example, download the PDF file
-          // const blob = await response.blob();
-          // const downloadUrl = window.URL.createObjectURL(blob);
-          // const link = document.createElement('a');
-          // link.href = downloadUrl;
-          // link.download = 'generated-pdf.pdf';
-          // document.body.appendChild(link);
-          // link.click();
-          // link.remove();
-        } else {
-          // Handle errors or unsuccessful responses
-          console.error('Failed to generate the PDF');
-        }
-      } catch (error) {
-        console.error('There was an error submitting the form:', error);
+      if (response.ok) {
+        // Handle the PDF data returned by the API
+        // For example, download the PDF file
+        console.log(response);
+        // Handle the PDF data returned by the API
+        // For example, download the PDF file
+        router.push('/merci');
+        // Handle the PDF data returned by the API
+        // For example, download the PDF file
+        // const blob = await response.blob();
+        // const downloadUrl = window.URL.createObjectURL(blob);
+        // const link = document.createElement('a');
+        // link.href = downloadUrl;
+        // link.download = 'generated-pdf.pdf';
+        // document.body.appendChild(link);
+        // link.click();
+        // link.remove();
+      } else {
+        // Handle errors or unsuccessful responses
+        console.error('Failed to generate the PDF');
       }
+    } catch (error) {
+      console.error('There was an error submitting the form:', error);
     }
+    // if (isValid) {
+    //   try {
+    //     const response = await fetch('/api/formulaire', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //       body: JSON.stringify(allFormValues),
+    //     });
+
+    //     if (response.ok) {
+    //       // Handle the PDF data returned by the API
+    //       // For example, download the PDF file
+    //       console.log(response);
+    //       // Handle the PDF data returned by the API
+    //       // For example, download the PDF file
+    //       router.push('/merci');
+    //       // Handle the PDF data returned by the API
+    //       // For example, download the PDF file
+    //       // const blob = await response.blob();
+    //       // const downloadUrl = window.URL.createObjectURL(blob);
+    //       // const link = document.createElement('a');
+    //       // link.href = downloadUrl;
+    //       // link.download = 'generated-pdf.pdf';
+    //       // document.body.appendChild(link);
+    //       // link.click();
+    //       // link.remove();
+    //     } else {
+    //       // Handle errors or unsuccessful responses
+    //       console.error('Failed to generate the PDF');
+    //     }
+    //   } catch (error) {
+    //     console.error('There was an error submitting the form:', error);
+    //   }
+    // }
   };
   const Civilite = watch('Civilite');
   const conducteur_pricipal = watch('conducteur_pricipal');
   return (
     <div className="w-full">
       <ProgressHeader val={100} />
-      <div className="flex flex-col space-y-4 w-2/3">
+      <div className="flex flex-col space-y-4 lg:w-2/3 w-full">
         <p className="flex flex-row  text-2xl pt-12">
           Coordonnées
           <p className="text-red-700 px-1">du souscripteur du contrat</p> ?
@@ -161,8 +194,8 @@ export default function FormulaireStep9() {
             autoComplete="complement"
           />
 
-          <div className="flex flex-row space-x-3  w-full ">
-            <div className="w-1/2">
+          <div className="flex lg:flex-row  flex-col space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
                 name="codepostal"
@@ -175,7 +208,7 @@ export default function FormulaireStep9() {
                 autoComplete="codepostal"
               />
             </div>
-            <div className="w-1/2">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
                 name="ville"

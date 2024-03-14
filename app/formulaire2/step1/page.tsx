@@ -9,13 +9,40 @@ import TextInput from '@/components/TextInput';
 
 export default function Formulaire() {
   const router = useRouter();
-  const { register, trigger, formState, watch } = useAppFormContext();
+  const fetchData = async (plate: string) => {
+    // Example API call, replace URL and options according to your API
+    const response = await fetch(
+      'https://pro-formulaire-api.app.dismoilya.fr/lyaform/formulaires/32246421-2e17-4f17-89a0-2cda89ab5edf/vehicule/' +
+        plate,
+      {
+        method: 'GET', // or 'POST'
+        headers: {
+          'Content-Type': 'application/json',
+          // Additional headers if required
+        },
+        // body: JSON.stringify({ plate }), // If you need to send data
+      },
+    );
+    if (!response.ok) {
+      router.push('/formulaire2/step2');
+    }
+    return response.json();
+  };
+  const { register, trigger, formState, watch, setValue } = useAppFormContext();
 
   const { isValid, errors } = formState;
   const plate = watch('plate');
   const validateStep = async () => {
+    console.log(plate);
     await trigger();
     if (isValid) {
+      const data = await fetchData(plate); // Fetch data from API
+      console.log(data);
+      setValue('marque', data.marque);
+      setValue('modele', data.modele);
+      setValue('finition', data.sraCommercial);
+      const formattedDate = data.date1erCirFr.split('T')[0];
+      setValue('dateName', formattedDate);
       router.push('/formulaire2/step2');
     }
   };
@@ -28,7 +55,7 @@ export default function Formulaire() {
           <span className="text-red-700 px-1">véhicule</span>
         </p>
       </div>
-      <div className="lg:w-2/3">
+      <div className="lg:w-2/3 w-full">
         <TextInput
           label="Quel est son numéro d'immatriculation ?
                 "
@@ -48,7 +75,7 @@ export default function Formulaire() {
         />
 
         <FormActions>
-          <div className="flex flex-row space-x-1">
+          <div className="flex flex-col lg:flex-row space-x-1">
             <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
               Suivant
             </Button>
