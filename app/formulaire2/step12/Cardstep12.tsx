@@ -4,6 +4,8 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons';
+import { selectedData } from './data';
+
 
 type Cardstep8Props = {
   onClose: () => void;
@@ -16,6 +18,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
     formState: { errors },
     watch,
   } = useAppFormContext();
+
 
   const contratCours = watch(`card_conducteur.${index}.contract_cours`);
 
@@ -37,35 +40,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.card_conducteur?.[index]?.compagnie}
-          options={[
-            { value: 'SIMPLE', label: 'SIMPLE' },
-            { value: '2MA', label: '2MA' },
-            { value: 'ACHEEL', label: 'ACHEEL' },
-            { value: 'ACPS', label: 'ACPS' },
-            { value: 'ACTEL', label: 'ACTEL' },
-            { value: 'ADAM', label: 'ADAM' },
-            { value: 'ABEILLE_ASSURANCES', label: 'ABEILLE ASSURANCES' },
-            { value: 'ACS_AMI', label: 'ACS AMI' },
-            { value: 'ACTE_VIE', label: 'ACTE VIE' },
-            { value: 'ACTE_IARD', label: 'ACTE IARD' },
-            { value: 'ADEP', label: 'ADEP' },
-            { value: 'ADD_VALUE_ASSURANCES', label: 'ADD VALUE ASSURANCES' },
-            { value: 'ALEADE', label: 'ALEADE' },
-            { value: 'ALPHA_Plus_cortage', label: 'ALPHA Plus cortage' },
-            { value: 'ALPHA_Parteners', label: 'ALPHA Parteners' },
-            { value: 'alptis', label: 'ALPTIS' },
-            { value: 'AMANA', label: 'AMANA' },
-            { value: 'Groupama', label: 'Groupama' },
-            { value: 'AMV', label: 'AMV' },
-            { value: 'APICIL', label: 'APICIL' },
-            { value: 'APGIS', label: 'APGIS' },
-            { value: 'APRIL', label: 'APRIL' },
-            { value: 'AREA', label: 'AREA' },
-            { value: 'ARÉAS', label: 'ARÉAS' },
-            { value: 'AXA', label: 'AXA' },
-            { value: 'AXA_France_Vie', label: 'AXA France Vie' },
-            { value: 'CARDIF', label: 'CARDIF' },
-          ]}
+          options={selectedData}
           placeholder=""
         />
         <TextInput

@@ -81,7 +81,7 @@ export default function FormulaireStep6() {
               { value: 'Presque tous les jours', label: 'Presque tous les jours' },
               { value: '3/4 jours par semaine', label: '3/4 jours par semaine' },
               { value: 'Moins de 1 par  semaine', label: 'Moins de 1 par  semaine' },
-              { value: 'Le weekend et les vacances', label: 'Le weekend et les vacances' },
+              { value: 'Le weekend et les vacances', label: 'Le week-end et les vacances' },
             ]}
             placeholder="Sélectionner dans le liste"
           />
