@@ -26,7 +26,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
             <TrashIcon />
           </button>
         </div>
-        <div className="flex flex-row gap-4 w-full">
+        <div className="flex lg:flex-row flex-col lg:gap-4 gap-2 w-full">
           <div className="lg:w-1/2 w-full">
             <SelectInput
               label="Type d'infraction"

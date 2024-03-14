@@ -45,8 +45,8 @@ export default function FormulaireStep2() {
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-          <div className="flex flex-row space-x-3  w-full ">
-            <div className="w-1/2">
+          <div className="flex lg:flex-row flex-col space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Quelle est sa marque ?
                 "
@@ -60,7 +60,7 @@ export default function FormulaireStep2() {
                 autoComplete="marque"
               />
             </div>
-            <div className="w-1/2">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Quel est son modèle ?
                 "

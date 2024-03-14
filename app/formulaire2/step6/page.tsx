@@ -69,8 +69,8 @@ export default function FormulaireStep4() {
             autoComplete="complementstep6"
           />
 
-          <div className="flex flex-row space-x-3  w-full ">
-            <div className="w-1/2">
+          <div className="flex lg:flex-row flex-col space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
                 name="codepostalste6"
@@ -83,7 +83,7 @@ export default function FormulaireStep4() {
                 autoComplete="codepostalste6"
               />
             </div>
-            <div className="w-1/2">
+            <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
                 name="villestep6"
