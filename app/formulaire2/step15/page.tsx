@@ -53,7 +53,7 @@ export default function FormulaireStep3() {
             label="Date d'obtention du permis de conduire
 
             "
-            name="date_permis"
+            name="date_permisConducteur"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.date_permisConducteur}
@@ -64,7 +64,7 @@ export default function FormulaireStep3() {
             label="Type de permis
 
               "
-            name="type_permis"
+            name="type_permisConducteur"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.type_permisConducteur}

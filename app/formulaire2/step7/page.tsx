@@ -63,7 +63,7 @@ export default function FormulaireStep7() {
           <TextInput
             label="Prénom
             "
-            name="Prenom
+            name="Prenomstep7
             "
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
