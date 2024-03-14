@@ -78,30 +78,30 @@ export default function FormulaireStep3() {
             label="Coefficient de Bonus/Malus (CRM)
 
           "
-            name="CRM"
+            name="CRMstep8"
             type="number"
             register={register}
             validationRules={{ required: 'Le champ doit contenir au moins 0.5 caractères' }}
-            error={errors.CRM}
+            error={errors.CRMstep8}
             placeholder=""
             maxLength={20}
-            onBlur={() => trigger('CRM')}
-            autoComplete="CRM"
+            onBlur={() => trigger('CRMstep8')}
+            autoComplete="CRMstep8"
           />
           {CRM <= 0.5 && (
             <TextInput
               label="Nombre d'année(s) à 0.5
 
           "
-              name="CRM_bonus"
+              name="CRM_bonusstep8"
               type="number"
               register={register}
               validationRules={{ required: 'Merci de renseigner un nombre d année' }}
-              error={errors.CRM_bonus}
+              error={errors.CRM_bonusstep8}
               placeholder=""
               maxLength={20}
-              onBlur={() => trigger('CRM_bonus')}
-              autoComplete="CRM_bonus"
+              onBlur={() => trigger('CRM_bonusstep8')}
+              autoComplete="CRM_bonusstep8"
             />
           )}
         </div>

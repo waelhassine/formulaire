@@ -24,7 +24,7 @@ export default function FormulaireStep7() {
       router.push('/formulaire2/step8');
     }
   };
-  const Civilite = watch('Civilite');
+  const Civilitestep7 = watch('Civilitestep7');
   return (
     <div className="w-full">
       <ProgressHeader val={100} />
@@ -50,15 +50,15 @@ export default function FormulaireStep7() {
           <RadioButtonGroup
             question="Civilite
             "
-            name="Civilite"
+            name="Civilitestep7"
             options={[
               { value: 'oui', label: 'Monsieur' },
               { value: 'non', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Civilite}
-            currentValue={Civilite}
+            error={errors.Civilitestep7}
+            currentValue={Civilitestep7}
           />
           <TextInput
             label="Prénom
@@ -67,23 +67,23 @@ export default function FormulaireStep7() {
             "
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Prenom}
+            error={errors.Prenomstep7}
             placeholder="Entrez votre Prenom"
             maxLength={20}
-            onBlur={() => trigger('Prenom')}
-            autoComplete="Prenom"
+            onBlur={() => trigger('Prenomstep7')}
+            autoComplete="Prenomstep7"
           />
 
           <TextInput
             label="Nom"
-            name="Nom"
+            name="Nomstep7"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Nom}
+            error={errors.Nomstep7}
             placeholder="Entrez votre Nom"
             maxLength={20}
-            onBlur={() => trigger('Nom')}
-            autoComplete="Nom"
+            onBlur={() => trigger('Nomstep7')}
+            autoComplete="Nomstep7"
           />
           <TextInput
             label="Date de naissance"

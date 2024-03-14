@@ -18,36 +18,19 @@ export interface FormValues {
   logement_garage: 'oui' | 'non';
   logement_sous_sol: 'oui' | 'non';
   presence_dependances: 'oui' | 'non';
-  surface_des_dépendances: string;
-  Systeme_de_chauffage: string;
-  surface_verande: string;
   terrasses: 'oui' | 'non';
-  surface_terrasses: string;
-  piscine: string;
   installations_exterieures: 'oui' | 'non';
-  mobiliere_assurer: number;
   presence_objet: 'oui' | 'non';
-  logement_alarame: 'oui' | 'non';
-  periode_logement: string;
 
   plan: 'arcade' | 'advanced' | 'pro';
   billing: 'monthly' | 'yearly';
   location: string;
-  typelocation: string;
-  nombre_adultes: number;
-  nombre_d_enfants_vivant_au_domicile: number;
-  presence_d_enfants_18_ans: number;
   presence_veranda: 'oui' | 'non';
-  residence: 'principal' | 'secondaire';
-  meuble: 'oui' | 'non';
   activite: 'oui' | 'non';
-  type_chien: 'oui' | 'non';
   Email: string;
   Telephone: string;
   Prenom: string;
   Nom: string;
-  installation_professionnel: 'oui' | 'non';
-  energies_renouvelables: 'oui' | 'non';
   Civilite: string;
   addons: {
     online: boolean;
@@ -55,17 +38,15 @@ export interface FormValues {
     profi0le: boolean;
   };
   dateName: undefined | Date;
-  construction: string;
   dateDachat: Date;
-  surface: number;
-  nb: number;
-  logement_possede: 'oui' | 'non';
+  nb: number; //idk
   objet_annulation: 'oui' | 'non';
   conduite_accompagnee: 'oui' | 'non';
   stationnement: string;
   suspension_permis: 'oui' | 'non';
   CRM: number;
-  combien: number;
+  CRMstep8: number;
+  CRM_bonusstep8: number;
   type_permis: string;
   PrenomIdentité: string;
   CRM_bonus: number;
@@ -102,6 +83,24 @@ export interface FormValues {
   card_conducteur_infraction: ConducteurInfraction[];
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
+  stationnementstep6: string;
+  complementstep6:string;
+  codepostalste6: string;
+  villestep6: string;
+  Civilitestep7: 'oui' | 'non';
+  Prenomstep7: string;
+  Nomstep7: string;
+  deja_assurestep9: 'oui' | 'non';
+  deja_assure_secondairestep9:'oui' | 'non';
+  conduite_accompagneestep9: 'oui' | 'non';
+  suspension_permisstep9: 'oui' | 'non';
+  objet_annulationstep9: 'oui' | 'non';
+  deja_assurestep16: 'oui' | 'non';
+  deja_assure_secondairestep16: 'oui' | 'non';
+  conduite_accompagneestep16: 'oui' | 'non';
+  suspension_permisstep16: 'oui' | 'non';
+  objet_annulationstep16: 'oui' | 'non';
+  complementstep20: string;
 }
 
 export interface CardInfo {

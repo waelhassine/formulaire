@@ -48,52 +48,52 @@ export default function FormulaireStep4() {
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
             label="Voie de stationnement"
-            name="stationnement"
+            name="stationnementstep6"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.stationnement}
+            error={errors.stationnementstep6}
             placeholder="Entrez votre stationnement"
             maxLength={20}
-            onBlur={() => trigger('stationnement')}
-            autoComplete="stationnement"
+            onBlur={() => trigger('stationnementstep6')}
+            autoComplete="stationnementstep6"
           />
           <TextInput
             label="Complément"
-            name="complement"
+            name="complementstep6"
             register={register}
             validationRules={{}}
-            error={errors.complement}
+            error={errors.complementstep6}
             placeholder="Entrez votre complément"
             maxLength={20}
-            onBlur={() => trigger('complement')}
-            autoComplete="complement"
+            onBlur={() => trigger('complementstep6')}
+            autoComplete="complementstep6"
           />
 
           <div className="flex flex-row space-x-3  w-full ">
             <div className="w-1/2">
               <TextInput
                 label="Code postal"
-                name="codepostal"
+                name="codepostalste6"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.codepostal}
+                error={errors.codepostalste6}
                 placeholder="Entrez votre Code postal"
                 maxLength={20}
-                onBlur={() => trigger('codepostal')}
-                autoComplete="codepostal"
+                onBlur={() => trigger('codepostalste6')}
+                autoComplete="codepostalste6"
               />
             </div>
             <div className="w-1/2">
               <TextInput
                 label="Ville"
-                name="ville"
+                name="villestep6"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.ville}
+                error={errors.villestep6}
                 placeholder="Entrez votre Ville"
                 maxLength={20}
-                onBlur={() => trigger('ville')}
-                autoComplete="ville"
+                onBlur={() => trigger('villestep6')}
+                autoComplete="villestep6"
               />
             </div>
           </div>

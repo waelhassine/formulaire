@@ -24,14 +24,16 @@ export default function FormulaireStep9() {
     }
   };
 
-  const deja_assure = watch('deja_assure');
-  const deja_assure_secondaire = watch('deja_assure_secondaire');
-  const conduite_accompagnee = watch('conduite_accompagnee');
+  const deja_assurestep9 = watch('deja_assurestep9');
+  const deja_assure_secondairestep9 = watch('deja_assure_secondairestep9');
+  const conduite_accompagneestep9 = watch('conduite_accompagneestep9');
   const suspension_permis = watch('suspension_permis');
   const objet_annulation = watch('objet_annulation');
   const presence_veranda = watch('presence_veranda');
   const installations_exterieures = watch('installations_exterieures');
   const terrasses = watch('terrasses');
+  const suspension_permisstep9 = watch('suspension_permisstep9');
+  const objet_annulationstep9 = watch('objet_annulationstep9');
   return (
     <div className="w-full">
       <ProgressHeader val={60} />
@@ -57,69 +59,69 @@ export default function FormulaireStep9() {
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur principal ?
             "
-            name="deja_assure"
+            name="deja_assurestep9"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assure}
-            currentValue={deja_assure}
+            error={errors.deja_assurestep9}
+            currentValue={deja_assurestep9}
           />
 
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur secondaire ?
             "
-            name="deja_assure_secondaire"
+            name="deja_assure_secondairestep9"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assure_secondaire}
-            currentValue={deja_assure_secondaire}
+            error={errors.deja_assure_secondairestep9}
+            currentValue={deja_assure_secondairestep9}
           />
           <RadioButtonGroup
             question="Obtention du permis suite à la conduite accompagnée ?
             "
-            name="conduite_accompagnee"
+            name="conduite_accompagneestep9"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.conduite_accompagnee}
-            currentValue={conduite_accompagnee}
+            error={errors.conduite_accompagneestep9}
+            currentValue={conduite_accompagneestep9}
           />
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?
 "
-            name="suspension_permis"
+            name="suspension_permisstep9"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.suspension_permis}
-            currentValue={suspension_permis}
+            error={errors.suspension_permisstep9}
+            currentValue={suspension_permisstep9}
           />
 
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?
             "
-            name="objet_annulation"
+            name="objet_annulationstep9"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.objet_annulation}
-            currentValue={objet_annulation}
+            error={errors.objet_annulationstep9}
+            currentValue={objet_annulationstep9}
           />
         </div>
         <FormActions>
