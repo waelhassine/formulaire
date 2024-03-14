@@ -99,6 +99,7 @@ export interface FormValues {
   card_assurance: CardInfo[];
   card_conducteur_sinistres: sinistre_principal[];
   card_Conducteur_v2: Conducteur_secondaire[];
+  card_conducteur_infraction: ConducteurInfraction[];
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
 }
@@ -110,6 +111,14 @@ export interface CardInfo {
   resiliation?: Date;
   motif_resiliation?: string;
   commentaires: string;
+  recidive_non_paiement: 'oui' | 'non';
+  contentieux_solde: 'oui' | 'non';
+}
+
+export interface ConducteurInfraction {
+  type_infraction: string;
+  nomber_infraction: number;
+  Ont_elles_moins_de_5_ans: 'oui' | 'non';
 }
 
 export interface sinistre_principal {
@@ -119,10 +128,8 @@ export interface sinistre_principal {
   taux_responsabilite: string;
 }
 
-
-export interface Conducteur_secondaire{
- type_infraction: string;
- nombre_infraction: number;
-moin_de_5_ans: 'oui' | 'non';
-
+export interface Conducteur_secondaire {
+  type_infraction: string;
+  nombre_infraction: number;
+  moin_de_5_ans: 'oui' | 'non';
 }

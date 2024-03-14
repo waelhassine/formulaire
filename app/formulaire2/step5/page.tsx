@@ -108,31 +108,42 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.type_de_stationnement}
             options={[
-              { value: 'parking_collectif_clos', label: 'Parking collectif clos' },
-              { value: 'parking_individuel', label: 'Parking individuel' },
-              { value: 'voie_public', label: 'Voie public' },
+              { value: 'Parking collectif clos', label: 'Parking collectif clos' },
+              { value: 'Parking individuel', label: 'Parking individuel' },
+              { value: 'Voie public', label: 'Voie public' },
             ]}
             placeholder="Sélectionner dans le liste"
           />
-          {type_de_stationnement === 'parking_individuel' || type_de_stationnement === 'parking_collectif_clos' ? (
+          {type_de_stationnement === 'Parking individuel' || type_de_stationnement === 'Parking collectif clos' ? (
             <>
-              <SelectInput
-                label="Veuillez préciser le type de parking collectif
-
-
-
-
-              "
-                name="type_de_parking_collectif"
-                register={register}
-                validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.type_de_parking_collectif}
-                options={[
-                  { value: 'jardin_clos', label: 'jardin clos' },
-                  { value: 'Garage_fermé_Box', label: 'Garage fermé/Box' },
-                ]}
-                placeholder="Sélectionner dans le liste"
-              />
+              {type_de_stationnement === 'Parking collectif clos' ? (
+                <SelectInput
+                  label="Veuillez préciser le type de parking collectif"
+                  name="type_de_parking_collectif"
+                  register={register}
+                  validationRules={{ required: 'Champ obligatoire' }}
+                  error={errors.type_de_parking_collectif}
+                  options={[
+                    { value: 'En plein air', label: 'En plein air' },
+                    { value: 'Couvert et surveillé', label: 'Couvert et surveillé' },
+                    { value: 'Couvert non surveillé', label: 'Couvert non surveillé' },
+                  ]}
+                  placeholder="Sélectionner dans le liste"
+                />
+              ) : (
+                <SelectInput
+                  label="Veuillez préciser le type de parking collectif"
+                  name="type_de_parking_collectif"
+                  register={register}
+                  validationRules={{ required: 'Champ obligatoire' }}
+                  error={errors.type_de_parking_collectif}
+                  options={[
+                    { value: 'jardin clos', label: 'jardin clos' },
+                    { value: 'Garage fermé/Box', label: 'Garage fermé/Box' },
+                  ]}
+                  placeholder="Sélectionner dans le liste"
+                />
+              )}
             </>
           ) : null}
         </div>

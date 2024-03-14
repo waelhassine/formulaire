@@ -1,7 +1,7 @@
 'use client';
-import clsx from 'clsx';
+
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
-import { useRouter } from 'next/navigation';
+
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
@@ -19,7 +19,8 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
     watch,
   } = useAppFormContext();
   const contratCours = watch(`card_assurance.${index}.contract_cours`);
-
+  const contentieux_solde = watch(`card_assurance.${index}.contentieux_solde`);
+  const recidive_non_paiement = watch(`card_assurance.${index}.recidive_non_paiement`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       {' '}
@@ -119,6 +120,43 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
                 { value: 'Changement_dadress', label: 'Changement d adress' },
               ]}
               placeholder=""
+            />
+            <RadioButtonGroup
+              question="Y a-t-il eu récidive de non paiement ?
+
+            "
+              name={`card_assurance.${index}.recidive_non_paiement`}
+              options={[
+                { value: 'oui', label: 'Oui' },
+                { value: 'non', label: 'Non' },
+              ]}
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors?.card_assurance?.[index]?.recidive_non_paiement}
+              currentValue={recidive_non_paiement}
+            />
+            <RadioButtonGroup
+              question="Le contentieux a-t-il été soldé ?
+
+            "
+              name={`card_assurance.${index}.contentieux_solde`}
+              options={[
+                { value: 'oui', label: 'Oui' },
+                { value: 'non', label: 'Non' },
+              ]}
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors?.card_assurance?.[index]?.contentieux_solde}
+              currentValue={contentieux_solde}
+            />
+            <TextInput
+              label="Commentaires
+            "
+              name={`card_assurance.${index}.commentaires`}
+              register={register}
+              validationRules={{}}
+              error={errors?.card_assurance?.[index]?.commentaires}
+              type="textarea"
             />
           </>
         )}

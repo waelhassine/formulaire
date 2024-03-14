@@ -58,8 +58,8 @@ export default function FormulaireStep13() {
             "
             name="CiviliteIdentité"
             options={[
-              { value: 'oui', label: 'Monsieur' },
-              { value: 'non', label: 'Madame' },
+              { value: 'Monsieur', label: 'Monsieur' },
+              { value: 'Madame', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -76,7 +76,7 @@ export default function FormulaireStep13() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.PrenomIdentité}
             placeholder="Entrez votre Prenom"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('PrenomIdentité')}
             autoComplete="PrenomIdentité"
           />
@@ -87,7 +87,7 @@ export default function FormulaireStep13() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.adresse}
             placeholder="Entrez votre Nom"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('NomIdentité')}
             autoComplete="NomIdentité"
           />

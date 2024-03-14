@@ -42,24 +42,24 @@ export default function FormulaireStep4() {
 
       <div className="flex flex-col space-y-4 w-2/3">
         <p className="flex flex-row  text-2xl pt-12">
-        Votre 
- <span className="text-red-700 px-1">contrat</span>
+          Votre
+          <span className="text-red-700 px-1">contrat</span>
         </p>
         <SelectInput
-              label="Niveau de couverture souhaité
+          label="Niveau de couverture souhaité
               "
-              name="niveau_couverture"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.niveau_couverture}
-              options={[
-                { value: 'Tiere', label: 'Tiere +' },
-                { value: 'Tiere_plus', label: 'Tiere plus' },
-                { value: 'tous_risque', label: 'tous risque' },
-              ]}
-              placeholder="Sélectionner dans le liste"
-              />
-       
+          name="niveau_couverture"
+          register={register}
+          validationRules={{ required: 'Champ obligatoire' }}
+          error={errors.niveau_couverture}
+          options={[
+            { value: 'Tiere', label: 'Tiere +' },
+            { value: 'Tiere plus', label: 'Tiere plus' },
+            { value: 'Tous risque', label: 'Tous risque' },
+          ]}
+          placeholder="Sélectionner dans le liste"
+        />
+
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
             Suivant

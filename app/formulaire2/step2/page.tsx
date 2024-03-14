@@ -1,15 +1,12 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
+
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
-import SelectInput from '@/components/SelectWael';
+
 import TextInput from '@/components/TextInput';
 
 export default function FormulaireStep2() {
@@ -102,7 +99,7 @@ export default function FormulaireStep2() {
             maxLength={20}
             onBlur={() => trigger('dateName')}
             autoComplete="dateName"
-            type='date'
+            type="date"
           />
         </div>
         <FormActions>

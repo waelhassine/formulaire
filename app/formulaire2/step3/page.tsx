@@ -10,7 +10,7 @@ import SelectInput from '@/components/SelectWael';
 
 export default function FormulaireStep3() {
   const router = useRouter();
-  const { register, trigger, formState , setValue , watch} = useAppFormContext();
+  const { register, trigger, formState, setValue, watch } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -20,7 +20,7 @@ export default function FormulaireStep3() {
     await trigger();
     if (isValid) {
       router.push('/plan');
-      router.push("/formulaire2/step4");
+      router.push('/formulaire2/step4');
     }
   };
 
@@ -40,50 +40,45 @@ export default function FormulaireStep3() {
       </button>
 
       <div className="flex flex-col space-y-4 w-2/3">
-      <p className="flex flex-row text-2xl pt-12">
-      Votre 
- <span className="text-red-700 px-1">véhicule</span>
-</p>
-
+        <p className="flex flex-row text-2xl pt-12">
+          Votre
+          <span className="text-red-700 px-1">véhicule</span>
+        </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-
-        <TextInput
+          <TextInput
             label="Date d'achat
             "
             name="dateDachat"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.dateDachat}
-            type = "date"
+            type="date"
           />
 
-
-<SelectInput
-              label="Type d'achat
+          <SelectInput
+            label="Type d'achat
               "
-              name="type_achat"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.type_achat}
-              options={[
-                { value: 'COMPTANT', label: 'Comptant' },
-                { value: 'Credit', label: 'Crédit' },
-                { value: 'Location', label: 'Location avec option d achat ' },
-                { value: 'DON', label: 'DON' },
+            name="type_achat"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.type_achat}
+            options={[
+              { value: 'COMPTANT', label: 'Comptant' },
+              { value: 'Credit', label: 'Crédit' },
+              { value: 'Location avec option d achat', label: 'Location avec option d achat ' },
+              { value: 'DON', label: 'DON' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
 
-              ]}
-              placeholder="Sélectionner dans le liste"
-              />
-
-
-     <RadioButtonGroup
+          <RadioButtonGroup
             question="Le véhicule a-t-il subi des modifications techniques ?
             "
             name="modifications_techniques"
             options={[
-              { value: 'oui', label: 'Oui' },
-              { value: 'non', label: 'Non' },
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -91,24 +86,22 @@ export default function FormulaireStep3() {
             currentValue={modifications_techniques}
           />
           <SelectInput
-              label="Titulaire de la carte grise
+            label="Titulaire de la carte grise
               "
-              name="titulaire_carte_grise"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.titulaire_carte_grise}
-              options={[
-                { value: 'Souscripteur', label: 'Souscripteur' },
-                { value: 'Couple', label: 'Couple' },
-                { value: 'Conjoint', label: 'Conjoint' },
-                { value: 'Assendant', label: 'Assendant' },
-                { value: 'Dessendant', label: 'Dessendant' },
-                { value: 'societe_leasing', label: 'société de leasing ' },
-
-
-              ]}
-              placeholder="Sélectionner dans le liste"
-              />
+            name="titulaire_carte_grise"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.titulaire_carte_grise}
+            options={[
+              { value: 'Souscripteur', label: 'Souscripteur' },
+              { value: 'Couple', label: 'Couple' },
+              { value: 'Conjoint', label: 'Conjoint' },
+              { value: 'Assendant', label: 'Assendant' },
+              { value: 'Dessendant', label: 'Dessendant' },
+              { value: 'société de leasing ', label: 'société de leasing ' },
+            ]}
+            placeholder="Sélectionner dans le liste"
+          />
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>

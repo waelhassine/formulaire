@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import Cardstep17 from './Cardstep17';
 import FormActions from '@/components/FormActions';
-import { CardInfo } from '@/types/form2';
+import { ConducteurInfraction } from '@/types/form2';
 import { useFieldArray } from 'react-hook-form';
 
 export default function FormulaireStep17() {
@@ -20,7 +20,7 @@ export default function FormulaireStep17() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_conducteur_secondaire',
+    name: 'card_conducteur_infraction',
   });
 
   const validateStep = async () => {
@@ -50,7 +50,7 @@ export default function FormulaireStep17() {
           />
         ))}
 
-        <Button type="button" variant="secondary" onClick={() => append({} as CardInfo)}>
+        <Button type="button" variant="secondary" onClick={() => append({} as ConducteurInfraction)}>
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un antécédent
         </Button>
 

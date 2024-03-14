@@ -40,19 +40,15 @@ export default function FormulaireStep4() {
       </button>
 
       <div className="flex flex-col space-y-4 w-2/3">
-      <p className="flex flex-row  text-2xl pt-12">
-      stationnement de stationnement de 
- <span className="text-red-700 px-1">votre véhicule</span> 
-        </p>     
+        <p className="flex flex-row  text-2xl pt-12">
+          stationnement de stationnement de
+          <span className="text-red-700 px-1">votre véhicule</span>
+        </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-     
-
           <TextInput
-            label="Voie de stationnement
-"
-            name="stationnement
-"
+            label="Voie de stationnement"
+            name="stationnement"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.stationnement}
@@ -65,7 +61,7 @@ export default function FormulaireStep4() {
             label="Complément"
             name="complement"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{}}
             error={errors.complement}
             placeholder="Entrez votre complément"
             maxLength={20}
@@ -101,7 +97,6 @@ export default function FormulaireStep4() {
               />
             </div>
           </div>
-      
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
