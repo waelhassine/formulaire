@@ -81,7 +81,7 @@ export default function FormulaireStep7() {
             name="nombre_d_enfants_vivant_au_domicile"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.nombre_d_enfants_vivant_au_domicile}
             type="number"
             placeholder="Entrez votre numero"
             maxLength={20}
@@ -132,7 +132,7 @@ export default function FormulaireStep7() {
               { value: 'Insert', label: 'Insert' },
               { value: 'Autre', label: 'Autre' },
             ]}
-            placeholder=""
+            placeholder="Sélectionner dans la liste"
           />
           {systeme_de_chauffage === 'Autre' && (
             <>

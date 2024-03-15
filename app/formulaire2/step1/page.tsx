@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import TextInput from '@/components/TextInput';
+import ImmatriculationInput from './test';
 
 export default function Formulaire() {
   const router = useRouter();
@@ -56,6 +57,7 @@ export default function Formulaire() {
         </p>
       </div>
       <div className="lg:w-2/3 w-full">
+        <ImmatriculationInput />
         <TextInput
           label="Quel est son numéro d'immatriculation ?"
           name="plate"

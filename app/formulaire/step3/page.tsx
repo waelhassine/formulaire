@@ -68,7 +68,7 @@ export default function FormulaireStep3() {
               { value: 'En construction', label: 'En construction' },
             ]}
             placeholder="Sélectionner dans la liste"
-            popoverContent="Ancienneté par rapport à la date de construction du logement."
+            popoverContent="Ancienneté par rapport à la date de construction du logement."
           />
 
           <TextInput
