@@ -20,9 +20,9 @@ export default function Provider({ children }: FormProviderProps) {
     const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse && data.logementDangereuse);
 
     if (isValid) {
-      route.push('/thank-you');
+      route.push('/merci');
     } else {
-      route.replace('/info');
+      route.replace('/formulaire/step1');
     }
   };
 

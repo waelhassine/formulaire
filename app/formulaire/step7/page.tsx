@@ -8,27 +8,44 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import CheckBox from '@/components/CheckBoxTwo';
-
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import MultiSelectCheckbox from '@/components/MultiSelectCheckbox';
 export default function FormulaireStep7() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, control, clearErrors, watch, getValues, setError } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
+  const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
+  const energies_renouvelables = watch('energies_renouvelables');
+  const type_chien = watch('type_chien');
+  const installation_professionnel = watch('installation_professionnel');
+  const checkboxValues = watch('precision_installation_energie');
+
+  const systeme_de_chauffage = watch('Systeme_de_chauffage');
+  const pompe_a_chaleur = watch('pompe_a_chaleur');
   const validateStep = async () => {
+    console.log(getValues('precision_installation_energie'));
+
+    const hasAtLeastOneChecked = checkboxValues && checkboxValues.length > 0;
+    console.log(hasAtLeastOneChecked);
+
+    if (energies_renouvelables === 'Oui' && !hasAtLeastOneChecked) {
+      setError('precision_installation_energie', {
+        type: 'manual',
+        message: 'At least one option must be selected',
+      });
+    } else {
+      clearErrors('precision_installation_energie');
+    }
+
+    // Proceed with your form submission logic
     await trigger();
 
     if (isValid) {
       router.push('/formulaire/step8');
     }
   };
-  const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
-  const energies_renouvelables = watch('energies_renouvelables');
-  const type_chien = watch('type_chien');
-  const installation_professionnel = watch('installation_professionnel');
-
-  const systeme_de_chauffage = watch('Systeme_de_chauffage');
-  const pompe_a_chaleur = watch('pompe_a_chaleur');
   return (
     <div className="w-full">
       <ProgressHeader val={70} />
@@ -166,7 +183,7 @@ export default function FormulaireStep7() {
               label="Précision sur votre installation d'energie renouvelables"
               name="precision_installation_energie"
               register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
+              validationRules={{ required: 'Vous devez sélectionner au moins une option' }}
               error={errors.precision_installation_energie}
               options={[
                 { value: 'Panneaux solaires thermique', label: 'Panneaux solaires thermique' },

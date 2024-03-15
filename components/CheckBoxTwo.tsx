@@ -33,11 +33,11 @@ const CheckBox: React.FC<CheckBoxProps> = ({
       )}
     </legend>
     <div className="space-y-1">
-      {options.map((option) => (
+      {options.map((option, index) => (
         <label key={option.value} className="flex items-center space-x-2">
           <input
             type="checkbox"
-            {...register(`${name}.${option.value}`, { ...validationRules })}
+            {...register(`${name}[${index}]`)}
             value={option.value}
             className="accent-blue-500 h-4 w-4"
           />

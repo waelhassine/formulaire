@@ -45,7 +45,7 @@ export interface FormValues {
   autre_preciser: string;
   installation_professionnel: 'Oui' | 'Non';
   energies_renouvelables: 'Oui' | 'Non';
-  precision_installation_energie: string;
+  precision_installation_energie: Array<string>[];
   pompe_a_chaleur: 'Oui' | 'Non';
   Civilite: string;
   Prenom: string;
