@@ -40,6 +40,7 @@ export interface FormValues {
   nombre_adultes: number;
   nombre_d_enfants_vivant_au_domicile: number;
   presence_d_enfants_18_ans: number;
+  assurance_scolaire: 'Oui' | 'Non';
   type_chien: 'Oui' | 'Non';
   Systeme_de_chauffage: string;
   autre_preciser: string;

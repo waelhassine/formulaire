@@ -21,6 +21,7 @@ export default function FormulaireStep7() {
   const type_chien = watch('type_chien');
   const installation_professionnel = watch('installation_professionnel');
   const checkboxValues = watch('precision_installation_energie');
+  const assurance_scolaire = watch('assurance_scolaire');
 
   const systeme_de_chauffage = watch('Systeme_de_chauffage');
   const pompe_a_chaleur = watch('pompe_a_chaleur');
@@ -102,6 +103,18 @@ export default function FormulaireStep7() {
                 maxLength={20}
                 onBlur={() => trigger('presence_d_enfants_18_ans')}
                 autoComplete="presence_d_enfants_18_ans"
+              />
+              <RadioButtonGroup
+                question="Assurance Scolaire"
+                name="assurance_scolaire"
+                options={[
+                  { value: 'Oui', label: 'Oui' },
+                  { value: 'Non', label: 'Non' },
+                ]}
+                register={register}
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.assurance_scolaire}
+                currentValue={assurance_scolaire}
               />
             </>
           )}

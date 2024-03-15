@@ -19,7 +19,8 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
   } = useAppFormContext();
 
   const contratCours = watch(`card_conducteur.${index}.contract_cours`);
-
+  const contentieux_solde = watch(`card_conducteur.${index}.contentieux_solde`);
+  const recidive_non_paiement = watch(`card_conducteur.${index}.recidive_non_paiement`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       {' '}
@@ -78,11 +79,43 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors?.card_conducteur?.[index]?.motif_resiliation}
               options={[
-                { value: 'echeance', label: 'A écheance' },
+                { value: 'A écheance', label: 'A écheance' },
                 { value: 'Autre', label: 'Autre' },
-                { value: 'Changement_dadress', label: 'Changement d adress' },
+                { value: 'Changement d`adress', label: 'Changement d`adress' },
               ]}
               placeholder=""
+            />
+            <RadioButtonGroup
+              question="Y a-t-il eu récidive de non paiement ?"
+              name={`card_conducteur.${index}.recidive_non_paiement`}
+              options={[
+                { value: 'oui', label: 'Oui' },
+                { value: 'non', label: 'Non' },
+              ]}
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors?.card_conducteur?.[index]?.recidive_non_paiement}
+              currentValue={recidive_non_paiement}
+            />
+            <RadioButtonGroup
+              question="Le contentieux a-t-il été soldé ?"
+              name={`card_conducteur.${index}.contentieux_solde`}
+              options={[
+                { value: 'oui', label: 'Oui' },
+                { value: 'non', label: 'Non' },
+              ]}
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors?.card_conducteur?.[index]?.contentieux_solde}
+              currentValue={contentieux_solde}
+            />
+            <TextInput
+              label="Commentaires"
+              name={`card_conducteur.${index}.commentaires`}
+              register={register}
+              validationRules={{}}
+              error={errors?.card_conducteur?.[index]?.commentaires}
+              type="textarea"
             />
           </>
         )}
