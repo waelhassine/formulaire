@@ -62,7 +62,7 @@ export interface FormValues {
   NomIdentité: string;
   deja_assure_secondaire: 'oui' | 'non';
   date_permis: Date;
-  nb_km: number;
+  nb_km: string;
   nombre_infraction: number;
   type_trajet: string;
   CiviliteIdentité: 'oui' | 'non';
@@ -84,14 +84,14 @@ export interface FormValues {
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
   stationnementstep6: string;
-  complementstep6:string;
+  complementstep6: string;
   codepostalste6: string;
   villestep6: string;
   Civilitestep7: 'oui' | 'non';
   Prenomstep7: string;
   Nomstep7: string;
   deja_assurestep9: 'oui' | 'non';
-  deja_assure_secondairestep9:'oui' | 'non';
+  deja_assure_secondairestep9: 'oui' | 'non';
   conduite_accompagneestep9: 'oui' | 'non';
   suspension_permisstep9: 'oui' | 'non';
   objet_annulationstep9: 'oui' | 'non';

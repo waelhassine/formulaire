@@ -66,7 +66,7 @@ export default function FormulaireStep3() {
             options={[
               { value: 'COMPTANT', label: 'Comptant' },
               { value: 'Credit', label: 'Crédit' },
-              { value:  `Location avec option d'achat`, label:  `Location avec option d'achat` },
+              { value: `Location avec option d'achat`, label: `Location avec option d'achat` },
               { value: 'DON', label: 'Don' },
             ]}
             placeholder="Sélectionner dans le liste"
@@ -98,7 +98,8 @@ export default function FormulaireStep3() {
               { value: 'Conjoint', label: 'Conjoint' },
               { value: 'Assendant', label: 'Assendant' },
               { value: 'Dessendant', label: 'Dessendant' },
-              { value: 'société de leasing ', label: 'société de leasing ' },
+              { value: 'société de leasing ', label: 'Société de leasing ' },
+              { value: 'Société', label: 'Société' },
             ]}
             placeholder="Sélectionner dans le liste"
           />

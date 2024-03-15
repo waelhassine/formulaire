@@ -19,7 +19,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   validationRules,
   error,
   options,
-  placeholder = 'Select an option',
+  placeholder = 'Sélectionner dans le liste',
   popoverContent,
 }) => (
   <label className="flex flex-col space-y-2">

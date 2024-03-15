@@ -27,7 +27,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
         </div>
 
         <TextInput
-          label="Date de souscription
+          label="Date du sinistre
               "
           name={`card_sinistre_principal.${index}.souscription`}
           register={register}
@@ -44,17 +44,17 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           options={[
             { value: 'Accident', label: 'Accident' },
             { value: 'Bris de glace', label: 'Bris de glace' },
-            { value: 'Catastrophe naturel', label: 'Catastrophe Naturel' },
-            { value: 'Délit de fruite', label: 'Délit de fruite' },
+            { value: 'Catastrophe naturelle', label: 'Catastrophe Naturelle' },
+            { value: 'Délit de fuite', label: 'Délit de fuite' },
             { value: 'Incendie', label: 'Incendie' },
 
             { value: 'Vol', label: 'Vol' },
 
             { value: 'Vandalisme', label: 'Vandalisme' },
-            { value: 'Evenment Climatique', label: 'Evenment climatique' },
-            { value: 'gréle', label: 'gréle' },
-            { value: 'sinistre avec tiers', label: 'sinistre avec tiers' },
-            { value: 'sinistre sans tiers', label: 'sinistre sans tiers' },
+            { value: 'Evènement climatique', label: 'Evènement climatique' },
+            { value: 'Grêle', label: 'Grêle' },
+            { value: 'Sinistre avec tiers', label: 'Sinistre avec tiers' },
+            { value: 'Sinistre sans tiers', label: 'Sinistre sans tierss' },
             { value: 'Vandalisme', label: 'Vandalisme' },
             { value: 'Vol du véhicule', label: 'Vol du véhicule' },
           ]}
@@ -69,8 +69,8 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.card_sinistre_principal?.[index]?.nature_sinistre}
           options={[
-            { value: 'corporel', label: 'corporel' },
-            { value: 'Material', label: 'Material' },
+            { value: 'Corporel', label: 'Corporel' },
+            { value: 'Materiel', label: 'Materiel' },
           ]}
           placeholder=""
         />
@@ -83,7 +83,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           error={errors.card_sinistre_principal?.[index]?.taux_responsabilite}
           options={[
             { value: 'zero', label: '0%' },
-            { value: 'cinquant', label: '%50' },
+            { value: 'cinquant', label: '50%' },
             { value: 'cent', label: '100%' },
           ]}
           placeholder=""

@@ -18,7 +18,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   onChange,
   error,
   options,
-  placeholder = 'Select an option',
+  placeholder = 'Sélectionner dans le liste',
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex justify-between">

@@ -45,7 +45,7 @@ export default function FormulaireStep2() {
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
-          <div className="flex lg:flex-row flex-col space-x-3  w-full ">
+          <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Quelle est sa marque ?

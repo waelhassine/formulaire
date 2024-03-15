@@ -62,9 +62,9 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.type_trajet}
             options={[
-              { value: 'Privé et travaill', label: 'Privé et travail' },
-              { value: 'Prive exclusivemen', label: 'Prive exclusivement' },
-              { value: 'Prive et professionnel', label: 'Prive et professionnel' },
+              { value: 'Privés et travail', label: 'Privés et travail' },
+              { value: 'Privé exclusivement', label: 'Privé exclusivement' },
+              { value: 'Privé et professionnel', label: 'Privé et professionnel' },
               { value: 'Tournées régulières', label: 'Tournées régulières' },
             ]}
             placeholder="Sélectionner dans le liste"
@@ -85,19 +85,21 @@ export default function FormulaireStep6() {
             ]}
             placeholder="Sélectionner dans le liste"
           />
-          <TextInput
+          <SelectInput
             label="Nombre de km parcourus par an
-          "
+              "
             name="nb_km"
-            type="number"
             register={register}
-            validationRules={{ required: 'Champ invalide' }}
+            validationRules={{ required: 'Champ obligatoire' }}
             error={errors.nb_km}
-            placeholder=""
-            maxLength={20}
-            onBlur={() => trigger('nb_km')}
-            autoComplete="nb_km"
+            options={[
+              { value: '- de 5000 km ', label: '- de 5000 km ' },
+              { value: '- de 10 000 km', label: '- de 10 000 km' },
+              { value: '+ de 10 000 km', label: '+ de 10 000 km' },
+            ]}
+            placeholder="Sélectionner dans le liste"
           />
+
           <SelectInput
             label="Type de stationnement
 

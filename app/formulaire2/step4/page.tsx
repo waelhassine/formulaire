@@ -53,9 +53,9 @@ export default function FormulaireStep4() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.niveau_couverture}
           options={[
-            { value: 'Tiere +', label: 'Tiere +' },
-            { value: 'Tiere plus', label: 'Tiere plus' },
-            { value: 'Tous risque', label: 'Tous risque' },
+            { value: 'Tiers +', label: 'Tiers +' },
+            { value: 'Tiers plus', label: 'Tiers plus' },
+            { value: 'Tous risques', label: 'Tous risques' },
           ]}
           placeholder="Sélectionner dans le liste"
         />
