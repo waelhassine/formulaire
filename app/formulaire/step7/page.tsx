@@ -7,6 +7,7 @@ import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
+import CheckBox from '@/components/CheckBoxTwo';
 
 export default function FormulaireStep7() {
   const router = useRouter();
@@ -21,11 +22,13 @@ export default function FormulaireStep7() {
       router.push('/formulaire/step8');
     }
   };
+  const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
   const energies_renouvelables = watch('energies_renouvelables');
   const type_chien = watch('type_chien');
   const installation_professionnel = watch('installation_professionnel');
-  const nombre_d_enfants_vivant_au_domicile = watch('nombre_d_enfants_vivant_au_domicile');
+
   const systeme_de_chauffage = watch('Systeme_de_chauffage');
+  const pompe_a_chaleur = watch('pompe_a_chaleur');
   return (
     <div className="w-full">
       <ProgressHeader val={70} />
@@ -45,8 +48,8 @@ export default function FormulaireStep7() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
-            label="Nombre d'adultes vivant au domicile "
-            name="nombre_d_adultes_vivant_au_domicile"
+            label="Nombre d'adultes vivant au domicile"
+            name="nombre_adultes"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.nombre_adultes}
@@ -57,8 +60,7 @@ export default function FormulaireStep7() {
             autoComplete="nombre_adultes"
           />
           <TextInput
-            label="Nombre d’enfants vivant au domicile
-            "
+            label="Nombre d'enfants vivant au domicile"
             name="nombre_d_enfants_vivant_au_domicile"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -69,6 +71,7 @@ export default function FormulaireStep7() {
             onBlur={() => trigger('nombre_d_enfants_vivant_au_domicile')}
             autoComplete="nombre_d_enfants_vivant_au_domicile"
           />
+
           {nombre_d_enfants_vivant_au_domicile > 0 && (
             <>
               <TextInput
@@ -111,6 +114,7 @@ export default function FormulaireStep7() {
               { value: 'Poele à Bois', label: 'Poele à Bois' },
               { value: 'Cheminée à foyer ouvert', label: 'Cheminée à foyer ouvert' },
               { value: 'Cheminée à foyer fermé', label: 'Cheminée à foyer fermé' },
+              { value: 'Insert', label: 'Insert' },
               { value: 'Autre', label: 'Autre' },
             ]}
             placeholder=""
@@ -156,6 +160,33 @@ export default function FormulaireStep7() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.energies_renouvelables}
             currentValue={energies_renouvelables}
+          />
+          {energies_renouvelables === 'Oui' && (
+            <CheckBox
+              label="Précision sur votre installation d'energie renouvelables"
+              name="precision_installation_energie"
+              register={register}
+              validationRules={{ required: 'Champ obligatoire' }}
+              error={errors.precision_installation_energie}
+              options={[
+                { value: 'Panneaux solaires thermique', label: 'Panneaux solaires thermique' },
+                { value: 'Panneaux photovoltaiques', label: 'Panneaux photovoltaiques' },
+                { value: 'Éolienne', label: 'Éolienne' },
+              ]}
+            />
+          )}
+          <RadioButtonGroup
+            question="Pompe à chaleur
+            "
+            name="pompe_a_chaleur"
+            options={[
+              { value: 'Oui', label: 'Oui' },
+              { value: 'Non', label: 'Non' },
+            ]}
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.pompe_a_chaleur}
+            currentValue={pompe_a_chaleur}
           />
         </div>
         <FormActions>

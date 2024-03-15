@@ -61,6 +61,7 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.inventaire}
             currentValue={inventaire}
+            popoverContent="Bâtiment classé monument historique ou inscrit à l’inventaire supplémentaire des monuments historiques. Il peut s’agir d’une partie seulement du bâtiment, par exemple la façade."
           />
 
           <RadioButtonGroup
@@ -138,6 +139,7 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.presence_veranda}
             currentValue={presence_veranda}
+            popoverContent="Si votre véranda fait plus de 9 m² elle est également à déclarer comme une pièce supplémentaire."
           />
           {presence_veranda === 'Oui' && (
             <SelectInput

@@ -53,6 +53,7 @@ export default function FormulaireStep6() {
           maxLength={40}
           onBlur={() => trigger('mobiliere_assurer')}
           autoComplete="mobiliere_assurer"
+          popoverContent="iens mobiliers : Meubles, électroménager, matériel audiovisuel et informatique, vaisselle, linge de maison, vêtements, livres, objets de décoration… Le montant doit être estimé sur la valeur à neuf des biens."
         />
 
         <RadioButtonGroup
@@ -66,8 +67,22 @@ export default function FormulaireStep6() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.presence_objet}
           currentValue={presence_objet}
-          popoverContent="Bijoux et métal précieux dont la valeur unitaire est supérieure à 300 €, tout bien mobilier d’une valeur unitaire supérieure à 8000 € indexés, collections et ensembles dont la valeur globale est supérieure à 16000 €"
+          popoverContent="Objets de valeur : Bijoux, montres, pierres fines, perles, objets en métaux précieux, tableaux, sculptures, livres rares, fourrures, collections…"
         />
+        {presence_objet === 'Oui' && (
+          <TextInput
+            label="Objet de valeur"
+            name="objets_valeur"
+            type="number"
+            register={register}
+            validationRules={{ required: 'Merci de renseigner un montant' }}
+            error={errors.objets_valeur}
+            placeholder=""
+            maxLength={40}
+            onBlur={() => trigger('objets_valeur')}
+            autoComplete="objets_valeur"
+          />
+        )}
         <RadioButtonGroup
           question="Le logement possède t'il une alarme ?"
           name="logement_alarame"
@@ -93,6 +108,10 @@ export default function FormulaireStep6() {
             { value: 'Plus 90 jours', label: 'Plus 90 jours' },
           ]}
           placeholder=""
+          popoverContent="Sélectionner la période prévisible d`inoccupation du logement dans l`année.
+          Pour rappel, à partir de 5 jours consécutifs d`absence, les locaux sont considérés comme inoccupés.
+          Pour le cas d`un PNO donnant en location un bien à l`année, sélectionner `inoccupation inférieure à 90 jours`.
+          Pour un bien donné en location estivale uniquement, sélectionner `inoccupation supérieure à 90 jours`."
         />
         <div className="flex flex-col space-y-6 mt-6"></div>
         <FormActions>

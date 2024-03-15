@@ -34,6 +34,7 @@ export interface FormValues {
   mobiliere_assurer: number;
 
   presence_objet: 'Oui' | 'Non';
+  objets_valeur: number;
   logement_alarame: 'Oui' | 'Non';
   periode_logement: string;
   nombre_adultes: number;
@@ -44,7 +45,8 @@ export interface FormValues {
   autre_preciser: string;
   installation_professionnel: 'Oui' | 'Non';
   energies_renouvelables: 'Oui' | 'Non';
-
+  precision_installation_energie: string;
+  pompe_a_chaleur: 'Oui' | 'Non';
   Civilite: string;
   Prenom: string;
   Nom: string;

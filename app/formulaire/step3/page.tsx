@@ -68,6 +68,7 @@ export default function FormulaireStep3() {
               { value: 'En construction', label: 'En construction' },
             ]}
             placeholder="Sélectionner dans la liste"
+            popoverContent="Ancienneté par rapport à la date de construction du logement."
           />
 
           <TextInput
@@ -88,6 +89,8 @@ export default function FormulaireStep3() {
             error={errors.nb}
             placeholder="Nb pièces principales > 9m2"
             type="number"
+            popoverContent=" Il s’agit de toutes les pièces habitables (y compris les vérandas) dont la surface est comprise entre 9 et 40 m². Chaque tranche de 40 m² compte pour une pièce. Exemple : si une pièce a une superficie de 50 m², elle compte pour 2 pièces.
+            Les cuisines, les sanitaires, les salles de bain, les couloirs, les entrées, les buanderies et les dressings ne doivent pas être déclarés."
           />
 
           <RadioButtonGroup

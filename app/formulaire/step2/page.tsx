@@ -76,6 +76,7 @@ export default function FormulaireStep3() {
               { value: 'Usufruitier', label: 'Usufruitier' },
             ]}
             placeholder="Sélectionner dans le liste"
+            popoverContent="Le souscripteur personne morale sera toujours non occupant du bien assuré, qu`il soit locataire ou propriétaire. De ce fait, trois types de qualité d`assuré possibles : • Locataire : la personne morale est locataire du bien et souscrit également une assurance pour le compte de son sous-locataire.  • Propriétaire occupant : la personne morale est propriétaire du bien et souscrit également une assurance pour le compte de son locataire. • Propriétaire non occupant : la personne morale est propriétaire du bien et ne souscrit pas d`assurance pour le compte de son locataire. La personne morale demandera à la personne physique qui occupera le logement de souscrire sa propre assurance habitation. Quelle que soit la qualité de l`assuré, les Besoins Spécifiques `souscription pour le compte du locataire` et `souscription pour le compte du sous-locataire` n`ont pas besoin d`être saisis"
           />
 
           <RadioButtonGroup
