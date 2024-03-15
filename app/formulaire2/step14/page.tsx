@@ -54,8 +54,7 @@ export default function FormulaireStep13() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
-            question="Civilite
-            "
+            question="Civilite"
             name="CiviliteIdentité"
             options={[
               { value: 'Monsieur', label: 'Monsieur' },
@@ -67,29 +66,26 @@ export default function FormulaireStep13() {
             currentValue={CiviliteIdentité}
           />
           <TextInput
-            label="Prénom
-            "
-            name="PrenomIdentité
-
-            "
+            label="Prénom"
+            name="prenomConducteurSecondaire"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.PrenomIdentité}
+            error={errors.prenomConducteurSecondaire}
             placeholder="Entrez votre Prenom"
             maxLength={40}
-            onBlur={() => trigger('PrenomIdentité')}
-            autoComplete="PrenomIdentité"
+            onBlur={() => trigger('prenomConducteurSecondaire')}
+            autoComplete="prenomConducteurSecondaire"
           />
           <TextInput
             label="Nom"
-            name="NomIdentité"
+            name="nomConducteurSecondaire"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.nomConducteurSecondaire}
             placeholder="Entrez votre Nom"
             maxLength={40}
-            onBlur={() => trigger('NomIdentité')}
-            autoComplete="NomIdentité"
+            onBlur={() => trigger('nomConducteurSecondaire')}
+            autoComplete="nomConducteurSecondaire"
           />
           <TextInput
             label="Date de naissance"
@@ -101,10 +97,7 @@ export default function FormulaireStep13() {
           />
 
           <SelectInput
-            label="Type de relation avec le conducteur principal
-
-
-              "
+            label="Type de relation avec le conducteur principal"
             name="type_relation"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

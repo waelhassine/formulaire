@@ -31,9 +31,7 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
           </button>
         </div>
         <SelectInput
-          label="Type d'infraction
-
-          "
+          label="Type d'infraction"
           name={`card_conducteur_infraction.${index}.type_infraction`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -49,9 +47,7 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
           placeholder=""
         />
         <TextInput
-          label="
-Nombre d'infraction
-          "
+          label="Nombre d'infraction"
           name={`card_conducteur_infraction.${index}.nomber_infraction`}
           type="number"
           register={register}
@@ -62,9 +58,7 @@ Nombre d'infraction
           autoComplete="nomber_infraction"
         />
         <RadioButtonGroup
-          question="Le contrat est-il toujours en cours ?
-
-            "
+          question="Le contrat est-il toujours en cours ?"
           name={`card_conducteur_infraction.${index}.Ont_elles_moins_de_5_ans`}
           options={[
             { value: 'oui', label: 'Oui' },

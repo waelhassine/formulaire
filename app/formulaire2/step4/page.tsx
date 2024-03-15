@@ -46,8 +46,7 @@ export default function FormulaireStep4() {
           <span className="text-red-700 px-1">contrat</span>
         </p>
         <SelectInput
-          label="Niveau de couverture souhaité
-              "
+          label="Niveau de couverture souhaité"
           name="niveau_couverture"
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}

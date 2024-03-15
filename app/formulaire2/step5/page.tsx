@@ -55,8 +55,7 @@ export default function FormulaireStep6() {
 
         <div className="flex flex-col space-y-6 mt-6">
           <SelectInput
-            label="Type de trajet
-              "
+            label="Type de trajet"
             name="type_trajet"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -71,8 +70,7 @@ export default function FormulaireStep6() {
           />
 
           <SelectInput
-            label="Fréquence d'utilisation
-              "
+            label="Fréquence d'utilisation"
             name="frequence_utilisation"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -86,8 +84,7 @@ export default function FormulaireStep6() {
             placeholder="Sélectionner dans le liste"
           />
           <SelectInput
-            label="Nombre de km parcourus par an
-              "
+            label="Nombre de km parcourus par an"
             name="nb_km"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -101,10 +98,7 @@ export default function FormulaireStep6() {
           />
 
           <SelectInput
-            label="Type de stationnement
-
-
-              "
+            label="Type de stationnement"
             name="type_de_stationnement"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

@@ -27,8 +27,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
         </div>
 
         <TextInput
-          label="Date du sinistre
-              "
+          label="Date du sinistre"
           name={`card_sinistre_principal.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -61,9 +60,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           placeholder=""
         />
         <SelectInput
-          label="Nature du sinistre
-  
-            "
+          label="Nature du sinistre"
           name={`card_sinistre_principal.${index}.nature_sinistre`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -75,8 +72,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           placeholder=""
         />
         <SelectInput
-          label="Taux de responsabilité
-            "
+          label="Taux de responsabilité"
           name={`card_sinistre_principal.${index}.taux_responsabilite`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}

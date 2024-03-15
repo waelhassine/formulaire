@@ -44,11 +44,12 @@ export interface FormValues {
   conduite_accompagnee: 'oui' | 'non';
   stationnement: string;
   suspension_permis: 'oui' | 'non';
-  CRM: number;
   CRMstep8: number;
   CRM_bonusstep8: number;
   type_permis: string;
   PrenomIdentité: string;
+  prenomConducteurSecondaire: string;
+  nomConducteurSecondaire: string;
   CRM_bonus: number;
   deja_assure: 'oui' | 'non';
   CRM_bonus_Conducteur: number;

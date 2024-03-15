@@ -47,8 +47,7 @@ export default function FormulaireStep3() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
-            label="Date d'achat
-            "
+            label="Date d'achat"
             name="dateDachat"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -57,8 +56,7 @@ export default function FormulaireStep3() {
           />
 
           <SelectInput
-            label="Type d'achat
-              "
+            label="Type d'achat"
             name="type_achat"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -73,8 +71,7 @@ export default function FormulaireStep3() {
           />
 
           <RadioButtonGroup
-            question="Le véhicule a-t-il subi des modifications techniques ?
-            "
+            question="Le véhicule a-t-il subi des modifications techniques ?"
             name="modifications_techniques"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -86,8 +83,7 @@ export default function FormulaireStep3() {
             currentValue={modifications_techniques}
           />
           <SelectInput
-            label="Titulaire de la carte grise
-              "
+            label="Titulaire de la carte grise"
             name="titulaire_carte_grise"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

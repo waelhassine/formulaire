@@ -80,8 +80,7 @@ export default function FormulaireStep3() {
           />
 
           <RadioButtonGroup
-            question="Type de résidence
-            "
+            question="Type de résidence"
             name="residence"
             options={[
               { value: 'Principal', label: 'Principal' },
@@ -95,8 +94,7 @@ export default function FormulaireStep3() {
 
           {residence === 'Secondaire' && (
             <SelectInput
-              label="Est-il proposé à la location ?
-              "
+              label="Est-il proposé à la location ?"
               name="location"
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}

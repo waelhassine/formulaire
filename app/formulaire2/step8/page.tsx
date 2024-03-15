@@ -4,19 +4,19 @@ import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
-
+import { selectedData } from '../../../lib/CRM_data';
 export default function FormulaireStep3() {
   const router = useRouter();
   const { register, trigger, formState, setValue, watch } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
-  const CRM = watch('CRM');
+  const CRMstep8 = watch('CRMstep8');
 
   const validateStep = async () => {
+    console.log(CRMstep8);
     await trigger();
     if (isValid) {
       router.push('/formulaire2/step9');
@@ -47,9 +47,7 @@ export default function FormulaireStep3() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
-            label="Date d'obtention du permis de conduire
-
-            "
+            label="Date d'obtention du permis de conduire"
             name="date_permis"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -58,9 +56,7 @@ export default function FormulaireStep3() {
           />
 
           <SelectInput
-            label="Type de permis
-
-              "
+            label="Type de permis"
             name="type_permis"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -75,9 +71,7 @@ export default function FormulaireStep3() {
           />
 
           <TextInput
-            label="Coefficient de Bonus/Malus (CRM)
-
-          "
+            label="Coefficient de Bonus/Malus (CRM)"
             name="CRMstep8"
             type="number"
             register={register}
@@ -88,20 +82,15 @@ export default function FormulaireStep3() {
             onBlur={() => trigger('CRMstep8')}
             autoComplete="CRMstep8"
           />
-          {CRM <= 0.5 && (
-            <TextInput
-              label="Nombre d'année(s) à 0.5
-
-          "
+          {CRMstep8 <= 0.5 && (
+            <SelectInput
+              label="Nombre d'année(s) à 0.5"
               name="CRM_bonusstep8"
-              type="number"
               register={register}
-              validationRules={{ required: 'Merci de renseigner un nombre d année' }}
+              validationRules={{ required: 'Champ obligatoire' }}
               error={errors.CRM_bonusstep8}
-              placeholder=""
-              maxLength={20}
-              onBlur={() => trigger('CRM_bonusstep8')}
-              autoComplete="CRM_bonusstep8"
+              options={selectedData}
+              placeholder="Sélectionner dans le liste"
             />
           )}
         </div>

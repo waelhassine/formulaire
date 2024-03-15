@@ -48,8 +48,7 @@ export default function FormulaireStep2() {
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
               <TextInput
-                label="Quelle est sa marque ?
-                "
+                label="Quelle est sa marque ?"
                 name="marque"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
@@ -62,8 +61,7 @@ export default function FormulaireStep2() {
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
-                label="Quel est son modèle ?
-                "
+                label="Quel est son modèle ?"
                 name="modele"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}

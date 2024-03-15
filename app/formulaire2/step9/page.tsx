@@ -57,8 +57,7 @@ export default function FormulaireStep9() {
 
         <div className="flex flex-col space-y-6 mt-6">
           <RadioButtonGroup
-            question="Déjà assuré en tant que conducteur principal ?
-            "
+            question="Déjà assuré en tant que conducteur principal ?"
             name="deja_assurestep9"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -71,8 +70,7 @@ export default function FormulaireStep9() {
           />
 
           <RadioButtonGroup
-            question="Déjà assuré en tant que conducteur secondaire ?
-            "
+            question="Déjà assuré en tant que conducteur secondaire ?"
             name="deja_assure_secondairestep9"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -84,8 +82,7 @@ export default function FormulaireStep9() {
             currentValue={deja_assure_secondairestep9}
           />
           <RadioButtonGroup
-            question="Obtention du permis suite à la conduite accompagnée ?
-            "
+            question="Obtention du permis suite à la conduite accompagnée ?"
             name="conduite_accompagneestep9"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -97,8 +94,7 @@ export default function FormulaireStep9() {
             currentValue={conduite_accompagneestep9}
           />
           <RadioButtonGroup
-            question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?
-"
+            question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?"
             name="suspension_permisstep9"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -111,8 +107,7 @@ export default function FormulaireStep9() {
           />
 
           <RadioButtonGroup
-            question="Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?
-            "
+            question="Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?"
             name="objet_annulationstep9"
             options={[
               { value: 'Oui', label: 'Oui' },

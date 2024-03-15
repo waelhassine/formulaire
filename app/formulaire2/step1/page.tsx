@@ -57,8 +57,7 @@ export default function Formulaire() {
       </div>
       <div className="lg:w-2/3 w-full">
         <TextInput
-          label="Quel est son numéro d'immatriculation ?
-                "
+          label="Quel est son numéro d'immatriculation ?"
           name="plate"
           register={register}
           validationRules={{

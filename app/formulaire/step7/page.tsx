@@ -107,8 +107,7 @@ export default function FormulaireStep7() {
           )}
 
           <RadioButtonGroup
-            question="Chien(s) de catégorie 1 ou 2
-            "
+            question="Chien(s) de catégorie 1 ou 2"
             name="type_chien"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -120,8 +119,7 @@ export default function FormulaireStep7() {
             currentValue={type_chien}
           />
           <SelectInput
-            label="Systeme de chauffage
-              "
+            label="Systeme de chauffage"
             name="Systeme_de_chauffage"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
@@ -153,8 +151,7 @@ export default function FormulaireStep7() {
             </>
           )}
           <RadioButtonGroup
-            question="Son installation a été faite par un professionnel ?
-            "
+            question="Son installation a été faite par un professionnel ?"
             name="installation_professionnel"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -166,8 +163,7 @@ export default function FormulaireStep7() {
             currentValue={installation_professionnel}
           />
           <RadioButtonGroup
-            question="Présence d'énergies renouvelables ?
-            "
+            question="Présence d'énergies renouvelables ?"
             name="energies_renouvelables"
             options={[
               { value: 'Oui', label: 'Oui' },
@@ -193,8 +189,7 @@ export default function FormulaireStep7() {
             />
           )}
           <RadioButtonGroup
-            question="Pompe à chaleur
-            "
+            question="Pompe à chaleur"
             name="pompe_a_chaleur"
             options={[
               { value: 'Oui', label: 'Oui' },

@@ -34,8 +34,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
           </button>
         </div>
         <SelectInput
-          label="Compagnie
-          "
+          label="Compagnie"
           name={`card_assurance.${index}.compagnie`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -72,8 +71,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
           placeholder=""
         />
         <TextInput
-          label="Date de souscription
-            "
+          label="Date de souscription"
           name={`card_assurance.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -81,9 +79,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
           type="date"
         />
         <RadioButtonGroup
-          question="Le contrat est-il toujours en cours ?
-
-            "
+          question="Le contrat est-il toujours en cours ?"
           name={`card_assurance.${index}.contract_cours`}
           options={[
             { value: 'oui', label: 'Oui' },
@@ -107,9 +103,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               type="date"
             />
             <SelectInput
-              label="Motif de résiliation
-
-          "
+              label="Motif de résiliation"
               name={`card_assurance.${index}.motif_resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
@@ -122,9 +116,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               placeholder=""
             />
             <RadioButtonGroup
-              question="Y a-t-il eu récidive de non paiement ?
-
-            "
+              question="Y a-t-il eu récidive de non paiement ?"
               name={`card_assurance.${index}.recidive_non_paiement`}
               options={[
                 { value: 'oui', label: 'Oui' },
@@ -136,9 +128,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               currentValue={recidive_non_paiement}
             />
             <RadioButtonGroup
-              question="Le contentieux a-t-il été soldé ?
-
-            "
+              question="Le contentieux a-t-il été soldé ?"
               name={`card_assurance.${index}.contentieux_solde`}
               options={[
                 { value: 'oui', label: 'Oui' },
@@ -150,8 +140,7 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               currentValue={contentieux_solde}
             />
             <TextInput
-              label="Commentaires
-            "
+              label="Commentaires"
               name={`card_assurance.${index}.commentaires`}
               register={register}
               validationRules={{}}

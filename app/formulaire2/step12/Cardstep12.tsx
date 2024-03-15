@@ -6,7 +6,6 @@ import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons';
 import { selectedData } from './data';
 
-
 type Cardstep8Props = {
   onClose: () => void;
   index: number;
@@ -18,7 +17,6 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
     formState: { errors },
     watch,
   } = useAppFormContext();
-
 
   const contratCours = watch(`card_conducteur.${index}.contract_cours`);
 
@@ -44,8 +42,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           placeholder=""
         />
         <TextInput
-          label="Date de souscription
-            "
+          label="Date de souscription"
           name={`card_conducteur.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
@@ -53,9 +50,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           type="date"
         />
         <RadioButtonGroup
-          question="Le contrat est-il toujours en cours ?
-
-            "
+          question="Le contrat est-il toujours en cours ?"
           name={`card_conducteur.${index}.contract_cours`}
           options={[
             { value: 'oui', label: 'Oui' },
@@ -69,9 +64,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
         {contratCours === 'non' && (
           <>
             <TextInput
-              label="Date de résiliation
-
-            "
+              label="Date de résiliation"
               name={`card_conducteur.${index}.resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
@@ -79,9 +72,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               type="date"
             />
             <SelectInput
-              label="Motif de résiliation
-
-          "
+              label="Motif de résiliation"
               name={`card_conducteur.${index}.motif_resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}

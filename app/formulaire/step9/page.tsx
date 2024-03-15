@@ -65,8 +65,7 @@ export default function FormulaireStep9() {
 
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
-            question="Civilite
-            "
+            question="Civilite"
             name="Civilite"
             options={[
               { value: 'Monsieur', label: 'Monsieur' },
@@ -78,10 +77,8 @@ export default function FormulaireStep9() {
             currentValue={Civilite}
           />
           <TextInput
-            label="Prénom
-            "
-            name="Prenom
-            "
+            label="Prénom"
+            name="Prenom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.Prenom}
