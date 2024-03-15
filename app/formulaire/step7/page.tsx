@@ -33,7 +33,7 @@ export default function FormulaireStep7() {
     if (energies_renouvelables === 'Oui' && !hasAtLeastOneChecked) {
       setError('precision_installation_energie', {
         type: 'manual',
-        message: 'At least one option must be selected',
+        message: 'Vous devez sélectionner au moins une option',
       });
     } else {
       clearErrors('precision_installation_energie');

@@ -17,74 +17,41 @@ export default function FormulaireStep9() {
     const allFormValues = getValues();
     await trigger();
     console.log(isValid);
-    try {
-      const response = await fetch('/api/formulaire', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(allFormValues),
-      });
+    if (isValid) {
+      try {
+        const response = await fetch('/api/formulaire', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(allFormValues),
+        });
 
-      if (response.ok) {
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        console.log(response);
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        router.push('/merci');
-        // Handle the PDF data returned by the API
-        // For example, download the PDF file
-        // const blob = await response.blob();
-        // const downloadUrl = window.URL.createObjectURL(blob);
-        // const link = document.createElement('a');
-        // link.href = downloadUrl;
-        // link.download = 'generated-pdf.pdf';
-        // document.body.appendChild(link);
-        // link.click();
-        // link.remove();
-      } else {
-        // Handle errors or unsuccessful responses
-        console.error('Failed to generate the PDF');
+        if (response.ok) {
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          console.log(response);
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          router.push('/merci');
+          // Handle the PDF data returned by the API
+          // For example, download the PDF file
+          // const blob = await response.blob();
+          // const downloadUrl = window.URL.createObjectURL(blob);
+          // const link = document.createElement('a');
+          // link.href = downloadUrl;
+          // link.download = 'generated-pdf.pdf';
+          // document.body.appendChild(link);
+          // link.click();
+          // link.remove();
+        } else {
+          // Handle errors or unsuccessful responses
+          console.error('Failed to generate the PDF');
+        }
+      } catch (error) {
+        console.error('There was an error submitting the form:', error);
       }
-    } catch (error) {
-      console.error('There was an error submitting the form:', error);
     }
-    // if (isValid) {
-    //   try {
-    //     const response = await fetch('/api/formulaire', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify(allFormValues),
-    //     });
-
-    //     if (response.ok) {
-    //       // Handle the PDF data returned by the API
-    //       // For example, download the PDF file
-    //       console.log(response);
-    //       // Handle the PDF data returned by the API
-    //       // For example, download the PDF file
-    //       router.push('/merci');
-    //       // Handle the PDF data returned by the API
-    //       // For example, download the PDF file
-    //       // const blob = await response.blob();
-    //       // const downloadUrl = window.URL.createObjectURL(blob);
-    //       // const link = document.createElement('a');
-    //       // link.href = downloadUrl;
-    //       // link.download = 'generated-pdf.pdf';
-    //       // document.body.appendChild(link);
-    //       // link.click();
-    //       // link.remove();
-    //     } else {
-    //       // Handle errors or unsuccessful responses
-    //       console.error('Failed to generate the PDF');
-    //     }
-    //   } catch (error) {
-    //     console.error('There was an error submitting the form:', error);
-    //   }
-    // }
   };
   const Civilite = watch('Civilite');
   const conducteur_pricipal = watch('conducteur_pricipal');

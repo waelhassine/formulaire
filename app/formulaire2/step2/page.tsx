@@ -75,8 +75,7 @@ export default function FormulaireStep2() {
           </div>
 
           <TextInput
-            label="Quelle est sa finition ?
-            "
+            label="Quelle est sa finition ?"
             name="finition"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}

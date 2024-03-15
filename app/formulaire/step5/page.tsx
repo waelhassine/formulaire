@@ -112,6 +112,7 @@ export default function FormulaireStep6() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.presence_dependances}
             currentValue={presence_dependances}
+            popoverContent="Voulez-vous les assurer en dommages ? (i) Si vous souhaitez que vos dépendances soient également garanties en Vol et vandalisme, leurs portes d`accès doivent être équipées au minimum d’une serrure"
           />
           {presence_dependances === 'Oui' && (
             <SelectInput
