@@ -75,7 +75,13 @@ export default function FormulaireStep3() {
             name="CRMstep8"
             type="number"
             register={register}
-            validationRules={{ required: 'Le champ doit contenir au moins 0.5 caractères' }}
+            validationRules={{
+              required: 'Champ obligatoire',
+              max: {
+                value: 4,
+                message: 'Cette valeur doit être inférieure ou égale à 4.', // Add this line
+              },
+            }}
             error={errors.CRMstep8}
             placeholder=""
             maxLength={20}

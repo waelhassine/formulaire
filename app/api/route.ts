@@ -48,6 +48,7 @@ const keyMapping: KeyMapping = {
   nombre_d_adultes_vivant_au_domicile: 'Nombre d`Adultes Vivant au Domicile',
   nombre_d_enfants_vivant_au_domicile: 'Nombre d`Enfants Vivant au Domicile',
   presence_d_enfants_18_ans: 'Présence d`Enfants > 18 ans',
+  assurance_scolaire: 'Assurance Scolaire',
   type_chien: 'Chien(s) de Catégorie 1 ou 2',
   systeme_de_chauffage: 'Système de Chauffage',
   autre_preciser: 'Pouvez vous préciser ?',
