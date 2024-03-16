@@ -7,10 +7,11 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
+import AddressAutocomplete from './AutoComplete';
 
 export default function FormulaireStep4() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, control, watch, setValue } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -55,18 +56,8 @@ export default function FormulaireStep4() {
             error={errors.adresseCorrespondance}
             currentValue={adresseCorrespondance}
           />
+          <AddressAutocomplete setValue={setValue} />
 
-          <TextInput
-            label="Adresse"
-            name="adresse"
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
-            placeholder="Entrez votre adresse"
-            maxLength={50}
-            onBlur={() => trigger('adresse')}
-            autoComplete="adresse"
-          />
           <TextInput
             label="Complément"
             name="complement"
