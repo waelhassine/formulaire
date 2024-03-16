@@ -7,9 +7,14 @@ import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import TextInput from '@/components/TextInput';
 import ImmatriculationInput from './test';
+import { useState } from 'react';
 
 export default function Formulaire() {
   const router = useRouter();
+  const [error, setError] = useState('');
+  const [data, setData] = useState('');
+
+
   const fetchData = async (plate: string) => {
     // Example API call, replace URL and options according to your API
     const response = await fetch(
@@ -24,28 +29,30 @@ export default function Formulaire() {
         // body: JSON.stringify({ plate }), // If you need to send data
       },
     );
-    if (!response.ok) {
+    console.log('pffffffffffffff' , response);
+    if (response.ok) {
+
       router.push('/formulaire2/step2');
     }
     return response.json();
   };
-  const { register, trigger, formState, watch, setValue } = useAppFormContext();
+  const {  trigger ,watch, setValue } = useAppFormContext();
 
-  const { isValid, errors } = formState;
-  const plate = watch('plate');
-  const validateStep = async () => {
-    console.log(plate);
+ 
+  
+  const validateStep = async (plate:string) => {
+    console.log('plate' , plate);
     await trigger();
-    if (isValid) {
-      const data = await fetchData(plate); // Fetch data from API
-      console.log(data);
+  
+      const data = await fetchData(plate); 
+     
       setValue('marque', data.marque);
       setValue('modele', data.modele);
       setValue('finition', data.sraCommercial);
       const formattedDate = data.date1erCirFr.split('T')[0];
       setValue('dateName', formattedDate);
       router.push('/formulaire2/step2');
-    }
+    
   };
   return (
     <div className="flex flex-col space-y-4 w-full">
@@ -57,27 +64,15 @@ export default function Formulaire() {
         </p>
       </div>
       <div className="lg:w-2/3 w-full">
-        <ImmatriculationInput />
-        <TextInput
-          label="Quel est son numéro d'immatriculation ?"
-          name="plate"
-          register={register}
-          validationRules={{
-            pattern: {
-              value: /^(([A-Z]{2}-\d{3}-[A-Z]{2})|(\d{3}-[A-Z]{3}-\d{2}))$/, // French car plate regex pattern
-              message: 'L immatriculation doit être sous la forme AB-123-CD (ou 123-ABC-45 avant 2009).',
-            },
-          }}
-          error={errors.plate}
-          placeholder="AA - AAA - AAA"
-          maxLength={35}
-          onBlur={() => trigger('plate')}
-          autoComplete="plate"
-        />
-
+        <ImmatriculationInput setError={setError}  setData={setData} />
+        {error.length > 0 && <div className="text-red-500 mt-1">{error}</div>}
         <FormActions>
           <div className="flex flex-col lg:flex-row space-x-1">
-            <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+            <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={() => { 
+    if (data.length > 0 && error.length === 0) {
+      validateStep(data);
+    }
+  }}>
               Suivant
             </Button>
             <Button

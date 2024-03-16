@@ -1,11 +1,18 @@
 'use client';
 import React, { useState } from 'react';
 
-const ImmatriculationInput = () => {
+
+interface  ImmatriculationInputProps {
+  setError: (error: string) => void;
+  setData : (data: string) => void;
+}
+
+const ImmatriculationInput = ({setError , setData}: ImmatriculationInputProps) => {
   const [part1, setPart1] = useState('');
   const [part2, setPart2] = useState('');
   const [part3, setPart3] = useState('');
-  const [error, setError] = useState('');
+
+
 
   const validateImmatriculation = () => {
     // Regular expression for validating immatriculation format
@@ -13,8 +20,12 @@ const ImmatriculationInput = () => {
     const immatriculation = `${part1}-${part2}-${part3}`;
     if (!immatriculationRegex.test(immatriculation)) {
       setError("L'immatriculation doit être sous la forme AB-123-CD (ou 123-ABC-45 avant 2009).");
+      console.log("Immatriculation invalide :", immatriculation);
     } else {
+      console.log("Immatriculation valide 1111 :", immatriculation);
       setError('');
+      setData(immatriculation);
+
     }
   };
 
@@ -69,7 +80,7 @@ const ImmatriculationInput = () => {
           onChange={handlePart3Change}
         />
       </div>
-      {error && <div className="text-red-500 mt-1">{error}</div>}
+      
     </div>
   );
 };
