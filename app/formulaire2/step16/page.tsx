@@ -8,8 +8,6 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 
-import SelectInput from '@/components/SelectWael';
-
 export default function FormulaireStep9() {
   const router = useRouter();
   const { register, trigger, formState, control, watch } = useAppFormContext();

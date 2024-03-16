@@ -11,18 +11,28 @@ import AddressAutocomplete from './AutoComplete';
 
 export default function FormulaireStep4() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch, setValue } = useAppFormContext();
+  const { register, trigger, formState, control, watch, setValue, setError, clearErrors } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
+  const adresseCorrespondance = watch('adresseCorrespondance');
+  const adresse = watch('adresse');
+
   const validateStep = async () => {
+    if (adresse.length === 0) {
+      setError('adresse', {
+        type: 'manual',
+        message: 'Champ obligatoire',
+      });
+    } else {
+      clearErrors('adresse');
+    }
     await trigger();
 
     if (isValid) {
       router.push('/formulaire/step5');
     }
   };
-  const adresseCorrespondance = watch('adresseCorrespondance');
   return (
     <div className="w-full">
       <ProgressHeader val={40} />
@@ -56,7 +66,7 @@ export default function FormulaireStep4() {
             error={errors.adresseCorrespondance}
             currentValue={adresseCorrespondance}
           />
-          <AddressAutocomplete setValue={setValue} />
+          <AddressAutocomplete setValue={setValue} error={errors.adresse} clearErrors={clearErrors} />
 
           <TextInput
             label="Complément"

@@ -13,9 +13,11 @@ interface Address {
 
 type AddressAutocompleteProps = {
   setValue: any;
+  clearErrors: any;
+  error: any; // Adjust based on your error handling strategy
 };
 
-const AddressAutocomplete = ({ setValue }: AddressAutocompleteProps) => {
+const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteProps) => {
   const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Address[]>([]);
 
@@ -42,6 +44,10 @@ const AddressAutocomplete = ({ setValue }: AddressAutocompleteProps) => {
     setValue('codepostal', address.properties.postcode);
     setValue('ville', address.properties.city);
     setValue('pays', 'France');
+    clearErrors('adresse');
+    clearErrors('codepostal');
+    clearErrors('ville');
+    clearErrors('pays');
 
     setResults([]); // Clear the results after selecting an address
   };
@@ -50,13 +56,15 @@ const AddressAutocomplete = ({ setValue }: AddressAutocompleteProps) => {
     <div className="flex flex-col space-y-2">
       <span className="text-base font-semibold text-gray-950">Adresse</span>
       <input
+        className={`border ${
+          error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'
+        } py-4 px-3 rounded-lg mt-1`}
         type="text"
         value={query}
         onChange={handleChange}
-        placeholder="Enter an address..."
-        className="w-full py-2 lg:py-3 px-3 lg:px-4 border border-gray-900 rounded-md"
+        placeholder="Entrer votre adresse..."
       />
-      <ul className="mt-2 border border-gray-800 rounded-lg">
+      <ul className="mt-2  rounded-xl shadow-lg ">
         {results.map((result) => (
           <li
             key={result.properties.id}
@@ -67,6 +75,7 @@ const AddressAutocomplete = ({ setValue }: AddressAutocompleteProps) => {
           </li>
         ))}
       </ul>
+      {error && <span className="text-red-500">{error.message}</span>}
     </div>
   );
 };
