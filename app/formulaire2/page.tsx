@@ -5,11 +5,19 @@ import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
-import TextInput from '@/components/TextInput';
+import { useState } from 'react';
+import ImmatriculationInput from '../formulaire2/step1/test';
 
 export default function Formulaire() {
   const router = useRouter();
+  const [error, setError] = useState('');
+  const [data, setData] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const fetchData = async (plate: string) => {
+    setIsLoading(true && error.length === 0);
+
+    //setIsLoading(true && error.length === 0);
     // Example API call, replace URL and options according to your API
     const response = await fetch(
       'https://pro-formulaire-api.app.dismoilya.fr/lyaform/formulaires/32246421-2e17-4f17-89a0-2cda89ab5edf/vehicule/' +
@@ -23,29 +31,50 @@ export default function Formulaire() {
         // body: JSON.stringify({ plate }), // If you need to send data
       },
     );
+
     if (!response.ok) {
       router.push('/formulaire2/step2');
     }
-    return response.json();
-  };
-  const { register, trigger, formState, watch, setValue } = useAppFormContext();
 
-  const { isValid, errors } = formState;
-  const plate = watch('plate');
-  const validateStep = async () => {
-    console.log(plate);
+    let data;
+
+    try {
+      data = await response.json();
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+
+      data = null;
+    }
+
+    return data;
+  };
+
+  const { trigger, setValue } = useAppFormContext();
+
+  const validateStep = async (plate: string) => {
     await trigger();
-    if (isValid) {
-      const data = await fetchData(plate); // Fetch data from API
-      console.log(data);
-      setValue('marque', data.marque);
-      setValue('modele', data.modele);
-      setValue('finition', data.sraCommercial);
-      const formattedDate = data.date1erCirFr.split('T')[0];
+
+    const data = await fetchData(plate);
+
+    if (data) {
+      setValue('marque', data?.marque);
+      setValue('modele', data?.modele);
+      setValue('finition', data?.sraCommercial);
+      const formattedDate = data?.date1erCirFr?.split('T')[0];
       setValue('dateName', formattedDate);
-      router.push('/formulaire2/step2');
+    }
+
+    router.push('/formulaire2/step2');
+  };
+
+  const handleSuivantClick = () => {
+    if (!data.trim()) {
+      setError('Champ obligatoire');
+    } else if (error.length === 0 && data.length > 0) {
+      validateStep(data);
     }
   };
+
   return (
     <div className="flex flex-col space-y-4 w-full">
       <Progress value={10} />
@@ -55,28 +84,18 @@ export default function Formulaire() {
           <span className="text-red-700 px-1">véhicule</span>
         </p>
       </div>
-      <div className="lg:w-2/3 w-full">
-        <TextInput
-          label="Quel est son numéro d'immatriculation ?
-                "
-          name="plate"
-          register={register}
-          validationRules={{
-            pattern: {
-              value: /^(([A-Z]{2}-\d{3}-[A-Z]{2})|(\d{3}-[A-Z]{3}-\d{2}))$/, // French car plate regex pattern
-              message: 'L immatriculation doit être sous la forme AB-123-CD (ou 123-ABC-45 avant 2009).',
-            },
-          }}
-          error={errors.plate}
-          placeholder="AA - AAA - AAA"
-          maxLength={35}
-          onBlur={() => trigger('plate')}
-          autoComplete="plate"
-        />
-
+      <div className="lg:w-1/3 w-full">
+        <ImmatriculationInput setError={setError} setData={setData} />
+        {error.length > 0 && <div className="text-red-500 mt-1">{error}</div>}
         <FormActions>
           <div className="flex flex-col lg:flex-row space-x-1">
-            <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={validateStep}>
+            <Button
+              type="button"
+              disabled={isLoading}
+              size={'lg'}
+              className="mt-8 bg-blue-800 text-xl"
+              onClick={handleSuivantClick}
+            >
               Suivant
             </Button>
             <Button
