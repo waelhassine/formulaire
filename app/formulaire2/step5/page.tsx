@@ -67,6 +67,9 @@ export default function FormulaireStep6() {
               { value: 'Tournées régulières', label: 'Tournées régulières' },
             ]}
             placeholder="Sélectionner dans le liste"
+            popoverContent="Usage privé et trajet travail : ''usage privé'' et aller-retour du domicile au lieu de travail.
+            Usage privé et professionnel : ''usage privé'' et trajet travail, et déplacements professionnels occasionnels.
+            Tournées régulières : vos déplacements comportent plusieurs destinations successives, se renouvelant à fréquence régulière (visite de clientèle,livraisons...)."
           />
 
           <SelectInput

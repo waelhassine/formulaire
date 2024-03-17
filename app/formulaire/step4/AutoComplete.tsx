@@ -5,6 +5,7 @@ interface Address {
   properties: {
     id: string;
     label: string;
+    name: string;
     postcode: string; // Add postcode
     city: string; // Add city
     country: string; // Add country
@@ -31,6 +32,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
+      console.log(data);
       setResults(data.features);
     } catch (error) {
       console.error('Error fetching address autocomplete:', error);
@@ -38,7 +40,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
   };
 
   const handleAddressClick = (address: Address) => {
-    const fullAddress = `${address.properties.label}, ${address.properties.postcode} ${address.properties.city}, France`;
+    const fullAddress = `${address.properties.name}`;
     setQuery(fullAddress);
     setValue('adresse', fullAddress);
     setValue('codepostal', address.properties.postcode);
@@ -71,7 +73,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
             className="p-2 border-b border-gray-500"
             onClick={(e: MouseEvent<HTMLLIElement>) => handleAddressClick(result)}
           >
-            {`${result.properties.label}, ${result.properties.postcode} ${result.properties.city}, France`}
+            {`${result.properties.label}`}
           </li>
         ))}
       </ul>

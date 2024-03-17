@@ -52,11 +52,18 @@ export default function FormulaireStep4() {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.niveau_couverture}
           options={[
-            { value: 'Tiers +', label: 'Tiers +' },
-            { value: 'Tiers plus', label: 'Tiers plus' },
+            { value: 'Tiers', label: 'Tiers' },
+            { value: 'Tiers essentiel', label: 'Tiers essentiel' },
+            { value: 'Tiers étendu', label: 'Tiers étendu' },
             { value: 'Tous risques', label: 'Tous risques' },
           ]}
           placeholder="Sélectionner dans le liste"
+          popoverContent="Tiers : couvre les dommages que vous causez à des tiers.
+          Tiers essentiel : couvre les dommages que vous causez à des tiers et le bris de glace.
+          Tiers étendu : inclut la responsabilité civile, le vol et l'incendie.
+          Tous risques : formule d'assurance la plus complète. Elle couvre entre autres le vol,
+          l'incendie, les accidents (y compris ceux dont vous êtes responsable) et le vandalisme
+          dans la majorité des contrats."
         />
 
         <FormActions>
