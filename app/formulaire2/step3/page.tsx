@@ -10,11 +10,11 @@ import SelectInput from '@/components/SelectWael';
 
 export default function FormulaireStep3() {
   const router = useRouter();
-  const { register, trigger, formState, setValue, watch } = useAppFormContext();
+  const { register, trigger, formState, watch } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
-  const modifications_techniques = watch('modifications_techniques');
+  const modifications_techniques = watch('step3_modifications_techniques');
 
   const validateStep = async () => {
     await trigger();
@@ -48,19 +48,19 @@ export default function FormulaireStep3() {
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
             label="Date d'achat"
-            name="dateDachat"
+            name="step3_dateDachat"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.dateDachat}
+            error={errors.step3_dateDachat}
             type="date"
           />
 
           <SelectInput
             label="Type d'achat"
-            name="type_achat"
+            name="step3_type_achat"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.type_achat}
+            error={errors.step3_type_achat}
             options={[
               { value: 'COMPTANT', label: 'Comptant' },
               { value: 'Credit', label: 'Crédit' },
@@ -72,22 +72,22 @@ export default function FormulaireStep3() {
 
           <RadioButtonGroup
             question="Le véhicule a-t-il subi des modifications techniques ?"
-            name="modifications_techniques"
+            name="step3_modifications_techniques"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.modifications_techniques}
+            error={errors.step3_modifications_techniques}
             currentValue={modifications_techniques}
           />
           <SelectInput
             label="Titulaire de la carte grise"
-            name="titulaire_carte_grise"
+            name="step3_titulaire_carte_grise"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.titulaire_carte_grise}
+            error={errors.step3_titulaire_carte_grise}
             options={[
               { value: 'Souscripteur', label: 'Souscripteur' },
               { value: 'Couple', label: 'Couple' },

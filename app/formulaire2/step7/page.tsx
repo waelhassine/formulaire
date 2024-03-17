@@ -1,15 +1,11 @@
 'use client';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
-import { useState } from 'react';
 
 export default function FormulaireStep7() {
   const router = useRouter();
@@ -24,7 +20,7 @@ export default function FormulaireStep7() {
       router.push('/formulaire2/step8');
     }
   };
-  const Civilitestep7 = watch('Civilitestep7');
+  const step7_civilites = watch('step7_civilites');
   return (
     <div className="w-full">
       <ProgressHeader val={100} />
@@ -49,45 +45,45 @@ export default function FormulaireStep7() {
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question="Civilite"
-            name="Civilitestep7"
+            name="step7_civilites"
             options={[
               { value: 'Monsieur', label: 'Monsieur' },
               { value: 'Madame', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Civilitestep7}
-            currentValue={Civilitestep7}
+            error={errors.step7_civilites}
+            currentValue={step7_civilites}
           />
           <TextInput
             label="Prénom"
-            name="Prenomstep7"
+            name="step7_prenom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Prenomstep7}
+            error={errors.step7_prenom}
             placeholder="Entrez votre Prénom"
             maxLength={30}
-            onBlur={() => trigger('Prenomstep7')}
-            autoComplete="Prenomstep7"
+            onBlur={() => trigger('step7_prenom')}
+            autoComplete="step7_Prenom"
           />
 
           <TextInput
             label="Nom"
-            name="Nomstep7"
+            name="step7_noms"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Nomstep7}
+            error={errors.step7_noms}
             placeholder="Entrez votre Nom"
             maxLength={30}
-            onBlur={() => trigger('Nomstep7')}
-            autoComplete="Nomstep7"
+            onBlur={() => trigger('step7_noms')}
+            autoComplete="step7_noms"
           />
           <TextInput
             label="Date de naissance"
-            name="naissance"
+            name="step7_naissance"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.naissance}
+            error={errors.step7_naissance}
             type="date"
           />
         </div>

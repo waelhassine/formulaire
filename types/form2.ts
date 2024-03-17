@@ -1,4 +1,34 @@
 export interface FormValues {
+//step2
+  step2_finition: string;
+  step2_modele: string;
+  step2_marque: string;
+  step2_dateName: undefined | Date;
+//step3
+  step3_dateDachat: Date;
+  step3_type_achat: string;
+  step3_modifications_techniques: 'oui' | 'non';
+  step3_titulaire_carte_grise: string;
+//step4
+step4_niveau_couverture: string;
+//step5
+step5_type_trajet: string;
+step5_frequence_utilisation: string;
+step5_nb_km: string;
+step5_type_de_stationnement: string;
+step5_type_de_parking_collectif: string;
+//step6
+step6_stationnementstep6: string;
+step6_complementstep6: string;
+step6_villestep6: string;
+step6_codepostalstationnement: string;
+step6_villestationnement: string;
+//step7
+step7_civilites: 'oui' | 'non';
+step7_prenom: string;
+step7_noms: string;
+step7_naissance: Date;
+//step8
   plate: string;
   name: string;
   email: string;
@@ -6,12 +36,8 @@ export interface FormValues {
   adresse: string;
   complement: string;
   codepostal: string;
-  finition: string;
-  modele: string;
-  marque: string;
   ville: string;
   pays: string;
-  type_de_parking_collectif: string;
   adresseCorrespondance: 'oui' | 'non';
   inventaire: 'oui' | 'non';
   logementDangereuse: 'oui' | 'non';
@@ -37,8 +63,6 @@ export interface FormValues {
     storage: boolean;
     profi0le: boolean;
   };
-  dateName: undefined | Date;
-  dateDachat: Date;
   nb: number; //idk
   objet_annulation: 'oui' | 'non';
   conduite_accompagnee: 'oui' | 'non';
@@ -57,24 +81,13 @@ export interface FormValues {
   CRMConducteur: number;
   type_permisConducteur: string;
   type_relation: string;
-  naissance: Date;
   naissanceIdentité: Date;
-  type_de_stationnement: string;
   NomIdentité: string;
   deja_assure_secondaire: 'oui' | 'non';
   date_permis: Date;
-  nb_km: string;
   nombre_infraction: number;
-  type_trajet: string;
   CiviliteIdentité: 'oui' | 'non';
-  niveau_couverture: string;
-  frequence_utilisation: string;
   conducteur_secondaire: 'oui' | 'non';
-  modifications_techniques: 'oui' | 'non';
-  titulaire_carte_grise: string;
-  type_achat: string;
-  codepostalstationnement: string; //ilyess
-  villestationnement: string; //ilyess
   cards: CardInfo[];
   card_sinistre_principal: sinistre_principal[];
   card_conducteur: CardInfo[];
@@ -85,13 +98,6 @@ export interface FormValues {
   card_conducteur_infraction: ConducteurInfraction[];
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
-  stationnementstep6: string;
-  complementstep6: string;
-  codepostalste6: string;
-  villestep6: string;
-  Civilitestep7: 'oui' | 'non';
-  Prenomstep7: string;
-  Nomstep7: string;
   deja_assurestep9: 'oui' | 'non';
   deja_assure_secondairestep9: 'oui' | 'non';
   conduite_accompagneestep9: 'oui' | 'non';

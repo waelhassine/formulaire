@@ -6,14 +6,12 @@ import FormActions from '@/components/FormActions';
 
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
 
 import SelectInput from '@/components/SelectWael';
-import TextInput from '@/components/TextInput';
 
 export default function FormulaireStep6() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, watch } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -25,14 +23,7 @@ export default function FormulaireStep6() {
     }
   };
 
-  const inventaire = watch('inventaire');
-  const logementDangereuse = watch('logementDangereuse');
-  const logement_garage = watch('logement_garage');
-  const logement_sous_sol = watch('logement_sous_sol');
-  const presence_dependances = watch('presence_dependances');
-  const presence_veranda = watch('presence_veranda');
-  const installations_exterieures = watch('installations_exterieures');
-  const type_de_stationnement = watch('type_de_stationnement');
+  const type_de_stationnement = watch('step5_type_de_stationnement');
   return (
     <div className="w-full">
       <ProgressHeader val={60} />
@@ -56,10 +47,10 @@ export default function FormulaireStep6() {
         <div className="flex flex-col space-y-6 mt-6">
           <SelectInput
             label="Type de trajet"
-            name="type_trajet"
+            name="step5_type_trajet"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.type_trajet}
+            error={errors.step5_type_trajet}
             options={[
               { value: 'Privés et travail', label: 'Privés et travail' },
               { value: 'Privé exclusivement', label: 'Privé exclusivement' },
@@ -74,10 +65,10 @@ export default function FormulaireStep6() {
 
           <SelectInput
             label="Fréquence d'utilisation"
-            name="frequence_utilisation"
+            name="step5_frequence_utilisation"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.frequence_utilisation}
+            error={errors.step5_frequence_utilisation}
             options={[
               { value: 'Presque tous les jours', label: 'Presque tous les jours' },
               { value: '3/4 jours par semaine', label: '3/4 jours par semaine' },
@@ -88,10 +79,10 @@ export default function FormulaireStep6() {
           />
           <SelectInput
             label="Nombre de km parcourus par an"
-            name="nb_km"
+            name="step5_nb_km"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.nb_km}
+            error={errors.step5_nb_km}
             options={[
               { value: '- de 5000 km ', label: '- de 5000 km ' },
               { value: '- de 10 000 km', label: '- de 10 000 km' },
@@ -102,10 +93,10 @@ export default function FormulaireStep6() {
 
           <SelectInput
             label="Type de stationnement"
-            name="type_de_stationnement"
+            name="step5_type_de_stationnement"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.type_de_stationnement}
+            error={errors.step5_type_de_stationnement}
             options={[
               { value: 'Parking collectif clos', label: 'Parking collectif clos' },
               { value: 'Parking individuel', label: 'Parking individuel' },
@@ -118,10 +109,10 @@ export default function FormulaireStep6() {
               {type_de_stationnement === 'Parking collectif clos' ? (
                 <SelectInput
                   label="Veuillez préciser le type de parking collectif"
-                  name="type_de_parking_collectif"
+                  name="step5_type_de_parking_collectif"
                   register={register}
                   validationRules={{ required: 'Champ obligatoire' }}
-                  error={errors.type_de_parking_collectif}
+                  error={errors.step5_type_de_parking_collectif}
                   options={[
                     { value: 'En plein air', label: 'En plein air' },
                     { value: 'Couvert et surveillé', label: 'Couvert et surveillé' },
@@ -132,10 +123,10 @@ export default function FormulaireStep6() {
               ) : (
                 <SelectInput
                   label="Veuillez préciser le type de parking collectif"
-                  name="type_de_parking_collectif"
+                  name="step5_type_de_parking_collectif"
                   register={register}
                   validationRules={{ required: 'Champ obligatoire' }}
-                  error={errors.type_de_parking_collectif}
+                  error={errors.step5_type_de_parking_collectif}
                   options={[
                     { value: 'jardin clos', label: 'jardin clos' },
                     { value: 'Garage fermé/Box', label: 'Garage fermé/Box' },

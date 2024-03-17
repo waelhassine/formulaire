@@ -1,15 +1,9 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
-import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 export default function FormulaireStep4() {
   const router = useRouter();
@@ -47,10 +41,10 @@ export default function FormulaireStep4() {
         </p>
         <SelectInput
           label="Niveau de couverture souhaité"
-          name="niveau_couverture"
+          name="step4_niveau_couverture"
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.niveau_couverture}
+          error={errors.step4_niveau_couverture}
           options={[
             { value: 'Tiers', label: 'Tiers' },
             { value: 'Tiers essentiel', label: 'Tiers essentiel' },

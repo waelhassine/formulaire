@@ -51,21 +51,21 @@ export default function FormulaireStep4() {
             name="stationnementstep6"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.stationnementstep6}
+            error={errors.step6_stationnementstep6}
             placeholder="Entrez votre stationnement"
             maxLength={20}
-            onBlur={() => trigger('stationnementstep6')}
+            onBlur={() => trigger('step6_stationnementstep6')}
             autoComplete="stationnementstep6"
           />
           <TextInput
             label="Complément"
-            name="complementstep6"
+            name="step6_complementstep6"
             register={register}
             validationRules={{}}
-            error={errors.complementstep6}
+            error={errors.step6_complementstep6}
             placeholder="Entrez votre complément"
             maxLength={20}
-            onBlur={() => trigger('complementstep6')}
+            onBlur={() => trigger('step6_complementstep6')}
             autoComplete="complementstep6"
           />
 
@@ -73,26 +73,26 @@ export default function FormulaireStep4() {
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
-                name="codepostalste6"
+                name="step6_complementstep6"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.codepostalste6}
+                error={errors.step6_complementstep6}
                 placeholder="Entrez votre Code postal"
                 maxLength={20}
-                onBlur={() => trigger('codepostalste6')}
+                onBlur={() => trigger('step6_complementstep6')}
                 autoComplete="codepostalste6"
               />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
-                name="villestep6"
+                name="step6_villestep6"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.villestep6}
+                error={errors.step6_villestep6}
                 placeholder="Entrez votre Ville"
                 maxLength={20}
-                onBlur={() => trigger('villestep6')}
+                onBlur={() => trigger('step6_villestep6')}
                 autoComplete="villestep6"
               />
             </div>
@@ -101,28 +101,28 @@ export default function FormulaireStep4() {
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code Postal de stationnement au travail"
-                name="codepostalstationnement"
+                name="step6_codepostalstationnement"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.codepostalstationnement}
+                error={errors.step6_codepostalstationnement}
                 placeholder="Entrez votre Code postal"
                 maxLength={20}
-                onBlur={() => trigger('codepostalstationnement')}
+                onBlur={() => trigger('step6_codepostalstationnement')}
                 autoComplete="codepostalstationnement"
               />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville de stationnement au travail"
-                name="villestationnement"
+                name="step6_villestationnement"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.villestationnement}
+                error={errors.step6_villestationnement}
                 placeholder="Entrez votre Ville"
                 maxLength={20}
-                onBlur={() => trigger('villestep6')}
+                onBlur={() => trigger('step6_villestationnement')}
                 autoComplete="villestationnement"
-                space={true}
+                
               />
             </div>
           </div>

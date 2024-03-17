@@ -49,26 +49,26 @@ export default function FormulaireStep2() {
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Quelle est sa marque ?"
-                name="marque"
+                name="step2_marque"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.marque}
+                error={errors.step2_marque}
                 placeholder="Entrez votre marque"
                 maxLength={20}
-                onBlur={() => trigger('marque')}
+                onBlur={() => trigger('step2_marque')}
                 autoComplete="marque"
               />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Quel est son modèle ?"
-                name="modele"
+                name="step2_modele"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.modele}
+                error={errors.step2_modele}
                 placeholder="Entrez votre modele"
                 maxLength={20}
-                onBlur={() => trigger('modele')}
+                onBlur={() => trigger('step2_modele')}
                 autoComplete="modele"
               />
             </div>
@@ -76,25 +76,25 @@ export default function FormulaireStep2() {
 
           <TextInput
             label="Quelle est sa finition ?"
-            name="finition"
+            name="step2_finition"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.finition}
+            error={errors.step2_finition}
             placeholder="ex: 1.2 PURE TECH 130 STYLE"
             maxLength={20}
-            onBlur={() => trigger('finition')}
+            onBlur={() => trigger('step2_finition')}
             autoComplete="finition"
           />
 
           <TextInput
             label="Quelle est sa date de mise en circulation ?"
-            name="dateName"
+            name="step2_dateName"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.dateName}
+            error={errors.step2_dateName}
             placeholder="Entrez votre date"
             maxLength={20}
-            onBlur={() => trigger('dateName')}
+            onBlur={() => trigger('step2_dateName')}
             autoComplete="dateName"
             type="date"
           />
