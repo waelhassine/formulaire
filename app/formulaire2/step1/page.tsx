@@ -16,7 +16,6 @@ export default function Formulaire() {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async (plate: string) => {
-
     setIsLoading(true && error.length === 0);
 
     //setIsLoading(true && error.length === 0);
@@ -32,54 +31,46 @@ export default function Formulaire() {
         },
         // body: JSON.stringify({ plate }), // If you need to send data
       },
-    )
-
+    );
 
     if (!response.ok) {
       router.push('/formulaire2/step2');
     }
 
-    let  data 
+    let data;
 
     try {
       data = await response.json();
     } catch (error) {
       console.error('Error parsing JSON:', error);
-     
-      data = null; 
-    }
 
+      data = null;
+    }
 
     return data;
   };
 
+  const { trigger, setValue } = useAppFormContext();
 
-  const {  trigger , setValue } = useAppFormContext();
-
- 
-  
-  const validateStep = async (plate:string) => {
-   
+  const validateStep = async (plate: string) => {
     await trigger();
-  
-      const data = await fetchData(plate); 
 
-      if(data) {
-        setValue('marque', data?.marque);
-        setValue('modele', data?.modele);
-        setValue('finition', data?.sraCommercial);
-        const formattedDate = data?.date1erCirFr?.split('T')[0];
-        setValue('dateName', formattedDate);
-      }
-     
-      
-      router.push('/formulaire2/step2');
-    
+    const data = await fetchData(plate);
+
+    if (data) {
+      setValue('marque', data?.marque);
+      setValue('modele', data?.modele);
+      setValue('finition', data?.sraCommercial);
+      const formattedDate = data?.date1erCirFr?.split('T')[0];
+      setValue('dateName', formattedDate);
+    }
+
+    router.push('/formulaire2/step2');
   };
 
   const handleSuivantClick = () => {
     if (!data.trim()) {
-      setError('Champ obligatoire'); 
+      setError('Champ obligatoire');
     } else if (error.length === 0 && data.length > 0) {
       validateStep(data);
     }
@@ -94,14 +85,18 @@ export default function Formulaire() {
           <span className="text-red-700 px-1">véhicule</span>
         </p>
       </div>
-      <div className="lg:w-2/3 w-full">
-        <ImmatriculationInput setError={setError}  setData={setData} />
+      <div className="lg:w-1/3 w-full">
+        <ImmatriculationInput setError={setError} setData={setData} />
         {error.length > 0 && <div className="text-red-500 mt-1">{error}</div>}
         <FormActions>
           <div className="flex flex-col lg:flex-row space-x-1">
-            <Button type="button" disabled={isLoading} size={'lg'} className="mt-8 bg-blue-800 text-xl" onClick={
-              handleSuivantClick
-        }>
+            <Button
+              type="button"
+              disabled={isLoading}
+              size={'lg'}
+              className="mt-8 bg-blue-800 text-xl"
+              onClick={handleSuivantClick}
+            >
               Suivant
             </Button>
             <Button

@@ -23,10 +23,11 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
     }
   };
 
-  const handleInputChange = (setter : React.Dispatch<React.SetStateAction<string>>) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setter(e.target.value.toUpperCase());
-    setTouched(true); 
-  };
+  const handleInputChange =
+    (setter: React.Dispatch<React.SetStateAction<string>>) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setter(e.target.value.toUpperCase());
+      setTouched(true);
+    };
 
   // OnBlur handler to validate when user clicks out of the input field
   const handleBlur = () => {
@@ -34,8 +35,8 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
   };
 
   return (
-    <div className="flex items-center justify-center mt-4 border p-2 border-gray-950 rounded-lg">
-      <div className="flex items-center space-x-2">
+    <div className=" flex items-center justify-center mt-4 border p-2 border-gray-950 rounded-lg ">
+      <div className="flex items-center space-x-2 ">
         <input
           name="immatriculation-part-1"
           type="text"
