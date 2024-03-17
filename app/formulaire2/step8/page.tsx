@@ -70,27 +70,9 @@ export default function FormulaireStep3() {
             placeholder="Sélectionner dans le liste"
           />
 
-          <TextInput
-            label="Coefficient de Bonus/Malus (CRM)"
-            name="CRMstep8"
-            type="number"
-            register={register}
-            validationRules={{
-              required: 'Champ obligatoire',
-              max: {
-                value: 4,
-                message: 'Cette valeur doit être inférieure ou égale à 4.', // Add this line
-              },
-            }}
-            error={errors.CRMstep8}
-            placeholder=""
-            maxLength={20}
-            onBlur={() => trigger('CRMstep8')}
-            autoComplete="CRMstep8"
-          />
-          {CRMstep8 <= 0.5 && (
-            <SelectInput
-              label="Nombre d'année(s) à 0.5"
+         
+          <SelectInput
+              label="Coefficient de Bonus/Malus (CRM)"
               name="CRM_bonusstep8"
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
@@ -98,7 +80,6 @@ export default function FormulaireStep3() {
               options={selectedData}
               placeholder="Sélectionner dans le liste"
             />
-          )}
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>

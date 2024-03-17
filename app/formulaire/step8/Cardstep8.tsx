@@ -14,6 +14,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
   const {
     register,
     formState: { errors },
+    trigger,
     watch,
   } = useAppFormContext();
   const contratCours = watch(`cards.${index}.contract_cours`);
@@ -35,7 +36,18 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           error={errors?.cards?.[index]?.compagnie}
           options={selectedData}
         />
-
+          <TextInput
+              label="Votre cotisation ?"
+              name={`cards.${index}.cotisation`}
+              type="number"
+              register={register}
+              validationRules={{ required: 'Champ invalide' }}
+              error={errors?.cards?.[index]?.cotisation}
+              placeholder=""
+              maxLength={20}
+              onBlur={() => trigger(`cards.${index}.cotisation`)}
+              autoComplete="cotisation"
+            />
         <TextInput
           label="Date de souscription"
           name={`cards.${index}.souscription`}

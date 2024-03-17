@@ -71,6 +71,7 @@ export interface FormValues {
 export interface CardInfo {
   compagnie: string;
   souscription: Date;
+  cotisation?: number;//ilyess
   contract_cours: 'Oui' | 'Non';
   resiliation?: Date;
   motif_resiliation?: string;

@@ -97,6 +97,34 @@ export default function FormulaireStep4() {
               />
             </div>
           </div>
+          <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
+            <div className="lg:w-1/2 w-full">
+              <TextInput
+                label="Code de stationnement au travail"
+                name="codepostalstationnement"
+                register={register}
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.codepostalstationnement}
+                placeholder="Entrez votre Code postal"
+                maxLength={20}
+                onBlur={() => trigger('codepostalstationnement')}
+                autoComplete="codepostalstationnement"
+              />
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <TextInput
+                label="Ville de stationnement au travail"
+                name="villestationnement"
+                register={register}
+                validationRules={{ required: 'Champ obligatoire' }}
+                error={errors.villestationnement}
+                placeholder="Entrez votre Ville"
+                maxLength={20}
+                onBlur={() => trigger('villestep6')}
+                autoComplete="villestationnement"
+              />
+            </div>
+          </div>
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>

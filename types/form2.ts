@@ -73,7 +73,8 @@ export interface FormValues {
   modifications_techniques: 'oui' | 'non';
   titulaire_carte_grise: string;
   type_achat: string;
-
+  codepostalstationnement: string; //ilyess
+  villestationnement: string; //ilyess
   cards: CardInfo[];
   card_sinistre_principal: sinistre_principal[];
   card_conducteur: CardInfo[];
