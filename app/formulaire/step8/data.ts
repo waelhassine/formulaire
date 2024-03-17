@@ -1496,3 +1496,41 @@ export const selectedData = [
         "label": "ZURICH"
     }
 ]
+
+export const resilationData = [
+    { value: 'A échéance', label: 'A échéance' },
+    { value: 'Autre', label: 'Autre' },
+    { value: "Changement d'adresse", label: "Changement d'adresse" },
+    {
+      value: 'Changement de garanties',
+      label: 'Changement de garanties'
+    },
+    {
+      value: 'Changement de moyen de paiement',
+      label: 'Changement de moyen de paiement'
+    },
+    { value: 'Changement de risque', label: 'Changement de risque' },
+    { value: 'Décès du bénéficiaire', label: 'Décès du bénéficiaire' },
+    { value: 'Départ à la retraite', label: 'Départ à la retraite' },
+    { value: 'Evolution tarifaire', label: 'Evolution tarifaire' },
+    { value: 'Expiration du contrat', label: 'Expiration du contrat' },
+    {
+      value: 'Liquidation/Arrêt d’activité',
+      label: 'Liquidation/Arrêt d’activité'
+    },
+    { value: 'Loi Chatel', label: 'Loi Chatel' },
+    { value: 'Loi Hamon', label: 'Loi Hamon' },
+    { value: 'Non paiement de prime', label: 'Non paiement de prime' },
+    { value: 'Nullité', label: 'Nullité' },
+    { value: 'Rachat total', label: 'Rachat total' },
+    { value: 'Remplacement', label: 'Remplacement' },
+    {
+      value: 'Résiliation Infra Annuelle',
+      label: 'Résiliation Infra Annuelle'
+    },
+    { value: 'Résiliation aimable', label: 'Résiliation aimable' },
+    { value: 'Sinistre', label: 'Sinistre' },
+    { value: 'Transfert concurrence', label: 'Transfert concurrence' },
+    { value: 'Vente', label: 'Vente' }
+  ]
+  

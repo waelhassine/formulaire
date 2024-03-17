@@ -4,7 +4,7 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
-import { selectedData } from './data';
+import { selectedData , resilationData } from './data';
 type Cardstep8Props = {
   onClose: () => void;
   index: number;
@@ -87,11 +87,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors?.cards?.[index]?.motif_resiliation}
-              options={[
-                { value: 'A écheance', label: 'A écheance' },
-                { value: 'Autre', label: 'Autre' },
-                { value: 'Changement d adress', label: 'Changement d adress' },
-              ]}
+              options={resilationData}
             />
             <TextInput
               label="Commentaires"

@@ -9,7 +9,7 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
   const [part1, setPart1] = useState('');
   const [part2, setPart2] = useState('');
   const [part3, setPart3] = useState('');
-  const [touched, setTouched] = useState(false); // To track if user has interacted
+  const [touched, setTouched] = useState(false); // To track if user has interacted 
 
   const validateImmatriculation = () => {
     if (!touched) return; // Skip validation if not interacted
