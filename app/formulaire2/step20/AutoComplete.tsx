@@ -1,11 +1,20 @@
 'use client';
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
-import type { Address } from '@/lib/types';
 type AddressAutocompleteProps = {
   setValue: any;
   clearErrors: any;
   error: any; // Adjust based on your error handling strategy
 };
+interface Address {
+  properties: {
+    id: string;
+    label: string;
+    name: string;
+    postcode: string; // Add postcode
+    city: string; // Add city
+    country: string; // Add country
+  };
+}
 
 const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteProps) => {
   const [query, setQuery] = useState<string>('');
@@ -48,7 +57,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
       <span className="text-base font-semibold text-gray-950">Adresse</span>
       <input
         className={`border ${
-          error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'
+          error ? 'border-red-500' : 'border-gray-950 focus:border-blue-500'
         } py-4 px-3 rounded-lg mt-1`}
         type="text"
         value={query}
@@ -66,7 +75,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
           </li>
         ))}
       </ul>
-      {error && <span className="text-red-500">{error.message}</span>}
+      {error && <p className="text-red-500">{error.message}</p>}
     </div>
   );
 };

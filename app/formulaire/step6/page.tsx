@@ -53,7 +53,7 @@ export default function FormulaireStep6() {
           maxLength={40}
           onBlur={() => trigger('mobiliere_assurer')}
           autoComplete="mobiliere_assurer"
-          popoverContent="iens mobiliers : Meubles, électroménager, matériel audiovisuel et informatique, vaisselle, linge de maison, vêtements, livres, objets de décoration… Le montant doit être estimé sur la valeur à neuf des biens."
+          popoverContent="Biens mobiliers : Meubles, électroménager, matériel audiovisuel et informatique, vaisselle, linge de maison, vêtements, livres, objets de décoration… Le montant doit être estimé sur la valeur à neuf des biens."
         />
 
         <RadioButtonGroup

@@ -15,6 +15,7 @@ interface TextInputProps {
   type?: 'text' | 'number' | 'date' | 'textarea'; // Add 'textarea' as a possible type
   rows?: number; // Optional prop for textarea rows
   popoverContent?: React.ReactNode; // Content for the popover, now optional
+  space?: boolean;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -30,10 +31,13 @@ const TextInput: React.FC<TextInputProps> = ({
   type = 'text',
   rows = 4, // Default rows for textarea
   popoverContent,
+  space = false,
 }) => (
   <label className="flex flex-col space-y-2">
     <div className="flex flex-row space-x-1">
-      <span className={clsx('text-base font-semibold', error ? 'text-red-500' : 'text-gray-950')}>{label}</span>
+      <span className={clsx('text-base font-semibold', error ? 'text-red-500' : 'text-gray-950', space ? 'pb-6' : '')}>
+        {label}
+      </span>
       {popoverContent && (
         <Popover>
           <PopoverTrigger>

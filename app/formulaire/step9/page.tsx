@@ -8,10 +8,10 @@ import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import ConsentCheckbox from '@/components/Checkbox';
-
+import AddressAutocomplete from './AutoComplete';
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch, getValues } = useAppFormContext();
+  const { register, trigger, formState, control, watch, getValues, setValue, clearErrors } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -109,7 +109,13 @@ export default function FormulaireStep9() {
             label="Email"
             name="Email"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{
+              required: 'Champ obligatoire',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'Veuillez entrer une adresse email valide',
+              },
+            }}
             error={errors.Email}
             placeholder="Entrez votre Email"
             maxLength={40}
@@ -120,24 +126,20 @@ export default function FormulaireStep9() {
             label="Téléphone"
             name="Telephone"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{
+              required: 'Champ obligatoire',
+              pattern: {
+                value: /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/,
+                message: 'Veuillez entrer un numéro de téléphone valide',
+              },
+            }}
             error={errors.Telephone}
             placeholder="Entrez votre Téléphone"
             maxLength={40}
             onBlur={() => trigger('Telephone')}
             autoComplete="Telephone"
           />
-          <TextInput
-            label="Adresse"
-            name="adresse"
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
-            placeholder="Entrez votre adresse"
-            maxLength={50}
-            onBlur={() => trigger('adresse')}
-            autoComplete="adresse"
-          />
+          <AddressAutocomplete setValue={setValue} error={errors.adresse} clearErrors={clearErrors} />
           <TextInput
             label="Complément"
             name="complement"

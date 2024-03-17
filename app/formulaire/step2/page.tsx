@@ -104,7 +104,7 @@ export default function FormulaireStep3() {
                 { value: 'Mois de 3 moins paran', label: 'Mois de 3 moins par an' },
                 { value: '3 mois ou plus par an', label: '3 mois ou plus par an' },
               ]}
-              placeholder="Select a periode"
+              placeholder="Sélectionner dans le liste"
             />
           )}
 

@@ -7,9 +7,10 @@ import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import ConsentCheckbox from '@/components/Checkbox';
+import AddressAutocomplete from './AutoComplete';
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, getValues, control, watch } = useAppFormContext();
+  const { register, trigger, formState, getValues, control, watch, setValue, clearErrors } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -105,7 +106,7 @@ export default function FormulaireStep9() {
             name="Prenom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Prenom}
             placeholder="Entrez votre Prenom"
             maxLength={20}
             onBlur={() => trigger('Prenom')}
@@ -116,7 +117,7 @@ export default function FormulaireStep9() {
             name="Nom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            error={errors.Nom}
             placeholder="Entrez votre Nom"
             maxLength={20}
             onBlur={() => trigger('Nom')}
@@ -127,8 +128,14 @@ export default function FormulaireStep9() {
             label="Email"
             name="Email"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
+            validationRules={{
+              required: 'Champ obligatoire',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'Veuillez entrer une adresse email valide',
+              },
+            }}
+            error={errors.Email}
             placeholder="Entrez votre Email"
             maxLength={20}
             onBlur={() => trigger('Email')}
@@ -138,24 +145,20 @@ export default function FormulaireStep9() {
             label="Téléphone"
             name="Telephone"
             register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
+            validationRules={{
+              required: 'Champ obligatoire',
+              pattern: {
+                value: /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/,
+                message: 'Veuillez entrer un numéro de téléphone valide',
+              },
+            }}
             error={errors.adresse}
             placeholder="Entrez votre Téléphone"
             maxLength={20}
             onBlur={() => trigger('Telephone')}
             autoComplete="Telephone"
           />
-          <TextInput
-            label="Adresse"
-            name="adresse"
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.adresse}
-            placeholder="Entrez votre adresse"
-            maxLength={20}
-            onBlur={() => trigger('adresse')}
-            autoComplete="adresse"
-          />
+          <AddressAutocomplete setValue={setValue} error={errors.adresse} clearErrors={clearErrors} />
           <TextInput
             label="Complément"
             name="complement"

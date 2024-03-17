@@ -100,7 +100,7 @@ export default function FormulaireStep4() {
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
               <TextInput
-                label="Code de stationnement au travail"
+                label="Code Postal de stationnement au travail"
                 name="codepostalstationnement"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
@@ -122,6 +122,7 @@ export default function FormulaireStep4() {
                 maxLength={20}
                 onBlur={() => trigger('villestep6')}
                 autoComplete="villestationnement"
+                space={true}
               />
             </div>
           </div>
