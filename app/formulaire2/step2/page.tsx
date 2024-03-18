@@ -55,7 +55,7 @@ export default function FormulaireStep2() {
                 placeholder="Entrez votre marque"
                 maxLength={40}
                 onBlur={() => trigger('step2_marque')}
-                autoComplete="marque"
+                autoComplete="step2_marque"
               />
             </div>
             <div className="lg:w-1/2 w-full">
@@ -68,7 +68,7 @@ export default function FormulaireStep2() {
                 placeholder="Entrez votre modele"
                 maxLength={40}
                 onBlur={() => trigger('step2_modele')}
-                autoComplete="modele"
+                autoComplete="step2_modele"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function FormulaireStep2() {
             placeholder="ex: 1.2 PURE TECH 130 STYLE"
             maxLength={40}
             onBlur={() => trigger('step2_finition')}
-            autoComplete="finition"
+            autoComplete="step2_finition"
           />
 
           <TextInput
@@ -94,7 +94,7 @@ export default function FormulaireStep2() {
             placeholder="Entrez votre date"
             maxLength={40}
             onBlur={() => trigger('step2_dateName')}
-            autoComplete="dateName"
+            autoComplete="step2_dateName"
             type="date"
           />
         </div>
