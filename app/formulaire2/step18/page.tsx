@@ -21,7 +21,7 @@ export default function FormulaireStep10() {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_conducteur_sinistres',
+    name: 'step18_card_conducteur_sinistres',
   });
 
   const validateStep = async () => {
