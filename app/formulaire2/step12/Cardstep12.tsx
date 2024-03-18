@@ -4,7 +4,7 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons';
-import { selectedData , resilationData } from './data';
+import { selectedData, resilationData } from './data';
 
 type Cardstep8Props = {
   onClose: () => void;
@@ -18,9 +18,9 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
     watch,
   } = useAppFormContext();
 
-  const contratCours = watch(`card_conducteur.${index}.contract_cours`);
-  const contentieux_solde = watch(`card_conducteur.${index}.contentieux_solde`);
-  const recidive_non_paiement = watch(`card_conducteur.${index}.recidive_non_paiement`);
+  const contratCours = watch(`step12_card_conducteur.${index}.contract_cours`);
+  const contentieux_solde = watch(`step12_card_conducteur.${index}.contentieux_solde`);
+  const recidive_non_paiement = watch(`step12_card_conducteur.${index}.recidive_non_paiement`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       {' '}
@@ -38,7 +38,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           name={`card_conducteur.${index}.compagnie`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_conducteur?.[index]?.compagnie}
+          error={errors?.step12_card_conducteur?.[index]?.compagnie}
           options={selectedData}
           placeholder=""
         />
@@ -47,7 +47,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           name={`card_conducteur.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_conducteur?.[index]?.souscription}
+          error={errors?.step12_card_conducteur?.[index]?.souscription}
           type="date"
         />
         <RadioButtonGroup
@@ -59,7 +59,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_conducteur?.[index]?.contract_cours}
+          error={errors?.step12_card_conducteur?.[index]?.contract_cours}
           currentValue={contratCours}
         />
         {contratCours === 'non' && (
@@ -69,7 +69,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               name={`card_conducteur.${index}.resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_conducteur?.[index]?.resiliation}
+              error={errors?.step12_card_conducteur?.[index]?.resiliation}
               type="date"
             />
             <SelectInput
@@ -77,7 +77,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               name={`card_conducteur.${index}.motif_resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_conducteur?.[index]?.motif_resiliation}
+              error={errors?.step12_card_conducteur?.[index]?.motif_resiliation}
               options={resilationData}
               placeholder=""
             />
@@ -90,7 +90,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               ]}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_conducteur?.[index]?.recidive_non_paiement}
+              error={errors?.step12_card_conducteur?.[index]?.recidive_non_paiement}
               currentValue={recidive_non_paiement}
             />
             <RadioButtonGroup
@@ -102,7 +102,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               ]}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_conducteur?.[index]?.contentieux_solde}
+              error={errors?.step12_card_conducteur?.[index]?.contentieux_solde}
               currentValue={contentieux_solde}
             />
             <TextInput
@@ -110,7 +110,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
               name={`card_conducteur.${index}.commentaires`}
               register={register}
               validationRules={{}}
-              error={errors?.card_conducteur?.[index]?.commentaires}
+              error={errors?.step12_card_conducteur?.[index]?.commentaires}
               type="textarea"
             />
           </>

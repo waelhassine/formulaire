@@ -11,7 +11,7 @@ export default function Provider2({ children }: FormProviderProps) {
   const methods = useAppForm({});
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const isValid = !!(data.name && data.email && data.phone && data.ville && data.adresse && data.logementDangereuse);
+    const isValid = !!(data.step20_email && data.step20_nom && data.step20_telephone);
 
     if (isValid) {
       route.push('/merci');

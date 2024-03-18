@@ -18,7 +18,7 @@ export default function FormulaireStep17() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_conducteur_infraction',
+    name: 'step17_card_conducteur_infraction',
   });
 
   const validateStep = async () => {

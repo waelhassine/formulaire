@@ -19,7 +19,7 @@ export default function FormulaireStep8() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_conducteur', // This name should match the one in your form's initial state or schema
+    name: 'step12_card_conducteur', // This name should match the one in your form's initial state or schema
   });
 
   const validateStep = async () => {

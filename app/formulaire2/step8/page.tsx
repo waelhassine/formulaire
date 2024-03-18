@@ -13,10 +13,7 @@ export default function FormulaireStep3() {
 
   const { isValid, errors } = formState;
 
-  const CRMstep8 = watch('CRMstep8');
-
   const validateStep = async () => {
-    console.log(CRMstep8);
     await trigger();
     if (isValid) {
       router.push('/formulaire2/step9');
@@ -69,16 +66,16 @@ export default function FormulaireStep3() {
             ]}
             placeholder="Sélectionner dans le liste"
           />
-         
+
           <SelectInput
-              label="Coefficient de Bonus/Malus (CRM)"
-              name="step8_crm_bonusstep8"
-              register={register}
-              validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.step8_crm_bonusstep8}
-              options={selectedData}
-              placeholder="Sélectionner dans le liste"
-            />
+            label="Coefficient de Bonus/Malus (CRM)"
+            name="step8_crm_bonusstep8"
+            register={register}
+            validationRules={{ required: 'Champ obligatoire' }}
+            error={errors.step8_crm_bonusstep8}
+            options={selectedData}
+            placeholder="Sélectionner dans le liste"
+          />
         </div>
         <FormActions>
           <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
