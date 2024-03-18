@@ -96,7 +96,7 @@ export default function FormulaireStep6() {
           currentValue={logement_alarame}
         />
         <SelectInput
-          label="Surface des dépendances"
+          label="Période ou le logement n'est pas habité"
           name="periode_logement"
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}

@@ -2,7 +2,7 @@
 import { NextRequest } from 'next/server';
 import { PDFDocument, rgb, PDFPage, StandardFonts } from 'pdf-lib';
 import nodemailer from 'nodemailer';
-
+import { FormValues } from '../../types/form';
 interface KeyMapping {
   [key: string]: string;
 }
@@ -65,20 +65,35 @@ const keyMapping: KeyMapping = {
   date_de_naissance: 'Date de naissance',
   // Additional fields from your description
 };
-
 function transformData(data: any): any {
   if (Array.isArray(data)) {
     return data.map((item) => transformData(item));
   }
   if (typeof data === 'object' && data !== null) {
     const newData: { [key: string]: any } = {}; // Define type for newData
-    for (const [key, value] of Object.entries(data)) {
-      const newKey = keyMapping[key.trim()] || key.trim(); // Trim and map keys
-      newData[newKey] = transformData(value); // Recursively apply transformation
+    for (const key of Object.keys(keyMapping)) {
+      const mappedKey = keyMapping[key] || key; // Map keys
+      if (key === 'cards') {
+        // Handle 'cards' field separately
+        newData[mappedKey] = transformCards(data[key]);
+      } else if (data.hasOwnProperty(key)) {
+        newData[mappedKey] = transformData(data[key]); // Recursively apply transformation
+      }
     }
     return newData;
   }
   return data;
+}
+
+function transformCards(cards: any[]): any[] {
+  return cards.map((card) => {
+    const newCard: { [key: string]: any } = {};
+    for (const cardKey of Object.keys(card)) {
+      const mappedCardKey = keyMapping[cardKey] || cardKey;
+      newCard[mappedCardKey] = transformData(card[cardKey]);
+    }
+    return newCard;
+  });
 }
 
 export async function POST(request: NextRequest) {
@@ -136,8 +151,19 @@ export async function POST(request: NextRequest) {
           });
         }
       } else {
-        drawText(`- ${key}: ${value}`, page, x, localY);
-        localY -= lineSpacing;
+        // Handle precision_installation_energie specifically
+        if (key === 'precision_installation_energie') {
+          const lines = (value as string).split('\n'); // Explicitly specify value as string
+          drawText(`- ${key}: ${lines[0]}`, page, x, localY);
+          localY -= lineSpacing;
+          if (lines.length > 1) {
+            drawText(`  ${lines[1]}`, page, x, localY);
+            localY -= lineSpacing;
+          }
+        } else {
+          drawText(`- ${key}: ${value}`, page, x, localY);
+          localY -= lineSpacing;
+        }
       }
     }
   };

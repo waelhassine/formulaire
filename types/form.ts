@@ -46,7 +46,7 @@ export interface FormValues {
   autre_preciser: string;
   installation_professionnel: 'Oui' | 'Non';
   energies_renouvelables: 'Oui' | 'Non';
-  precision_installation_energie: Array<string>[];
+  precision_installation_energie: string;
   pompe_a_chaleur: 'Oui' | 'Non';
   Civilite: string;
   Prenom: string;
@@ -71,7 +71,7 @@ export interface FormValues {
 export interface CardInfo {
   compagnie: string;
   souscription: Date;
-  cotisation?: number;//ilyess
+  cotisation?: number; //ilyess
   contract_cours: 'Oui' | 'Non';
   resiliation?: Date;
   motif_resiliation?: string;

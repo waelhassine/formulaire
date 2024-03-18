@@ -14,6 +14,7 @@ export default function Provider({ children }: FormProviderProps) {
     complement: '',
     codepostal: '',
     pays: '',
+    precision_installation_energie: '',
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {

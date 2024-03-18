@@ -53,7 +53,7 @@ export default function FormulaireStep2() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step2_marque}
                 placeholder="Entrez votre marque"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step2_marque')}
                 autoComplete="marque"
               />
@@ -66,7 +66,7 @@ export default function FormulaireStep2() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step2_modele}
                 placeholder="Entrez votre modele"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step2_modele')}
                 autoComplete="modele"
               />
@@ -80,7 +80,7 @@ export default function FormulaireStep2() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step2_finition}
             placeholder="ex: 1.2 PURE TECH 130 STYLE"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('step2_finition')}
             autoComplete="finition"
           />
@@ -92,7 +92,7 @@ export default function FormulaireStep2() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step2_dateName}
             placeholder="Entrez votre date"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('step2_dateName')}
             autoComplete="dateName"
             type="date"

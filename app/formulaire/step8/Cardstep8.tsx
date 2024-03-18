@@ -4,7 +4,7 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons'; // Import the icon
-import { selectedData , resilationData } from './data';
+import { selectedData, resilationData } from './data';
 type Cardstep8Props = {
   onClose: () => void;
   index: number;
@@ -36,18 +36,18 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           error={errors?.cards?.[index]?.compagnie}
           options={selectedData}
         />
-          <TextInput
-              label="Votre cotisation ?"
-              name={`cards.${index}.cotisation`}
-              type="number"
-              register={register}
-              validationRules={{ required: 'Champ invalide' }}
-              error={errors?.cards?.[index]?.cotisation}
-              placeholder=""
-              maxLength={20}
-              onBlur={() => trigger(`cards.${index}.cotisation`)}
-              autoComplete="cotisation"
-            />
+        <TextInput
+          label="Votre cotisation ?"
+          name={`cards.${index}.cotisation`}
+          type="number"
+          register={register}
+          validationRules={{ required: 'Champ invalide' }}
+          error={errors?.cards?.[index]?.cotisation}
+          placeholder=""
+          maxLength={20}
+          onBlur={() => trigger(`cards.${index}.cotisation`)}
+          autoComplete="cotisation"
+        />
         <TextInput
           label="Date de souscription"
           name={`cards.${index}.souscription`}
@@ -94,7 +94,7 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
               name={`cards.${index}.commentaires`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.cards?.[index]?.resiliation}
+              error={errors?.cards?.[index]?.commentaires}
               type="textarea"
             />
           </>

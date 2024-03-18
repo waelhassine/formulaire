@@ -48,14 +48,14 @@ export default function FormulaireStep4() {
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
             label="Voie de stationnement"
-            name="stationnementstep6"
+            name="step6_stationnementstep6"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step6_stationnementstep6}
             placeholder="Entrez votre stationnement"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('step6_stationnementstep6')}
-            autoComplete="stationnementstep6"
+            autoComplete="step6_stationnementstep6"
           />
           <TextInput
             label="Complément"
@@ -64,9 +64,9 @@ export default function FormulaireStep4() {
             validationRules={{}}
             error={errors.step6_complementstep6}
             placeholder="Entrez votre complément"
-            maxLength={20}
+            maxLength={40}
             onBlur={() => trigger('step6_complementstep6')}
-            autoComplete="complementstep6"
+            autoComplete="step6_complementstep6"
           />
 
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
@@ -78,9 +78,9 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step6_complementstep6}
                 placeholder="Entrez votre Code postal"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step6_complementstep6')}
-                autoComplete="codepostalste6"
+                autoComplete="step6_complementstep6"
               />
             </div>
             <div className="lg:w-1/2 w-full">
@@ -91,9 +91,9 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step6_villestep6}
                 placeholder="Entrez votre Ville"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step6_villestep6')}
-                autoComplete="villestep6"
+                autoComplete="step6_villestep6"
               />
             </div>
           </div>
@@ -106,9 +106,9 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step6_codepostalstationnement}
                 placeholder="Entrez votre Code postal"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step6_codepostalstationnement')}
-                autoComplete="codepostalstationnement"
+                autoComplete="step6_codepostalstationnement"
               />
             </div>
             <div className="lg:w-1/2 w-full">
@@ -119,10 +119,9 @@ export default function FormulaireStep4() {
                 validationRules={{ required: 'Champ obligatoire' }}
                 error={errors.step6_villestationnement}
                 placeholder="Entrez votre Ville"
-                maxLength={20}
+                maxLength={40}
                 onBlur={() => trigger('step6_villestationnement')}
-                autoComplete="villestationnement"
-                
+                autoComplete="step6_villestationnement"
               />
             </div>
           </div>

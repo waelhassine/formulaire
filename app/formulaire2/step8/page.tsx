@@ -50,6 +50,7 @@ export default function FormulaireStep3() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step8_date_permisConducteur}
             type="date"
+            popoverContent="Si vous ne vous en rappelez plus, vous trouverez cette information sur votre permis de conduire (ou sur le permis du conducteur secondaire le cas échéant)."
           />
 
           <SelectInput

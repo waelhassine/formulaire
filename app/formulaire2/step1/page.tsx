@@ -93,9 +93,19 @@ export default function Formulaire() {
               type="button"
               disabled={isLoading}
               size={'lg'}
-              className="mt-8 bg-blue-800 text-xl"
+              className="mt-8 bg-blue-800 text-xl flex flex-row space-x-1"
               onClick={handleSuivantClick}
             >
+              {isLoading && (
+                <>
+                  <div
+                    className="inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status"
+                  >
+                    <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                  </div>
+                </>
+              )}
               Suivant
             </Button>
             <Button

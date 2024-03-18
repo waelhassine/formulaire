@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+'use client';
+import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 interface ImmatriculationInputProps {
   setError: (error: string) => void;
   setData: (data: string) => void;
@@ -9,7 +10,16 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
   const [part1, setPart1] = useState('');
   const [part2, setPart2] = useState('');
   const [part3, setPart3] = useState('');
-  const [touched, setTouched] = useState(false); // To track if user has interacted 
+  const [touched, setTouched] = useState(false); // To track if user has interacted
+  const input2Ref = useRef<HTMLInputElement>(null);
+  const input3Ref = useRef<HTMLInputElement>(null);
+  const suivantButtonRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
+  useEffect(() => {
+    if (part3.length === 2) {
+      suivantButtonRef.current?.click();
+    }
+  }, [part3]);
 
   const validateImmatriculation = () => {
     if (!touched) return; // Skip validation if not interacted
@@ -24,9 +34,13 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
   };
 
   const handleInputChange =
-    (setter: React.Dispatch<React.SetStateAction<string>>) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    (setter: React.Dispatch<React.SetStateAction<string>>, nextInputRef?: React.RefObject<HTMLInputElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       setter(e.target.value.toUpperCase());
       setTouched(true);
+      if (nextInputRef && e.target.value.length >= e.target.maxLength) {
+        nextInputRef.current?.focus();
+      }
     };
 
   // OnBlur handler to validate when user clicks out of the input field
@@ -45,11 +59,12 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           maxLength={2}
           className="border border-gray-300 rounded-md px-2 py-1 w-16 focus:outline-none focus:border-blue-500"
           value={part1}
-          onChange={handleInputChange(setPart1)}
+          onChange={handleInputChange(setPart1, input2Ref)}
           onBlur={handleBlur} // Validate on blur
         />
         <span className="text-gray-500">-</span>
         <input
+          ref={input2Ref}
           name="immatriculation-part-2"
           type="text"
           inputMode="numeric"
@@ -57,11 +72,12 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           maxLength={3}
           className="border border-gray-300 rounded-md px-2 py-1 w-16 focus:outline-none focus:border-blue-500"
           value={part2}
-          onChange={handleInputChange(setPart2)}
+          onChange={handleInputChange(setPart2, input3Ref)}
           onBlur={handleBlur} // Validate on blur
         />
         <span className="text-gray-500">-</span>
         <input
+          ref={input3Ref}
           name="immatriculation-part-3"
           type="text"
           inputMode="text"
@@ -73,6 +89,16 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           onBlur={handleBlur}
         />
       </div>
+      <button
+        ref={suivantButtonRef}
+        style={{ display: 'none' }} // Hide the button visually
+        onClick={() => {
+          // Handle "Suivant" button click
+          // You can add your logic here
+        }}
+      >
+        Suivant
+      </button>
     </div>
   );
 };

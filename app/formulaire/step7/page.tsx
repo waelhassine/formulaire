@@ -8,11 +8,13 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import CheckBox from '@/components/CheckBoxTwo';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import MultiSelectCheckbox from '@/components/MultiSelectCheckbox';
+import CheckboxGroup from '@/components/CheckBoxThere';
+import { useState } from 'react';
 export default function FormulaireStep7() {
   const router = useRouter();
-  const { register, trigger, formState, control, clearErrors, watch, getValues, setError } = useAppFormContext();
+  const [data, setDate] = useState('');
+  const { register, trigger, formState, control, clearErrors, watch, getValues, setError, setValue } =
+    useAppFormContext();
 
   const { isValid, errors } = formState;
 
@@ -25,17 +27,21 @@ export default function FormulaireStep7() {
 
   const systeme_de_chauffage = watch('Systeme_de_chauffage');
   const pompe_a_chaleur = watch('pompe_a_chaleur');
+  const handleEngergieData = (data: any) => {
+    const stringSeparatedByDash: string = data.join(' - ');
+    setValue('precision_installation_energie', stringSeparatedByDash);
+  };
   const validateStep = async () => {
+    const enrgi = getValues('precision_installation_energie').length > 1;
+    console.log(enrgi);
     console.log(getValues('precision_installation_energie'));
-
-    const hasAtLeastOneChecked = checkboxValues && checkboxValues.length > 0;
-    console.log(hasAtLeastOneChecked);
-
-    if (energies_renouvelables === 'Oui' && !hasAtLeastOneChecked) {
+    console.log(getValues('precision_installation_energie'));
+    if (energies_renouvelables === 'Oui' && !enrgi) {
       setError('precision_installation_energie', {
         type: 'manual',
         message: 'Vous devez sélectionner au moins une option',
       });
+      return;
     } else {
       clearErrors('precision_installation_energie');
     }
@@ -188,17 +194,19 @@ export default function FormulaireStep7() {
             currentValue={energies_renouvelables}
           />
           {energies_renouvelables === 'Oui' && (
+            // <CheckboxGroup />
             <CheckBox
               label="Précision sur votre installation d'energie renouvelables"
               name="precision_installation_energie"
-              register={register}
               validationRules={{ required: 'Vous devez sélectionner au moins une option' }}
-              error={errors.precision_installation_energie}
               options={[
-                { value: 'Panneaux solaires thermique', label: 'Panneaux solaires thermique' },
-                { value: 'Panneaux photovoltaiques', label: 'Panneaux photovoltaiques' },
+                { value: 'P S thermique', label: 'Panneaux solaires thermique' },
+                { value: 'P photo-v', label: 'Panneaux photovoltaiques' },
                 { value: 'Éolienne', label: 'Éolienne' },
               ]}
+              setValue={setValue}
+              handleEngergieData={handleEngergieData}
+              error={errors.precision_installation_energie}
             />
           )}
           <RadioButtonGroup

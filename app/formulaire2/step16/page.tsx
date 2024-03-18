@@ -88,6 +88,7 @@ export default function FormulaireStep9() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step16_conduite_accompagnee}
             currentValue={step16_conduite_accompagnee}
+            popoverContent="Si vous ne vous en rappelez plus, vous trouverez cette information sur votre permis de conduire (ou sur le permis du conducteur secondaire le cas échéant)."
           />
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?"
