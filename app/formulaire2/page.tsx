@@ -57,11 +57,11 @@ export default function Formulaire() {
     const data = await fetchData(plate);
 
     if (data) {
-      setValue('marque', data?.marque);
-      setValue('modele', data?.modele);
-      setValue('finition', data?.sraCommercial);
+      setValue('step2_marque', data?.marque);
+      setValue('step2_modele', data?.modele);
+      setValue('step2_sraCommercial', data?.sraCommercial);
       const formattedDate = data?.date1erCirFr?.split('T')[0];
-      setValue('dateName', formattedDate);
+      setValue('step2_dateName', formattedDate);
     }
 
     router.push('/formulaire2/step2');
