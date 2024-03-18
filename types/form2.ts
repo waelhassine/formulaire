@@ -4,6 +4,7 @@ export interface FormValues {
   step2_modele: string;
   step2_marque: string;
   step2_dateName: undefined | Date;
+  step2_sraCommercial: string;
 //step3
   step3_dateDachat: Date;
   step3_type_achat: string;
@@ -63,18 +64,35 @@ step16_conduite_accompagnee: 'oui' | 'non';
 step16_suspension_permis: 'oui' | 'non';
 setp16_objet_annulation: 'oui' | 'non';
 //step17
+step17_card_conducteur_infraction: ConducteurInfraction[];
+//step18
+step18_card_conducteur_sinistres: sinistre_principal[];
+//step19
+step19_card_assurance: CardInfo[];
+//step20
+  step20_adresse: string;
+  step20_codepostal: string;
+  step20_ville: string;
+  step20_pays: string;
+  step20_complément: string;
+  step20_consenttwo: Boolean;
+  step20_telephone: string;
+  step20_email: string;
+  step20_nom: string;
+  step20_prenom: string;
+  step20_civilite: string;
+  step20_conducteur_pricipal: 'oui' | 'non';
 
 
-
-
+  
+  
+/*
+// TODO: old data in the form2, we should verify if it's still needed
 
   plate: string;
   name: string;
-  email: string;
   phone: string;
-  adresse: string;
   complement: string;
-  codepostal: string;
   ville: string;
   pays: string;
   adresseCorrespondance: 'oui' | 'non';
@@ -93,7 +111,6 @@ setp16_objet_annulation: 'oui' | 'non';
   presence_veranda: 'oui' | 'non';
   activite: 'oui' | 'non';
   Email: string;
-  Telephone: string;
   Prenom: string;
   Nom: string;
   Civilite: string;
@@ -118,12 +135,7 @@ setp16_objet_annulation: 'oui' | 'non';
   nombre_infraction: number;
   cards: CardInfo[];
   card_conducteur_secondaire: CardInfo[];
-  card_assurance: CardInfo[];
-  card_conducteur_sinistres: sinistre_principal[];
-  card_conducteur_infraction: ConducteurInfraction[];
-  conducteur_pricipal: 'oui' | 'non';
-  consenttwo: Boolean;
-  complementstep20: string;
+  complementstep20: string;*/ 
 }
 
 export interface CardInfo {
