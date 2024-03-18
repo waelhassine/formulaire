@@ -54,8 +54,8 @@ export default function FormulaireStep9() {
       }
     }
   };
-  const Civilite = watch('Civilite');
-  const conducteur_pricipal = watch('conducteur_pricipal');
+  const step20_civilite = watch('step20_civilite');
+  const step20_conducteur_pricipal = watch('step20_conducteur_pricipal');
   return (
     <div className="w-full">
       <ProgressHeader val={100} />
@@ -73,60 +73,60 @@ export default function FormulaireStep9() {
       <div className="flex flex-col space-y-4 lg:w-2/3 w-full">
         <p className="flex flex-row  text-2xl pt-12">
           Coordonnées
-          <p className="text-red-700 px-1">du souscripteur du contrat</p> ?
+          <span className="text-red-700 px-1">du souscripteur du contrat</span> ?
         </p>
 
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question="Le conducteur principal est-il le souscripteur ?"
-            name="conducteur_pricipal"
+            name="step20_conducteur_pricipal"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.conducteur_pricipal}
-            currentValue={conducteur_pricipal}
+            error={errors.step20_conducteur_pricipal}
+            currentValue={step20_conducteur_pricipal}
           />
           <RadioButtonGroup
             question="Civilite"
-            name="Civilite"
+            name="step20_civilite"
             options={[
               { value: 'oui', label: 'Monsieur' },
               { value: 'non', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Civilite}
-            currentValue={Civilite}
+            error={errors.step20_civilite}
+            currentValue={step20_civilite}
           />
           <TextInput
             label="Prénom"
-            name="Prenom"
+            name="step20_prenom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Prenom}
+            error={errors.step20_prenom}
             placeholder="Entrez votre Prenom"
             maxLength={20}
-            onBlur={() => trigger('Prenom')}
-            autoComplete="Prenom"
+            onBlur={() => trigger('step20_prenom')}
+            autoComplete="step20_prenom"
           />
           <TextInput
             label="Nom"
-            name="Nom"
+            name="step20_nom"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Nom}
+            error={errors.step20_nom}
             placeholder="Entrez votre Nom"
             maxLength={20}
-            onBlur={() => trigger('Nom')}
-            autoComplete="Nom"
+            onBlur={() => trigger('step20_nom')}
+            autoComplete="step20_nom"
           />
 
           <TextInput
             label="Email"
-            name="Email"
+            name="step20_email"
             register={register}
             validationRules={{
               required: 'Champ obligatoire',
@@ -135,15 +135,15 @@ export default function FormulaireStep9() {
                 message: 'Veuillez entrer une adresse email valide',
               },
             }}
-            error={errors.Email}
+            error={errors.step20_email}
             placeholder="Entrez votre Email"
             maxLength={20}
-            onBlur={() => trigger('Email')}
-            autoComplete="Email"
+            onBlur={() => trigger('step20_email')}
+            autoComplete="step20_email"
           />
           <TextInput
             label="Téléphone"
-            name="Telephone"
+            name="step20_telephone"
             register={register}
             validationRules={{
               required: 'Champ obligatoire',
@@ -152,62 +152,62 @@ export default function FormulaireStep9() {
                 message: 'Veuillez entrer un numéro de téléphone valide',
               },
             }}
-            error={errors.adresse}
+            error={errors.step20_telephone}
             placeholder="Entrez votre Téléphone"
             maxLength={20}
-            onBlur={() => trigger('Telephone')}
+            onBlur={() => trigger('step20_telephone')}
             autoComplete="Telephone"
           />
-          <AddressAutocomplete setValue={setValue} error={errors.adresse} clearErrors={clearErrors} />
+          <AddressAutocomplete setValue={setValue} error={errors.step20_adresse} clearErrors={clearErrors} />
           <TextInput
             label="Complément"
-            name="complement"
+            name="step20_complément"
             register={register}
             validationRules={{}}
-            error={errors.complement}
+            error={errors.step20_complément}
             placeholder="Entrez votre complément"
             maxLength={20}
-            onBlur={() => trigger('complement')}
-            autoComplete="complement"
+            onBlur={() => trigger('step20_complément')}
+            autoComplete="step20_complément"
           />
 
           <div className="flex lg:flex-row  flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
-                name="codepostal"
+                name="step20_codepostal"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.codepostal}
+                error={errors.step20_codepostal}
                 placeholder="Entrez votre Code postal"
                 maxLength={20}
-                onBlur={() => trigger('codepostal')}
-                autoComplete="codepostal"
+                onBlur={() => trigger('step20_codepostal')}
+                autoComplete="step20_codepostal"
               />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
-                name="ville"
+                name="step20_ville"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.ville}
+                error={errors.step20_ville}
                 placeholder="Entrez votre Ville"
                 maxLength={20}
-                onBlur={() => trigger('ville')}
+                onBlur={() => trigger('step20_ville')}
                 autoComplete="ville"
               />
             </div>
           </div>
           <TextInput
             label="Pays"
-            name="pays"
+            name="step20_pays"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.pays}
+            error={errors.step20_pays}
             placeholder="Entrez votre Pays"
             maxLength={20}
-            onBlur={() => trigger('pays')}
+            onBlur={() => trigger('step20_pays')}
             autoComplete="pays"
           />
           <p>
@@ -216,10 +216,10 @@ export default function FormulaireStep9() {
           </p>
           <ConsentCheckbox
             label="J'accepte le stockage et le traitement de mes données personnelles"
-            name="consenttwo"
+            name="step20_consenttwo"
             register={register}
             validationRules={{ required: 'Vous devez obligatoirement cocher cette case pour valider votre demande.' }}
-            error={errors.consenttwo}
+            error={errors.step20_consenttwo}
           />
         </div>
         <FormActions>

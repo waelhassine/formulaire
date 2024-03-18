@@ -40,14 +40,14 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
   const handleAddressClick = (address: Address) => {
     const fullAddress = `${address.properties.name}`;
     setQuery(fullAddress);
-    setValue('adresse', fullAddress);
-    setValue('codepostal', address.properties.postcode);
-    setValue('ville', address.properties.city);
-    setValue('pays', 'France');
-    clearErrors('adresse');
-    clearErrors('codepostal');
-    clearErrors('ville');
-    clearErrors('pays');
+    setValue('step20_adresse', fullAddress);
+    setValue('step20_codepostal', address.properties.postcode);
+    setValue('step20_ville', address.properties.city);
+    setValue('step20_pays', 'France');
+    clearErrors('step20_adresse');
+    clearErrors('step20_codepostal');
+    clearErrors('step20_ville');
+    clearErrors('step20_pays');
 
     setResults([]); // Clear the results after selecting an address
   };
