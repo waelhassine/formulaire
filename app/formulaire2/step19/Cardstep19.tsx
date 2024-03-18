@@ -18,9 +18,9 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
     formState: { errors },
     watch,
   } = useAppFormContext();
-  const contratCours = watch(`card_assurance.${index}.contract_cours`);
-  const contentieux_solde = watch(`card_assurance.${index}.contentieux_solde`);
-  const recidive_non_paiement = watch(`card_assurance.${index}.recidive_non_paiement`);
+  const contratCours = watch(`step19_card_assurance.${index}.contract_cours`);
+  const contentieux_solde = watch(`step19_card_assurance.${index}.contentieux_solde`);
+  const recidive_non_paiement = watch(`step19_card_assurance.${index}.recidive_non_paiement`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       {' '}
@@ -35,10 +35,10 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
         </div>
         <SelectInput
           label="Compagnie"
-          name={`card_assurance.${index}.compagnie`}
+          name={`step19_card_assurance.${index}.compagnie`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_assurance?.[index]?.compagnie}
+          error={errors?.step19_card_assurance?.[index]?.compagnie}
           options={[
             { value: 'SIMPLE', label: 'SIMPLE' },
             { value: '2MA', label: '2MA' },
@@ -72,22 +72,22 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
         />
         <TextInput
           label="Date de souscription"
-          name={`card_assurance.${index}.souscription`}
+          name={`step19_card_assurance.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_assurance?.[index]?.souscription}
+          error={errors?.step19_card_assurance?.[index]?.souscription}
           type="date"
         />
         <RadioButtonGroup
           question="Le contrat est-il toujours en cours ?"
-          name={`card_assurance.${index}.contract_cours`}
+          name={`step19_card_assurance.${index}.contract_cours`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_assurance?.[index]?.contract_cours}
+          error={errors?.step19_card_assurance?.[index]?.contract_cours}
           currentValue={contratCours}
         />
         {contratCours === 'non' && (
@@ -96,18 +96,18 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               label="Date de résiliation
 
             "
-              name={`card_assurance.${index}.resiliation`}
+              name={`step19_card_assurance.${index}.resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_assurance?.[index]?.resiliation}
+              error={errors?.step19_card_assurance?.[index]?.resiliation}
               type="date"
             />
             <SelectInput
               label="Motif de résiliation"
-              name={`card_assurance.${index}.motif_resiliation`}
+              name={`step19_card_assurance.${index}.motif_resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_assurance?.[index]?.motif_resiliation}
+              error={errors?.step19_card_assurance?.[index]?.motif_resiliation}
               options={[
                 { value: 'echeance', label: 'A écheance' },
                 { value: 'Autre', label: 'Autre' },
@@ -117,34 +117,34 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
             />
             <RadioButtonGroup
               question="Y a-t-il eu récidive de non paiement ?"
-              name={`card_assurance.${index}.recidive_non_paiement`}
+              name={`step19_card_assurance.${index}.recidive_non_paiement`}
               options={[
                 { value: 'oui', label: 'Oui' },
                 { value: 'non', label: 'Non' },
               ]}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_assurance?.[index]?.recidive_non_paiement}
+              error={errors?.step19_card_assurance?.[index]?.recidive_non_paiement}
               currentValue={recidive_non_paiement}
             />
             <RadioButtonGroup
               question="Le contentieux a-t-il été soldé ?"
-              name={`card_assurance.${index}.contentieux_solde`}
+              name={`step19_card_assurance.${index}.contentieux_solde`}
               options={[
                 { value: 'oui', label: 'Oui' },
                 { value: 'non', label: 'Non' },
               ]}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_assurance?.[index]?.contentieux_solde}
+              error={errors?.step19_card_assurance?.[index]?.contentieux_solde}
               currentValue={contentieux_solde}
             />
             <TextInput
               label="Commentaires"
-              name={`card_assurance.${index}.commentaires`}
+              name={`step19_card_assurance.${index}.commentaires`}
               register={register}
               validationRules={{}}
-              error={errors?.card_assurance?.[index]?.commentaires}
+              error={errors?.step19_card_assurance?.[index]?.commentaires}
               type="textarea"
             />
           </>

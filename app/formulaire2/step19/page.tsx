@@ -1,18 +1,11 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
-import TextInput from '@/components/TextInput';
 import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import Cardstep19 from './Cardstep19';
-import { useState } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import { CardInfo } from '@/types/form2';
 
@@ -26,7 +19,7 @@ export default function FormulaireStep19() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_assurance', // This name should match the one in your form's initial state or schema
+    name: 'step19_card_assurance', // This name should match the one in your form's initial state or schema
   });
 
   const validateStep = async () => {
