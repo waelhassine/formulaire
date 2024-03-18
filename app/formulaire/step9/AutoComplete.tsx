@@ -5,10 +5,11 @@ type AddressAutocompleteProps = {
   setValue: any;
   clearErrors: any;
   error: any; // Adjust based on your error handling strategy
+  defaultvalue?: string;
 };
 
-const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteProps) => {
-  const [query, setQuery] = useState<string>('');
+const AddressAutocomplete = ({ setValue, error, clearErrors, defaultvalue }: AddressAutocompleteProps) => {
+  const [query, setQuery] = useState<string | undefined>(defaultvalue);
   const [results, setResults] = useState<Address[]>([]);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {

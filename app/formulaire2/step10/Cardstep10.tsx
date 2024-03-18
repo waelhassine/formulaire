@@ -55,7 +55,7 @@ export default function Cardstep10({ onClose, index }: Cardstep8Props) {
               error={errors?.step10_card_Conducteur_v2?.[index]?.nombre_infraction}
               placeholder=""
               maxLength={20}
-              onBlur={() => trigger('nombre_infraction')}
+              onBlur={() => trigger(`step10_card_Conducteur_v2.${index}.nombre_infraction`)}
               autoComplete="nombre_infraction"
             />
           </div>

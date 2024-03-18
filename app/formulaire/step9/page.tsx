@@ -12,7 +12,7 @@ import AddressAutocomplete from './AutoComplete';
 export default function FormulaireStep9() {
   const router = useRouter();
   const { register, trigger, formState, control, watch, getValues, setValue, clearErrors } = useAppFormContext();
-
+  const addr = getValues('adresse');
   const { isValid, errors } = formState;
 
   const validateStep = async () => {
@@ -130,7 +130,7 @@ export default function FormulaireStep9() {
               required: 'Champ obligatoire',
               pattern: {
                 value: /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/,
-                message: 'Veuillez entrer un numéro de téléphone valide',
+                message: 'Veuillez entrer un numéro de téléphone valide exemple 01 23 45 67 89',
               },
             }}
             error={errors.Telephone}
@@ -139,7 +139,12 @@ export default function FormulaireStep9() {
             onBlur={() => trigger('Telephone')}
             autoComplete="Telephone"
           />
-          <AddressAutocomplete setValue={setValue} error={errors.adresse} clearErrors={clearErrors} />
+          <AddressAutocomplete
+            setValue={setValue}
+            error={errors.adresse}
+            clearErrors={clearErrors}
+            defaultvalue={addr}
+          />
           <TextInput
             label="Complément"
             name="complement"

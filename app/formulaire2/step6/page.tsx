@@ -13,7 +13,7 @@ import TextInput from '@/components/TextInput';
 
 export default function FormulaireStep4() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, control, watch, getValues } = useAppFormContext();
 
   const { isValid, errors } = formState;
 
