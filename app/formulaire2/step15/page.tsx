@@ -50,19 +50,19 @@ export default function FormulaireStep3() {
         <div className="flex flex-col space-y-4 mt-6">
           <TextInput
             label="Date d'obtention du permis de conduire"
-            name="date_permisConducteur"
+            name="step15_date_permisConducteur"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.date_permisConducteur}
+            error={errors.step15_date_permisConducteur}
             type="date"
           />
 
           <SelectInput
             label="Type de permis"
-            name="type_permisConducteur"
+            name="step15_type_permis"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.type_permisConducteur}
+            error={errors.step15_type_permis}
             options={[
               { value: 'Permis_B', label: 'Permis B' },
               { value: 'permis_etranger_dans_UE', label: 'Permis étranger dans l UE' },
@@ -74,10 +74,10 @@ export default function FormulaireStep3() {
 
                    <SelectInput
               label="Coefficient de Bonus/Malus (CRM)"
-              name="CRM_bonus_Conducteur"
+              name="step15_crm_bonus_Conducteur"
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors.CRM_bonus_Conducteur}
+              error={errors.step15_crm_bonus_Conducteur}
               options={selectedData}
               placeholder="Sélectionner dans le liste"
             />

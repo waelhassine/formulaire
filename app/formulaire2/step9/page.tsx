@@ -8,8 +8,6 @@ import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 
-import SelectInput from '@/components/SelectWael';
-
 export default function FormulaireStep9() {
   const router = useRouter();
   const { register, trigger, formState, control, watch } = useAppFormContext();
@@ -24,16 +22,11 @@ export default function FormulaireStep9() {
     }
   };
 
-  const deja_assurestep9 = watch('deja_assurestep9');
-  const deja_assure_secondairestep9 = watch('deja_assure_secondairestep9');
-  const conduite_accompagneestep9 = watch('conduite_accompagneestep9');
-  const suspension_permis = watch('suspension_permis');
-  const objet_annulation = watch('objet_annulation');
-  const presence_veranda = watch('presence_veranda');
-  const installations_exterieures = watch('installations_exterieures');
-  const terrasses = watch('terrasses');
-  const suspension_permisstep9 = watch('suspension_permisstep9');
-  const objet_annulationstep9 = watch('objet_annulationstep9');
+  const step9_deja_assure = watch('step9_deja_assure');
+  const step9_deja_assure_secondaire = watch('step9_deja_assure_secondaire');
+  const step9_conduite_accompagnee = watch('step9_conduite_accompagnee');
+  const step9_suspension_permis = watch('step9_suspension_permis');
+  const step9_objet_annulation = watch('step9_objet_annulation');
   return (
     <div className="w-full">
       <ProgressHeader val={60} />
@@ -58,65 +51,65 @@ export default function FormulaireStep9() {
         <div className="flex flex-col space-y-6 mt-6">
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur principal ?"
-            name="deja_assurestep9"
+            name="step9_deja_assure"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assurestep9}
-            currentValue={deja_assurestep9}
+            error={errors.step9_deja_assure}
+            currentValue={step9_deja_assure}
           />
 
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur secondaire ?"
-            name="deja_assure_secondairestep9"
+            name="step9_deja_assure_secondaire"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assure_secondairestep9}
-            currentValue={deja_assure_secondairestep9}
+            error={errors.step9_deja_assure_secondaire}
+            currentValue={step9_deja_assure_secondaire}
           />
           <RadioButtonGroup
             question="Obtention du permis suite à la conduite accompagnée ?"
-            name="conduite_accompagneestep9"
+            name="step9_conduite_accompagnee"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.conduite_accompagneestep9}
-            currentValue={conduite_accompagneestep9}
+            error={errors.step9_conduite_accompagnee}
+            currentValue={step9_conduite_accompagnee}
           />
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?"
-            name="suspension_permisstep9"
+            name="step9_suspension_permis"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.suspension_permisstep9}
-            currentValue={suspension_permisstep9}
+            error={errors.step9_suspension_permis}
+            currentValue={step9_suspension_permis}
           />
 
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?"
-            name="objet_annulationstep9"
+            name="step9_objet_annulation"
             options={[
               { value: 'Oui', label: 'Oui' },
               { value: 'Non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.objet_annulationstep9}
-            currentValue={objet_annulationstep9}
+            error={errors.step9_objet_annulation}
+            currentValue={step9_objet_annulation}
           />
         </div>
         <FormActions>

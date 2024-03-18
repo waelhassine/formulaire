@@ -14,12 +14,12 @@ export default function FormulaireStep12() {
 
   const { isValid, errors } = formState;
 
-  const conducteur_secondaire = watch('conducteur_secondaire');
+  const step13_conducteur_secondaire = watch('step13_conducteur_secondaire');
 
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      if (conducteur_secondaire === 'non') {
+      if (step13_conducteur_secondaire === 'non') {
         router.push('/formulaire2/step20');
       } else {
         router.push('/formulaire2/step14');
@@ -54,15 +54,15 @@ export default function FormulaireStep12() {
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question=""
-            name="conducteur_secondaire"
+            name="step13_conducteur_secondaire"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.conducteur_secondaire}
-            currentValue={conducteur_secondaire}
+            error={errors.step13_conducteur_secondaire}
+            currentValue={step13_conducteur_secondaire}
           />
         </div>
         <FormActions>

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import ProgressHeader from '@/components/ui/progressHeader';
 import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
-import Cardstep8 from './Cardstep8';
+import Cardstep10 from './Cardstep10';
 import { useState } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import FormActions from '@/components/FormActions';
@@ -21,7 +21,7 @@ export default function FormulaireStep10() {
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'card_Conducteur_v2', // This name should match the one in your form's initial state or schema
+    name: 'step10_card_Conducteur_v2', // This name should match the one in your form's initial state or schema
   });
 
   const validateStep = async () => {
@@ -55,7 +55,7 @@ export default function FormulaireStep10() {
         <p className="flex flex-row text-2xl pt-12">Le conducteur a t il commis des infractions ?</p>
 
         {fields.map((field, index) => (
-          <Cardstep8
+          <Cardstep10
             key={field.id} // React Hook Form uses 'id' for key management in field arrays
             index={index}
             onClose={() => remove(index)}

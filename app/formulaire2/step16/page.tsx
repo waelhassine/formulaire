@@ -22,14 +22,11 @@ export default function FormulaireStep9() {
     }
   };
 
-  const deja_assure = watch('deja_assure');
-  const deja_assure_secondaire = watch('deja_assure_secondaire');
-  const conduite_accompagneestep16 = watch('conduite_accompagneestep16');
-  const suspension_permisstep16 = watch('suspension_permisstep16');
-  const objet_annulation = watch('objet_annulation');
-  const deja_assurestep16 = watch('deja_assurestep16');
-  const deja_assure_secondairestep16 = watch('deja_assure_secondairestep16');
-  const objet_annulationstep16 = watch('objet_annulationstep16');
+  const step16_conduite_accompagnee = watch('step16_conduite_accompagnee');
+  const step16_suspension_permis = watch('step16_suspension_permis');
+  const step16_deja_assure = watch('step16_deja_assure');
+  const step16_deja_assure_secondaire = watch('step16_deja_assure_secondaire');
+  const setp16_objet_annulation = watch('setp16_objet_annulation');
   return (
     <div className="w-full">
       <ProgressHeader val={60} />
@@ -57,65 +54,65 @@ export default function FormulaireStep9() {
         <div className="flex flex-col space-y-6 mt-6">
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur principal ?"
-            name="deja_assurestep16"
+            name="step16_deja_assure"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assurestep16}
-            currentValue={deja_assurestep16}
+            error={errors.step16_deja_assure}
+            currentValue={step16_deja_assure}
           />
 
           <RadioButtonGroup
             question="Déjà assuré en tant que conducteur secondaire ?"
-            name="deja_assure_secondairestep16"
+            name="step16_deja_assure_secondaire"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.deja_assure_secondairestep16}
-            currentValue={deja_assure_secondairestep16}
+            error={errors.step16_deja_assure_secondaire}
+            currentValue={step16_deja_assure_secondaire}
           />
           <RadioButtonGroup
             question="Obtention du permis suite à la conduite accompagnée ?"
-            name="conduite_accompagneestep16"
+            name="step16_conduite_accompagnee"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.conduite_accompagneestep16}
-            currentValue={conduite_accompagneestep16}
+            error={errors.step16_conduite_accompagnee}
+            currentValue={step16_conduite_accompagnee}
           />
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?"
-            name="suspension_permisstep16"
+            name="step16_suspension_permis"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.suspension_permisstep16}
-            currentValue={suspension_permisstep16}
+            error={errors.step16_suspension_permis}
+            currentValue={step16_suspension_permis}
           />
 
           <RadioButtonGroup
             question="Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?"
-            name="objet_annulationstep16"
+            name="setp16_objet_annulation"
             options={[
               { value: 'oui', label: 'Oui' },
               { value: 'non', label: 'Non' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.objet_annulationstep16}
-            currentValue={objet_annulationstep16}
+            error={errors.setp16_objet_annulation}
+            currentValue={setp16_objet_annulation}
           />
         </div>
         <FormActions>

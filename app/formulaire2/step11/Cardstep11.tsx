@@ -28,18 +28,18 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
 
         <TextInput
           label="Date du sinistre"
-          name={`card_sinistre_principal.${index}.souscription`}
+          name={`step11_step11_card_sinistre_principal.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_sinistre_principal?.[index]?.souscription}
+          error={errors?.step11_card_sinistre_principal?.[index]?.souscription}
           type="date"
         />
         <SelectInput
           label="Type de sinistre"
-          name={`card_sinistre_principal.${index}.type_sinistre`}
+          name={`step11_card_sinistre_principal.${index}.type_sinistre`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_sinistre_principal?.[index]?.type_sinistre}
+          error={errors?.step11_card_sinistre_principal?.[index]?.type_sinistre}
           options={[
             { value: 'Accident', label: 'Accident' },
             { value: 'Bris de glace', label: 'Bris de glace' },
@@ -61,10 +61,10 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
         />
         <SelectInput
           label="Nature du sinistre"
-          name={`card_sinistre_principal.${index}.nature_sinistre`}
+          name={`step11_card_sinistre_principal.${index}.nature_sinistre`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.card_sinistre_principal?.[index]?.nature_sinistre}
+          error={errors.step11_card_sinistre_principal?.[index]?.nature_sinistre}
           options={[
             { value: 'Corporel', label: 'Corporel' },
             { value: 'Materiel', label: 'Materiel' },
@@ -73,10 +73,10 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
         />
         <SelectInput
           label="Taux de responsabilité"
-          name={`card_sinistre_principal.${index}.taux_responsabilite`}
+          name={`step11_card_sinistre_principal.${index}.taux_responsabilite`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.card_sinistre_principal?.[index]?.taux_responsabilite}
+          error={errors.step11_card_sinistre_principal?.[index]?.taux_responsabilite}
           options={[
             { value: 'zero', label: '0%' },
             { value: 'cinquant', label: '50%' },

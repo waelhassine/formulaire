@@ -29,6 +29,45 @@ step7_prenom: string;
 step7_noms: string;
 step7_naissance: Date;
 //step8
+step8_date_permisConducteur: Date;
+step8_type_permis: string;
+step8_crm_bonusstep8: number;
+//step9
+step9_deja_assure: 'oui' | 'non';
+step9_deja_assure_secondaire: 'oui' | 'non';
+step9_conduite_accompagnee: 'oui' | 'non';
+step9_suspension_permis: 'oui' | 'non';
+step9_objet_annulation: 'oui' | 'non';
+//step10
+step10_card_Conducteur_v2: Conducteur_secondaire[];
+//step11
+step11_card_sinistre_principal: sinistre_principal[];
+//step12
+step12_card_conducteur: CardInfo[];
+//step13
+step13_conducteur_secondaire: 'oui' | 'non';
+//step14
+step14_civiliteIdentité: 'oui' | 'non';
+step14_prenomConducteurSecondaire: string;
+step14_nomConducteurSecondaire: string;
+step14_naissanceIdentité: Date;
+step14_type_relation: string;
+//step15
+step15_date_permisConducteur: Date;
+step15_type_permis: string;
+step15_crm_bonus_Conducteur: number;
+//step16
+step16_deja_assure: 'oui' | 'non';
+step16_deja_assure_secondaire: 'oui' | 'non';
+step16_conduite_accompagnee: 'oui' | 'non';
+step16_suspension_permis: 'oui' | 'non';
+setp16_objet_annulation: 'oui' | 'non';
+//step17
+
+
+
+
+
   plate: string;
   name: string;
   email: string;
@@ -69,45 +108,21 @@ step7_naissance: Date;
   stationnement: string;
   suspension_permis: 'oui' | 'non';
   CRMstep8: number;
-  CRM_bonusstep8: number;
-  type_permis: string;
   PrenomIdentité: string;
-  prenomConducteurSecondaire: string;
-  nomConducteurSecondaire: string;
   CRM_bonus: number;
   deja_assure: 'oui' | 'non';
-  CRM_bonus_Conducteur: number;
-  date_permisConducteur: Date;
   CRMConducteur: number;
-  type_permisConducteur: string;
-  type_relation: string;
-  naissanceIdentité: Date;
   NomIdentité: string;
   deja_assure_secondaire: 'oui' | 'non';
   date_permis: Date;
   nombre_infraction: number;
-  CiviliteIdentité: 'oui' | 'non';
-  conducteur_secondaire: 'oui' | 'non';
   cards: CardInfo[];
-  card_sinistre_principal: sinistre_principal[];
-  card_conducteur: CardInfo[];
   card_conducteur_secondaire: CardInfo[];
   card_assurance: CardInfo[];
   card_conducteur_sinistres: sinistre_principal[];
-  card_Conducteur_v2: Conducteur_secondaire[];
   card_conducteur_infraction: ConducteurInfraction[];
   conducteur_pricipal: 'oui' | 'non';
   consenttwo: Boolean;
-  deja_assurestep9: 'oui' | 'non';
-  deja_assure_secondairestep9: 'oui' | 'non';
-  conduite_accompagneestep9: 'oui' | 'non';
-  suspension_permisstep9: 'oui' | 'non';
-  objet_annulationstep9: 'oui' | 'non';
-  deja_assurestep16: 'oui' | 'non';
-  deja_assure_secondairestep16: 'oui' | 'non';
-  conduite_accompagneestep16: 'oui' | 'non';
-  suspension_permisstep16: 'oui' | 'non';
-  objet_annulationstep16: 'oui' | 'non';
   complementstep20: string;
 }
 

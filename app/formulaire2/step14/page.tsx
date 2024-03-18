@@ -1,15 +1,11 @@
 'use client';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
 import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
-import { useState } from 'react';
 import SelectInput from '@/components/SelectWael';
 
 export default function FormulaireStep13() {
@@ -25,7 +21,7 @@ export default function FormulaireStep13() {
       router.push('/formulaire2/step15');
     }
   };
-  const CiviliteIdentité = watch('CiviliteIdentité');
+  const step14_civiliteIdentité = watch('step14_civiliteIdentité');
   return (
     <div className="w-full">
       <ProgressHeader val={65} />
@@ -55,53 +51,53 @@ export default function FormulaireStep13() {
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question="Civilite"
-            name="CiviliteIdentité"
+            name="step14_civiliteIdentité"
             options={[
               { value: 'Monsieur', label: 'Monsieur' },
               { value: 'Madame', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.CiviliteIdentité}
-            currentValue={CiviliteIdentité}
+            error={errors.step14_civiliteIdentité}
+            currentValue={step14_civiliteIdentité}
           />
           <TextInput
             label="Prénom"
-            name="prenomConducteurSecondaire"
+            name="step14_prenomConducteurSecondaire"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.prenomConducteurSecondaire}
+            error={errors.step14_prenomConducteurSecondaire}
             placeholder="Entrez votre Prenom"
             maxLength={40}
-            onBlur={() => trigger('prenomConducteurSecondaire')}
-            autoComplete="prenomConducteurSecondaire"
+            onBlur={() => trigger('step14_prenomConducteurSecondaire')}
+            autoComplete="step14_prenomConducteurSecondaire"
           />
           <TextInput
             label="Nom"
-            name="nomConducteurSecondaire"
+            name="step14_nomConducteurSecondaire"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.nomConducteurSecondaire}
+            error={errors.step14_nomConducteurSecondaire}
             placeholder="Entrez votre Nom"
             maxLength={40}
-            onBlur={() => trigger('nomConducteurSecondaire')}
-            autoComplete="nomConducteurSecondaire"
+            onBlur={() => trigger('step14_nomConducteurSecondaire')}
+            autoComplete="step14_nomConducteurSecondaire"
           />
           <TextInput
             label="Date de naissance"
-            name="naissanceIdentité"
+            name="step14_naissanceIdentité"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.naissanceIdentité}
+            error={errors.step14_naissanceIdentité}
             type="date"
           />
 
           <SelectInput
             label="Type de relation avec le conducteur principal"
-            name="type_relation"
+            name="step14_type_relation"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.type_relation}
+            error={errors.step14_type_relation}
             options={[
               { value: 'Aucun_lien_familial', label: 'Aucun lien familial' },
               { value: 'Enfant', label: 'Enfant' },

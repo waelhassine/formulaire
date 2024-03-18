@@ -10,14 +10,14 @@ type Cardstep8Props = {
   index: number;
 };
 
-export default function Cardstep8({ onClose, index }: Cardstep8Props) {
+export default function Cardstep10({ onClose, index }: Cardstep8Props) {
   const {
     register,
     formState: { errors },
     watch,
     trigger,
   } = useAppFormContext();
-  const moin_de_5_ans = watch(`card_Conducteur_v2.${index}.moin_de_5_ans`);
+  const moin_de_5_ans = watch(`step10_card_Conducteur_v2.${index}.moin_de_5_ans`);
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="flex flex-col space-y-6 w-full border p-8 rounded-md shadow">
@@ -30,10 +30,10 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           <div className="lg:w-1/2 w-full">
             <SelectInput
               label="Type d'infraction"
-              name={`card_Conducteur_v2.${index}.type_infraction`}
+              name={`step10_card_Conducteur_v2.${index}.type_infraction`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
-              error={errors?.card_Conducteur_v2?.[index]?.type_infraction}
+              error={errors?.step10_card_Conducteur_v2?.[index]?.type_infraction}
               options={[
                 { value: 'Contrôle en alcolémie positif', label: 'Contrôle en alcolémie positif' },
                 { value: 'Contrôle en stupéfiant', label: 'Contrôle en stupéfiant' },
@@ -48,11 +48,11 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
           <div className="lg:w-1/2 w-full">
             <TextInput
               label="Nombre d'infraction"
-              name={`card_Conducteur_v2.${index}.nombre_infraction`}
+              name={`step10_card_Conducteur_v2.${index}.nombre_infraction`}
               type="number"
               register={register}
               validationRules={{ required: 'Champ invalide' }}
-              error={errors?.card_Conducteur_v2?.[index]?.nombre_infraction}
+              error={errors?.step10_card_Conducteur_v2?.[index]?.nombre_infraction}
               placeholder=""
               maxLength={20}
               onBlur={() => trigger('nombre_infraction')}
@@ -63,14 +63,14 @@ export default function Cardstep8({ onClose, index }: Cardstep8Props) {
 
         <RadioButtonGroup
           question="A-t-elle eu lieu il y a moins de 5 ans ?"
-          name={`card_Conducteur_v2.${index}.moin_de_5_ans`}
+          name={`step10_card_Conducteur_v2.${index}.moin_de_5_ans`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_Conducteur_v2?.[index]?.moin_de_5_ans}
+          error={errors?.step10_card_Conducteur_v2?.[index]?.moin_de_5_ans}
           currentValue={moin_de_5_ans}
         />
       </div>
