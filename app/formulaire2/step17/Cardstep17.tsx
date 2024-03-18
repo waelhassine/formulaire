@@ -16,7 +16,7 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
     formState: { errors },
     watch,
   } = useAppFormContext();
-  const Ont_elles_moins_de_5_ans = watch(`card_conducteur_infraction.${index}.Ont_elles_moins_de_5_ans`);
+  const Ont_elles_moins_de_5_ans = watch(`step17_card_conducteur_infraction.${index}.Ont_elles_moins_de_5_ans`);
 
   return (
     <div className="w-full max-w-6xl mx-auto">
@@ -32,10 +32,10 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
         </div>
         <SelectInput
           label="Type d'infraction"
-          name={`card_conducteur_infraction.${index}.type_infraction`}
+          name={`step17_card_conducteur_infraction.${index}.type_infraction`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_conducteur_infraction?.[index]?.type_infraction}
+          error={errors?.step17_card_conducteur_infraction?.[index]?.type_infraction}
           options={[
             { value: 'Controle_en_alcolémie_positif', label: 'Contrôle en alcolémie positif' },
             { value: 'Controle_en_stupéfiant', label: 'Contrôle en stupéfiant' },
@@ -48,25 +48,25 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
         />
         <TextInput
           label="Nombre d'infraction"
-          name={`card_conducteur_infraction.${index}.nomber_infraction`}
+          name={`step17_card_conducteur_infraction.${index}.nomber_infraction`}
           type="number"
           register={register}
           validationRules={{ required: 'Merci de renseigner un montant' }}
-          error={errors?.card_conducteur_infraction?.[index]?.nomber_infraction}
+          error={errors?.step17_card_conducteur_infraction?.[index]?.nomber_infraction}
           placeholder=""
           maxLength={20}
           autoComplete="nomber_infraction"
         />
         <RadioButtonGroup
           question="Le contrat est-il toujours en cours ?"
-          name={`card_conducteur_infraction.${index}.Ont_elles_moins_de_5_ans`}
+          name={`step17_card_conducteur_infraction.${index}.Ont_elles_moins_de_5_ans`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
           ]}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.card_conducteur_infraction?.[index]?.Ont_elles_moins_de_5_ans}
+          error={errors?.step17_card_conducteur_infraction?.[index]?.Ont_elles_moins_de_5_ans}
           currentValue={Ont_elles_moins_de_5_ans}
         />
       </div>

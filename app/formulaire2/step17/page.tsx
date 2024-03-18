@@ -15,7 +15,6 @@ export default function FormulaireStep17() {
     control,
     formState: { isValid },
     trigger,
-    getValues,
   } = useAppFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
