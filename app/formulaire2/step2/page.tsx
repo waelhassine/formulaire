@@ -22,7 +22,6 @@ export default function FormulaireStep2() {
       router.push('/formulaire2/step3');
     }
   };
-  const adresseCorrespondance = watch('adresseCorrespondance');
   return (
     <div className="w-full">
       <ProgressHeader val={10} />
