@@ -1,24 +1,25 @@
 import nodemailer from 'nodemailer';
 
-export default async function sendEmail(pdfBytes: any) {
+export default async function sendEmail(pdfBytes: any, nomFormulaire: string, nom: string, prenom: string) {
   const transporter = nodemailer.createTransport({
-    host: 'ssl0.ovh.net', // OVH SMTP server
-    port: 587, // SMTP port (could be different based on your settings, e.g., 465)
-    secure: false, // true for 465, false for other ports
+    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
-      user: 'noreply@sea-electronics.com', // Your OVH email address
-      pass: 'wassimSEA2023', // Your OVH email password
+      user: process.env.USER,
+      pass: process.env.PASSWORD,
     },
   });
 
   const mailOptions = {
-    from: '"Sender Name" <no-replay@sea-electronics.com>',
-    to: 'wael.hassine0@gmail.com',
-    subject: 'Here is your PDF',
-    text: 'Please find the attached PDF.',
+    from: '"Devis" <devis.agsgroup@gmail.com>',
+    to: process.env.EMAIL_SEND,
+    subject: `${nomFormulaire} - ${prenom} ${nom}`,
+    text: 'Veuillez trouver le PDF ci-joint',
     attachments: [
       {
-        filename: 'generated-pdf.pdf',
+        filename: `Devis ${prenom} ${nom}.pdf`,
         content: Buffer.from(pdfBytes), // Convert Uint8Array to Buffer
         contentType: 'application/pdf',
       },
