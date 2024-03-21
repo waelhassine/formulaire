@@ -31,21 +31,20 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
   const handleAddressClick = (address: Address) => {
     const fullAddress = `${address.properties.name}`;
     setQuery(fullAddress);
-    setValue('adresse', fullAddress);
-    setValue('codepostal', address.properties.postcode);
-    setValue('ville', address.properties.city);
-    setValue('pays', 'France');
-    clearErrors('adresse');
-    clearErrors('codepostal');
-    clearErrors('ville');
-    clearErrors('pays');
+    setValue('step6_stationnementstep6', fullAddress);
+    setValue('step6_postalstep6', address.properties.postcode);
+    setValue('step6_villestep6', address.properties.city);
+    clearErrors('step6_stationnementstep6');
+    clearErrors('step6_postalstep6');
+    clearErrors('step6_villestep6');
+
 
     setResults([]); // Clear the results after selecting an address
   };
 
   return (
     <div className="flex flex-col space-y-2">
-      <span className="text-base font-semibold text-gray-950">Adresse</span>
+      <span className="text-base font-semibold text-gray-950">Voie de stationnement</span>
       <input
         className={`border ${
           error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'
@@ -53,7 +52,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
         type="text"
         value={query}
         onChange={handleChange}
-        placeholder="Entrez votre stationnement..."
+        placeholder="Entrer votre adresse..."
       />
       <ul className="mt-2  rounded-xl shadow-lg ">
         {results.map((result) => (

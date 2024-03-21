@@ -1,27 +1,50 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
+import AddressAutocomplete from './AutoComplete';
+import PostAutocomplete from './codeAutoComp';
 
-export default function FormulaireStep4() {
+
+
+export default function FormulaireStep6() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch, getValues } = useAppFormContext();
+  const { register, trigger, formState, setValue, setError , clearErrors , watch} = useAppFormContext();
+ 
 
   const { isValid, errors } = formState;
+ 
+  const step6_stationnement = watch('step6_stationnementstep6');
+  const step6_codepostalstationnement = watch('step6_codepostalstationnement');
 
   const validateStep = async () => {
-    await trigger();
+    // Check if the address is empty and set an error accordingly
+    if (!step6_stationnement || step6_stationnement.length === 0) {
+      setError('step6_stationnementstep6', {
+        type: 'manual',
+        message: 'Champ obligatoire',
+      });
+    } else {
+      clearErrors('step6_stationnementstep6');
+    }
 
-    if (isValid) {
-      router.push('/formulaire2/step7');
+    if (!step6_codepostalstationnement || step6_codepostalstationnement.length === 0) {
+      setError('step6_codepostalstationnement', {
+        type: 'manual',
+        message: 'Champ obligatoire',
+      });
+    } else {
+      clearErrors('step6_codepostalstationnement');
+    }
+
+    const result = await trigger();
+
+    // Navigate to the next step if the form is valid
+    if (result && isValid) {
+      router.push('/formulaire/step7');
     }
   };
   return (
@@ -45,18 +68,11 @@ export default function FormulaireStep4() {
           <span className="text-red-700 px-1">votre véhicule</span>
         </p>
 
+
         <div className="flex flex-col space-y-4 mt-6">
-          <TextInput
-            label="Voie de stationnement"
-            name="step6_stationnementstep6"
-            register={register}
-            validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.step6_stationnementstep6}
-            placeholder="Entrez votre stationnement"
-            maxLength={40}
-            onBlur={() => trigger('step6_stationnementstep6')}
-            autoComplete="step6_stationnementstep6"
-          />
+
+          
+        <AddressAutocomplete setValue={setValue} error={errors.step6_stationnementstep6} clearErrors={clearErrors} />
           <TextInput
             label="Complément"
             name="step6_complementstep6"
@@ -71,7 +87,7 @@ export default function FormulaireStep4() {
 
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
-              <TextInput
+            <TextInput
                 label="Code postal"
                 name="step6_postalstep6"
                 register={register}
@@ -99,17 +115,8 @@ export default function FormulaireStep4() {
           </div>
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
-              <TextInput
-                label="Code Postal de stationnement au travail"
-                name="step6_codepostalstationnement"
-                register={register}
-                validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.step6_codepostalstationnement}
-                placeholder="Entrez votre Code postal"
-                maxLength={40}
-                onBlur={() => trigger('step6_codepostalstationnement')}
-                autoComplete="step6_codepostalstationnement"
-              />
+
+    <PostAutocomplete setValue={setValue} error={errors.step6_codepostalstationnement} clearErrors={clearErrors} />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
