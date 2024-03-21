@@ -73,14 +73,14 @@ export default function FormulaireStep4() {
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
-                name="step6_complementstep6"
+                name="step6_postalstep6"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.step6_complementstep6}
+                error={errors.step6_postalstep6}
                 placeholder="Entrez votre Code postal"
                 maxLength={40}
-                onBlur={() => trigger('step6_complementstep6')}
-                autoComplete="step6_complementstep6"
+                onBlur={() => trigger('step6_postalstep6')}
+                autoComplete="step6_postalstep6"
               />
             </div>
             <div className="lg:w-1/2 w-full">

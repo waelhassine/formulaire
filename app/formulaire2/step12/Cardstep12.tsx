@@ -35,7 +35,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
         </div>
         <SelectInput
           label="Compagnie"
-          name={`card_conducteur.${index}.compagnie`}
+          name={`step12_card_conducteur.${index}.compagnie`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.step12_card_conducteur?.[index]?.compagnie}
@@ -44,7 +44,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
         />
         <TextInput
           label="Date de souscription"
-          name={`card_conducteur.${index}.souscription`}
+          name={`step12_card_conducteur.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.step12_card_conducteur?.[index]?.souscription}
@@ -52,7 +52,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
         />
         <RadioButtonGroup
           question="Le contrat est-il toujours en cours ?"
-          name={`card_conducteur.${index}.contract_cours`}
+          name={`step12_card_conducteur.${index}.contract_cours`}
           options={[
             { value: 'oui', label: 'Oui' },
             { value: 'non', label: 'Non' },
@@ -66,7 +66,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
           <>
             <TextInput
               label="Date de résiliation"
-              name={`card_conducteur.${index}.resiliation`}
+              name={`step12_card_conducteur.${index}.resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors?.step12_card_conducteur?.[index]?.resiliation}
@@ -74,7 +74,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
             />
             <SelectInput
               label="Motif de résiliation"
-              name={`card_conducteur.${index}.motif_resiliation`}
+              name={`step12_card_conducteur.${index}.motif_resiliation`}
               register={register}
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors?.step12_card_conducteur?.[index]?.motif_resiliation}
@@ -83,7 +83,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
             />
             <RadioButtonGroup
               question="Y a-t-il eu récidive de non paiement ?"
-              name={`card_conducteur.${index}.recidive_non_paiement`}
+              name={`step12_card_conducteur.${index}.recidive_non_paiement`}
               options={[
                 { value: 'oui', label: 'Oui' },
                 { value: 'non', label: 'Non' },
@@ -95,7 +95,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
             />
             <RadioButtonGroup
               question="Le contentieux a-t-il été soldé ?"
-              name={`card_conducteur.${index}.contentieux_solde`}
+              name={`step12_card_conducteur.${index}.contentieux_solde`}
               options={[
                 { value: 'oui', label: 'Oui' },
                 { value: 'non', label: 'Non' },
@@ -107,7 +107,7 @@ export default function Cardstep12({ onClose, index }: Cardstep8Props) {
             />
             <TextInput
               label="Commentaires"
-              name={`card_conducteur.${index}.commentaires`}
+              name={`step12_card_conducteur.${index}.commentaires`}
               register={register}
               validationRules={{}}
               error={errors?.step12_card_conducteur?.[index]?.commentaires}
