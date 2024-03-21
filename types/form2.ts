@@ -22,6 +22,7 @@ step5_type_de_parking_collectif: string;
 step6_stationnementstep6: string;
 step6_complementstep6: string;
 step6_villestep6: string;
+step6_postalstep6: string;
 step6_codepostalstationnement: string;
 step6_villestationnement: string;
 //step7
