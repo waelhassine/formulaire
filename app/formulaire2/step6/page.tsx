@@ -95,7 +95,7 @@ export default function FormulaireStep6() {
                 error={errors.step6_postalstep6}
                 placeholder="Entrez votre Code postal"
                 maxLength={40}
-                onBlur={() => trigger('step6_complementstep6')}
+                onBlur={() => trigger('step6_postalstep6')}
                 autoComplete="step6_postalstep6"
               />
             </div>
