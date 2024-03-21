@@ -25,6 +25,7 @@ const keyMapping: KeyMapping = {
   step5_type_de_parking_collectif: 'Veuillez préciser le type de parking collectif',
   step6_stationnementstep6: 'Voie de stationnement',
   step6_complementstep6: 'Complément',
+  step6_postalstep6: 'Code postal',
   step6_codepostalstationnement: 'Code postal',
   step6_villestationnement: 'Ville',
   step7_civilites: 'Civilite',
