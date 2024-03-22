@@ -114,7 +114,7 @@ export default function Formulaire() {
               size={'sm'}
               className="mt-8 text-blue-800 text-base"
               onClick={() => {
-                router.push('/formulaire2/step2');
+                router.push('/formulaire-auto/step2');
               }}
             >
               Je ne connais pas l&apos;immatriculation

@@ -16,7 +16,7 @@ export default function Provider2({ children }: FormProviderProps) {
     if (isValid) {
       route.push('/merci');
     } else {
-      route.replace('/formulaire2/step1');
+      route.replace('/formulaire-auto/step1');
     }
   };
 
