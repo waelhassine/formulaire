@@ -171,7 +171,7 @@ export async function POST(request: NextRequest) {
   drawData(data, page, x, y);
 
   const pdfBytes = await pdfDoc.save();
-
+  console.log(originalData);
   await sendEmail(pdfBytes, 'Formulaire 1 ', originalData.Nom, originalData.Prenom);
   // // Example: Uncomment and use this line if you intend to actually send the email
   // await sendEmail(pdfBytes);
