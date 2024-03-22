@@ -57,6 +57,7 @@ export default function Formulaire() {
     const data = await fetchData(plate);
 
     if (data) {
+      setValue('plate', plate);
       setValue('step2_marque', data?.marque);
       setValue('step2_modele', data?.modele);
       setValue('step2_finition', data?.sraCommercial);
