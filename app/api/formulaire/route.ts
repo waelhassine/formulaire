@@ -1,7 +1,7 @@
 // import sendEmail from '@/lib/send_email';
 import { NextRequest } from 'next/server';
 import { PDFDocument, rgb, PDFPage, StandardFonts } from 'pdf-lib';
-import nodemailer from 'nodemailer';
+import sendEmail from '@/lib/send_email';
 
 interface KeyMapping {
   [key: string]: string;
@@ -44,7 +44,7 @@ const keyMapping: KeyMapping = {
   //step10
   step10_card_Conducteur_v2: 'Le conducteur a t il commis des infractions ?',
   step11_step11_card_sinistre_principal: 'Le conducteur a t il déclaré des sinistres ?',
-  step12_card_conducteur: 'Antécédents d&apos;assurance',
+  step12_card_conducteur: 'Antécédents d`assurance',
   step13_conducteur_secondaire: 'un conducteur secondaire ?',
   step14_civiliteIdentité: 'Civilite',
   step14_prenomConducteurSecondaire: 'Prénom du conducteur secondaire',
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
 
   const pdfDoc = await PDFDocument.create();
   const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-  const pageSize: [number, number] = [595, 1200];
+  const pageSize: [number, number] = [595, 1700];
   let page = pdfDoc.addPage(pageSize);
   let y = pageSize[1] - 40; // Start position from top
   const x = 50;
@@ -156,40 +156,7 @@ export async function POST(request: NextRequest) {
   drawData(data, page, x, y);
 
   const pdfBytes = await pdfDoc.save();
-  const transporter = nodemailer.createTransport({
-    host: 'ssl0.ovh.net', // OVH SMTP server
-    port: 587, // SMTP port (could be different based on your settings, e.g., 465)
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: 'noreply@sea-electronics.com', // Your OVH email address
-      pass: 'wassimSEA2023', // Your OVH email password
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
-
-  const mailOptions = {
-    from: '"Formulaire 2 " <no-replay@sea-electronics.com>',
-    to: 'wael.hassine0@gmail.com',
-    subject: 'Here is your PDF',
-    text: 'Please find the attached PDF.',
-    attachments: [
-      {
-        filename: 'generated-pdf.pdf',
-        content: Buffer.from(pdfBytes), // Convert Uint8Array to Buffer
-        contentType: 'application/pdf',
-      },
-    ],
-  };
-
-  await transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+  await sendEmail(pdfBytes, 'Formulaire auto ', originalData.step20_nom, originalData.step20_prenom);
   // // Example: Uncomment and use this line if you intend to actually send the email
   //await sendEmail(pdfBytes);
 
