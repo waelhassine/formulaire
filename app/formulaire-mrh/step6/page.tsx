@@ -21,7 +21,7 @@ export default function FormulaireStep6() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step7');
+      router.push('/formulaire-mrh/step7');
     }
   };
   const presence_objet = watch('presence_objet');

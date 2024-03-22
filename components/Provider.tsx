@@ -23,7 +23,7 @@ export default function Provider({ children }: FormProviderProps) {
     if (isValid) {
       route.push('/merci');
     } else {
-      route.replace('/formulaire/step1');
+      route.replace('/formulaire-mrh/step1');
     }
   };
 

@@ -18,7 +18,7 @@ export default function FormulaireStep3() {
   const validateStep = async () => {
     await trigger();
     if (isValid) {
-      router.push('/formulaire/step3');
+      router.push('/formulaire-mrh/step3');
     }
   };
   const type_logement_assurer = watch('type_logement_assurer');

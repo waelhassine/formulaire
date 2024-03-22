@@ -30,7 +30,7 @@ export default function FormulaireStep4() {
     await trigger();
 
     if (isValid) {
-      router.push('/formulaire/step5');
+      router.push('/formulaire-mrh/step5');
     }
   };
   return (
