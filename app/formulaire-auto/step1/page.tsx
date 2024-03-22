@@ -64,7 +64,7 @@ export default function Formulaire() {
       setValue('step2_dateName', formattedDate);
     }
 
-    router.push('/formulaire2/step2');
+    router.push('/formulaire-auto/step2');
   };
 
   const handleSuivantClick = () => {
