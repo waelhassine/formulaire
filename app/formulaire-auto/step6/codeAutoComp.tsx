@@ -16,12 +16,13 @@ const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteP
     setQuery(inputValue);
 
     try {
-      const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&postcode=${inputValue}&limit=3`);
-      console.log('called')
+      const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&postcode=${inputValue}`);
+      
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
+      console.log('114',data);
       setResults(data.features);
     } catch (error) {
       console.error('Error fetching address autocomplete:', error);

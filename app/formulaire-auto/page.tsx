@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import ImmatriculationInput from '../formulaire-auto/step1/test';
+import ImmatriculationInput from './step1/test';
 
 export default function Formulaire() {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function Formulaire() {
     );
 
     if (!response.ok) {
-      router.push('/formulaire2/step2');
+      router.push('/formulaire-auto/step2');
     }
 
     let data;
@@ -57,14 +57,15 @@ export default function Formulaire() {
     const data = await fetchData(plate);
 
     if (data) {
+      setValue('plate', plate);
       setValue('step2_marque', data?.marque);
       setValue('step2_modele', data?.modele);
-      setValue('step2_sraCommercial', data?.sraCommercial);
+      setValue('step2_finition', data?.sraCommercial);
       const formattedDate = data?.date1erCirFr?.split('T')[0];
       setValue('step2_dateName', formattedDate);
     }
 
-    router.push('/formulaire2/step2');
+    router.push('/formulaire-auto/step2');
   };
 
   const handleSuivantClick = () => {
@@ -93,9 +94,19 @@ export default function Formulaire() {
               type="button"
               disabled={isLoading}
               size={'lg'}
-              className="mt-8 bg-blue-800 text-xl"
+              className="mt-8 bg-blue-800 text-xl flex flex-row space-x-1"
               onClick={handleSuivantClick}
             >
+              {isLoading && (
+                <>
+                  <div
+                    className="inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status"
+                  >
+                    <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                  </div>
+                </>
+              )}
               Suivant
             </Button>
             <Button
@@ -104,7 +115,7 @@ export default function Formulaire() {
               size={'sm'}
               className="mt-8 text-blue-800 text-base"
               onClick={() => {
-                router.push('/formulaire2/step2');
+                router.push('/formulaire-auto/step2');
               }}
             >
               Je ne connais pas l&apos;immatriculation
