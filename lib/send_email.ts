@@ -7,8 +7,8 @@ export default async function sendEmail(pdfBytes: any, nomFormulaire: string, no
     port: 465,
     secure: true,
     auth: {
-      user: process.env.USER,
-      pass: process.env.PASSWORD,
+      user: 'devis.agsgroup@gmail.com',
+      pass: 'sjdn dmkf qtho hnad',
     },
   });
 
