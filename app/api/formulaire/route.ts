@@ -111,9 +111,10 @@ function transformData(data: any): any {
       const trimmedKey = key.trim(); // Trim the key
       let newKey = keyMapping[trimmedKey] || trimmedKey; // Map keys based on trimmed version
 
-      // Check for specific handling of 'cards' or similar structures
       if (newKey === 'step10_card_Conducteur_v2' || newKey === 'step11_card_sinistre_principal' || newKey === 'step12_card_conducteur' || newKey ==='step17_card_conducteur_infraction'  || newKey === 'step18_card_conducteur_sinistres' || newKey === 'step19_card_assurance') {
-        newData[newKey] = transformCards( value as any[]); // Use transformCards for 'cards'
+        if (Array.isArray(value)) { // Ensure that the value is indeed an array
+          newData[newKey] = transformCards(value); // Use transformCards for 'cards'
+        }
       } else {
         newData[newKey] = transformData(value); // Recursively apply transformation for other keys/values
       }
@@ -126,18 +127,20 @@ function transformData(data: any): any {
 function transformCards(cards: any[]): any[] {
   return cards.map((card) => {
     const newCard: { [key: string]: any } = {};
-    for (const cardKey of Object.keys(card)) {
+    for (const [cardKey, cardValue] of Object.entries(card)) {
       const trimmedCardKey = cardKey.trim(); // Trim the card key
       const mappedCardKey = keyMapping[trimmedCardKey] || trimmedCardKey; // Map card keys based on trimmed version
-      newCard[mappedCardKey] = transformData(card[cardKey]); // Apply transformation to card data
+      newCard[mappedCardKey] = transformData(cardValue); // Apply transformation to card data
     }
     return newCard;
   });
 }
 
+
+
 export async function POST(request: NextRequest) {
   const originalData = await request.json();
-  console.log(originalData);
+  console.log( 'asbaa' ,originalData);
   const data = transformData(originalData); // Transform the incoming JSON data
 
   const pdfDoc = await PDFDocument.create();
