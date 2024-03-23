@@ -75,6 +75,30 @@ const keyMapping: KeyMapping = {
   step20_codepostal: 'Code postal de souscripteur du contrat',
   step20_ville: 'Ville de souscripteur du contrat',
   step20_pays: 'Pays de souscripteur du contrat',
+  step20_consenttwo :  "J'accepte le stockage et le traitement de mes données personnelles",
+  // related values 
+
+  // step 10
+  type_infraction: "Type d'infraction",
+  nombre_infraction: "Nombre d'infraction",
+  moin_de_5_ans: "A-t-elle eu lieu il y a moins de 5 ans ?" ,
+
+  // step 11
+  souscription:'Date du sinistre' ,
+  type_sinistre: 'Type de sinistre' ,
+  nature_sinistre: 'Nature du sinistre' ,
+  taux_responsabilite: 'Taux de responsabilité',
+
+  // step12
+  Compagnie:"compagnie",
+ // souscription:"Date de souscription",
+  contract_cours:"Le contrat est-il toujours en cours ?",
+  resiliation:"Date de résiliation",
+  motif_resiliation:"motif_resiliation",
+  recidive_non_paiement:"Y a-t-il eu récidive de non paiement ?",
+  contentieux_solde:"Le contentieux a-t-il été soldé ?",
+  commentaires:"commentaires",
+  
 };
 
 function transformData(data: any): any {
