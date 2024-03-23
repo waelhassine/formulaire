@@ -68,10 +68,10 @@ export interface FormValues {
   //step17
   step17_card_conducteur_infraction: ConducteurInfraction[];
   //step18
-  step18_card_conducteur_sinistres: sinistre_principal[];
+  step18_card_conducteur_sinistres: sinistre_secondaire[];
   //step19
-  step19_card_assurance: CardInfo[];
-  //step20
+  step19_card_assurance: CardInfosecondaire[];
+  //step20ConducteurInfraction
   step20_adresse: string;
   step20_codepostal: string;
   step20_ville: string;
@@ -147,10 +147,20 @@ export interface CardInfo {
   recidive_non_paiement: 'oui' | 'non';
   contentieux_solde: 'oui' | 'non';
 }
+export interface CardInfosecondaire {
+  compagniestep19: string;
+  souscriptionstep19: Date;
+  contract_coursstep19: 'oui' | 'non';
+  resiliationstep19?: Date;
+  motif_resiliationstep19?: string;
+  commentairesstep19: string;
+  recidive_non_paiementstep19: 'oui' | 'non';
+  contentieux_soldestep19: 'oui' | 'non';
+}
 
 export interface ConducteurInfraction {
-  type_infraction: string;
-  nomber_infraction: number;
+  type_infractionstep17: string;
+  nomber_infractionstep17: number;
   Ont_elles_moins_de_5_ans: 'oui' | 'non';
 }
 
@@ -160,7 +170,12 @@ export interface sinistre_principal {
   nature_sinistre: string;
   taux_responsabilite: string;
 }
-
+export interface sinistre_secondaire {
+  souscriptionstep18: Date;
+  type_sinistrestep18: string;
+  nature_sinistrestep18: string;
+  taux_responsabilitestep18: string;
+}
 export interface Conducteur_secondaire {
   type_infraction: string;
   nombre_infraction: number;

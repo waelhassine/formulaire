@@ -43,7 +43,7 @@ const keyMapping: KeyMapping = {
   step9_suspension_permis: 'Le permis du conducteur principal a-t-il fait l objet de suspension(s) ?',
   step9_objet_annulation: 'Le permis du conducteur principal a-t-il fait l objet d annulation(s) ?',
   //step10
-  step10_card_Conducteur_v2: 'Le conducteur a t il commis des infractions ?',
+  step10_card_Conducteur_v2: 'Le conducteur a t il commis des infractions conducteur principal ?',
   step11_card_sinistre_principal: 'Le conducteur a t il déclaré des sinistres ?',
   step12_card_conducteur: 'Antécédents d`assurance',
   step13_conducteur_secondaire: 'un conducteur secondaire ?',
@@ -98,7 +98,27 @@ const keyMapping: KeyMapping = {
   recidive_non_paiement:"Y a-t-il eu récidive de non paiement ?",
   contentieux_solde:"Le contentieux a-t-il été soldé ?",
   commentaires:"commentaires",
-  
+  //step 17
+  type_infractionstep17: "Type d'infraction Conducteur secondaire",
+    nomber_infractionstep17: "Nombre d'infraction Conducteur secondaire",
+    Ont_elles_moins_de_5_ans: "A-t-elle eu lieu il y a moins de 5 ans Conducteur secondeur ?",
+
+  //step 18
+  souscriptionstep18:'Date du sinistre Conducteur secondaire' ,
+  type_sinistrestep18: 'Type de sinistre Conducteur secondaire' ,
+  nature_sinistrestep18: 'Nature du sinistre Conducteur secondaire' ,
+  taux_responsabilitestep18: 'Taux de responsabilité Conducteur secondaire' ,
+  //step 19
+  compagniestep19: 'Compagnie de Conducteur secondaire',
+  souscriptionstep19: 'Date de souscription de  Conducteur secondaire',
+  contract_coursstep19: 'Le contrat est-il toujours en cours de Conducteur secondaire ?',
+  resiliationstep19: 'Date de résiliation de Conducteur secondaire',
+  motif_resiliationstep19: 'Motif de résiliation de Conducteur secondaire',
+  commentairesstep19: 'Commentaires de Conducteur secondaire',
+  recidive_non_paiementstep19: 'Y a-t-il eu récidive de non paiement de Conducteur secondaire ?',
+  contentieux_soldestep19: 'Le contentieux a-t-il été soldé de Conducteur secondaire ?',
+
+
 };
 
 function transformData(data: any): any {
@@ -111,10 +131,9 @@ function transformData(data: any): any {
       const trimmedKey = key.trim(); // Trim the key
       let newKey = keyMapping[trimmedKey] || trimmedKey; // Map keys based on trimmed version
 
+      // Check for specific handling of 'cards' or similar structures
       if (newKey === 'step10_card_Conducteur_v2' || newKey === 'step11_card_sinistre_principal' || newKey === 'step12_card_conducteur' || newKey ==='step17_card_conducteur_infraction'  || newKey === 'step18_card_conducteur_sinistres' || newKey === 'step19_card_assurance') {
-        if (Array.isArray(value)) { // Ensure that the value is indeed an array
-          newData[newKey] = transformCards(value); // Use transformCards for 'cards'
-        }
+        newData[newKey] = transformCards( value as any[]); // Use transformCards for 'cards'
       } else {
         newData[newKey] = transformData(value); // Recursively apply transformation for other keys/values
       }
@@ -127,20 +146,18 @@ function transformData(data: any): any {
 function transformCards(cards: any[]): any[] {
   return cards.map((card) => {
     const newCard: { [key: string]: any } = {};
-    for (const [cardKey, cardValue] of Object.entries(card)) {
+    for (const cardKey of Object.keys(card)) {
       const trimmedCardKey = cardKey.trim(); // Trim the card key
       const mappedCardKey = keyMapping[trimmedCardKey] || trimmedCardKey; // Map card keys based on trimmed version
-      newCard[mappedCardKey] = transformData(cardValue); // Apply transformation to card data
+      newCard[mappedCardKey] = transformData(card[cardKey]); // Apply transformation to card data
     }
     return newCard;
   });
 }
 
-
-
 export async function POST(request: NextRequest) {
   const originalData = await request.json();
-  console.log( 'asbaa' ,originalData);
+  console.log(originalData);
   const data = transformData(originalData); // Transform the incoming JSON data
 
   const pdfDoc = await PDFDocument.create();
