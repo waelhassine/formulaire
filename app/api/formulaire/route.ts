@@ -185,6 +185,31 @@ export async function POST(request: NextRequest) {
     });
   };
 
+  function isDateString(s: string): boolean {
+    // Early return for falsy values to avoid unnecessary processing
+    if (!s) return false;
+  
+    // Additional regex to exclude purely numerical strings (e.g., postal codes)
+    const nonDatePattern = /^\d+$/;
+    if (nonDatePattern.test(s)) return false;
+  
+    // Attempt to parse the string as a date
+    const parsedDate = Date.parse(s);
+  
+    // Check if the parsed date is valid and ensure it doesn't match a simple numeric string
+    return !isNaN(parsedDate) && !nonDatePattern.test(s);
+  }
+  
+  
+  function formatDate(dateString: string): string {
+    const months = [
+      'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+      'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
+    ];
+    const date = new Date(dateString);
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
+  
   const drawData = (data: any, page: PDFPage, x: number, startY: number) => {
     let localY = startY;
     for (const [key, value] of Object.entries(data)) {
@@ -196,7 +221,9 @@ export async function POST(request: NextRequest) {
           value.forEach((item) => {
             Object.entries(item).forEach(([itemKey, itemValue]) => {
               checkAndAddNewPage();
-              drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
+              // Check and format date before drawing
+              const formattedItemValue = typeof itemValue === 'string' && isDateString(itemValue) ? formatDate(itemValue) : itemValue;
+              drawText(`  ${itemKey}: ${formattedItemValue}`, page, x, localY);
               localY -= lineSpacing;
             });
             localY -= lineSpacing / 2; // Extra spacing between items
@@ -206,16 +233,21 @@ export async function POST(request: NextRequest) {
           localY -= lineSpacing;
           Object.entries(value).forEach(([itemKey, itemValue]) => {
             checkAndAddNewPage();
-            drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
+            // Check and format date before drawing
+            const formattedItemValue = typeof itemValue === 'string' && isDateString(itemValue) ? formatDate(itemValue) : itemValue;
+            drawText(`  ${itemKey}: ${formattedItemValue}`, page, x, localY);
             localY -= lineSpacing;
           });
         }
       } else {
-        drawText(`- ${key}: ${value}`, page, x, localY);
+        // Check and format date before drawing for non-object values
+        const formattedValue = typeof value === 'string' && isDateString(value) ? formatDate(value) : value;
+        drawText(`- ${key}: ${formattedValue}`, page, x, localY);
         localY -= lineSpacing;
       }
     }
   };
+  
 
   drawData(data, page, x, y);
 
