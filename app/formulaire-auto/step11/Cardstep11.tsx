@@ -28,7 +28,7 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
 
         <TextInput
           label="Date du sinistre"
-          name={`step11_step11_card_sinistre_principal.${index}.souscription`}
+          name={`step11_card_sinistre_principal.${index}.souscription`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.step11_card_sinistre_principal?.[index]?.souscription}
