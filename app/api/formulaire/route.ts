@@ -47,7 +47,7 @@ const keyMapping: KeyMapping = {
   step11_card_sinistre_principal: 'Le conducteur a t il déclaré des sinistres ?',
   step12_card_conducteur: 'Antécédents d`assurance',
   step13_conducteur_secondaire: 'un conducteur secondaire ?',
-  step14_civiliteIdentité: 'Civilite',
+  step14_civiliteIdentité: 'Civilite de Conducteur secondaire',
   step14_prenomConducteurSecondaire: 'Prénom du conducteur secondaire',
   step14_nomConducteurSecondaire: 'Nom du conducteur secondaire',
   step14_naissanceIdentité: 'Date de naissance identité',
