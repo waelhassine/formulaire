@@ -1,49 +1,55 @@
-'use client';
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
-import type { Address } from '@/lib/types';
+import { AddressPostal } from '@/lib/types';
+
 type AddressAutocompleteProps = {
   setValue: any;
   clearErrors: any;
-  error: any; // Adjust based on your error handling strategy
+  error: any;
 };
+
+const API_KEY = "98242f00-ea1a-11ee-8097-df8218c329bb";
 
 const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteProps) => {
   const [query, setQuery] = useState<string>('');
-  const [results, setResults] = useState<Address[]>([]);
+  const [results, setResults] = useState<AddressPostal[]>([]);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setQuery(inputValue);
 
-    try {
-      const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&postcode=${inputValue}`);
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    if (inputValue.length >= 5) { // Assuming postal codes are 5 digits
+      try {
+        const response = await fetch(`https://app.zipcodebase.com/api/v1/search?apikey=${API_KEY}&codes=${inputValue}&country=fr`);
+        
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const postalCodes = Object.keys(data.results);
+        const addresses = postalCodes.flatMap(code => data.results[code]);
+        setResults(addresses);
+      } catch (error) {
+        console.error('Error fetching address autocomplete:', error);
       }
-      const data = await response.json();
-      console.log('114',data);
-      setResults(data.features);
-    } catch (error) {
-      console.error('Error fetching address autocomplete:', error);
+    } else {
+      setResults([]); // Clear results if input is less than 5 characters
     }
   };
 
-  const handleAddressClick = (address: Address) => {
-    const fullAddress = `${address.properties.postcode}`;
+  const handleAddressClick = (address: AddressPostal) => {
+    const fullAddress = `${address.postal_code}`;
     setQuery(fullAddress);
-    setValue('step6_codepostalstationnement', fullAddress);
-    setValue('step6_villestationnement', address.properties.city);
+    setValue('step6_codepostalstationnement', address.postal_code);
+    setValue('step6_villestationnement', address.city);
     clearErrors('step6_codepostalstationnement');
     clearErrors('step6_villestationnement');
-
 
     setResults([]); // Clear the results after selecting an address
   };
 
   return (
     <div className="flex flex-col space-y-2">
-      <span className={`  ${
+      <span className={`${
           error ? 'text-red-500' : 'text-gray-900'
         } text-base font-semibold`}>Code Postal de stationnement au travail</span>
       <input
@@ -54,16 +60,15 @@ const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteP
         value={query}
         onChange={handleChange}
         placeholder="Entrer votre Code postal"
-        
       />
-      <ul className="mt-2  rounded-xl shadow-lg ">
-        {results.map((result) => (
+      <ul className="mt-2 rounded-xl shadow-lg ">
+        {results.map((result, index) => (
           <li
-            key={result.properties.id}
+            key={index} // Using index as key because result structure might not have a unique id
             className="p-2 border-b border-gray-500"
             onClick={(e: MouseEvent<HTMLLIElement>) => handleAddressClick(result)}
           >
-            {`${result.properties.label}`}
+            {`${result.city}`}
           </li>
         ))}
       </ul>
