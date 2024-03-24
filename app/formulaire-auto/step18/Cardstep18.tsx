@@ -1,14 +1,5 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
-import { useRouter } from 'next/navigation';
-import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons';

@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
@@ -16,7 +15,6 @@ export default function FormulaireStep10() {
     control,
     formState: { isValid },
     trigger,
-    getValues,
   } = useAppFormContext();
 
   const { fields, append, remove } = useFieldArray({
