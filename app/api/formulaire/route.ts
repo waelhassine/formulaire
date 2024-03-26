@@ -43,11 +43,11 @@ const keyMapping: KeyMapping = {
   step9_suspension_permis: 'Le permis du conducteur principal a-t-il fait l objet de suspension(s) ?',
   step9_objet_annulation: 'Le permis du conducteur principal a-t-il fait l objet d annulation(s) ?',
   //step10
-  step10_card_Conducteur_v2: 'Le conducteur a t il commis des infractions ?',
+  step10_card_Conducteur_v2: 'Le conducteur a t il commis des infractions conducteur principal ?',
   step11_card_sinistre_principal: 'Le conducteur a t il déclaré des sinistres ?',
   step12_card_conducteur: 'Antécédents d`assurance',
   step13_conducteur_secondaire: 'un conducteur secondaire ?',
-  step14_civiliteIdentité: 'Civilite',
+  step14_civiliteIdentité: 'Civilite de Conducteur secondaire',
   step14_prenomConducteurSecondaire: 'Prénom du conducteur secondaire',
   step14_nomConducteurSecondaire: 'Nom du conducteur secondaire',
   step14_naissanceIdentité: 'Date de naissance identité',
@@ -56,11 +56,11 @@ const keyMapping: KeyMapping = {
   step15_type_permis: 'Type de permis de Conducteur',
   //CRMConducteur: 'Coefficient de Bonus/Malus (CRM)',
   step15_crm_bonus_Conducteur: 'Coefficient de Bonus/Malus (CRM) de Conducteur',
-  step16_deja_assure: 'Déjà assuré en tant que conducteur principal ?',
-  step16_deja_assure_secondaire: 'Déjà assuré en tant que conducteur secondaire ?',
-  step16_conduite_accompagnee: 'Obtention du permis suite à la conduite accompagnée ?',
-  step16_suspension_permis: 'Le permis du conducteur principal a-t-il fait l objet de suspension(s) ?',
-  setp16_objet_annulation: 'Le permis du conducteur principal a-t-il fait l objet d annulation(s) ?',
+  step16_deja_assure: 'Déjà assuré en tant que conducteur principal?',
+  step16_deja_assure_secondaire: 'Déjà assuré en tant que conducteur secondaire?',
+  step16_conduite_accompagnee: 'Obtention du permis suite à la conduite accompagnée? ',
+  step16_suspension_permis: 'Le permis du conducteur principal a-t-il fait l objet de suspension ?',
+  setp16_objet_annulation: 'Le permis du conducteur principal a-t-il fait l objet d annulation ?',
   step17_card_conducteur_infraction: 'Le conducteur a t il commis des infractions ?',
   step18_card_conducteur_sinistres: 'Le conducteur a til déclaré des sinistres ?',
   step19_card_assurance: 'Antécédents dassurance',
@@ -75,6 +75,50 @@ const keyMapping: KeyMapping = {
   step20_codepostal: 'Code postal de souscripteur du contrat',
   step20_ville: 'Ville de souscripteur du contrat',
   step20_pays: 'Pays de souscripteur du contrat',
+  step20_consenttwo :  "J'accepte le stockage et le traitement de mes données personnelles",
+  // related values 
+
+  // step 10
+  type_infraction: "Type d'infraction",
+  nombre_infraction: "Nombre d'infraction",
+  moin_de_5_ans: "A-t-elle eu lieu il y a moins de 5 ans ?" ,
+
+  // step 11
+  souscription:'Date du sinistre' ,
+  type_sinistre: 'Type de sinistre' ,
+  nature_sinistre: 'Nature du sinistre' ,
+  taux_responsabilite: 'Taux de responsabilité',
+
+  // step12
+  Compagnie:"compagnie",
+ // souscription:"Date de souscription",
+  contract_cours:"Le contrat est-il toujours en cours ?",
+  resiliation:"Date de résiliation",
+  motif_resiliation:"motif_resiliation",
+  recidive_non_paiement:"Y a-t-il eu récidive de non paiement ?",
+  contentieux_solde:"Le contentieux a-t-il été soldé ?",
+  commentaires:"commentaires",
+  //step 17
+  type_infractionstep17: "Type d'infraction Conducteur secondaire",
+    nomber_infractionstep17: "Nombre d'infraction Conducteur secondaire",
+    Ont_elles_moins_de_5_ans: "A-t-elle eu lieu il y a moins de 5 ans Conducteur secondeur ?",
+
+  //step 18
+  souscriptionstep18:'Date du sinistre Conducteur secondaire' ,
+  type_sinistrestep18: 'Type de sinistre Conducteur secondaire' ,
+  nature_sinistrestep18: 'Nature du sinistre Conducteur secondaire' ,
+  taux_responsabilitestep18: 'Taux de responsabilité Conducteur secondaire' ,
+  //step 19
+  compagniestep19: 'Compagnie de Conducteur secondaire',
+  souscriptionstep19: 'Date de souscription de  Conducteur secondaire',
+  contract_coursstep19: 'Le contrat est-il toujours en cours de Conducteur secondaire ?',
+  resiliationstep19: 'Date de résiliation de Conducteur secondaire',
+  motif_resiliationstep19: 'Motif de résiliation de Conducteur secondaire',
+  commentairesstep19: 'Commentaires de Conducteur secondaire',
+  recidive_non_paiementstep19: 'Y a-t-il eu récidive de non paiement de Conducteur secondaire ?',
+  contentieux_soldestep19: 'Le contentieux a-t-il été soldé de Conducteur secondaire ?',
+
+
 };
 
 function transformData(data: any): any {
@@ -82,14 +126,33 @@ function transformData(data: any): any {
     return data.map((item) => transformData(item));
   }
   if (typeof data === 'object' && data !== null) {
-    const newData: { [key: string]: any } = {}; // Define type for newData
+    const newData: { [key: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
-      const newKey = keyMapping[key.trim()] || key.trim(); // Trim and map keys
-      newData[newKey] = transformData(value); // Recursively apply transformation
+      const trimmedKey = key.trim(); // Trim the key
+      let newKey = keyMapping[trimmedKey] || trimmedKey; // Map keys based on trimmed version
+
+      // Check for specific handling of 'cards' or similar structures
+      if (newKey === 'step10_card_Conducteur_v2' || newKey === 'step11_card_sinistre_principal' || newKey === 'step12_card_conducteur' || newKey ==='step17_card_conducteur_infraction'  || newKey === 'step18_card_conducteur_sinistres' || newKey === 'step19_card_assurance') {
+        newData[newKey] = transformCards( value as any[]); // Use transformCards for 'cards'
+      } else {
+        newData[newKey] = transformData(value); // Recursively apply transformation for other keys/values
+      }
     }
     return newData;
   }
-  return data;
+  return data; // Return data as is if it's neither an array nor an object
+}
+
+function transformCards(cards: any[]): any[] {
+  return cards.map((card) => {
+    const newCard: { [key: string]: any } = {};
+    for (const cardKey of Object.keys(card)) {
+      const trimmedCardKey = cardKey.trim(); // Trim the card key
+      const mappedCardKey = keyMapping[trimmedCardKey] || trimmedCardKey; // Map card keys based on trimmed version
+      newCard[mappedCardKey] = transformData(card[cardKey]); // Apply transformation to card data
+    }
+    return newCard;
+  });
 }
 
 export async function POST(request: NextRequest) {
@@ -122,6 +185,31 @@ export async function POST(request: NextRequest) {
     });
   };
 
+  function isDateString(s: string): boolean {
+    // Early return for falsy values to avoid unnecessary processing
+    if (!s) return false;
+  
+    // Additional regex to exclude purely numerical strings (e.g., postal codes)
+    const nonDatePattern = /^\d+$/;
+    if (nonDatePattern.test(s)) return false;
+  
+    // Attempt to parse the string as a date
+    const parsedDate = Date.parse(s);
+  
+    // Check if the parsed date is valid and ensure it doesn't match a simple numeric string
+    return !isNaN(parsedDate) && !nonDatePattern.test(s);
+  }
+  
+  
+  function formatDate(dateString: string): string {
+    const months = [
+      'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+      'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
+    ];
+    const date = new Date(dateString);
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
+  
   const drawData = (data: any, page: PDFPage, x: number, startY: number) => {
     let localY = startY;
     for (const [key, value] of Object.entries(data)) {
@@ -133,7 +221,9 @@ export async function POST(request: NextRequest) {
           value.forEach((item) => {
             Object.entries(item).forEach(([itemKey, itemValue]) => {
               checkAndAddNewPage();
-              drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
+              // Check and format date before drawing
+              const formattedItemValue = typeof itemValue === 'string' && isDateString(itemValue) ? formatDate(itemValue) : itemValue;
+              drawText(`  ${itemKey}: ${formattedItemValue}`, page, x, localY);
               localY -= lineSpacing;
             });
             localY -= lineSpacing / 2; // Extra spacing between items
@@ -143,16 +233,21 @@ export async function POST(request: NextRequest) {
           localY -= lineSpacing;
           Object.entries(value).forEach(([itemKey, itemValue]) => {
             checkAndAddNewPage();
-            drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
+            // Check and format date before drawing
+            const formattedItemValue = typeof itemValue === 'string' && isDateString(itemValue) ? formatDate(itemValue) : itemValue;
+            drawText(`  ${itemKey}: ${formattedItemValue}`, page, x, localY);
             localY -= lineSpacing;
           });
         }
       } else {
-        drawText(`- ${key}: ${value}`, page, x, localY);
+        // Check and format date before drawing for non-object values
+        const formattedValue = typeof value === 'string' && isDateString(value) ? formatDate(value) : value;
+        drawText(`- ${key}: ${formattedValue}`, page, x, localY);
         localY -= lineSpacing;
       }
     }
   };
+  
 
   drawData(data, page, x, y);
 

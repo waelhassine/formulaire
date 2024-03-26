@@ -1,14 +1,5 @@
 'use client';
-import clsx from 'clsx';
-import { Progress } from '@/components/ui/progress';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
-import { useRouter } from 'next/navigation';
-import FormActions from '@/components/FormActions';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import ProgressHeader from '@/components/ui/progressHeader';
-import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import SelectInput from '@/components/SelectWael';
 import { TrashIcon } from '@radix-ui/react-icons';
@@ -38,20 +29,20 @@ export default function Cardstep18({ onClose, index }: Cardstep18Props) {
         <TextInput
           label="Date de sinistres
             "
-          name={`step18_card_conducteur_sinistres.${index}.souscription`}
+          name={`step18_card_conducteur_sinistres.${index}.souscriptionstep18`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.step18_card_conducteur_sinistres?.[index]?.souscription}
+          error={errors?.step18_card_conducteur_sinistres?.[index]?.souscriptionstep18}
           type="date"
         />
         <SelectInput
           label="Type de sinistre
 
           "
-          name={`step18_card_conducteur_sinistres.${index}.type_sinistre`}
+          name={`step18_card_conducteur_sinistres.${index}.type_sinistrestep18`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.step18_card_conducteur_sinistres?.[index]?.type_sinistre}
+          error={errors?.step18_card_conducteur_sinistres?.[index]?.type_sinistrestep18}
           options={[
             { value: 'Accident', label: 'Accident' },
             { value: 'Bris de glace', label: 'Bris de glace' },
@@ -73,10 +64,10 @@ export default function Cardstep18({ onClose, index }: Cardstep18Props) {
           label="Nature du sinistre
 
           "
-          name={`step18_card_conducteur_sinistres.${index}.nature_sinistre`}
+          name={`step18_card_conducteur_sinistres.${index}.nature_sinistrestep18`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.step18_card_conducteur_sinistres?.[index]?.nature_sinistre}
+          error={errors.step18_card_conducteur_sinistres?.[index]?.nature_sinistrestep18}
           options={[
             { value: 'Corporel', label: 'Corporel' },
             { value: 'Material', label: 'Material' },
@@ -87,10 +78,10 @@ export default function Cardstep18({ onClose, index }: Cardstep18Props) {
           label="Taux de responsabilité
 
           "
-          name={`step18_card_conducteur_sinistres.${index}.taux_responsabilite`}
+          name={`step18_card_conducteur_sinistres.${index}.taux_responsabilitestep18`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors.step18_card_conducteur_sinistres?.[index]?.taux_responsabilite}
+          error={errors.step18_card_conducteur_sinistres?.[index]?.taux_responsabilitestep18}
           options={[
             { value: 'zero', label: '0%' },
             { value: 'cinquant', label: '%50' },

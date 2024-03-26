@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import Cardstep19 from './Cardstep19';
 import { useFieldArray } from 'react-hook-form';
-import { CardInfo } from '@/types/form2';
+import { CardInfosecondaire } from '@/types/form2';
 
 export default function FormulaireStep19() {
   const router = useRouter();
@@ -61,7 +61,7 @@ export default function FormulaireStep19() {
             onClose={() => remove(index)}
           />
         ))}
-        <Button type="button" variant="secondary" onClick={() => append({} as CardInfo)}>
+        <Button type="button" variant="secondary" onClick={() => append({} as CardInfosecondaire)}>
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un antécédent
         </Button>
 

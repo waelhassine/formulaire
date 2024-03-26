@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 export default async function sendEmail(pdfBytes: any, nomFormulaire: string, nom: string, prenom: string) {
-  const transporter = nodemailer.createTransport({
+ const transporter = nodemailer.createTransport({
     service: 'Gmail',
     host: 'smtp.gmail.com',
     port: 465,
@@ -14,7 +14,7 @@ export default async function sendEmail(pdfBytes: any, nomFormulaire: string, no
 
   const mailOptions = {
     from: '"Devis" <devis.agsgroup@gmail.com>',
-    to: 'devis@agsgroup.fr',
+    to:'devis@agsgroup.fr',
     subject: `${nomFormulaire} - ${prenom} ${nom}`,
     text: 'Veuillez trouver le PDF ci-joint',
     attachments: [
@@ -31,6 +31,7 @@ export default async function sendEmail(pdfBytes: any, nomFormulaire: string, no
       console.log(error);
     } else {
       console.log('Email sent: ' + info.response);
+      console.log(JSON.stringify(info.response, null, 2));
     }
   });
 }

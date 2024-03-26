@@ -32,10 +32,10 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
         </div>
         <SelectInput
           label="Type d'infraction"
-          name={`step17_card_conducteur_infraction.${index}.type_infraction`}
+          name={`step17_card_conducteur_infraction.${index}.type_infractionstep17`}
           register={register}
           validationRules={{ required: 'Champ obligatoire' }}
-          error={errors?.step17_card_conducteur_infraction?.[index]?.type_infraction}
+          error={errors?.step17_card_conducteur_infraction?.[index]?.type_infractionstep17}
           options={[
             { value: 'Controle_en_alcolémie_positif', label: 'Contrôle en alcolémie positif' },
             { value: 'Controle_en_stupéfiant', label: 'Contrôle en stupéfiant' },
@@ -48,11 +48,11 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
         />
         <TextInput
           label="Nombre d'infraction"
-          name={`step17_card_conducteur_infraction.${index}.nomber_infraction`}
+          name={`step17_card_conducteur_infraction.${index}.nomber_infractionstep17`}
           type="number"
           register={register}
           validationRules={{ required: 'Merci de renseigner un montant' }}
-          error={errors?.step17_card_conducteur_infraction?.[index]?.nomber_infraction}
+          error={errors?.step17_card_conducteur_infraction?.[index]?.nomber_infractionstep17}
           placeholder=""
           maxLength={20}
           autoComplete="nomber_infraction"

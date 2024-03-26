@@ -14,7 +14,7 @@ export default function Formulaire() {
 
   const validateStep = async (message: string) => {
     setValue('type_logement_assurer', message);
-    router.push('/formulaire/step2');
+    router.push('/formulaire-mrh/step2');
   };
   return (
     <div className="flex flex-col space-y-4 w-full">

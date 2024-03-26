@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
@@ -7,7 +6,7 @@ import ProgressHeader from '@/components/ui/progressHeader';
 import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 import Cardstep18 from './Cardstep18';
-import { sinistre_principal } from '@/types/form2';
+import { sinistre_secondaire } from '@/types/form2';
 import { useFieldArray } from 'react-hook-form';
 
 export default function FormulaireStep10() {
@@ -16,7 +15,6 @@ export default function FormulaireStep10() {
     control,
     formState: { isValid },
     trigger,
-    getValues,
   } = useAppFormContext();
 
   const { fields, append, remove } = useFieldArray({
@@ -61,7 +59,7 @@ export default function FormulaireStep10() {
           <Cardstep18 key={field.id} index={index} onClose={() => remove(index)} />
         ))}
 
-        <Button type="button" variant="secondary" onClick={() => append({} as sinistre_principal)}>
+        <Button type="button" variant="secondary" onClick={() => append({} as sinistre_secondaire)}>
           <PlusCircledIcon className="mr-2 h-4 w-4" /> Ajouter un Sinistre
         </Button>
 

@@ -124,7 +124,14 @@ export async function POST(request: NextRequest) {
       color: rgb(0, 0, 0),
     });
   };
-
+ function formatDate(dateString: string): string {
+    const months = [
+      'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+      'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
+    ];
+    const date = new Date(dateString);
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
   const drawData = (data: any, page: PDFPage, x: number, startY: number) => {
     let localY = startY;
     for (const [key, value] of Object.entries(data)) {
@@ -136,6 +143,9 @@ export async function POST(request: NextRequest) {
           value.forEach((item) => {
             Object.entries(item).forEach(([itemKey, itemValue]) => {
               checkAndAddNewPage();
+              if (itemKey.toLowerCase().includes('date') && typeof itemValue === 'string') {
+                itemValue = formatDate(itemValue);
+              }
               drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
               localY -= lineSpacing;
             });
@@ -146,28 +156,24 @@ export async function POST(request: NextRequest) {
           localY -= lineSpacing;
           Object.entries(value).forEach(([itemKey, itemValue]) => {
             checkAndAddNewPage();
+            if (itemKey.toLowerCase().includes('date') && typeof itemValue === 'string') {
+              itemValue = formatDate(itemValue);
+            }
             drawText(`  ${itemKey}: ${itemValue}`, page, x, localY);
             localY -= lineSpacing;
           });
         }
       } else {
-        // Handle precision_installation_energie specifically
-        if (key === 'precision_installation_energie') {
-          const lines = (value as string).split('\n'); // Explicitly specify value as string
-          drawText(`- ${key}: ${lines[0]}`, page, x, localY);
-          localY -= lineSpacing;
-          if (lines.length > 1) {
-            drawText(`  ${lines[1]}`, page, x, localY);
-            localY -= lineSpacing;
-          }
-        } else {
-          drawText(`- ${key}: ${value}`, page, x, localY);
-          localY -= lineSpacing;
+        let formattedValue = value;
+        if (key.toLowerCase().includes('date') && typeof value === 'string') {
+          formattedValue = formatDate(value);
         }
+        drawText(`- ${key}: ${formattedValue}`, page, x, localY);
+        localY -= lineSpacing;
       }
     }
   };
-
+  
   drawData(data, page, x, y);
 
   const pdfBytes = await pdfDoc.save();
