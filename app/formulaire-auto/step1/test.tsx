@@ -1,6 +1,6 @@
-'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+
 interface ImmatriculationInputProps {
   setError: (error: string) => void;
   setData: (data: string) => void;
@@ -15,15 +15,14 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
   const input3Ref = useRef<HTMLInputElement>(null);
   const suivantButtonRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
+
   useEffect(() => {
     if (part3.length === 2) {
       suivantButtonRef.current?.click();
     }
   }, [part3]);
 
-  const validateImmatriculation = () => {
-    if (!touched) return; // Skip validation if not interacted
-    const immatriculation = `${part1}-${part2}-${part3}`;
+  const validateImmatriculation = (immatriculation: string) => {
     const immatriculationRegex = /^([A-Za-z]{2}-\d{3}-[A-Za-z]{2})|(\d{3}-[A-Za-z]{3}-\d{2})$/;
     if (!immatriculationRegex.test(immatriculation)) {
       setError("L'immatriculation doit être sous la forme AB-123-CD (ou 123-ABC-45 avant 2009).");
@@ -38,19 +37,21 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setter(e.target.value.toUpperCase());
       setTouched(true);
+      // Validate as user types
+      const newPart1 = e.target.name === "immatriculation-part-1" ? e.target.value.toUpperCase() : part1;
+      const newPart2 = e.target.name === "immatriculation-part-2" ? e.target.value.toUpperCase() : part2;
+      const newPart3 = e.target.name === "immatriculation-part-3" ? e.target.value.toUpperCase() : part3;
+      const immatriculation = `${newPart1}-${newPart2}-${newPart3}`;
+      validateImmatriculation(immatriculation);
+
       if (nextInputRef && e.target.value.length >= e.target.maxLength) {
         nextInputRef.current?.focus();
       }
     };
 
-  // OnBlur handler to validate when user clicks out of the input field
-  const handleBlur = () => {
-    validateImmatriculation();
-  };
-
   return (
-    <div className=" flex items-center justify-center mt-4 border p-2 border-gray-950 rounded-lg ">
-      <div className="flex items-center space-x-2 ">
+    <div className="flex items-center justify-center mt-4 border p-2 border-gray-950 rounded-lg">
+      <div className="flex items-center space-x-2">
         <input
           name="immatriculation-part-1"
           type="text"
@@ -60,7 +61,6 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           className="border border-gray-300 rounded-md px-2 py-1 w-16 focus:outline-none focus:border-blue-500"
           value={part1}
           onChange={handleInputChange(setPart1, input2Ref)}
-          onBlur={handleBlur} // Validate on blur
         />
         <span className="text-gray-500">-</span>
         <input
@@ -73,7 +73,6 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           className="border border-gray-300 rounded-md px-2 py-1 w-16 focus:outline-none focus:border-blue-500"
           value={part2}
           onChange={handleInputChange(setPart2, input3Ref)}
-          onBlur={handleBlur} // Validate on blur
         />
         <span className="text-gray-500">-</span>
         <input
@@ -86,7 +85,6 @@ const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) 
           className="border border-gray-300 rounded-md px-2 py-1 w-16 focus:outline-none focus:border-blue-500"
           value={part3}
           onChange={handleInputChange(setPart3)}
-          onBlur={handleBlur}
         />
       </div>
       <button
