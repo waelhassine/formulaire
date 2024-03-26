@@ -51,7 +51,7 @@ export default function FormulaireStep8() {
       <div className="flex flex-col space-y-4 lg:w-2/3">
         <p className="flex flex-row text-2xl pt-12">
           Conducteur
-          <span className="text-red-700 px-1">secondaire</span>
+          <span className="text-red-700 px-1">principal</span>
         </p>
         <p className="flex flex-row text-2xl pt-12">Antécédents d&apos;assurance</p>
 
