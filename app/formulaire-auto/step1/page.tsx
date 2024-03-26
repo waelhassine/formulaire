@@ -86,7 +86,7 @@ export default function Formulaire() {
         </p>
 
       </div>
-      <p className="flex flex-row text-2xl pt-12">Quelle est son numero d'immatriculation ?</p>
+      <p className="flex flex-row text-2xl pt-12">Quelle est son numero d&apos;immatriculation ?</p>
 
       <div className="lg:w-1/3 w-full">
         <ImmatriculationInput setError={setError} setData={setData} />
