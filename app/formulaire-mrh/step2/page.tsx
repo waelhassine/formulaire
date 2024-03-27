@@ -109,7 +109,7 @@ export default function FormulaireStep3() {
           )}
 
           <RadioButtonGroup
-            question="Le logement est-il meublé ?            "
+            question="Le logement est-il meublé ?"
             name="meuble"
             options={[
               { value: 'Oui', label: 'Oui' },
