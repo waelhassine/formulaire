@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student's profile</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body class="container mx-auto font-roboto flex flex-col">
+    <div class="flex flex-row justify-between">
+      <h1 class="text-2xl text-blue-900 font-semibold">Formulaire Mrh</h1>
+      <p>ddd</p>
+    </div>
+    <div class="flex flex-col space-y-3 mt-12">
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de Logement à Assurer:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_logement_assurer}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Étage Appartement:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{etage_appratement}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type d'Occupation:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{typelocation}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de Résidence:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{residence}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le logement est-il meublé ? :</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{location}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Une activité professionnelle est exercée dans le logement:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{meuble}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date d'Emménagement:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{dateName}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Année de Construction:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{construction}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Surface Habitable:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nombre de Pièces Principales > 9m²:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nb}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Logement avec Grandes Pièces (>30m²):</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_possede}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Combien ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{combien}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">L'adresse du logement correspond-elle à celle du souscripteur?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{adresseCorrespondance}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Adresse:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{adresse}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Complément:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{complement}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Code Postal:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{codepostal}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Ville:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{ville}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Pays:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{pays}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Classé ou Inscrit à l’Inventaire des Monuments Historique:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{inventaire}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Votre logement est-il situé à proximité d'un site ou d'une installation dangereuse ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logementDangereuse}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le logement possède t'il un garage ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_garage}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le logement possède t'il un sous-sol ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_sous_sol}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence de Dépendances:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_dependances}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Surface des Dépendances:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_des_dépendances}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence d’une Véranda:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_veranda}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Surface de la Véranda:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_verande}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Surface des Terrasses:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_terrasses}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence de Terrassess:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{terrasses}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de Piscine:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{piscine}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Installations Extérieures (Spa, etc.):</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{installations_exterieures}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Valeur Mobilière à Assurer:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{mobiliere_assurer}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence d`Objets de Valeur:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_objet}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Objets de valeur:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{objets_valeur}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Logement avec Alarme:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_alarame}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Période d`Inoccupation du Logement:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{periode_logement}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nombre d`Adultes Vivant au Domicile:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nombre_adultes}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nombre d`Enfants Vivant au Domicile:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nombre_d_enfants_vivant_au_domicile}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence d`Enfants > 18 ans:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_d_enfants_18_ans}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Assurance Scolaire:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{assurance_scolaire}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Chien(s) de Catégorie 1 ou 2:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_chien}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Système de Chauffage:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Systeme_de_chauffage}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Pouvez vous préciser ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{autre_preciser}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Installation Faite par un Professionnel ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{installation_professionnel}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Présence d`Énergies Renouvelables ?:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{energies_renouvelables}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Précision sur votre installation d`energie renouvelables:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{precision_installation_energie}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Pompe à chaleur:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{pompe_a_chaleur}}</p>
+      </div>
+      <p class="text-xl">Antécédents d`Assurance:</p>
+      <div class="flex flex-col space-y-1 px-2">
+        {{#each cards}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Compagnie:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagnie}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de souscription:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Votre cotisation ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{cotisation}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_cours}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{resiliation}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">motif resiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliation}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Commentaires:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentaires}}</p>
+        </div>
+        {{/each}}
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Civilité:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Civilite}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Prénom:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Prenom}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nom:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Nom}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Email:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Email}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Téléphone:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Telephone}}</p>
+      </div>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date de naissance:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{date_de_naissance}}</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -200,8 +200,8 @@ export default function FormulaireStep7() {
               name="precision_installation_energie"
               validationRules={{ required: 'Vous devez sélectionner au moins une option' }}
               options={[
-                { value: 'P S thermique', label: 'Panneaux solaires thermique' },
-                { value: 'P photo-v', label: 'Panneaux photovoltaiques' },
+                { value: 'Panneaux solaires thermique', label: 'Panneaux solaires thermique' },
+                { value: 'Panneaux photovoltaiques', label: 'Panneaux photovoltaiques' },
                 { value: 'Éolienne', label: 'Éolienne' },
               ]}
               setValue={setValue}

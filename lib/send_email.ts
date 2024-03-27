@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 export default async function sendEmail(pdfBytes: any, nomFormulaire: string, nom: string, prenom: string) {
- const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: 'Gmail',
     host: 'smtp.gmail.com',
     port: 465,
@@ -14,7 +14,7 @@ export default async function sendEmail(pdfBytes: any, nomFormulaire: string, no
 
   const mailOptions = {
     from: '"Devis" <devis.agsgroup@gmail.com>',
-    to:'devis@agsgroup.fr',
+    to: 'wael.hassine0@gmail.com',
     subject: `${nomFormulaire} - ${prenom} ${nom}`,
     text: 'Veuillez trouver le PDF ci-joint',
     attachments: [
