@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
   const html = template(originalData);
 
   // Generate PDF
-  const browser = await puppeteer.launch(configLaunch);
+  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
 
   const page = await browser.newPage();
   const waitUntil = 'networkidle';
