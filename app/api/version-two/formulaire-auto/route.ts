@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     },
   });
   await browser.close();
-  await sendEmail(pdf, 'Formulaire 1 ', originalData.Nom, originalData.Prenom);
+  await sendEmail(pdf, 'Formulaire Auto ', originalData.Nom, originalData.Prenom);
 
   return new Response(pdf, {
     status: 200,
