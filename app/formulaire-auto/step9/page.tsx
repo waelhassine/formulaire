@@ -10,7 +10,7 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 
 export default function FormulaireStep9() {
   const router = useRouter();
-  const { register, trigger, formState, control, watch } = useAppFormContext();
+  const { register, trigger, formState, watch } = useAppFormContext();
 
   const { isValid, errors } = formState;
 

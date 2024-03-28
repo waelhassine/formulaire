@@ -16,9 +16,11 @@ export default function FormulaireStep2() {
   const { isValid, errors } = formState;
 
   const validateStep = async () => {
+    console.log('haloo');
     await trigger();
-
+    console.log(isValid);
     if (isValid) {
+      console.log(isValid);
       router.push('/formulaire-auto/step3');
     }
   };

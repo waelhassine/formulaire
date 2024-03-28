@@ -36,7 +36,7 @@
 
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Quelle est sa date de mise en circulation ?</p>
-        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step2_dateName}}</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment step2_dateName format="DD-MM-YYYY"}}</p>
       </div>
 
       <!-- Step 3 --->
@@ -104,7 +104,7 @@
 
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Voie de stationnement</p>
-        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{query}}</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_stationnementstep6}}</p>
       </div>
 
       <div class="flex flex-row space-x-8 items-center">
@@ -226,7 +226,7 @@
         {{#each step11_card_sinistre_principal}}
         <div class="flex flex-row space-x-8 items-center">
           <p class="text-xl">Date du sinistre:</p>
-          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment souscription format="DD-MM-YYYY"}}</p>
         </div>
         <div class="flex flex-row space-x-8 items-center">
           <p class="text-xl">Type de sinistre:</p>

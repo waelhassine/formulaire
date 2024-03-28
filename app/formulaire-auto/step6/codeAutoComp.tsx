@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import { AddressPostal } from '@/lib/types';
 
@@ -7,7 +8,7 @@ type AddressAutocompleteProps = {
   error: any;
 };
 
-const API_KEY = "98242f00-ea1a-11ee-8097-df8218c329bb";
+const API_KEY = '98242f00-ea1a-11ee-8097-df8218c329bb';
 
 const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteProps) => {
   const [query, setQuery] = useState<string>('');
@@ -17,16 +18,19 @@ const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteP
     const inputValue = event.target.value;
     setQuery(inputValue);
 
-    if (inputValue.length >= 5) { // Assuming postal codes are 5 digits
+    if (inputValue.length >= 5) {
+      // Assuming postal codes are 5 digits
       try {
-        const response = await fetch(`https://app.zipcodebase.com/api/v1/search?apikey=${API_KEY}&codes=${inputValue}&country=fr`);
-        
+        const response = await fetch(
+          `https://app.zipcodebase.com/api/v1/search?apikey=${API_KEY}&codes=${inputValue}&country=fr`,
+        );
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         const postalCodes = Object.keys(data.results);
-        const addresses = postalCodes.flatMap(code => data.results[code]);
+        const addresses = postalCodes.flatMap((code) => data.results[code]);
         setResults(addresses);
       } catch (error) {
         console.error('Error fetching address autocomplete:', error);
@@ -49,9 +53,9 @@ const PostAutocomplete = ({ setValue, error, clearErrors }: AddressAutocompleteP
 
   return (
     <div className="flex flex-col space-y-2">
-      <span className={`${
-          error ? 'text-red-500' : 'text-gray-900'
-        } text-base font-semibold`}>Code Postal de stationnement au travail</span>
+      <span className={`${error ? 'text-red-500' : 'text-gray-900'} text-base font-semibold`}>
+        Code Postal de stationnement au travail
+      </span>
       <input
         className={`border ${
           error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'

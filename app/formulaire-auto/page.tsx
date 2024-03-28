@@ -5,8 +5,8 @@ import useAppFormContext from '@/lib/hooks/useAppFormContext2';
 import { useRouter } from 'next/navigation';
 import FormActions from '@/components/FormActions';
 import { Button } from '@/components/ui/button';
+import ImmatriculationInput from './test';
 import { useState } from 'react';
-import ImmatriculationInput from './step1/test';
 
 export default function Formulaire() {
   const router = useRouter();
@@ -85,6 +85,8 @@ export default function Formulaire() {
           <span className="text-red-700 px-1">véhicule</span>
         </p>
       </div>
+      <p className="flex flex-row text-2xl pt-12">Quelle est son numero d&apos;immatriculation ?</p>
+
       <div className="lg:w-1/3 w-full">
         <ImmatriculationInput setError={setError} setData={setData} />
         {error.length > 0 && <div className="text-red-500 mt-1">{error}</div>}
