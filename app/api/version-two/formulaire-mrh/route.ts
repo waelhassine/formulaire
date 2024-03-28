@@ -15,8 +15,7 @@ export async function POST(request: NextRequest) {
   // Compile Handlebars template
   const template = handlebars.compile(fs.readFileSync('./public/formulaire-mrh.html', 'utf8'));
   let configLaunch = {
-    headless: true,
-    ignoreDefaultArgs: ['--disable-extensions'],
+    executablePath: '/usr/bin/chromium-browser',
   };
   // Render HTML from template
   const html = template(originalData);
