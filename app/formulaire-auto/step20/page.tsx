@@ -20,7 +20,7 @@ export default function FormulaireStep9() {
     console.log(isValid);
     if (isValid) {
       try {
-        const response = await fetch('/api/version-two/formulaire-mrh', {
+        const response = await fetch('/api/version-two/formulaire-auto', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
