@@ -10,7 +10,6 @@
   <body class="container mx-auto font-roboto flex flex-col">
     <div class="flex flex-row justify-between">
       <h1 class="text-2xl text-blue-900 font-semibold">Formulaire Mrh</h1>
-      <p>ddd</p>
     </div>
     <div class="flex flex-col space-y-3 mt-12">
       <div class="flex flex-row space-x-8 items-center">
@@ -33,10 +32,12 @@
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{residence}}</p>
       </div>
 
+      {{#if (eq residence 'Secondaire')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Est-il proposé à la location ? :</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{location}}</p>
       </div>
+      {{/if}}
 
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Le logement est-il meublé ? :</p>
@@ -49,7 +50,7 @@
       </div>
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Date d'emménagement (facultative):</p>
-        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{dateName}}</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment dateName format="DD-MM-YYYY"}}</p>
       </div>
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Année de Construction:</p>
@@ -67,10 +68,12 @@
         <p class="text-xl">Logement avec Grandes Pièces (>30m²):</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_possede}}</p>
       </div>
+      {{#if (eq logement_possede 'Oui')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Combien ?:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{combien}}</p>
       </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">L'adresse du logement correspond-elle à celle du souscripteur?:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{adresseCorrespondance}}</p>
@@ -118,27 +121,32 @@
         <p class="text-xl">Présence de Dépendances:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_dependances}}</p>
       </div>
+      {{#if (eq presence_dependances 'Oui')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Surface des Dépendances:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_des_dépendances}}</p>
       </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Présence d’une Véranda:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_veranda}}</p>
       </div>
+      {{#if (eq presence_veranda 'Oui')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Surface de la Véranda:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_verande}}</p>
       </div>
-
-      <div class="flex flex-row space-x-8 items-center">
-        <p class="text-xl">Surface des Terrasses:</p>
-        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_terrasses}}</p>
-      </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Présence de Terrassess:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{terrasses}}</p>
       </div>
+      {{#if (eq terrasses 'Oui')}}
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Surface des Terrasses:</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{surface_terrasses}}</p>
+      </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Type de Piscine:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{piscine}}</p>
@@ -156,10 +164,12 @@
         <p class="text-xl">Présence d`Objets de Valeur:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_objet}}</p>
       </div>
+      {{#if (eq presence_objet 'Oui')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Objets de valeur:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{objets_valeur}}</p>
       </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Logement avec Alarme:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{logement_alarame}}</p>
@@ -176,6 +186,7 @@
         <p class="text-xl">Nombre d`Enfants Vivant au Domicile:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nombre_d_enfants_vivant_au_domicile}}</p>
       </div>
+
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Présence d`Enfants > 18 ans:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{presence_d_enfants_18_ans}}</p>
@@ -193,10 +204,12 @@
         <p class="text-xl">Système de Chauffage:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Systeme_de_chauffage}}</p>
       </div>
+      {{#if (eq systeme_de_chauffage 'Autre')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Pouvez vous préciser ?:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{autre_preciser}}</p>
       </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Installation Faite par un Professionnel ?:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{installation_professionnel}}</p>
@@ -205,10 +218,12 @@
         <p class="text-xl">Présence d`Énergies Renouvelables ?:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{energies_renouvelables}}</p>
       </div>
+      {{#if (eq energies_renouvelables 'Oui')}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Précision sur votre installation d`energie renouvelables:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{precision_installation_energie}}</p>
       </div>
+      {{/if}}
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Pompe à chaleur:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{pompe_a_chaleur}}</p>
@@ -221,30 +236,32 @@
           <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagnie}}</p>
         </div>
         <div class="flex flex-row space-x-8 items-center">
-          <p class="text-xl">Date de souscription:</p>
-          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
-        </div>
-        <div class="flex flex-row space-x-8 items-center">
           <p class="text-xl">Votre cotisation ?:</p>
           <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{cotisation}}</p>
         </div>
         <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de souscription:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment souscription format="DD-MM-YYYY"}}</p>
+        </div>
+
+        <div class="flex flex-row space-x-8 items-center">
           <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
           <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_cours}}</p>
         </div>
+        {{#if (eq contract_cours 'Non')}}
         <div class="flex flex-row space-x-8 items-center">
-          <p class="text-xl">Résiliation:</p>
-          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{resiliation}}</p>
+          <p class="text-xl">Date de résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment resiliation format="DD-MM-YYYY"}}</p>
         </div>
         <div class="flex flex-row space-x-8 items-center">
-          <p class="text-xl">motif resiliation:</p>
+          <p class="text-xl">Motif de résiliation:</p>
           <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliation}}</p>
         </div>
         <div class="flex flex-row space-x-8 items-center">
           <p class="text-xl">Commentaires:</p>
           <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentaires}}</p>
         </div>
-        {{/each}}
+        {{/if}} {{/each}}
       </div>
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Civilité:</p>
@@ -268,7 +285,7 @@
       </div>
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Date de naissance:</p>
-        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{date_de_naissance}}</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment date_de_naissance format="DD-MM-YYYY"}}</p>
       </div>
     </div>
   </body>

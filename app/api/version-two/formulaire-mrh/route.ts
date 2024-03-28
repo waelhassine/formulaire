@@ -5,10 +5,13 @@ import fs from 'fs';
 
 import puppeteer from 'puppeteer';
 import handlebars from 'handlebars';
-
+var MomentHandler = require('handlebars.moment');
+var H = require('just-handlebars-helpers');
 export async function POST(request: NextRequest) {
   const originalData = await request.json();
   console.log(originalData);
+  H.registerHelpers(handlebars);
+  MomentHandler.registerHelpers(handlebars);
   // Compile Handlebars template
   const template = handlebars.compile(fs.readFileSync('./public/formulaire-mrh.html', 'utf8'));
   let configLaunch = {
