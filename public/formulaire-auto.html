@@ -9,17 +9,15 @@
 
   <body class="container mx-auto font-roboto flex flex-col">
     <div class="flex flex-row justify-between">
-      <h1 class="text-2xl text-blue-900 font-semibold">Formulaire Mrh</h1>
-      <p>ddd</p>
+      <h1 class="text-2xl text-blue-900 font-semibold">Formulaire Auto</h1>
     </div>
     <div class="flex flex-col space-y-3 mt-12">
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Matricule:</p>
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{plate}}</p>
-
       </div>
 
- <!-- Step 2 --->
+      <!-- Step 2 --->
 
       <div class="flex flex-row space-x-8 items-center">
         <p class="text-xl">Quelle est sa marque ?</p>
@@ -41,468 +39,479 @@
         <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step2_dateName}}</p>
       </div>
 
- <!-- Step 3 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Date d'achat</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_dateDachat}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type d'achat</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_type_achat}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le véhicule a-t-il subi des modifications techniques ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_modifications_techniques}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Titulaire de la carte grise</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_titulaire_carte_grise}}</p>
-</div>
-
- <!-- Step 4 --->
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Niveau de couverture souhaité</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step4_niveau_couverture}}</p>
-</div>
-
- <!-- Step 5 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type de trajet</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_trajet}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Fréquence d'utilisation</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_frequence_utilisation}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Nombre de km parcourus par an</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_nb_km}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type de stationnement</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_de_stationnement}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center" v-if="type_de_stationnement === 'Parking collectif clos' || type_de_stationnement === 'Parking individuel'">
-  <p class="text-xl">Veuillez préciser le type de parking collectif</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_de_parking_collectif}}</p>
-</div>
-
-
- <!-- Step 6 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Voie de stationnement</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{query}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Complément</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_complementstep6}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Code postal</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_postalstep6}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Ville</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_villestep6}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Code Postal de stationnement au travail</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_codepostalstationnement}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Ville de stationnement au travail</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_villestationnement}}</p>
-</div>
-
- <!-- Step 7 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Civilite</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_civilites}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Prénom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_prenom}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Nom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_noms}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Date de naissance</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_naissance}}</p>
-</div>
-
- <!-- Step 8 --->
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Date d'obtention du permis de conduire</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step8_date_permisConducteur}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type de permis</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step8_type_permis}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Coefficient de Bonus/Malus (CRM)</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step8_crm_bonusstep8}}</p>
-</div>
-
- <!-- Step 9 --->
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Déjà assuré en tant que conducteur principal ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_deja_assure}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Déjà assuré en tant que conducteur secondaire ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_deja_assure_secondaire}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Obtention du permis suite à la conduite accompagnée ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_conduite_accompagnee}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_suspension_permis}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_objet_annulation}}</p>
-</div>
-
- <!-- Step 10 --->
- <p class="text-xl">Le conducteur a t il commis des infractions ?</p>
- 
- 
- <div class="flex flex-col space-y-6 px-8">
-  {{#each step10_card_Conducteur_v2}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Type d'infraction:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_infraction}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Nombre d'infraction:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nombre_infraction}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">A-t-elle eu lieu il y a moins de 5 ans ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moin_de_5_ans}}</p>
-  </div>
-  {{/each}}
-</div>
- <!-- Step 11 --->
- <p class="text-xl">Le conducteur a t il déclaré des sinistres ?</p>
- <div class="flex flex-col space-y-4 px-8">
-  {{#each step11_card_sinistre_principal}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date du sinistre:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Type de sinistre:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_sinistre}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Nature du sinistre:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nature_sinistre}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Taux de responsabilité:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{taux_responsabilite}}</p>
-  </div>
-  {{/each}}
-</div>
- <!-- Step 12 --->
- <p class="text-xl">Antécédents d'assurance</p>
- <div class="flex flex-col space-y-4 px-8">
-  {{#each step12_card_conducteur}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Compagnie:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagnie}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date de souscription:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_cours}}</p>
-  </div>
-  <!-- TODO WAEL ILYES IF THE IF IS NOT WORKING REMOVE IT  -->
-  {{#if (eq contract_cours 'non')}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date de résiliation:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{resiliation}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Motif de résiliation:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliation}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Y a-t-il eu récidive de non paiement ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{recidive_non_paiement}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Le contentieux a-t-il été soldé ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contentieux_solde}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Commentaires:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentaires}}</p>
-  </div>
-  {{/if}}
-  {{/each}}
-</div>
- <!-- Step 13 --->
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Ajouter un conducteur secondaire ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step13_conducteur_secondaire}}</p>
-</div>
-
- <!-- Step 14 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Civilite</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_civiliteIdentité}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Prénom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_prenomConducteurSecondaire}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Nom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_nomConducteurSecondaire}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Date de naissance</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_naissanceIdentité}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type de relation avec le conducteur principal</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_type_relation}}</p>
-</div>
-
- <!-- Step 15 --->
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Date d'obtention du permis de conduire</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_date_permisConducteur}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Type de permis</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_type_permis}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Coefficient de Bonus/Malus (CRM)</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_crm_bonus_Conducteur}}</p>
-</div>
-
- <!-- Step 16 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Déjà assuré en tant que conducteur principal ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_deja_assure}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Déjà assuré en tant que conducteur secondaire ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_deja_assure_secondaire}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Obtention du permis suite à la conduite accompagnée ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_conduite_accompagnee}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_suspension_permis}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{setp16_objet_annulation}}</p>
-</div>
-
- <!-- Step 17 --->
- <p class="text-xl"> Le conducteur a t il commis des infractions ?</p>
-
- <div class="flex flex-col space-y-4 px-8">
-  {{#each step17_card_conducteur_infraction}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Type d'infraction:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_infractionstep17}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Nombre d'infraction:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nomber_infractionstep17}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Le contrat est-il toujours en cours ?</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Ont_elles_moins_de_5_ans}}</p>
-  </div>
-  {{/each}}
-</div>
-
- <!-- Step 18 --->
-
- <p class="text-xl"> Le conducteur a t il commis des infractions ?</p>
-
- <div class="flex flex-col space-y-4 px-8">
-  {{#each step18_card_conducteur_sinistres}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date de sinistres:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscriptionstep18}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Type de sinistre:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_sinistrestep18}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Nature du sinistre:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nature_sinistrestep18}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Taux de responsabilité:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{taux_responsabilitestep18}}</p>
-  </div>
-  {{/each}}
-</div>
-
- <!-- Step 19 --->
-
- <p class="text-xl">Antécédents d'assurance</p>
-
-  <!-- TODO :  Wael & ilyes verify if the if is wokring or not else remove --->
- <div class="flex flex-col space-y-4 px-8">
-  {{#each step19_card_assurance}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Compagnie:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagniestep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date de souscription:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscriptionstep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_coursstep19}}</p>
-  </div>
-  {{#if (eq contract_coursstep19 'non')}}
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Date de résiliation:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{resiliationstep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Motif de résiliation:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliationstep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Y a-t-il eu récidive de non paiement ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{recidive_non_paiementstep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Le contentieux a-t-il été soldé ?:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contentieux_soldestep19}}</p>
-  </div>
-  <div class="flex flex-row space-x-8 items-center">
-    <p class="text-xl">Commentaires:</p>
-    <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentairesstep19}}</p>
-  </div>
-  {{/if}}
-  {{/each}}
-</div>
-
- <!-- Step 20 --->
-
- <div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Le conducteur principal est-il le souscripteur ?</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_conducteur_pricipal}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Civilite</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_civilite}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Prénom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_prenom}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Nom</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_nom}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Email</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_email}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Téléphone</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_telephone}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Adresse</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_adresse}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Complément</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_complément}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Code postal</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_codepostal}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Ville</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_ville}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">Pays</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_pays}}</p>
-</div>
-
-<div class="flex flex-row space-x-8 items-center">
-  <p class="text-xl">J'accepte le stockage et le traitement de mes données personnelles</p>
-  <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_consenttwo}}</p>
-</div>
-
+      <!-- Step 3 --->
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date d'achat</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment step3_dateDachat format="DD-MM-YYYY"}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type d'achat</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_type_achat}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le véhicule a-t-il subi des modifications techniques ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_modifications_techniques}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Titulaire de la carte grise</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step3_titulaire_carte_grise}}</p>
+      </div>
+
+      <!-- Step 4 --->
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Niveau de couverture souhaité</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step4_niveau_couverture}}</p>
+      </div>
+
+      <!-- Step 5 --->
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de trajet</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_trajet}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Fréquence d'utilisation</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_frequence_utilisation}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nombre de km parcourus par an</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_nb_km}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de stationnement</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_de_stationnement}}</p>
+      </div>
+      {{#if (eq type_de_stationnement 'Parking collectif clos')}}
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Veuillez préciser le type de parking collectif</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_de_parking_collectif}}</p>
+      </div>
+      {{/if}} {{#if (eq type_de_stationnement 'Parking individue')}}
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Veuillez préciser le type de parking collectif</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step5_type_de_parking_collectif}}</p>
+      </div>
+      {{/if}}
+
+      <!-- Step 6 --->
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Voie de stationnement</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{query}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Complément</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_complementstep6}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Code postal</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_postalstep6}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Ville</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_villestep6}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Code Postal de stationnement au travail</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_codepostalstationnement}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Ville de stationnement au travail</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step6_villestationnement}}</p>
+      </div>
+
+      <!-- Step 7 --->
+      <p className="flex flex-row  text-xl ">
+        Conducteur
+        <span className="text-red-700 px-1">principal</span> ?
+      </p>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Civilite</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_civilites}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Prénom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_prenom}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step7_noms}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date de naissance</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment step7_naissance format="DD-MM-YYYY"}}</p>
+      </div>
+
+      <!-- Step 8 --->
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date d'obtention du permis de conduire</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">
+          {{moment step8_date_permisConducteur format="DD-MM-YYYY"}}
+        </p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de permis</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step8_type_permis}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Coefficient de Bonus/Malus (CRM)</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step8_crm_bonusstep8}}</p>
+      </div>
+
+      <!-- Step 9 --->
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Déjà assuré en tant que conducteur principal ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_deja_assure}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Déjà assuré en tant que conducteur secondaire ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_deja_assure_secondaire}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Obtention du permis suite à la conduite accompagnée ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_conduite_accompagnee}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_suspension_permis}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step9_objet_annulation}}</p>
+      </div>
+
+      <!-- Step 10 --->
+      <p class="text-xl">Le conducteur a t il commis des infractions ?</p>
+
+      <div class="flex flex-col space-y-3 px-8">
+        {{#each step10_card_Conducteur_v2}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Type d'infraction:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_infraction}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Nombre d'infraction:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nombre_infraction}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">A-t-elle eu lieu il y a moins de 5 ans ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moin_de_5_ans}}</p>
+        </div>
+        {{/each}}
+      </div>
+      <!-- Step 11 --->
+      <p class="text-xl">Le conducteur a t il déclaré des sinistres ?</p>
+      <div class="flex flex-col space-y-3 px-8">
+        {{#each step11_card_sinistre_principal}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date du sinistre:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{souscription}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Type de sinistre:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_sinistre}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Nature du sinistre:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nature_sinistre}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Taux de responsabilité:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{taux_responsabilite}}</p>
+        </div>
+        {{/each}}
+      </div>
+      <!-- Step 12 --->
+      <p class="text-xl">Antécédents d'assurance</p>
+      <div class="flex flex-col space-y-3 px-8">
+        {{#each step12_card_conducteur}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Compagnie:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagnie}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de souscription:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment souscription format="DD-MM-YYYY"}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_cours}}</p>
+        </div>
+        <!-- TODO WAEL ILYES IF THE IF IS NOT WORKING REMOVE IT  -->
+        {{#if (eq contract_cours 'non')}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment resiliation format="DD-MM-YYYY"}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Motif de résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliation}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Y a-t-il eu récidive de non paiement ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{recidive_non_paiement}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contentieux a-t-il été soldé ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contentieux_solde}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Commentaires:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentaires}}</p>
+        </div>
+        {{/if}} {{/each}}
+      </div>
+      <!-- Step 13 --->
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Ajouter un conducteur secondaire ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step13_conducteur_secondaire}}</p>
+      </div>
+      {{#if (eq step13_conducteur_secondaire 'oui')}}
+
+      <!-- Step 14 --->
+      <p className="flex flex-row  text-xl ">
+        Conducteur
+        <span className="text-red-700 px-1">secondaire</span> ?
+      </p>
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Civilite</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_civiliteIdentité}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Prénom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_prenomConducteurSecondaire}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_nomConducteurSecondaire}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date de naissance</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">
+          {{moment step14_naissanceIdentité format="DD-MM-YYYY"}}
+        </p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de relation avec le conducteur principal</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step14_type_relation}}</p>
+      </div>
+
+      <!-- Step 15 --->
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Date d'obtention du permis de conduire</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_date_permisConducteur}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Type de permis</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_type_permis}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Coefficient de Bonus/Malus (CRM)</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step15_crm_bonus_Conducteur}}</p>
+      </div>
+
+      <!-- Step 16 --->
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Déjà assuré en tant que conducteur principal ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_deja_assure}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Déjà assuré en tant que conducteur secondaire ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_deja_assure_secondaire}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Obtention du permis suite à la conduite accompagnée ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_conduite_accompagnee}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet de suspension(s) ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step16_suspension_permis}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le permis du conducteur principal a-t-il fait l'objet d'annulation(s) ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{setp16_objet_annulation}}</p>
+      </div>
+
+      <!-- Step 17 --->
+      <p class="text-xl">Le conducteur a t il commis des infractions ?</p>
+
+      <div class="flex flex-col space-y-4 px-8">
+        {{#each step17_card_conducteur_infraction}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Type d'infraction:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_infractionstep17}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Nombre d'infraction:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nomber_infractionstep17}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contrat est-il toujours en cours ?</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{Ont_elles_moins_de_5_ans}}</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Step 18 --->
+
+      <p class="text-xl">Le conducteur a t il commis des infractions ?</p>
+
+      <div class="flex flex-col space-y-4 px-8">
+        {{#each step18_card_conducteur_sinistres}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de sinistres:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">
+            {{moment souscriptionstep18 format="DD-MM-YYYY"}}
+          </p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Type de sinistre:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{type_sinistrestep18}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Nature du sinistre:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{nature_sinistrestep18}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Taux de responsabilité:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{taux_responsabilitestep18}}</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Step 19 --->
+
+      <p class="text-xl">Antécédents d'assurance</p>
+
+      <!-- TODO :  Wael & ilyes verify if the if is wokring or not else remove --->
+      <div class="flex flex-col space-y-4 px-8">
+        {{#each step19_card_assurance}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Compagnie:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{compagniestep19}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de souscription:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">
+            {{moment souscriptionstep19 format="DD-MM-YYYY"}}
+          </p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contrat est-il toujours en cours ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contract_coursstep19}}</p>
+        </div>
+        {{#if (eq contract_coursstep19 'non')}}
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Date de résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{moment resiliationstep19 format="DD-MM-YYYY"}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Motif de résiliation:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{motif_resiliationstep19}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Y a-t-il eu récidive de non paiement ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{recidive_non_paiementstep19}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Le contentieux a-t-il été soldé ?:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{contentieux_soldestep19}}</p>
+        </div>
+        <div class="flex flex-row space-x-8 items-center">
+          <p class="text-xl">Commentaires:</p>
+          <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{commentairesstep19}}</p>
+        </div>
+        {{/if}} {{/each}}
+      </div>
+      {{/if}}
+      <!-- Step 20 --->
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Le conducteur principal est-il le souscripteur ?</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_conducteur_pricipal}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Civilite</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_civilite}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Prénom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_prenom}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Nom</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_nom}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Email</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_email}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Téléphone</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_telephone}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Adresse</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_adresse}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Complément</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_complément}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Code postal</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_codepostal}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Ville</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_ville}}</p>
+      </div>
+
+      <div class="flex flex-row space-x-8 items-center">
+        <p class="text-xl">Pays</p>
+        <p class="bg-blue-100 rounded-lg text-blue-800 px-4 py-2">{{step20_pays}}</p>
+      </div>
     </div>
   </body>
 </html>

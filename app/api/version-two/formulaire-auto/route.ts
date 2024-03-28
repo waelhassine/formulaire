@@ -5,10 +5,13 @@ import fs from 'fs';
 
 import puppeteer from 'puppeteer';
 import handlebars from 'handlebars';
-
+var MomentHandler = require('handlebars.moment');
+var H = require('just-handlebars-helpers');
 export async function POST(request: NextRequest) {
   const originalData = await request.json();
   console.log(originalData);
+  H.registerHelpers(handlebars);
+  MomentHandler.registerHelpers(handlebars);
   // Compile Handlebars template
   const template = handlebars.compile(fs.readFileSync('./public/formulaire-auto.html', 'utf8'));
   let configLaunch = {
@@ -43,7 +46,7 @@ export async function POST(request: NextRequest) {
     },
   });
   await browser.close();
-  await sendEmail(pdf, 'Formulaire Auto ', originalData.Nom, originalData.Prenom);
+  await sendEmail(pdf, 'Formulaire Auto ', originalData.step20_nom, originalData.step20_prenom);
 
   return new Response(pdf, {
     status: 200,
