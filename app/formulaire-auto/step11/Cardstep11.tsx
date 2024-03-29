@@ -78,9 +78,9 @@ export default function Cardstep11({ onClose, index }: Cardstep11Props) {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.step11_card_sinistre_principal?.[index]?.taux_responsabilite}
           options={[
-            { value: 'zero', label: '0%' },
-            { value: 'cinquant', label: '50%' },
-            { value: 'cent', label: '100%' },
+            { value: '0%', label: '0%' },
+            { value: '50%', label: '50%' },
+            { value: '100%', label: '100%' },
           ]}
           placeholder=""
         />

@@ -83,9 +83,9 @@ export default function Cardstep18({ onClose, index }: Cardstep18Props) {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors.step18_card_conducteur_sinistres?.[index]?.taux_responsabilitestep18}
           options={[
-            { value: 'zero', label: '0%' },
-            { value: 'cinquant', label: '%50' },
-            { value: 'cent', label: '100%' },
+            { value: '0%', label: '0%' },
+            { value: '%50', label: '%50' },
+            { value: '100%', label: '100%' },
           ]}
           placeholder=""
         />
