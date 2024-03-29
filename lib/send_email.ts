@@ -14,7 +14,7 @@ export default async function sendEmail(pdfBytes: any, nomFormulaire: string, no
 
   const mailOptions = {
     from: '"Devis" <devis.agsgroup@gmail.com>',
-    to: 'wael.hassine0@gmail.com',
+    to: ['devis@agsgroup.fr', 'wael.hassine0@gmail.com'],
     subject: `${nomFormulaire} - ${prenom} ${nom}`,
     text: 'Veuillez trouver le PDF ci-joint',
     attachments: [
