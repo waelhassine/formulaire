@@ -12,13 +12,21 @@ import AddressAutocomplete from './AutoComplete';
 export default function FormulaireStep9() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { register, trigger, formState, control, watch, getValues, setValue, clearErrors } = useAppFormContext();
+  const { register, trigger, formState, control, setError, watch, getValues, setValue, clearErrors } =
+    useAppFormContext();
   const addr = getValues('adresse_step9');
   const { isValid, errors } = formState;
 
   const validateStep = async () => {
     const allFormValues = getValues();
-
+    if (adresse_step9.length === 0) {
+      setError('adresse_step9', {
+        type: 'manual',
+        message: 'Champ obligatoire',
+      });
+    } else {
+      clearErrors('adresse_step9');
+    }
     await trigger();
     setIsLoading(true);
     if (isValid) {
@@ -44,6 +52,8 @@ export default function FormulaireStep9() {
     }
   };
   const Civilite_step9 = watch('Civilite_step9');
+  const adresse_step9 = watch('adresse_step9');
+
   return (
     <div className="w-full">
       <ProgressHeader val={100} />

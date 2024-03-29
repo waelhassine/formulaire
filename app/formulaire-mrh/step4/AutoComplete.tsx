@@ -45,7 +45,7 @@ const AddressAutocomplete = ({ setValue, error, clearErrors }: AddressAutocomple
 
   return (
     <div className="flex flex-col space-y-2">
-      <span className="text-base font-semibold text-gray-950">Adresse</span>
+      <span className={`text-base font-semibold ${error ? 'text-red-500' : ' text-gray-950'} `}>Adresse</span>
       <input
         className={`border ${
           error ? 'border-red-500' : 'border-gray-500 focus:border-blue-500'

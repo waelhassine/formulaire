@@ -11,6 +11,7 @@ export default function Provider({ children }: FormProviderProps) {
   const methods = useAppForm({
     ville: '',
     adresse: '',
+    adresse_step9: '',
     complement: '',
     codepostal: '',
     pays: '',
