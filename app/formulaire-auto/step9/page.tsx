@@ -29,7 +29,7 @@ export default function FormulaireStep9() {
   const step9_objet_annulation = watch('step9_objet_annulation');
   return (
     <div className="w-full">
-      <ProgressHeader val={60} />
+      <ProgressHeader val={45} />
       <button className="flex flex-row space-x-2 items-center justify-center mt-6" onClick={() => router.push('step8')}>
         <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

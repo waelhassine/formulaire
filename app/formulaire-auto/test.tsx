@@ -1,21 +1,34 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface ImmatriculationInputProps {
   setError: (error: string) => void;
   setData: (data: string) => void;
+  initialData: string; // Initial data in the format "AA-123-CE"
 }
 
-const ImmatriculationInput = ({ setError, setData }: ImmatriculationInputProps) => {
-  const [part1, setPart1] = useState('');
-  const [part2, setPart2] = useState('');
-  const [part3, setPart3] = useState('');
+const ImmatriculationInput = ({ setError, setData, initialData }: ImmatriculationInputProps) => {
+  const [part1, setPart1] = useState(''); // Initialize with the first part of initial data
+  const [part2, setPart2] = useState(''); // Initialize with the second part of initial data
+  const [part3, setPart3] = useState(''); // Initialize with the third part of initial data
   const [touched, setTouched] = useState(false); // To track if user has interacted
   const input2Ref = useRef<HTMLInputElement>(null);
   const input3Ref = useRef<HTMLInputElement>(null);
   const suivantButtonRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
 
+  useEffect(() => {
+    if (initialData) {
+      const parts = initialData.split('-');
+      if (parts.length === 3) {
+        setPart1(parts[0]);
+        setPart2(parts[1]);
+        setPart3(parts[2]);
+        validateImmatriculation(initialData); // Call validateImmatriculation with initial data
+      }
+    }
+  }, [initialData]);
   useEffect(() => {
     if (part3.length === 2) {
       suivantButtonRef.current?.click();

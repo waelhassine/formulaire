@@ -33,7 +33,7 @@ export default function FormulaireStep10() {
 
   return (
     <div className="w-full">
-      <ProgressHeader val={90} />
+      <ProgressHeader val={55} />
       <button
         className="flex flex-row space-x-2 items-center justify-center mt-6"
         onClick={() => router.push('step10')}

@@ -49,7 +49,7 @@ export default function Formulaire() {
     return data;
   };
 
-  const { trigger, setValue } = useAppFormContext();
+  const { trigger, setValue, getValues } = useAppFormContext();
 
   const validateStep = async (plate: string) => {
     await trigger();
@@ -88,7 +88,7 @@ export default function Formulaire() {
       <p className="flex flex-row text-2xl pt-12">Quelle est son numero d&apos;immatriculation ?</p>
 
       <div className="lg:w-1/3 w-full">
-        <ImmatriculationInput setError={setError} setData={setData} />
+        <ImmatriculationInput setError={setError} setData={setData} initialData={getValues('plate')} />
         {error.length > 0 && <div className="text-red-500 mt-1">{error}</div>}
         <FormActions>
           <div className="flex flex-col lg:flex-row space-x-1">

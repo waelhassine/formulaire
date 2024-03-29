@@ -29,7 +29,7 @@ export default function FormulaireStep9() {
   const setp16_objet_annulation = watch('setp16_objet_annulation');
   return (
     <div className="w-full">
-      <ProgressHeader val={60} />
+      <ProgressHeader val={80} />
       <button
         className="flex flex-row space-x-2 items-center justify-center mt-6"
         onClick={() => router.push('step15')}

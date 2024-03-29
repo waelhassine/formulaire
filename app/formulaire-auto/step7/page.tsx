@@ -23,7 +23,7 @@ export default function FormulaireStep7() {
   const step7_civilites = watch('step7_civilites');
   return (
     <div className="w-full">
-      <ProgressHeader val={100} />
+      <ProgressHeader val={35} />
       <button className="flex flex-row space-x-2 items-center justify-center mt-6" onClick={() => router.push('step6')}>
         <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

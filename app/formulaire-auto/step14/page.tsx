@@ -24,7 +24,7 @@ export default function FormulaireStep13() {
   const step14_civiliteIdentité = watch('step14_civiliteIdentité');
   return (
     <div className="w-full">
-      <ProgressHeader val={65} />
+      <ProgressHeader val={70} />
 
       <button
         className="flex flex-row space-x-2 items-center justify-center mt-6"

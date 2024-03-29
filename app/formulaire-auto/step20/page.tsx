@@ -8,8 +8,10 @@ import RadioButtonGroup from '@/components/RadioButtonGroup';
 import TextInput from '@/components/TextInput';
 import ConsentCheckbox from '@/components/Checkbox';
 import AddressAutocomplete from './AutoComplete';
+import { useState } from 'react';
 export default function FormulaireStep9() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const { register, trigger, formState, getValues, control, watch, setValue, clearErrors } = useAppFormContext();
 
   const { isValid, errors } = formState;
@@ -18,6 +20,7 @@ export default function FormulaireStep9() {
     const allFormValues = getValues();
     await trigger();
     console.log(isValid);
+    setIsLoading(true);
     if (isValid) {
       try {
         const response = await fetch('/api/version-two/formulaire-auto', {
@@ -30,7 +33,7 @@ export default function FormulaireStep9() {
 
         if (response.ok) {
           console.log(response);
-
+          setIsLoading(false);
           router.push('/merci');
         } else {
           // Handle errors or unsuccessful responses
@@ -213,7 +216,23 @@ export default function FormulaireStep9() {
           />
         </div>
         <FormActions>
-          <Button type="button" size={'lg'} className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3" onClick={validateStep}>
+          <Button
+            disabled={isLoading}
+            type="button"
+            size={'lg'}
+            className="mt-8 bg-blue-800 text-xl w-full lg:w-1/3"
+            onClick={validateStep}
+          >
+            {isLoading && (
+              <>
+                <div
+                  className="inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  role="status"
+                >
+                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                </div>
+              </>
+            )}
             Suivant
           </Button>
         </FormActions>

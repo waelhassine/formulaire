@@ -32,7 +32,7 @@ export default function FormulaireStep19() {
 
   return (
     <div className="w-full">
-      <ProgressHeader val={90} />
+      <ProgressHeader val={95} />
       <button
         className="flex flex-row space-x-2 items-center justify-center mt-6"
         onClick={() => router.push('step18')}
