@@ -13,7 +13,7 @@ export default function FormulaireStep9() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { register, trigger, formState, control, watch, getValues, setValue, clearErrors } = useAppFormContext();
-  const addr = getValues('adresse');
+  const addr = getValues('adresse_step9');
   const { isValid, errors } = formState;
 
   const validateStep = async () => {
@@ -43,7 +43,7 @@ export default function FormulaireStep9() {
       }
     }
   };
-  const Civilite = watch('Civilite');
+  const Civilite_step9 = watch('Civilite_step9');
   return (
     <div className="w-full">
       <ProgressHeader val={100} />
@@ -67,49 +67,49 @@ export default function FormulaireStep9() {
         <div className="flex flex-col space-y-4 mt-6">
           <RadioButtonGroup
             question="Civilite"
-            name="Civilite"
+            name="Civilite_step9"
             options={[
               { value: 'Monsieur', label: 'Monsieur' },
               { value: 'Madame', label: 'Madame' },
             ]}
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Civilite}
-            currentValue={Civilite}
+            error={errors.Civilite_step9}
+            currentValue={Civilite_step9}
           />
           <TextInput
             label="Prénom"
-            name="Prenom"
+            name="Prenom_step9"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Prenom}
+            error={errors.Prenom_step9}
             placeholder="Entrez votre Prenom"
             maxLength={40}
-            onBlur={() => trigger('Prenom')}
-            autoComplete="Prenom"
+            onBlur={() => trigger('Prenom_step9')}
+            autoComplete="Prenom_step9"
           />
           <TextInput
             label="Nom"
-            name="Nom"
+            name="Nom_step9"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.Nom}
+            error={errors.Nom_step9}
             placeholder="Entrez votre Nom"
             maxLength={40}
-            onBlur={() => trigger('Nom')}
-            autoComplete="Nom"
+            onBlur={() => trigger('Nom_step9')}
+            autoComplete="Nom_step9"
           />
           <TextInput
             label="Date de naissance"
-            name="date_de_naissance"
+            name="date_de_naissance_step9"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.date_de_naissance}
+            error={errors.date_de_naissance_step9}
             type="date"
           />
           <TextInput
             label="Email"
-            name="Email"
+            name="Email_step9"
             register={register}
             validationRules={{
               required: 'Champ obligatoire',
@@ -118,15 +118,15 @@ export default function FormulaireStep9() {
                 message: 'Veuillez entrer une adresse email valide',
               },
             }}
-            error={errors.Email}
+            error={errors.Email_step9}
             placeholder="Entrez votre Email"
             maxLength={40}
-            onBlur={() => trigger('Email')}
-            autoComplete="Email"
+            onBlur={() => trigger('Email_step9')}
+            autoComplete="Email_step9"
           />
           <TextInput
             label="Téléphone"
-            name="Telephone"
+            name="Telephone_step9"
             register={register}
             validationRules={{
               required: 'Champ obligatoire',
@@ -135,67 +135,67 @@ export default function FormulaireStep9() {
                 message: 'Veuillez entrer un numéro de téléphone valide exemple 01 23 45 67 89',
               },
             }}
-            error={errors.Telephone}
+            error={errors.Telephone_step9}
             placeholder="Entrez votre Téléphone"
             maxLength={40}
-            onBlur={() => trigger('Telephone')}
-            autoComplete="Telephone"
+            onBlur={() => trigger('Telephone_step9')}
+            autoComplete="Telephone_step9"
           />
           <AddressAutocomplete
             setValue={setValue}
-            error={errors.adresse}
+            error={errors.adresse_step9}
             clearErrors={clearErrors}
             defaultvalue={addr}
           />
           <TextInput
             label="Complément"
-            name="complement"
+            name="complement_step9"
             register={register}
             validationRules={{}}
-            error={errors.complement}
+            error={errors.complement_step9}
             placeholder="Entrez votre complément"
             maxLength={40}
-            onBlur={() => trigger('complement')}
-            autoComplete="complement"
+            onBlur={() => trigger('complement_step9')}
+            autoComplete="complement_step9"
           />
 
           <div className="flex lg:flex-row flex-col lg:space-x-3  w-full ">
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Code postal"
-                name="codepostal"
+                name="codepostal_step9"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.codepostal}
+                error={errors.codepostal_step9}
                 placeholder="Entrez votre Code postal"
                 maxLength={40}
-                onBlur={() => trigger('codepostal')}
-                autoComplete="codepostal"
+                onBlur={() => trigger('codepostal_step9')}
+                autoComplete="codepostal_step9"
               />
             </div>
             <div className="lg:w-1/2 w-full">
               <TextInput
                 label="Ville"
-                name="ville"
+                name="ville_step9"
                 register={register}
                 validationRules={{ required: 'Champ obligatoire' }}
-                error={errors.ville}
+                error={errors.ville_step9}
                 placeholder="Entrez votre Ville"
                 maxLength={40}
-                onBlur={() => trigger('ville')}
-                autoComplete="ville"
+                onBlur={() => trigger('ville_step9')}
+                autoComplete="ville_step9"
               />
             </div>
           </div>
           <TextInput
             label="Pays"
-            name="pays"
+            name="pays_step9"
             register={register}
             validationRules={{ required: 'Champ obligatoire' }}
-            error={errors.pays}
+            error={errors.pays_step9}
             placeholder="Entrez votre Pays"
             maxLength={20}
-            onBlur={() => trigger('pays')}
+            onBlur={() => trigger('pays_step9')}
             autoComplete="pays"
           />
           <p>

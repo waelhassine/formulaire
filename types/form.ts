@@ -54,6 +54,7 @@ export interface FormValues {
   date_de_naissance: Date;
   Email: string;
   Telephone: string;
+
   name: string;
   email: string;
   phone: string;
@@ -66,6 +67,17 @@ export interface FormValues {
   resiliation: Date;
   motif_resiliation: string;
   consent: Boolean;
+  Civilite_step9: 'Monsieur' | 'Madame';
+  Prenom_step9: string;
+  Nom_step9: string;
+  date_de_naissance_step9: Date;
+  Email_step9: string;
+  Telephone_step9: string;
+  complement_step9: string;
+  adresse_step9: string;
+  codepostal_step9: string;
+  ville_step9: string;
+  pays_step9: string;
 }
 
 export interface CardInfo {

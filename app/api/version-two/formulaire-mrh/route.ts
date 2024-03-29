@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     },
   });
   await browser.close();
-  await sendEmail(pdf, 'Formulaire mrh ', originalData.Nom, originalData.Prenom);
+  await sendEmail(pdf, 'Formulaire mrh ', originalData.Nom_step9, originalData.Prenom_step9);
 
   return new Response(pdf, {
     status: 200,
