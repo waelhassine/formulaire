@@ -64,7 +64,7 @@ export default function FormulaireStep3() {
               { value: 'COMPTANT', label: 'Comptant' },
               { value: 'Credit', label: 'Crédit' },
               { value: `Location avec option d'achat`, label: `Location avec option d'achat` },
-              { value: 'DON', label: 'Don' },
+              { value: 'Don', label: 'Don' },
             ]}
             placeholder="Sélectionner dans le liste"
           />

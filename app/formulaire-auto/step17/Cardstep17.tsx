@@ -37,12 +37,12 @@ export default function Cardstep8({ onClose, index }: Cardstep17Props) {
           validationRules={{ required: 'Champ obligatoire' }}
           error={errors?.step17_card_conducteur_infraction?.[index]?.type_infractionstep17}
           options={[
-            { value: 'Controle_en_alcolémie_positif', label: 'Contrôle en alcolémie positif' },
-            { value: 'Controle_en_stupéfiant', label: 'Contrôle en stupéfiant' },
-            { value: 'Condamnation_delit_de_fuite', label: 'Condamnation pour délit de fuite' },
-            { value: 'Condamnation_pour_refus_d_optemperer', label: "Condamnation pour refus d'obtempérer" },
-            { value: 'Condamnation_pour_defaut_assurance', label: "Condamnation pour défaut d'assurance" },
-            { value: 'Condamnation_points', label: 'Condamnation pour défaut de points' },
+            { value: 'Contrôle en alcolémie positif', label: 'Contrôle en alcolémie positif' },
+            { value: 'Contrôle en stupéfiant', label: 'Contrôle en stupéfiant' },
+            { value: 'Condamnation pour délit de fuite', label: 'Condamnation pour délit de fuite' },
+            { value: 'Condamnation pour refus d obtempérer', label: "Condamnation pour refus d'obtempérer" },
+            { value: 'Condamnation pour défaut d assurance', label: "Condamnation pour défaut d'assurance" },
+            { value: 'Condamnation pour défaut de points', label: 'Condamnation pour défaut de points' },
           ]}
           placeholder=""
         />

@@ -96,7 +96,7 @@ export default function FormulaireStep13() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step14_type_relation}
             options={[
-              { value: 'Aucun_lien_familial', label: 'Aucun lien familial' },
+              { value: 'Aucun lien familial', label: 'Aucun lien familial' },
               { value: 'Enfant', label: 'Enfant' },
 
               { value: 'Parent', label: 'Parent' },

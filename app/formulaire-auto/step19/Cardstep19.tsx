@@ -81,9 +81,9 @@ export default function Cardstep17({ onClose, index }: Cardstep17Props) {
               validationRules={{ required: 'Champ obligatoire' }}
               error={errors?.step19_card_assurance?.[index]?.motif_resiliationstep19}
               options={[
-                { value: 'echeance', label: 'A écheance' },
+                { value: 'A écheance', label: 'A écheance' },
                 { value: 'Autre', label: 'Autre' },
-                { value: 'Changement_dadress', label: 'Changement d adress' },
+                { value: 'Changement d`adress', label: 'Changement d`adress' },
               ]}
               placeholder=""
             />

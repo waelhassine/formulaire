@@ -60,10 +60,10 @@ export default function FormulaireStep3() {
             validationRules={{ required: 'Champ obligatoire' }}
             error={errors.step8_type_permis}
             options={[
-              { value: 'Permis_B', label: 'Permis B' },
-              { value: 'permis_etranger_dans_UE', label: 'Permis étranger dans l UE' },
+              { value: 'Permis B', label: 'Permis B' },
+              { value: 'Permis étranger dans l UE', label: 'Permis étranger dans l UE' },
 
-              { value: 'permis_etranger_hors_UE', label: 'Permis étranger hors UE' },
+              { value: 'Permis étranger hors UE', label: 'Permis étranger hors UE' },
             ]}
             placeholder="Sélectionner dans le liste"
           />
