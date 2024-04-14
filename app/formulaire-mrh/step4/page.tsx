@@ -19,11 +19,12 @@ export default function FormulaireStep4() {
   const adresse = watch('adresse');
 
   const validateStep = async () => {
-    if (adresse.length === 0) {
+    if (adresse.length <= 2) {
       setError('adresse', {
         type: 'manual',
         message: 'Champ obligatoire',
       });
+      return;
     } else {
       clearErrors('adresse');
     }
